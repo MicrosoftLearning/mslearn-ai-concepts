@@ -1,0 +1,8 @@
+Maximum limits for expenses are:
+- Flights: $600
+- Meals: $90
+- Taxis and Rideshares: $75
+- Hotels: $200 per night
+- Other expenses: $50 per day
+
+To submit a claim, send an email to expenses@contoso.com with scanned receipts attached.

@@ -1,5 +1,5 @@
 ---
-title: Exercise Instructions
+title: AI Concepts
 permalink: index.html
 layout: home
 ---
@@ -21,7 +21,7 @@ Include the following note if an Azure subscription is required (or add somethin
 If a more complex setup is required, create a separate markdown file with setup instructions at \Instructions\Labs\00-setup.md - being sure to include "lab.title"" metadata at the top so it shows up the list below
 -->
 
-{% assign labs = site.pages | where_exp:"page", "page.url contains '/Instructions/Labs'" %}
+{% assign labs = site.pages | where_exp:"page", "page.url contains '/Instructions/exercises'" %}
 {% for activity in labs  %}
 - [{{ activity.lab.title }}]({{ site.github.url }}{{ activity.url }})
 {% endfor %}

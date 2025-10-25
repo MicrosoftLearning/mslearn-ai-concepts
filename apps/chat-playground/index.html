@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Playground</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet@2.1.0/dist/mobilenet.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Chat playground</h1>
+        </header>
+        
+        <div class="chat-container" role="main">
+            <!-- Setup Panel -->
+            <div class="setup-panel" role="region" aria-label="Chat configuration panel">
+                <div class="setup-header">
+                    <h3>Setup</h3>
+                    <button class="hide-btn" onclick="toggleSetup()" aria-label="Hide setup panel" aria-expanded="true">📦 Hide</button>
+                </div>
+                
+                <div class="setup-content">
+                    <div class="model-section">
+                        <label for="model-select">Model</label>
+                        <select id="model-select" disabled aria-describedby="model-select-desc">
+                            <option value="">Loading models...</option>
+                        </select>
+                        <div id="model-select-desc" class="sr-only">Select an AI model to chat with</div>
+                        
+                        <div class="progress-container" id="progress-container" role="progressbar" aria-live="polite" aria-label="Model download progress">
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="progress-fill"></div>
+                            </div>
+                            <div class="progress-text" id="progress-text">Downloading model: 0%</div>
+                        </div>
+                    </div>
+                    
+                    <div class="instructions-section">
+                        <label for="system-message">Give the model instructions and context</label>
+                        <textarea id="system-message" rows="3" disabled aria-describedby="system-message-desc">You are an AI assistant that helps people find information.</textarea>
+                        <div id="system-message-desc" class="sr-only">Set custom instructions that will guide the AI model's behavior and responses</div>
+                        <button class="apply-btn" id="apply-btn" disabled aria-label="Apply system message changes">📋 Apply changes</button>
+                    </div>
+                    
+                    <div class="collapsible-section">
+                        <button class="collapsible-btn" onclick="toggleSection('add-data')" aria-expanded="false" aria-controls="add-data" aria-label="Expand add your data section">
+                            ▶ Add your data
+                        </button>
+                        <div class="collapsible-content" id="add-data" role="region" aria-labelledby="add-data-header">
+                            <div class="data-upload-section" id="add-data-header">
+                                <p class="section-description">Upload a text file to provide additional context for the AI model.</p>
+                                
+                                <button class="add-data-btn" id="add-data-btn" onclick="triggerFileUpload()" aria-describedby="upload-constraints">
+                                    📁 Add data source
+                                </button>
+                                
+                                <input type="file" id="file-input" accept=".txt" style="display: none;" aria-label="Select text file to upload">
+                                
+                                <div class="file-info" id="file-info" style="display: none;" role="status" aria-live="polite">
+                                    <div class="file-details">
+                                        <span class="file-name" id="file-name" aria-label="Uploaded file name"></span>
+                                        <span class="file-size" id="file-size" aria-label="File size"></span>
+                                    </div>
+                                    <button class="remove-file-btn" id="remove-file-btn" onclick="removeFile()" aria-label="Remove uploaded file">🗑️</button>
+                                </div>
+                                
+                                <div class="upload-constraints" id="upload-constraints" role="note">
+                                    <small>• Text files (.txt) only</small>
+                                    <small>• Maximum size: 3KB</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="collapsible-section">
+                        <button class="collapsible-btn" onclick="toggleSection('parameters')" aria-expanded="false" aria-controls="parameters" aria-label="Expand parameters section">
+                            ▶ Parameters
+                        </button>
+                        <div class="collapsible-content" id="parameters" role="region" aria-labelledby="parameters-header">
+                            <div class="parameter-group" id="parameters-header">
+                                <label for="temperature-slider">Temperature</label>
+                                <div class="slider-container">
+                                    <input type="range" id="temperature-slider" min="0" max="2" step="0.1" value="0.7" class="parameter-slider" aria-describedby="temperature-desc" aria-valuetext="0.7">
+                                    <span class="slider-value" id="temperature-value" aria-live="polite">0.7</span>
+                                </div>
+                                <div class="parameter-description" id="temperature-desc">Controls randomness. Lower = more focused, Higher = more creative</div>
+                            </div>
+                            
+                            <div class="parameter-group">
+                                <label for="top-p-slider">Top P</label>
+                                <div class="slider-container">
+                                    <input type="range" id="top-p-slider" min="0" max="1" step="0.05" value="0.9" class="parameter-slider" aria-describedby="top-p-desc" aria-valuetext="0.9">
+                                    <span class="slider-value" id="top-p-value" aria-live="polite">0.9</span>
+                                </div>
+                                <div class="parameter-description" id="top-p-desc">Nucleus sampling. Controls diversity of word choices</div>
+                            </div>
+                            
+                            <div class="parameter-group">
+                                <label for="max-tokens-slider">Max Tokens</label>
+                                <div class="slider-container">
+                                    <input type="range" id="max-tokens-slider" min="50" max="2000" step="50" value="1000" class="parameter-slider" aria-describedby="max-tokens-desc" aria-valuetext="1000">
+                                    <span class="slider-value" id="max-tokens-value" aria-live="polite">1000</span>
+                                </div>
+                                <div class="parameter-description" id="max-tokens-desc">Maximum length of the response</div>
+                            </div>
+                            
+                            <div class="parameter-group">
+                                <label for="repetition-penalty-slider">Repetition Penalty</label>
+                                <div class="slider-container">
+                                    <input type="range" id="repetition-penalty-slider" min="0.5" max="2" step="0.1" value="1.1" class="parameter-slider" aria-describedby="repetition-penalty-desc" aria-valuetext="1.1">
+                                    <span class="slider-value" id="repetition-penalty-value" aria-live="polite">1.1</span>
+                                </div>
+                                <div class="parameter-description" id="repetition-penalty-desc">Reduces repetitive text. Higher values = less repetition</div>
+                            </div>
+                            
+                            <div class="parameter-actions">
+                                <button class="reset-btn" onclick="resetParameters()" aria-label="Reset all parameters to default values">Reset to Defaults</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Chat Panel -->
+            <div class="chat-panel" role="region" aria-label="Chat interface">
+                <div class="chat-header">
+                    <h3>Chat history</h3>
+                    <div class="chat-controls">
+                        <button class="icon-btn" title="Clear chat" aria-label="Clear chat history">🗑️</button>
+                        <button class="icon-btn" title="Settings" onclick="openChatCapabilitiesModal()" aria-label="Open chat settings and capabilities">⚙️</button>
+                    </div>
+                </div>
+                
+                <div class="chat-messages" id="chat-messages" role="log" aria-live="polite" aria-label="Chat conversation">
+                    <div class="welcome-message">
+                        <div class="chat-icon" aria-hidden="true">💬</div>
+                        <h3>Start with a prompt</h3>
+                    </div>
+                </div>
+                
+                <div class="chat-input-container" role="region" aria-label="Message input area">
+                    <div class="input-wrapper">
+                        <div class="input-thumbnail-container" id="input-thumbnail-container" style="display: none;" role="status" aria-live="polite">
+                            <img id="input-thumbnail" alt="Selected image thumbnail for analysis">
+                            <button class="remove-thumbnail-btn" id="remove-thumbnail-btn" title="Remove image" aria-label="Remove selected image">🗑️</button>
+                        </div>
+                        <textarea 
+                            id="user-input" 
+                            placeholder="Type user query here (Shift + Enter for new line)"
+                            rows="1"
+                            disabled
+                            aria-label="Type your message to the AI assistant"
+                            aria-describedby="input-help"
+                        ></textarea>
+                        <div id="input-help" class="sr-only">Use Shift+Enter for new lines. Press Enter or click send to submit your message.</div>
+                        <button id="send-btn" disabled aria-label="Send message">➤</button>
+                    </div>
+                    <div class="input-info">
+                        <span class="token-count" aria-live="polite" aria-label="Token count">*1/128000 tokens in thread</span>
+                        <button class="voice-btn" title="Voice input" id="voice-btn" disabled aria-label="Start voice input">🎙️</button>
+                        <button class="attach-btn" title="Upload image" id="attach-btn" disabled aria-label="Upload image for analysis">📎</button>
+                        <button class="stop-btn" title="Stop generation" id="stop-btn" style="display: none;" aria-label="Stop AI response generation">⏹️</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Chat Capabilities Modal -->
+    <div class="modal-overlay" id="chat-capabilities-modal" style="display: none;" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modal-title">Chat capabilities</h2>
+                <button class="modal-close-btn" onclick="closeChatCapabilitiesModal()" aria-label="Close settings dialog">✕</button>
+            </div>
+            <div class="modal-body">
+                <div class="speech-section" role="group" aria-labelledby="speech-section-title">
+                    <h3 id="speech-section-title">Speech</h3>
+                    
+                    <div class="speech-feature">
+                        <h4>Speech to text</h4>
+                        <p class="feature-description">The speech to text feature that allows spoken text to be used for input to the model can be enabled or disabled for the playground.</p>
+                        <div class="toggle-switch">
+                            <input type="checkbox" id="speech-to-text-toggle" aria-describedby="stt-desc">
+                            <label for="speech-to-text-toggle" class="switch-label">
+                                <span class="switch-slider" aria-hidden="true"></span>
+                                <span class="switch-text">Enable speech to text</span>
+                            </label>
+                            <div id="stt-desc" class="sr-only">Toggle to enable or disable voice input for typing messages</div>
+                        </div>
+                    </div>
+                    
+                    <div class="speech-feature">
+                        <h4>Text to speech</h4>
+                        <p class="feature-description">The text to speech that reads the model responses can be enabled or disabled for the playground.</p>
+                        <div class="toggle-switch">
+                            <input type="checkbox" id="text-to-speech-toggle" aria-describedby="tts-desc">
+                            <label for="text-to-speech-toggle" class="switch-label">
+                                <span class="switch-slider" aria-hidden="true"></span>
+                                <span class="switch-text">Enable text to speech</span>
+                            </label>
+                            <div id="tts-desc" class="sr-only">Toggle to enable or disable audio playback of AI responses</div>
+                        </div>
+                    </div>
+                    
+                    <div class="voice-config" role="group" aria-labelledby="voice-config-title">
+                        <div id="voice-config-title" class="sr-only">Voice configuration settings</div>
+                        <div class="config-row">
+                            <div class="config-item">
+                                <label for="voice-select">Voice configuration</label>
+                                <select id="voice-select" class="form-select" disabled aria-describedby="voice-select-desc">
+                                    <option value="">Loading voices...</option>
+                                </select>
+                                <div id="voice-select-desc" class="sr-only">Choose the voice for text-to-speech output</div>
+                            </div>
+                            <div class="config-item">
+                                <label for="voice-speed">Voice speed</label>
+                                <select id="voice-speed" class="form-select" disabled aria-describedby="voice-speed-desc">
+                                    <option value="1x" selected>1x</option>
+                                    <option value="0.5x">0.5x</option>
+                                    <option value="1.5x">1.5x</option>
+                                    <option value="2x">2x</option>
+                                </select>
+                                <div id="voice-speed-desc" class="sr-only">Adjust the playback speed of the voice</div>
+                            </div>
+                        </div>
+                        
+                        <div class="voice-sample">
+                            <label for="voice-sample-text">Voice sample</label>
+                            <div class="sample-container">
+                                <input type="text" class="sample-text" id="voice-sample-text" value="Hi, how can I help you today?" disabled aria-describedby="voice-sample-desc">
+                                <button class="play-btn" onclick="playVoiceSample()" disabled aria-label="Play voice sample">▶</button>
+                                <div id="voice-sample-desc" class="sr-only">Edit this text to test the selected voice and speed</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="vision-section" role="group" aria-labelledby="vision-section-title">
+                    <h3 id="vision-section-title">Vision</h3>
+                    
+                    <div class="vision-feature">
+                        <h4>Image analysis</h4>
+                        <p class="feature-description">The image analysis feature allows the model to analyze and describe images that are uploaded to the chat.</p>
+                        <div class="toggle-switch">
+                            <input type="checkbox" id="image-analysis-toggle" aria-describedby="image-analysis-desc">
+                            <label for="image-analysis-toggle" class="switch-label">
+                                <span class="switch-slider" aria-hidden="true"></span>
+                                <span class="switch-text">Enable image analysis</span>
+                            </label>
+                            <div id="image-analysis-desc" class="sr-only">Toggle to enable AI analysis of uploaded images</div>
+                        </div>
+                        
+                        <div class="vision-progress-container" id="vision-progress-container" style="display: none;" role="progressbar" aria-live="polite" aria-label="Model download progress">
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="vision-progress-fill"></div>
+                            </div>
+                            <div class="progress-text" id="vision-progress-text">Downloading MobileNet model...</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="closeChatCapabilitiesModal()" aria-label="Close settings without saving">Close</button>
+                <button class="btn-primary" id="save-capabilities-btn" onclick="saveChatCapabilities()" aria-label="Save settings and apply changes">Save</button>
+            </div>
+        </div>
+    </div>
+    
+    <script type="module" src="script.js"></script>
+</body>
+</html>
