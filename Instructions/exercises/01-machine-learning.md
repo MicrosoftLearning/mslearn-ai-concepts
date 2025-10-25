@@ -14,14 +14,14 @@ This exercise should take approximately **15** minutes to complete.
 
 In this exercise, you'll use data files to train multiple types of machine learning model.
 
-1. Download **[ml-data.zip](https://raw.githubusercontent.com/GraemeMalcolm/ai-labs/refs/heads/main/data/ml-data.zip){:target="_blank"}** to your local computer.
+1. Download **[ml-data.zip](https://aka.ms/mslearn-ai-data){:target="_blank"}** from `https://aka.ms/mslearn-ai-data` to your local computer.
 1. Extract the downloaded archive in a local folder to see the files it contains. These files contain data suitable for training machine learning models.
 
 ## Train a regression model
 
 Let's start by training  regression model, which predicts a numeric value. In this exercise, we'll use a dataset of historic sales to predict demand for ice cream cones on a given day, based on seasonal and weather-related features.
 
-1. In a browser, navigate to the **[ML Lite](https://graememalcolm.github.io/ai-labs/apps/machine-learning/){:target="_blank"}** web application, which you'll use in this exercise.
+1. In a browser, navigate to the **[ML Lite](https://aka.ms/ml-lite){:target="_blank"}** web application at `https://aka.ms/ml-lite`, which you'll use in this exercise.
 1. Wait for the ML Engine to load and initialize (this can take a few seconds). When the ML Engine is ready, you can complete the pages in the wizard to train and test a machine learning model.
 1. On the **Model Type & Data** page, select **Regression** and upload the **ice-cream.csv** text file to see a preview of the data it contains.
 
@@ -29,7 +29,7 @@ Let's start by training  regression model, which predicts a numeric value. In th
     
 1. On the **Training Settings** page:
     - Set the **Target column** to *IceCreamsSold*.
-    - <u>De</u>select **Date** as a feature (as it's unique each day, so unlikely to be predictive on its own) and use the other remaining columns as features with which to train the model.
+    - <u>De</u>select **Date** as a feature (it's unique each day, so unlikely to be predictive on its own) and use the other remaining columns as features with which to train the model.
     - Review the **Training/Testing split** (which determines how much of the dataset to use for training the model, and how much to hold back for model evaluation).
 
     ![Screenshot of the Training Settings page.](./media/ml-lite-02.png)

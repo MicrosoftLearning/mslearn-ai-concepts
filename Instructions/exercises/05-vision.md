@@ -16,7 +16,7 @@ Let's start by chatting with a generative AI model. In this exercise, we'll use 
 
 > **Note**: The models will run in your browser, on your local computer. Performance may vary depending on the available memory in your computer and your network bandwidth to download the model. 
 
-1. In a web browser, open the **[Chat Playground](https://graememalcolm.github.io/ai-labs/apps/chat-playground/){:target="_blank"}**.
+1. In a web browser, open the **[Chat Playground](https://aka.ms/chat-playground){:target="_blank"}** at `https://aka.ms/chat-playground`.
 1. Wait for the model to download and initialize.
 
     > **Tip**: The first time you open the chat playground, it may take a few minutes for the model to download. Subsequent downloads will be faster.
@@ -29,7 +29,7 @@ Let's start by chatting with a generative AI model. In this exercise, we'll use 
 
 Computer vision models enable AI systems to interpret image-based data, such as photographs, videos, and other visual elements. In this exercise, we'll use a small CNN-based image classification model to determine the contents of an image, and a generative AI model to interpret and answer questions about the images.
 
-1. In a new browser tab, download **[images.zip](https://raw.githubusercontent.com/GraemeMalcolm/ai-labs/refs/heads/main/data/images.zip){:target="_blank"}** to your local computer.
+1. In a new browser tab, download **[images.zip](https://aka.ms/ai-images){:target="_blank"}** from `https://aka.ms/ai-images` to your local computer.
 1. Extract the downloaded archive in a local folder to see the files it contains. These files are the images you will use AI to analyze.
 1. Return to the browser tab containing the chat playground, and at the top-right of the **Chat history** pane, use the **Settings** (**&#x2699;**) button to view the chat capabilities options.
 1. In the **Vision** section, enable **Image analysis**. Then wait for the computer vision model to be downloaded and initialized before saving the changes.
@@ -46,7 +46,7 @@ Computer vision models enable AI systems to interpret image-based data, such as 
 
    ![Screenshot of the chat app with an image in a prompt.](./media/vision-02.png)
 
-    The MobileNetV3 model is used to determine the likely subject of the image, and the results of that analysis is included in the prompt to the Phi language model. The result should ba a reponse that uses the image information to answer the question.
+    The MobileNetV3 model is used to determine the likely subject of the image, and the results of that analysis is included in the prompt to the Phi language model. The result should be a reponse that uses the image information to answer the question.
 
 1. Submit prompts that include the other images, such as `How should I cook this?` or `What desserts could I make with this?`
 
@@ -54,4 +54,4 @@ Computer vision models enable AI systems to interpret image-based data, such as 
 
 in this exercise, you explored the use of computer vision with a generative AI model in a chat playground. 
 
-Some models are *multimodal*, and natively support image-based input; while other solutions rely on using a separate image classification or object detection model. Azure AI Foundry supports multimodal models, and also provides Azure AI Speech; which includes a wide range of services you can use to build vision-capable AI apps and agents.
+Some models are *multimodal*, and natively support image-based input; while other solutions rely on using a separate image classification or object detection model. Azure AI Foundry supports a range of multimodal models, as well as third-party vision models in the Azure AI Foundry model catalog. Additionally, you can use the Azure AI Content Understanding service to analyze images.

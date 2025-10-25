@@ -1,7 +1,7 @@
 ---
 lab:
     title: 'Explore AI speech'
-    description: 'Use Ai to explore speech-to-text and text-to-speech capabilities with a generative AI model.'
+    description: 'Use AI to explore speech-to-text and text-to-speech capabilities with a generative AI model.'
 ---
 
 # Explore AI speech
@@ -16,7 +16,7 @@ Let's start by chatting with a generative AI model. In this exercise, we'll use 
 
 > **Note**: The model will run in your browser, on your local computer. Performance may vary depending on the available memory in your computer and your network bandwidth to download the model. 
 
-1. In a web browser, open the **[Chat Playground](https://graememalcolm.github.io/ai-labs/apps/chat-playground/){:target="_blank"}**.
+1. In a web browser, open the **[Chat Playground](https://aka.ms/chat-playground){:target="_blank"}** at `https://aka.ms/chat-playground`.
 1. Wait for the model to download and initialize.
 
     > **Tip**: The first time you open the chat playground, it may take a few minutes for the model to download. Subsequent downloads will be faster.

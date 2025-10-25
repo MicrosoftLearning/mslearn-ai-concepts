@@ -16,12 +16,12 @@ Suppose you need to extract data fields from scanned receipts to help automate a
 
 > **Note**: The models used in this exercise will run in your browser, on your local computer. Performance may vary depending on the available memory in your computer and your network bandwidth to download the model. 
 
-1. In a web browser, open the **[Information Extractor](https://graememalcolm.github.io/ai-labs/apps/info-extractor/){:target="_blank"}** app.
+1. In a web browser, open the **[Information Extractor](https://aka.ms/info-extractor){:target="_blank"}** app at `https://aka.ms/info-extractor`.
 1. Wait for the model to download and initialize.
 
     > **Tip**: The first time you open the app, it may take a few minutes for the model to download. Subsequent downloads will be faster.
 
-1. While you're waiting for the model to initialize, in a new browser tab, download **[receipts.zip](https://raw.githubusercontent.com/GraemeMalcolm/ai-labs/refs/heads/main/data/receipts.zip){:target="_blank"}** to your local computer.
+1. While you're waiting for the model to initialize, in a new browser tab, download **[receipts.zip](https://aka.ms/receipts){:target="_blank"}** from `https://aka.ms/receipts` to your local computer.
 1. Extract the downloaded archive in a local folder to see the files it contains. These files are the receipt images you will use AI to analyze.
 1. Return to the browser tab containing the Information Extractor app, and verify that the model has loaded.
 1. Upload any of the receipt images, and view it in the main content area of the app.

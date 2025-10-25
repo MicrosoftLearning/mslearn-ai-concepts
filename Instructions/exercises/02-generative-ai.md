@@ -16,7 +16,7 @@ Let's start by using a chat interface to submit prompts to a generative AI model
 
 > **Note**: The model will run in your browser, on your local computer. Performance may vary depending on the available memory in your computer and your network bandwidth to download the model. 
 
-1. In a web browser, open the **[Chat Playground](https://graememalcolm.github.io/ai-labs/apps/chat-playground/){:target="_blank"}**.
+1. In a web browser, open the **[Chat Playground](https://aka.ms/chat-playground){:target="_blank"}** at `https://aka.ms/chat-playground`.
 1. Wait for the model to download and initialize.
 
     > **Tip**: The first time you open the chat playground, it may take a few minutes for the model to download. Subsequent downloads will be faster.
@@ -60,7 +60,7 @@ For example, let's suppose an organization wants to use a generative AI agent to
 
     The response is likely to be generic. Accurate; but not particularly helpful to the employee. We need to give the agent some knowledge about the company's expense policies and procedures.
 
-1. Open a new browser tab, and view the **[expenses guide](https://raw.githubusercontent.com/GraemeMalcolm/ai-labs/refs/heads/main/data/expenses.txt){:target="_blank"}**. We'll use this to ground the model, so it has some context for questions about expenses.
+1. Open a new browser tab, and view the **[expenses guide](https://aka.ms/expenses-txt){:target="_blank"}** at `https://aka.ms/expenses-txt`. We'll use this to ground the model, so it has some context for questions about expenses.
 
     > **Note**: This is a very small document for the purposes of this exercise. In a real scenario, an AI agent might have access to large volumes of data; usually in the form of a *vector index*.
 
