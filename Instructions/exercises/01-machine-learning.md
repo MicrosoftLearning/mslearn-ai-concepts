@@ -73,6 +73,9 @@ Now let's train a classification model to predict which of three species a pengu
     The visualization shows a *confusion matrix*, comparing the number of correct and incorrect predictions for each class.
 
 1. On the **Test Model** page, use the default test data to generate a prediction.
+
+    The result will be a numeric class identifier that indicates the species (0: Adelie, 1: Gentoo, or 2: Chinstrap).
+
 1. Try generating predictions with the following test cases:
 
     | Feature | Case 1 | Case 2

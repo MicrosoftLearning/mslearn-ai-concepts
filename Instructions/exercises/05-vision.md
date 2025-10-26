@@ -10,9 +10,9 @@ In this exercise, you'll use a chat playground to interact with a generative AI 
 
 This exercise should take approximately **15** minutes to complete.
 
-## Chat with a model
+## Use computer vision to analyze images
 
-Let's start by chatting with a generative AI model. In this exercise, we'll use the **Microsoft Phi 3 Mini model**; a small language model that is useful for general chat solutions in low bandwidth scenarios. The solution also uses the MobileNetV3 computer vision model for image classification.
+Let's start by chatting with a generative AI model. In this exercise, we'll use the the **MobileNetV3** CNN-based computer vision model for image classification and the **Microsoft Phi 3 Mini model** small language model to interpret and answer questions about the images.
 
 > **Note**: The models will run in your browser, on your local computer. Performance may vary depending on the available memory in your computer and your network bandwidth to download the model. 
 
@@ -21,15 +21,7 @@ Let's start by chatting with a generative AI model. In this exercise, we'll use 
 
     > **Tip**: The first time you open the chat playground, it may take a few minutes for the model to download. Subsequent downloads will be faster.
 
-1. When the model is ready, enter a prompt such as `Give me a short tip to improve my cooking.`, and review the response.
-
-    The model should respond with a text-based answer, that hopefully includes some relevant information about learning how to cook.
-
-## Use computer vision to analyze images
-
-Computer vision models enable AI systems to interpret image-based data, such as photographs, videos, and other visual elements. In this exercise, we'll use a small CNN-based image classification model to determine the contents of an image, and a generative AI model to interpret and answer questions about the images.
-
-1. In a new browser tab, download **[images.zip](https://aka.ms/ai-images){:target="_blank"}** from `https://aka.ms/ai-images` to your local computer.
+1. When the model is ready, in a new browser tab, download **[images.zip](https://aka.ms/ai-images){:target="_blank"}** from `https://aka.ms/ai-images` to your local computer.
 1. Extract the downloaded archive in a local folder to see the files it contains. These files are the images you will use AI to analyze.
 1. Return to the browser tab containing the chat playground, and at the top-right of the **Chat history** pane, use the **Settings** (**&#x2699;**) button to view the chat capabilities options.
 1. In the **Vision** section, enable **Image analysis**. Then wait for the computer vision model to be downloaded and initialized before saving the changes.

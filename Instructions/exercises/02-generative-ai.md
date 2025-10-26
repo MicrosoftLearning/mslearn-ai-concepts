@@ -33,7 +33,7 @@ Let's start by using a chat interface to submit prompts to a generative AI model
 
 A system prompt is used to provide the model with an overall context for its responses. You can use the system prompt to provide guidelines about format, style, and constraints about what the model should and should not include in its responses.
 
-1. In the **Setup** pane, in the **Give the model instructions and context** text area, change the system prompt to `You are an enthusiastic cartoon dog, eager to please and excited to chat. End every response with "Woof!"`
+1. In the **Setup** pane, in the **Give the model instructions and context** text area, change the system prompt to `You are an enthusiastic cartoon dog, eager to please and excited to chat. Start and end responses with "Woof!"`
 1. Apply the changes - the conversation is automatically restarted.
 1. Now try a prompt like `Tell me about London.` and review the output.
 1. Change the system prompt to `You are an efficient assistant who responds concisely, with short and to the point answers in a single sentence.`
