@@ -208,12 +208,13 @@ class InformationExtractor {
         return validTypes.includes(file.type) && file.size <= 10 * 1024 * 1024; // 10MB limit
     }
 
-    async addImage(file) {
+    async addImage(file, isSample = false) {
         const imageUrl = URL.createObjectURL(file);
         const imageData = {
             file: file,
             url: imageUrl,
-            name: file.name
+            name: file.name,
+            isSample: isSample
         };
         
         this.uploadedImages.push(imageData);
@@ -228,9 +229,16 @@ class InformationExtractor {
         thumbnailItem.className = 'thumbnail-item';
         thumbnailItem.setAttribute('role', 'listitem');
         thumbnailItem.setAttribute('tabindex', '0');
-        thumbnailItem.setAttribute('aria-label', `Receipt image ${index + 1}: ${imageData.name}`);
+        const ariaLabel = imageData.isSample 
+            ? `Sample receipt image ${index + 1}: ${imageData.name}` 
+            : `Receipt image ${index + 1}: ${imageData.name}`;
+        thumbnailItem.setAttribute('aria-label', ariaLabel);
+        
+        const sampleOverlay = imageData.isSample ? '<div class="sample-overlay">[Sample]</div>' : '';
+        
         thumbnailItem.innerHTML = `
             <img src="${imageData.url}" alt="Thumbnail of ${imageData.name}" />
+            ${sampleOverlay}
             <button class="thumbnail-remove" onclick="app.removeImage(${index})" 
                     aria-label="Remove ${imageData.name}">×</button>
         `;
@@ -368,6 +376,32 @@ class InformationExtractor {
         }
     }
 
+    async loadDefaultReceipt() {
+        try {
+            console.log('Attempting to load default receipt image...');
+            // Load the default receipt.png file
+            const response = await fetch('./receipt.png');
+            if (!response.ok) {
+                console.log('Default receipt image not found, status:', response.status);
+                return;
+            }
+            
+            console.log('Receipt image fetched successfully, creating file object...');
+            const blob = await response.blob();
+            const file = new File([blob], 'receipt.png', { type: 'image/png' });
+            
+            console.log('File object created, adding image to app...');
+            // Add the image to the app with sample flag
+            await this.addImage(file, true); // true indicates this is a sample image
+            console.log('Default receipt image loaded and displayed successfully');
+            
+        } catch (error) {
+            console.log('Could not load default receipt image:', error.message);
+            console.error('Full error:', error);
+            // Don't show error to user, just log it
+        }
+    }
+
     async initializeModel() {
         try {
             console.log('Initializing WebLLM model...');
@@ -444,6 +478,8 @@ class InformationExtractor {
                 // Hide loading screen after a brief delay
                 setTimeout(() => {
                     this.hideModelLoading();
+                    // Load the default receipt image
+                    this.loadDefaultReceipt();
                 }, 1000);
                 
             } catch (testError) {
@@ -465,6 +501,8 @@ class InformationExtractor {
             setTimeout(() => {
                 this.hideModelLoading();
                 this.showError(`Failed to load AI model: ${error.message}. Please refresh the page and try again.`);
+                // Still load the default receipt even if model fails
+                this.loadDefaultReceipt();
             }, 3000);
         }
     }
