@@ -1636,7 +1636,7 @@ class ChatPlayground {
 
     async typeResponse(contentEl, text) {
         let currentIndex = 0;
-        const typingSpeed = 30; // milliseconds between characters
+        const typingSpeed = 5; // milliseconds between characters
         
         // Continue typing as long as we haven't been stopped and there's more text
         while (currentIndex < text.length && !this.stopRequested) {
@@ -1665,7 +1665,7 @@ class ChatPlayground {
             fullText: initialText,
             currentIndex: 0,
             isTyping: true,
-            typingSpeed: 30
+            typingSpeed:5
         };
         
         this.continueTyping();
