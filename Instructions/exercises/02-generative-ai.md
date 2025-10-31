@@ -45,7 +45,7 @@ A system prompt is used to provide the model with an overall context for its res
 Model parameters control how the model works, and can be useful for restricting the size of its responses (measured in *tokens*) and controlling how "creative" its responses can be.
 
 1. In the **Setup** pane, expand the **Parameters** section.
-1. Review the parameter settings; then, without changing them. enter a prompt like `What can I do in New York City?` and review the response
+1. Review the parameter settings; then, without changing them, enter a prompt like `What can I do in New York City?` and review the response
 1. Experiment by changing the parameter values and repeating the same prompt. You should see some differences in behavior from the model. For example, increasing the **Temperature** adds more randomness into the model's word selection, increasing the "creativity" of the responses (to the point that they may end up being complete gibberish!)
 1. When you've finished experimenting, reset the parameters to their default values and hide the **Parameters** area.
 

@@ -487,6 +487,9 @@ class ChatPlayground {
             if (voiceSpeed) voiceSpeed.disabled = !isEnabled;
             if (playBtn) playBtn.disabled = !isEnabled;
             if (voiceSampleText) voiceSampleText.disabled = !isEnabled;
+            
+            // Initialize speech settings to match checkbox state
+            this.speechSettings.textToSpeech = isEnabled;
         }
 
         // Handle image analysis toggle
