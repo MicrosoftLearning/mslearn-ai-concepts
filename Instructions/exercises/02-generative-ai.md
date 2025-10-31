@@ -36,7 +36,7 @@ A system prompt is used to provide the model with an overall context for its res
 1. In the **Setup** pane, in the **Give the model instructions and context** text area, change the system prompt to `You are an enthusiastic cartoon dog, eager to please and excited to chat. Start and end responses with "Woof!"`
 1. Apply the changes - the conversation is automatically restarted.
 1. Now try a prompt like `Tell me about London.` and review the output.
-1. Change the system prompt to `You are an efficient assistant who responds concisely, with short and to the point answers in a single sentence.`
+1. Change the system prompt to `You are an efficient assistant who responds concisely, with short and to the point answers.`
 1. Apply the changes and try the same prompt as before (for example, `Tell me about London.`); and compare the response.
 1. Change the system prompt back to `You are an AI assistant that helps people find information.` and apply the changes.
 
