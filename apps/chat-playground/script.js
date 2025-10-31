@@ -1392,7 +1392,7 @@ class ChatPlayground {
                 // Get image analysis
                 const predictions = await this.classifyImage(this.pendingImage.img);
                 const formattedPredictions = this.formatPredictions(predictions);
-                imageAnalysis = `\n---\nAnswer concisely and base your response on the following image analysis as well as what you can infer from latest message submitted with it:\n${formattedPredictions}\nDo not include probability percentages or mention low probability options from the analysis in the response, just indicate what you think the image is based on your interpretation of the analysis and the user's latest message`;
+                imageAnalysis = `\n---\nAnswer concisely and base your response on the most likely object in this image analysis:\n${formattedPredictions}\nDo not include probability percentages or mention low probability options from the analysis in the response, just indicate what you think the image is based on your interpretation of the analysis and the user's message (${userMessage}) as if you've actually seen the image.`;
                 
                 // Create image element for message bubble
                 imageElement = document.createElement('img');
