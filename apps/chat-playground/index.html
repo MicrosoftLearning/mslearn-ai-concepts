@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chat Playground</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💬</text></svg>">
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet@2.1.0/dist/mobilenet.min.js"></script>
@@ -131,6 +132,7 @@
                     <div class="chat-controls">
                         <button class="icon-btn" title="Clear chat" aria-label="Clear chat history">🗑️</button>
                         <button class="icon-btn" title="Settings" onclick="openChatCapabilitiesModal()" aria-label="Open chat settings and capabilities">⚙️</button>
+                        <button class="icon-btn" title="About this app" onclick="openAboutModal()" aria-label="About this app">❓</button>
                     </div>
                 </div>
                 
@@ -266,6 +268,36 @@
             <div class="modal-footer">
                 <button class="btn-secondary" onclick="closeChatCapabilitiesModal()" aria-label="Close settings without saving">Close</button>
                 <button class="btn-primary" id="save-capabilities-btn" onclick="saveChatCapabilities()" aria-label="Save settings and apply changes">Save</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- About Modal -->
+    <div class="modal-overlay" id="about-modal" style="display: none;" role="dialog" aria-modal="true" aria-labelledby="about-modal-title">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="about-modal-title">About this app</h2>
+                <button class="modal-close-btn" onclick="closeAboutModal()" aria-label="Close about dialog">✕</button>
+            </div>
+            <div class="modal-body">
+                <div class="about-content">
+                    <p>This app is designed as a learning aid for anyone seeking to become familiar with Generative AI apps and agents. It's based on the user interface in Azure AI Foundry portal, but does not use any Azure cloud services.</p>
+                    
+                    <p>The language model used by the app is the <strong>Microsoft Phi 3</strong> mini SLM, hosted in the WebLLM module. WebLLM requires a modern browser that supports the WebGPU API, and an integrated or dedicated GPU on the computer. If WebLLM fails to load, the app is designed to fallback to a simpler mode in which it used Wikipedia as a knowledge source instead of a generative AI model. In this mode, responses may be less relevant and some functionality may not be available.</p>
+                    
+                    <p>The app also makes use of the MobileNetV3 model and the TensorFlow.js framework to implement image classification, and the Web Speech API to support speech recognition and synthesis.</p>
+                    
+                    <h3>Known issues</h3>
+                    <ul>
+                        <li>The initial download of the Microsoft Phi model may take a few minutes - particularly on low-bandwidth connections. Subsequent downloads should be quicker.</li>
+                        <li>Some GPU-enabled computers (particularly those with ARM-based processors) do not support WebGPU without enabling the <strong>Unsafe WebGPU Support</strong> browser flag. If your browser fails to load the Microsoft Phi model, you can try enabling this flag at edge://flags on Microsoft Edge or chrome://flags on Google Chrome. Disable it again when finished!</li>
+                        <li>Microsoft Edge on ARM-based computers does not support Web Speech for speech recognition (speech to text), and returns a network error when attempting to capture input from the mic. Speech synthesis (text to speech) should still work.</li>
+                        <li>Older computers with slower processors and low amounts of memory may struggle to use WebLLM. You can switch the model to "None" to use the Wikipedia-based fallback option.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-primary" onclick="closeAboutModal()" aria-label="Close about dialog">Close</button>
             </div>
         </div>
     </div>

@@ -5,6 +5,7 @@ class ChatPlayground {
         // Core state
         this.engine = null;
         this.isModelLoaded = false;
+        this.webllmAvailable = false; // Track if WebLLM model successfully loaded
         this.conversationHistory = [];
         this.isGenerating = false;
         this.isSpeaking = false;
@@ -628,8 +629,6 @@ class ChatPlayground {
             const microsoftVoices = voices.filter(voice => 
                 voice && voice.name &&
                 (voice.name.includes('Microsoft') || 
-                voice.name.includes('Cortana') ||
-                voice.name.includes('Windows') ||
                 (voice.voiceURI && voice.voiceURI.includes('Microsoft')) ||
                 (voice.lang && voice.lang.startsWith('en')))
             );
@@ -762,9 +761,13 @@ class ChatPlayground {
             if (event.error === 'no-speech') {
                 this.showToast('No speech detected. Please try again.');
             } else if (event.error === 'network') {
-                this.showToast('Network error. Please check your connection.');
+                this.showToast('Network error: Speech recognition requires internet connection to speech services.');
+            } else if (event.error === 'not-allowed') {
+                this.showToast('Microphone access denied. Please allow microphone access and try again.');
+            } else if (event.error === 'service-not-allowed') {
+                this.showToast('Speech recognition service not available. Please check your browser settings.');
             } else {
-                this.showToast('Speech recognition error. Please try again.');
+                this.showToast(`Speech recognition error: ${event.error}. Please try again.`);
             }
         };
     }
@@ -802,7 +805,11 @@ class ChatPlayground {
         
         if (this.isListening) {
             // Stop listening
-            this.recognition.stop();
+            try {
+                this.recognition.stop();
+            } catch (error) {
+                console.error('Error stopping speech recognition:', error);
+            }
             return;
         }
         
@@ -812,10 +819,29 @@ class ChatPlayground {
         // Start speech recognition after a short delay to let the beep play
         setTimeout(() => {
             try {
-                this.recognition.start();
+                // Abort any existing recognition session before starting a new one
+                try {
+                    this.recognition.abort();
+                } catch (e) {
+                    // Ignore abort errors
+                }
+                
+                // Wait a moment before starting new session
+                setTimeout(() => {
+                    this.recognition.start();
+                }, 100);
             } catch (error) {
                 console.error('Error starting speech recognition:', error);
-                this.showToast('Could not start voice input. Please try again.');
+                
+                // If we get an error, try to recreate the recognition object
+                if (error.message && error.message.includes('already started')) {
+                    this.showToast('Speech recognition already in progress. Please wait.');
+                } else {
+                    this.showToast('Could not start voice input. Try again or check browser permissions.');
+                }
+                
+                this.isListening = false;
+                this.updateVoiceButtonState();
             }
         }, 300);
     }
@@ -927,8 +953,9 @@ class ChatPlayground {
     }
 
     handleImageUpload() {
-        // Check if image analysis is enabled
+        // Check if image analysis is enabled (required for both modes)
         if (!this.visionSettings.imageAnalysis) {
+            this.showToast('Please enable image analysis in Chat Capabilities first');
             return;
         }
         
@@ -1143,21 +1170,14 @@ class ChatPlayground {
             const models = webllm.prebuiltAppConfig.model_list;
             console.log('All available models:', models.map(m => m.model_id));
             
-            // Filter for Phi models first
+            // Filter for the specific Phi-3 model only
+            const targetModelId = 'Phi-3-mini-4k-instruct-q4f16_1-MLC';
             let availableModels = models.filter(model => 
-                model.model_id.toLowerCase().includes('phi')
+                model.model_id === targetModelId
             );
             
-            // If no Phi models, try other small models
             if (availableModels.length === 0) {
-                availableModels = models.filter(model => 
-                    model.model_id.toLowerCase().includes('llama-3.2-1b') ||
-                    model.model_id.toLowerCase().includes('gemma-2-2b')
-                );
-            }
-            
-            if (availableModels.length === 0) {
-                throw new Error('No compatible models found');
+                throw new Error('Phi-3-mini-4k-instruct model not found');
             }
             
             console.log('Available models for loading:', availableModels.map(m => m.model_id));
@@ -1199,6 +1219,7 @@ class ChatPlayground {
             }
             
             console.log('WebLLM engine created successfully');
+            this.webllmAvailable = true; // Mark WebLLM as successfully loaded
             this.updateProgress(100, 'Model ready!');
             setTimeout(() => {
                 this.progressContainer.style.display = 'none';
@@ -1207,12 +1228,14 @@ class ChatPlayground {
             
         } catch (error) {
             console.error('Failed to initialize WebLLM:', error);
+            this.webllmAvailable = false; // Mark WebLLM as unavailable
             this.updateProgress(0, `Error: ${error.message}`);
             
-            // Don't create mock engine - show error instead
+            // Enable UI for Wikipedia fallback mode
             setTimeout(() => {
-                this.updateProgress(0, 'Failed to load AI model. Please refresh the page and check your internet connection.');
-            }, 3000);
+                this.updateProgress(0, 'AI model unavailable. Using Wikipedia search fallback mode.');
+                this.enableUI();
+            }, 2000);
         }
     }
     
@@ -1232,93 +1255,98 @@ class ChatPlayground {
         
         // Populate model dropdown with available models
         this.populateModelDropdown();
+        
+        // Set parameter controls based on whether WebLLM is available
+        this.setParameterControlsEnabled(this.webllmAvailable);
     }
     
     populateModelDropdown() {
         // Clear existing options
         this.modelSelect.innerHTML = '';
         
+        // Add "None" option for fallback mode
+        const noneOption = document.createElement('option');
+        noneOption.value = 'none';
+        noneOption.textContent = 'None';
+        if (!this.webllmAvailable || !this.currentModelId) {
+            noneOption.selected = true;
+        }
+        this.modelSelect.appendChild(noneOption);
+        
         if (!webllm || !webllm.prebuiltAppConfig) {
-            this.modelSelect.innerHTML = '<option value="">No models available</option>';
             return;
         }
         
         // Get all available models
         const allModels = webllm.prebuiltAppConfig.model_list;
         
-        // Filter for suitable models (smaller ones that work well)
-        const suitableModels = allModels.filter(model => {
-            const modelId = model.model_id.toLowerCase();
-            return modelId.includes('phi') || 
-                   modelId.includes('llama-3.2-1b') ||
-                   modelId.includes('llama-3.2-3b') ||
-                   modelId.includes('gemma-2-2b') ||
-                   modelId.includes('qwen2.5-0.5b') ||
-                   modelId.includes('qwen2.5-1.5b');
-        });
+        // Filter for the specific Phi-3 model only
+        const targetModelId = 'Phi-3-mini-4k-instruct-q4f16_1-MLC';
+        const phiModel = allModels.find(model => model.model_id === targetModelId);
         
-        // Sort models by preference (Phi first, then by size)
-        suitableModels.sort((a, b) => {
-            const aId = a.model_id.toLowerCase();
-            const bId = b.model_id.toLowerCase();
-            
-            // Phi models first
-            if (aId.includes('phi') && !bId.includes('phi')) return -1;
-            if (!aId.includes('phi') && bId.includes('phi')) return 1;
-            
-            // Then by model name
-            return aId.localeCompare(bId);
-        });
-        
-        // Add models to dropdown
-        suitableModels.forEach(model => {
+        if (phiModel) {
             const option = document.createElement('option');
-            option.value = model.model_id;
-            option.textContent = this.formatModelName(model.model_id);
+            option.value = phiModel.model_id;
+            option.textContent = 'Microsoft Phi-3-mini-4k-instruct';
             
             // Mark current model as selected
-            if (model.model_id === this.currentModelId) {
+            if (phiModel.model_id === this.currentModelId) {
                 option.selected = true;
-                option.textContent += ' (Current)';
+                //option.textContent += ' (Current)';
             }
             
             this.modelSelect.appendChild(option);
-        });
+        }
         
-        // Add event listener for model changes
-        this.modelSelect.addEventListener('change', (e) => {
-            if (e.target.value && e.target.value !== this.currentModelId) {
-                this.switchModel(e.target.value);
-            }
-        });
+        // Setup event listener only once (on first call)
+        if (!this.modelSelectListenerAttached) {
+            this.modelSelect.addEventListener('change', (e) => {
+                if (e.target.value === 'none') {
+                    // Switch to fallback mode
+                    this.webllmAvailable = false;
+                    this.currentModelId = null;
+                    this.clearChat();
+                    this.setParameterControlsEnabled(false);
+                    this.showToast('Switched to fallback mode - Conversation restarted');
+                } else if (e.target.value && e.target.value !== this.currentModelId) {
+                    this.switchModel(e.target.value);
+                }
+            });
+            this.modelSelectListenerAttached = true;
+        }
     }
     
     formatModelName(modelId) {
-        // Convert model ID to friendly display name
-        let name = modelId.replace(/-/g, ' ').replace(/_/g, ' ');
-        
-        // Capitalize each word
-        name = name.replace(/\b\w/g, l => l.toUpperCase());
-        
-        // Clean up common patterns
-        name = name.replace(/Mlc$/i, '');
-        name = name.replace(/Q4f\d+/i, '');
-        name = name.replace(/Instruct/i, '');
-        name = name.replace(/\s+/g, ' ').trim();
-        
-        // Add specific formatting for known models
-        if (name.toLowerCase().includes('phi')) {
-            name = name.replace(/Phi\s*3/i, 'Microsoft Phi-3');
-        } else if (name.toLowerCase().includes('llama')) {
-            name = name.replace(/Llama/i, 'Meta Llama');
-        } else if (name.toLowerCase().includes('gemma')) {
-            name = name.replace(/Gemma/i, 'Google Gemma');
-        } else if (name.toLowerCase().includes('qwen')) {
-            name = name.replace(/Qwen/i, 'Alibaba Qwen');
+        // Simple formatter for our single Phi-3 model
+        if (modelId === 'Phi-3-mini-4k-instruct-q4f16_1-MLC') {
+            return 'Microsoft Phi-3-mini-4k-instruct';
         }
         
-        return name;
+        // Fallback for any unexpected model ID
+        return modelId;
     }
+
+    setParameterControlsEnabled(enabled) {
+        // Enable or disable all parameter sliders
+        const parameterSliders = [
+            'temperature-slider',
+            'top-p-slider',
+            'max-tokens-slider',
+            'repetition-penalty-slider'
+        ];
+        
+        parameterSliders.forEach(sliderId => {
+            const slider = document.getElementById(sliderId);
+            if (slider) {
+                slider.disabled = !enabled;
+                // Update visual appearance
+                slider.style.opacity = enabled ? '1' : '0.5';
+                slider.style.cursor = enabled ? 'pointer' : 'not-allowed';
+            }
+        });
+    }
+
+
     
     async switchModel(newModelId) {
         if (this.isGenerating) {
@@ -1352,10 +1380,14 @@ class ChatPlayground {
             );
             
             this.currentModelId = newModelId;
+            this.webllmAvailable = true; // Mark WebLLM as available when switching to a real model
             console.log(`Successfully switched to model: ${newModelId}`);
             
             // Clear conversation history when switching models
             this.clearChat();
+            
+            // Re-enable parameter controls when switching to a real model
+            this.setParameterControlsEnabled(true);
             
             this.updateProgress(100, 'Model switched successfully!');
             setTimeout(() => {
@@ -1389,13 +1421,21 @@ class ChatPlayground {
         // Process pending image if exists
         let imageAnalysis = '';
         let imageElement = null;
+        let imagePredictionForWiki = null; // Store for Wikipedia fallback
         
         if (this.pendingImage) {
             try {
-                // Get image analysis
+                // Get image analysis (requires MobileNet to be pre-loaded)
                 const predictions = await this.classifyImage(this.pendingImage.img);
-                const formattedPredictions = this.formatPredictions(predictions);
-                imageAnalysis = `\n---\nAnswer concisely and base your response on the most likely object in this image analysis:\n${formattedPredictions}\nDo not include probability percentages or mention low probability options from the analysis in the response, just indicate what you think the image is based on your interpretation of the analysis and the user's message (${userMessage}) as if you've actually seen the image.`;
+                imageAnalysis = predictions[0].className.replace(/_/g, ' ')
+                //const formattedPredictions = this.formatPredictions(predictions);
+                //imageAnalysis = `\n---\nAnswer concisely and base your response on the most likely object in this image analysis ${imagePrediction}\nDo not include probability percentages or mention low probability options from the analysis in the response, just indicate what you think the image is based on your interpretation of the analysis and the user's message (${userMessage}) as if you've actually seen the image.`;
+                
+                // Store the top prediction for Wikipedia fallback
+                if (predictions && predictions.length > 0) {
+                    imagePredictionForWiki = predictions[0].className;
+                    console.log('Stored image prediction for Wikipedia fallback:', imagePredictionForWiki);
+                }
                 
                 // Create image element for message bubble
                 imageElement = document.createElement('img');
@@ -1441,6 +1481,44 @@ class ChatPlayground {
         const typingIndicator = this.addTypingIndicator();
         
         try {
+            // Check if WebLLM is available, otherwise use Wikipedia fallback
+            if (!this.webllmAvailable) {
+                // Wikipedia fallback mode
+                console.log('Using Wikipedia fallback mode');
+                
+                // Remove typing indicator
+                typingIndicator.remove();
+                
+                // Add thinking indicator
+                const thinkingIndicator = this.addThinkingIndicator();
+                
+                // Use the image prediction we stored earlier
+                console.log('Image prediction available for Wikipedia:', imagePredictionForWiki);
+                
+                // Get Wikipedia response with optional image prediction
+                const wikiResponse = await this.handleWikipediaFallback(userMessage, imagePredictionForWiki);
+                
+                // Remove thinking indicator
+                thinkingIndicator.remove();
+                
+                // Create message container and type response
+                const assistantMessageEl = this.addMessage('assistant', '');
+                const contentEl = assistantMessageEl.querySelector('.message-content');
+                await this.typeResponse(contentEl, wikiResponse);
+                
+                // Add to conversation history
+                this.conversationHistory.push({ role: "user", content: userMessage });
+                this.conversationHistory.push({ role: "assistant", content: wikiResponse });
+                
+                // Speak if TTS is enabled
+                if (this.speechSettings && this.speechSettings.textToSpeech) {
+                    this.speakResponse(wikiResponse);
+                }
+                
+                return;
+            }
+            
+            // WebLLM mode (original functionality)
             // Prepare conversation history
             const messages = [
                 { role: "system", content: this.getEffectiveSystemMessage() }
@@ -1526,15 +1604,21 @@ class ChatPlayground {
         thinkingIndicator.remove();
         
         if (fullResponse.trim()) {
+            // Append file attribution if a file is uploaded
+            let displayResponse = fullResponse;
+            if (this.config.fileUpload.fileName) {
+                displayResponse += `\n(Ref: ${this.config.fileUpload.fileName})`;
+            }
+            
             // Create message container
             const assistantMessageEl = this.addMessage('assistant', '');
             const contentEl = assistantMessageEl.querySelector('.message-content');
             
             // Start speaking and typing simultaneously
-            this.speakResponse(fullResponse);
-            await this.typeResponse(contentEl, fullResponse);
+            this.speakResponse(fullResponse); // Speak without attribution
+            await this.typeResponse(contentEl, displayResponse); // Type with attribution
             
-            // Add to conversation history
+            // Add to conversation history (without attribution)
             this.conversationHistory.push({ role: "user", content: userMessage });
             this.conversationHistory.push({ role: "assistant", content: fullResponse });
             
@@ -1591,18 +1675,32 @@ class ChatPlayground {
             }
         }
         
+        // Append file attribution if a file is uploaded (after streaming completes)
+        if (hasStartedOutput && this.config.fileUpload.fileName && fullResponse.trim()) {
+            const attribution = `\n(Ref: ${this.config.fileUpload.fileName})`;
+            fullResponse += attribution;
+            // Update the typing content to include attribution
+            this.updateTypingContent(fullResponse);
+        }
+        
         // Handle case where response is shorter than buffer size
         if (!hasStartedOutput) {
             // Remove thinking indicator
             thinkingIndicator.remove();
             
             if (fullResponse.trim()) {
+                // Append file attribution if a file is uploaded
+                let displayResponse = fullResponse;
+                if (this.config.fileUpload.fileName) {
+                    displayResponse += `\n(Ref: ${this.config.fileUpload.fileName})`;
+                }
+                
                 // Create message container
                 assistantMessageEl = this.addMessage('assistant', '');
                 contentEl = assistantMessageEl.querySelector('.message-content');
                 
                 // Type out the short response
-                await this.typeResponse(contentEl, fullResponse);
+                await this.typeResponse(contentEl, displayResponse);
             } else {
                 const fallbackMessage = "I apologize, but I couldn't generate a response. Please try again.";
                 assistantMessageEl = this.addMessage('assistant', '');
@@ -1803,6 +1901,8 @@ class ChatPlayground {
             }
         } else {
             this.sendBtn.textContent = '➤';
+            // Return focus to input after response is complete
+            this.userInput.focus();
         }
     }
     
@@ -1901,6 +2001,217 @@ class ChatPlayground {
             toast.style.animation = 'slideOutRight 0.3s ease-in';
             setTimeout(() => toast.remove(), 300);
         }, 2000);
+    }
+
+    // Wikipedia fallback methods (used when WebLLM is unavailable)
+    async extractKeywords(text) {
+        console.log('Original prompt:', text);
+        
+        // Remove punctuation from the text
+        const textWithoutPunctuation = text.replace(/[.,!?;:'"()[\]{}]/g, ' ');
+        console.log('Text without punctuation:', textWithoutPunctuation);
+        
+        // Tokenize and extract important words
+        const tokens = textWithoutPunctuation.toLowerCase().split(/\s+/);
+        console.log('Tokens:', tokens);
+        
+        // Remove common stop words only
+        const stopWords = new Set([
+            'a', 'an', 'and', 'are', 'as', 'at', 'be', 'by', 'for', 'from',
+            'has', 'he', 'in', 'is', 'it', 'its', 'of', 'on', 'that', 'the',
+            'to', 'was', 'will', 'with', 'what', 'when', 'where', 'who', 'why',
+            'how', 'can', 'could', 'should', 'would', 'i', 'you', 'me', 'my', 'make',
+            'your', 'about', 'tell', 'give', 'show', 'find', 'get', 'do', 'does'
+        ]);
+
+        // Keep all words that aren't stop words and are longer than 1 character
+        const keywords = tokens.filter(word => 
+            word.length > 1 && !stopWords.has(word)
+        );
+        
+        console.log('Filtered keywords array:', keywords);
+
+        // Return all keywords joined together
+        const keywordString = keywords.join(' ') || text;
+        console.log('Final keyword string for search:', keywordString);
+        
+        return keywordString;
+    }
+
+    async searchWikipedia(keywords) {
+        try {
+            // Search Wikipedia API
+            const searchUrl = `https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=${encodeURIComponent(keywords)}&format=json&origin=*`;
+            const searchResponse = await fetch(searchUrl);
+            const searchData = await searchResponse.json();
+
+            if (!searchData.query || !searchData.query.search || searchData.query.search.length === 0) {
+                return "I couldn't find any relevant information on Wikipedia for your query.";
+            }
+
+            // Get the first result's page ID
+            const firstResult = searchData.query.search[0];
+            const pageId = firstResult.pageid;
+
+            // Fetch the full article content
+            const contentUrl = `https://en.wikipedia.org/w/api.php?action=query&pageids=${pageId}&prop=extracts&exintro=true&explaintext=true&format=json&origin=*`;
+            const contentResponse = await fetch(contentUrl);
+            const contentData = await contentResponse.json();
+
+            const pageContent = contentData.query.pages[pageId].extract;
+
+            console.log('Wikipedia page content received:', pageContent.substring(0, 500));
+            console.log('Total content length:', pageContent.length);
+
+            // Get intro section including any lists
+            // Split by double newlines but keep content until we hit a new section
+            const paragraphs = pageContent.split('\n');
+            let introContent = '';
+            let lineCount = 0;
+            const maxLines = 15; // Get more lines to capture lists
+            
+            for (let i = 0; i < paragraphs.length && lineCount < maxLines; i++) {
+                const line = paragraphs[i].trim();
+                if (line.length > 0) {
+                    introContent += (introContent ? '\n' : '') + line;
+                    lineCount++;
+                }
+                // Stop if we hit a section header (usually === or ==)
+                if (line.includes('==') && i > 0) {
+                    break;
+                }
+            }
+            
+            console.log('Intro content extracted:', introContent.substring(0, 500));
+            
+            return introContent;
+
+        } catch (error) {
+            console.error('Wikipedia search error:', error);
+            return "I encountered an error while searching Wikipedia. Please try again.";
+        }
+    }
+
+    async summarizeText(text) {
+        console.log('Summarizing text, length:', text.length);
+        console.log('Text to summarize:', text.substring(0, 300));
+        
+        // Since we're already limiting content in searchWikipedia,
+        // just add the reference and return
+        if (text.length < 800) {
+            return text + '\n(Ref: Wikipedia)';
+        }
+
+        // For longer content, check if it has list-like structure
+        const lines = text.split('\n');
+        const hasShortLines = lines.filter(l => l.length > 0 && l.length < 100).length > 3;
+        
+        if (hasShortLines) {
+            // Looks like a list - return first ~600 chars
+            let summary = '';
+            for (const line of lines) {
+                if (summary.length + line.length < 600) {
+                    summary += (summary ? '\n' : '') + line;
+                } else {
+                    break;
+                }
+            }
+            return summary + '\n(Ref: Wikipedia)';
+        }
+
+        // For regular narrative text, return first 2-3 sentences
+        const sentences = text.match(/[^.!?]+[.!?]+/g) || [text];
+        if (sentences.length <= 2) {
+            return text + '\n(Ref: Wikipedia)';
+        }
+
+        const summaryLength = Math.min(3, sentences.length);
+        return sentences.slice(0, summaryLength).join(' ').trim() + '\n(Ref: Wikipedia)';
+    }
+
+    async searchUploadedFile(keywords) {
+        // Search for keywords in uploaded file content
+        if (!this.config.fileUpload.content) {
+            return null;
+        }
+
+        try {
+            // Split keywords into individual words
+            const keywordArray = keywords.toLowerCase().split(/\s+/);
+            console.log('Searching file for keywords:', keywordArray);
+
+            // Split file content into sentences
+            const sentences = this.config.fileUpload.content.match(/[^.!?]+[.!?]+/g) || [];
+            console.log(`Found ${sentences.length} sentences in file`);
+
+            // Find sentences that contain any of the keywords
+            const matchingSentences = sentences.filter(sentence => {
+                const lowerSentence = sentence.toLowerCase();
+                return keywordArray.some(keyword => lowerSentence.includes(keyword));
+            });
+
+            console.log(`Found ${matchingSentences.length} matching sentences`);
+
+            if (matchingSentences.length > 0) {
+                // Return matching sentences with filename attribution
+                const result = matchingSentences.join(' ').trim();
+                return result + `\n(Ref: ${this.config.fileUpload.fileName})`;
+            }
+
+            return null;
+
+        } catch (error) {
+            console.error('Error searching uploaded file:', error);
+            return null;
+        }
+    }
+
+    async handleWikipediaFallback(userMessage, imagePrediction = null) {
+        // This method handles the complete Wikipedia fallback flow
+        try {
+            console.log('=== Wikipedia Fallback Debug ===');
+            console.log('User message:', userMessage);
+            console.log('Image prediction received:', imagePrediction);
+            
+            // Extract keywords from user input
+            let keywords = await this.extractKeywords(userMessage);
+            console.log('Extracted keywords from message:', keywords);
+
+            // Append image prediction to search keywords if available
+            if (imagePrediction) {
+                // Clean up the class name (remove underscores, etc)
+                const cleanedPrediction = imagePrediction.replace(/_/g, ' ');
+                keywords = keywords + ' ' + cleanedPrediction;
+                console.log('Image prediction cleaned:', cleanedPrediction);
+                console.log('Final keywords with image prediction:', keywords);
+            } else {
+                console.log('No image prediction to append');
+            }
+
+            // First, try searching the uploaded file if available
+            if (this.config.fileUpload.content) {
+                console.log('Uploaded file available, searching file first...');
+                const fileResult = await this.searchUploadedFile(keywords);
+                if (fileResult) {
+                    console.log('Found matching content in uploaded file');
+                    return fileResult;
+                }
+                console.log('No matches in uploaded file, falling back to Wikipedia');
+            }
+
+            // Search Wikipedia with keywords
+            console.log('Searching Wikipedia with:', keywords);
+            const articleText = await this.searchWikipedia(keywords);
+
+            // Summarize the article
+            const summary = await this.summarizeText(articleText);
+
+            return summary;
+
+        } catch (error) {
+            console.error('Error in Wikipedia fallback:', error);
+            return 'Sorry, I encountered an error while processing your request. Please try again.';
+        }
     }
 }
 
@@ -2087,6 +2398,45 @@ window.saveChatCapabilities = function() {
     if (modal) {
         modal.style.display = 'none';
         document.body.style.overflow = 'auto';
+    }
+};
+
+window.openAboutModal = function() {
+    const modal = document.getElementById('about-modal');
+    if (modal) {
+        // Store the currently focused element to restore later
+        window.lastFocusedElement = document.activeElement;
+        
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        
+        // Focus the modal for screen readers
+        setTimeout(() => {
+            const modalTitle = document.getElementById('about-modal-title');
+            if (modalTitle) {
+                modalTitle.focus();
+            }
+        }, 100);
+        
+        // Add keyboard trap for accessibility
+        window.trapFocus(modal);
+    }
+};
+
+window.closeAboutModal = function() {
+    const modal = document.getElementById('about-modal');
+    if (modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto'; // Restore scrolling
+        
+        // Restore focus to the element that opened the modal
+        if (window.lastFocusedElement) {
+            window.lastFocusedElement.focus();
+            window.lastFocusedElement = null;
+        }
+        
+        // Remove keyboard trap
+        window.removeFocusTrap();
     }
 };
 

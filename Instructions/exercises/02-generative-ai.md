@@ -14,24 +14,29 @@ This exercise should take approximately **15** minutes to complete.
 
 Let's start by using a chat interface to submit prompts to a generative AI model. In this exercise, we'll use the **Microsoft Phi 3 Mini model**; a small language model that is useful for general chat solutions in low bandwidth scenarios.
 
-> **Note**: The model will run in your browser, on your local computer. Performance may vary depending on the available memory in your computer and your network bandwidth to download the model. 
+> **Note**: The model will run in your browser, on your local computer. Performance may vary depending on the available memory in your computer and your network bandwidth to download the model. If WebLLM models are not supported in your browser, a fallback mode with reduced functionality will be enabled.
 
 1. In a web browser, open the **[Chat Playground](https://aka.ms/chat-playground){:target="_blank"}** at `https://aka.ms/chat-playground`.
 1. Wait for the model to download and initialize.
 
     > **Tip**: The first time you open the chat playground, it may take a few minutes for the model to download. Subsequent downloads will be faster.
 
-1. When the model is ready, enter a prompt such as `What is the capital of Scotland?`, and review the response.
+1. When the model is ready, enter a prompt such as `What is the capital city of Scotland?`, and review the response.
 
     ![Screenshot of the chat playground.](./media/gen-ai-01.png)
 
 1. Enter a follow-up prompt, such as `List 5 things I should do there.` and review the response; noting that the context of the conversation is "remembered" (the AI assistant "knows" you're asking about things to do in *Edinburgh* for example).
+
+    > **Note**: If you are using the "None" fallback model, the conversation context will not ne retained.
+
 1. At the top of the chat pane, use the **Clear chat** (&#128465;) button to restart the conversation.
 1. Try you're follow-up prompt again - this time, the conversational context has been reset; so the response may not be relevant to the previous messages (or indeed, make much sense).
 
 ## Experiment with system prompts
 
 A system prompt is used to provide the model with an overall context for its responses. You can use the system prompt to provide guidelines about format, style, and constraints about what the model should and should not include in its responses.
+
+> **Note**: If you are using the "None" fallback model, changing the system prompt has no effect.
 
 1. In the **Setup** pane, in the **Give the model instructions and context** text area, change the system prompt to `You are an enthusiastic cartoon dog, eager to please and excited to chat. Start and end responses with "Woof!"`
 1. Apply the changes - the conversation is automatically restarted.
@@ -43,6 +48,8 @@ A system prompt is used to provide the model with an overall context for its res
 ## Experiment with model parameters
 
 Model parameters control how the model works, and can be useful for restricting the size of its responses (measured in *tokens*) and controlling how "creative" its responses can be.
+
+> **Note**: If you are using the "None" fallback model, model parameters are disabled.
 
 1. In the **Setup** pane, expand the **Parameters** section.
 1. Review the parameter settings; then, without changing them, enter a prompt like `What can I do in New York City?` and review the response
@@ -71,7 +78,7 @@ For example, let's suppose an organization wants to use a generative AI agent to
 
     This time the response should be informed by the information in the expenses data source.
 
-1. Try a few more expenses-related prompts, like `Can I claim the cost of my dinner?`
+1. Try a few more expenses-related prompts, like `What about a hotel?` or `Can I claim the cost of my dinner?`
 
 ## Summary
 
