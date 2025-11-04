@@ -1,93 +1,79 @@
 ---
 lab:
     title: 'Explore AI text analysis'
-    description: 'Use AI to analyze text with a generative AI model.'
+    description: 'Use AI to analyze text.'
 ---
 
 # Explore text analytics
 
-In this exercise, you'll use a chat playground to interact with a generative AI model and have it analyze text.
+In this exercise, you'll use AI natural language processing functionality to analyze text.
 
 This exercise should take approximately **15** minutes to complete.
 
-## Summarize text
+## Open the text analyzer app and download text
 
-Let's start by using a generative AI model to summarize some text. In this exercise, we'll use the **Microsoft Phi 3 Mini model**; a small language model that is useful for general chat solutions in low bandwidth scenarios.
+We'll use a browser-based application that's based on a subset of the text analysis capabilities provided in the Azure AI Foundry language playground.
 
-> **Note**: The model will run in your browser, on your local computer. Performance may vary depending on the available memory in your computer and your network bandwidth to download the model. 
+1. Download and extract **[text.zip](https://aka.ms/ai-text){:target="_blank"}** at `https://aka.ms/ai-text`. This archive contains multiple text documents that you'll use in this exercise.
+1. In a web browser, open the **[Text Analyzer](https://aka.ms/text-analyzer){:target="_blank"}** at `https://aka.ms/text-analyzer`. This application provides the text analysis functionality you'll use.
 
-1. In a web browser, open the **[Chat Playground](https://aka.ms/chat-playground){:target="_blank"}** at `https://aka.ms/chat-playground`.
-1. Wait for the model to download and initialize.
+## Analyze sentiment
 
-    > **Tip**: The first time you open the chat playground, it may take a few minutes for the model to download. Subsequent downloads will be faster.
+Sentiment analysis is a common NLP task. It's used to determine whether text conveys a positive, neutral or negative sentiment; which makes it useful for categorizing reviews, social media posts, and other subjective documents.
 
-1. When the model is ready, enter the following prompt:
+1. In the Text Analyzer app, ensure the **Analyze sentiment** tile is selected.
+1. Upload **review-1.txt** from the folder where you extracted the downloaded text files.
+1. Run the analysis and observe the resulting sentiment prediction.
+1. Repeat the analysis for **review-2.txt**.
 
-    ```
-    Summarize this hotel review as a single, short paragraph:
-    
-    ---
-    Review Title: Good Hotel and staff
-    Hotel: The Royal Hotel, London, UK
-    Review Date: March 2nd 2025
-    
-    Clean rooms, good service, great location near Buckingham Palace and Westminster Abbey, and so on. We thoroughly enjoyed our stay. The courtyard is very peaceful and we went to a restaurant which is part of the same group and is Indian ( West coast so plenty of fish) with a Michelin Star. We had the taster menu which was fabulous. The rooms were very well appointed with a comfortable bedroom and enormous bathroom.
+    You can experiment further by uploading your own text files or by typing text into the Text Analyzer interface.
 
-    The hotel staff were very friendly and helpful. In particular, George at the front desk had some great recommendations for activities and sights that made our visit even more enjoyable.
+## Detect language
 
-    Thoroughly recommended.
-    ---
-    
-    ```
+Language detection is useful when you need to work with documents that may be written in multiple languages.
 
-    The response should summarize the review text.
+1. In the Text Analyzer app, select the **Detect language** tile.
+1. Upload **language-1.txt** from the folder where you extracted the downloaded text files.
+1. Run the analysis and observe the resulting language prediction.
+1. Repeat the analysis for **language-2.txt** and **language-3.txt**.
+
+    You can experiment further by uploading your own text files or by typing text into the Text Analyzer interface.
+
+## Extract key phrases
+
+Key phrase extraction can be a useful first step in identifying the main topics in a document.
+
+1. In the Text Analyzer app, select the **Extract key phrases** tile.
+1. Upload **document-1.txt** from the folder where you extracted the downloaded text files.
+1. Run the analysis and observe the resulting key phrases.
+1. Repeat the analysis for **document-2.txt** and **document-3.txt**.
+
+    You can experiment further by uploading your own text files or by typing text into the Text Analyzer interface.
 
 ## Extract named entities
 
-1. Submit the following prompt:
+Named entities are the people, places, dates, and other important items mentioned in text.
 
-    ```
-    List the named entities you detect in this review.
-    ```
+1. In the Text Analyzer app, select the **Extract named entities** tile.
+1. Upload **document-1.txt** from the folder where you extracted the downloaded text files.
+1. Run the analysis and observe the resulting key phrases.
+1. Repeat the analysis for **document-2.txt** and **document-3.txt**.
 
-    The response should identify entities such as places, dates, and people mentioned in the review.
+    You can experiment further by uploading your own text files or by typing text into the Text Analyzer interface.
 
-## Evaluate sentiment
+## Summarize text
 
-1. Submit the following prompt:
+Summarization is a way to distill the main points in a document into a shorter amount of text.
 
-    ```
-    Classify the sentiment of the review as "positive", "negative", or "neutral".
-    ```
+1. In the Text Analyzer app, select the **Summarize text** tile.
+1. Upload **document-1.txt** from the folder where you extracted the downloaded text files.
+1. Run the analysis and observe the resulting key phrases.
+1. Repeat the analysis for **document-2.txt** and **document-3.txt**.
 
-    The response should indicate the sentiment of the review.
-
-## Try another review
-
-1. At the top of the chat pane, use the **Clear chat** (&#128465;) button to restart the conversation.
-1. Use the model to generate a summary of the following review text:
-
-    ```
-    ---
-    Review Title: Tired hotel with poor service
-    Hotel: The Capital Hotel, London, UK
-    Review Date: May 6th 2025
-
-    This is a old hotel (has been around since 1950's) and the room furnishings are average - becoming a bit old now and require changing. The internet didn't work and had to come to one of their office rooms to check in for my flight home. The website says it's close to the British Museum, but it's too far to walk.
-
-    The hotel has no restaurant, and the room service options are very limited. What little food they did have available (Microwaved pastries and burgers) wasn't very nice.
-
-    Zero stars - would not recommend!
-
-    ---
-
-    ```
-
-1. Use the model to extract the named entities from the review.
-1. Use the model to evaluate the sentiment of the review.
+    You can experiment further by uploading your own text files or by typing text into the Text Analyzer interface.
 
 ## Summary
 
-in this exercise, you explored the use of a generative AI model to analyze text.
+in this exercise, you explored the use of a AI to analyze text, using simple NLP functionality in a browser-based app.
 
-The semantic language embeddings in LLMs makes them inherently useful for linguistic analysis. Azure AI Foundry a wide range f language models, some of which are optimized for specific language processing tasks. Additionally, Azure AI Foundry includes the Azure AI Language service, which offers a specialized service with APIs for common text analytics tasks.
+To perform language analytics at scale, you should use a cloud-based AI platform like Azure AI Foundry. Azure AI Foundry a wide range of language models, some of which are optimized for specific language processing tasks. Additionally, Azure AI Foundry includes the Azure AI Language service, which offers a specialized service with APIs for common text analytics tasks.
