@@ -21,7 +21,7 @@ Let's start by chatting with a generative AI model. In this exercise, we'll use 
 
     > **Tip**: The first time you open the chat playground, it may take a few minutes for the model to download. Subsequent downloads will be faster.
 
-1. When the model is ready, enter a prompt, such as `What is the capital of England?` and review the response.
+1. When the model is ready, enter a prompt, such as `What is the capital city of England?` and review the response.
 
 ## Use speech-to-text for voice recognition
 
@@ -34,7 +34,7 @@ Speech-to-text (STT) is an AI technique that transforms audible speech into text
 
     Under the chat interface, a **Voice input** (**🎙**) button is enabled.
 
-1. Click the **Voice input** button, and if prompted, allow access to your computer's microphone. Then after the tone, say something like "*What should I consider when choosing a hotel in London?*".
+1. Click the **Voice input** button, and if prompted, allow access to your computer's microphone. Then after the tone, say something like "*What airports serve London?*".
 
     Your speech should be converted to text and entered as a prompt, to which the model responds.
 
@@ -49,7 +49,7 @@ For a fully functional speech-capable AI agent, the conversation should flow in 
 
     The chat restarts after enabling text to speech.
 
-1. Use the **Voice input** button to speak to the agent (try something like "*Suggest three tourist activities in London*")
+1. Use the **Voice input** button to speak to the agent (try something like "*What transport options are there in London?*")
 
     > **Note**: The agent may take longer to respond when text to speech is enabled.
 
