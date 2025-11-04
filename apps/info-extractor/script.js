@@ -43,8 +43,8 @@ class InformationExtractor {
         this.uploadSidebar.classList.remove('ui-disabled');
         this.resultsPanel.classList.remove('ui-disabled');
         
-        // Enable analyze button only if image is selected and model is loaded
-        if (this.selectedImageIndex >= 0 && this.isModelLoaded) {
+        // Enable analyze button if image is selected (OCR still works without model)
+        if (this.selectedImageIndex >= 0) {
             this.analyzeBtn.disabled = false;
         }
     }
@@ -284,8 +284,8 @@ class InformationExtractor {
         this.imagePlaceholder.textContent = `Selected image: ${imageData.name}`;
         this.imagePlaceholder.setAttribute('aria-live', 'polite');
         
-        // Enable analyze button
-        this.analyzeBtn.disabled = !this.isModelLoaded;
+        // Enable analyze button (OCR works even without AI model)
+        this.analyzeBtn.disabled = false;
         
         // Reset zoom level
         this.resetZoom();
@@ -450,7 +450,7 @@ class InformationExtractor {
                 availableModels[0].model_id,
                 {
                     initProgressCallback: (progress) => {
-                        const percentage = 30 + Math.round(progress.progress * 60); // 30-90%
+                        const percentage = 30 + Math.round(progress.progress * 70); // 30-100%
                         const progressText = `Loading ${availableModels[0].model_id}: ${Math.round(progress.progress * 100)}%`;
                         this.updateModelLoadingProgress(percentage, progressText);
                         console.log('Model loading progress:', Math.round(progress.progress * 100) + '%');
@@ -459,34 +459,16 @@ class InformationExtractor {
             );
             
             this.currentModelId = availableModels[0].model_id;
-            this.updateModelLoadingProgress(90, 'Testing model...');
+            this.isModelLoaded = true;
+            this.updateModelLoadingProgress(100, 'Model ready!');
+            console.log('Model loaded successfully:', this.currentModelId);
             
-            // Test the model with a simple prompt
-            try {
-                console.log('Testing model with simple prompt...');
-                const testResponse = await this.engine.chat.completions.create({
-                    messages: [{ role: "user", content: "Hello, can you respond with 'Model is working'?" }],
-                    max_tokens: 10,
-                    temperature: 0.1
-                });
-                console.log('Model test response:', testResponse.choices[0].message.content);
-                
-                this.isModelLoaded = true;
-                this.updateModelLoadingProgress(100, 'Model ready!');
-                console.log('Model loaded successfully:', this.currentModelId);
-                
-                // Hide loading screen after a brief delay
-                setTimeout(() => {
-                    this.hideModelLoading();
-                    // Load the default receipt image
-                    this.loadDefaultReceipt();
-                }, 1000);
-                
-            } catch (testError) {
-                console.error('Model test failed:', testError);
-                this.isModelLoaded = false;
-                throw new Error('Model loaded but not responding correctly');
-            }
+            // Hide loading screen after a brief delay
+            setTimeout(() => {
+                this.hideModelLoading();
+                // Load the default receipt image
+                this.loadDefaultReceipt();
+            }, 1000);
             
         } catch (error) {
             console.error('Failed to initialize model:', error);
@@ -500,7 +482,7 @@ class InformationExtractor {
             // Hide loading screen and show error after delay
             setTimeout(() => {
                 this.hideModelLoading();
-                this.showError(`Failed to load AI model: ${error.message}. Please refresh the page and try again.`);
+                this.showError(`Failed to load AI model: ${error.message}. You can still analyze receipts using OCR, but AI field extraction will not be available.`);
                 // Still load the default receipt even if model fails
                 this.loadDefaultReceipt();
             }, 3000);
@@ -522,9 +504,15 @@ class InformationExtractor {
             this.updateProgress(10, 'Extracting text with OCR...');
             await this.performOCR(imageData.file);
             
-            // Step 2: Extract fields with LLM
-            this.updateProgress(60, 'Extracting field information...');
-            await this.extractFields();
+            // Step 2: Extract fields with LLM (only if model is loaded)
+            if (this.isModelLoaded && this.engine) {
+                console.log('Model is loaded, proceeding with field extraction');
+                this.updateProgress(60, 'Extracting field information...');
+                await this.extractFields();
+            } else {
+                console.log('AI model not loaded, skipping field extraction. isModelLoaded:', this.isModelLoaded, 'engine:', !!this.engine);
+                this.extractedFields = null; // Clear any previous fields
+            }
             
             // Step 3: Display results
             this.updateProgress(90, 'Preparing results...');
@@ -769,11 +757,30 @@ Respond as a list of fields with their values.`;
     }
 
     displayFields() {
-        if (!this.extractedFields) return;
-        
         const fieldsContainer = this.fieldsList;
         fieldsContainer.innerHTML = '';
         
+        console.log('displayFields called. extractedFields:', this.extractedFields, 'isModelLoaded:', this.isModelLoaded);
+        
+        if (!this.extractedFields) {
+            // Show message that AI extraction is not available only if model wasn't loaded
+            if (!this.isModelLoaded) {
+                console.log('Showing AI model not available message');
+                const messageDiv = document.createElement('div');
+                messageDiv.className = 'field-message';
+                messageDiv.innerHTML = `
+                    <p><strong>AI Model Not Available</strong></p>
+                    <p>Field extraction requires the AI model, which could not be loaded. The extracted text is still available in the Result tab.</p>
+                `;
+                fieldsContainer.appendChild(messageDiv);
+                this.fieldsList.style.display = 'flex';
+                this.fieldsTab.querySelector('.results-placeholder').style.display = 'none';
+            }
+            // If model IS loaded but no fields extracted, just return (keep placeholder visible)
+            return;
+        }
+        
+        console.log('Displaying extracted fields:', Object.keys(this.extractedFields).length, 'fields');
         Object.entries(this.extractedFields).forEach(([fieldName, fieldValue]) => {
             const fieldItem = document.createElement('div');
             fieldItem.className = 'field-item';

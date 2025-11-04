@@ -593,6 +593,27 @@ main {
     font-style: italic;
 }
 
+.field-message {
+    background: #fff3cd;
+    border: 1px solid #ffc107;
+    border-radius: 4px;
+    padding: 16px;
+    color: #856404;
+}
+
+.field-message p {
+    margin: 0 0 8px 0;
+    line-height: 1.5;
+}
+
+.field-message p:last-child {
+    margin-bottom: 0;
+}
+
+.field-message strong {
+    color: #533f03;
+}
+
 .result-content pre {
     background: #f8f9fa;
     border: 1px solid #e9ecef;
