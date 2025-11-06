@@ -56,7 +56,7 @@ Named entities are the people, places, dates, and other important items mentione
 
 1. In the Text Analyzer app, select the **Extract named entities** tile.
 1. Upload **document-1.txt** from the folder where you extracted the downloaded text files.
-1. Run the analysis and observe the resulting key phrases.
+1. Run the analysis and observe the resulting named entities.
 1. Repeat the analysis for **document-2.txt** and **document-3.txt**.
 
     You can experiment further by uploading your own text files or by typing text into the Text Analyzer interface.
@@ -67,7 +67,7 @@ Summarization is a way to distill the main points in a document into a shorter a
 
 1. In the Text Analyzer app, select the **Summarize text** tile.
 1. Upload **document-1.txt** from the folder where you extracted the downloaded text files.
-1. Run the analysis and observe the resulting key phrases.
+1. Run the analysis and observe the resulting summarization.
 1. Repeat the analysis for **document-2.txt** and **document-3.txt**.
 
     You can experiment further by uploading your own text files or by typing text into the Text Analyzer interface.
