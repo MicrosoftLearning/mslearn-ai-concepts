@@ -482,7 +482,7 @@ class InformationExtractor {
             // Hide loading screen and show error after delay
             setTimeout(() => {
                 this.hideModelLoading();
-                this.showError(`Failed to load AI model: ${error.message}. You can still analyze receipts using OCR, but AI field extraction will not be available.`);
+                this.showError(`The AI model could not be loaded in this browser.\nThe app will use a fallback mode to extract fields using OCR and pattern-matching.`, 'Fallback mode activated');
                 // Still load the default receipt even if model fails
                 this.loadDefaultReceipt();
             }, 3000);
@@ -510,8 +510,9 @@ class InformationExtractor {
                 this.updateProgress(60, 'Extracting field information...');
                 await this.extractFields();
             } else {
-                console.log('AI model not loaded, skipping field extraction. isModelLoaded:', this.isModelLoaded, 'engine:', !!this.engine);
-                this.extractedFields = null; // Clear any previous fields
+                console.log('AI model not loaded, using heuristic field extraction. isModelLoaded:', this.isModelLoaded, 'engine:', !!this.engine);
+                this.updateProgress(60, 'Extracting fields using pattern matching...');
+                this.extractFieldsHeuristic();
             }
             
             // Step 3: Display results
@@ -701,6 +702,215 @@ Respond as a list of fields with their values.`;
         return fields;
     }
 
+    extractFieldsHeuristic() {
+        if (!this.ocrData || !this.ocrData.text.trim()) {
+            this.extractedFields = null;
+            return;
+        }
+
+        console.log('Using heuristic field extraction');
+        const text = this.ocrData.text;
+        const lines = text.split('\n').map(line => line.trim()).filter(line => line.length > 0);
+        const allWords = text.split(/\s+/).map(word => word.trim()).filter(word => word.length > 0);
+
+        const fields = {
+            'Vendor': '',
+            'Vendor-Address': '',
+            'Vendor-Phone': '',
+            'Receipt-Date': '',
+            'Receipt-Time': '',
+            'Total-spent': ''
+        };
+
+        // Vendor: probably the first meaningful text value
+        if (lines.length > 0) {
+            // Skip lines that look like addresses or phone numbers for vendor name
+            for (const line of lines) {
+                if (line.length > 2 && 
+                    !this.isPhoneNumber(line) && 
+                    !this.isDate(line) && 
+                    !line.match(/^\d+/) && // Skip lines starting with numbers
+                    !line.match(/^(st|ave|blvd|rd|street|avenue|boulevard|road)/i)) { // Skip address-like lines
+                    fields['Vendor'] = line;
+                    break;
+                }
+            }
+        }
+
+        // Phone: first value matching phone pattern (check individual words and combinations)
+        for (let i = 0; i < allWords.length; i++) {
+            // Check single word
+            if (this.isPhoneNumber(allWords[i])) {
+                fields['Vendor-Phone'] = allWords[i];
+                break;
+            }
+            // Check combinations of 2-4 consecutive words for patterns like "123 456 7890" or "(555) 123-4567"
+            for (let j = 2; j <= 4 && i + j <= allWords.length; j++) {
+                const words = allWords.slice(i, i + j);
+                
+                // Try space-separated combination (most common)
+                const spaceCombination = words.join(' ');
+                if (this.isPhoneNumber(spaceCombination)) {
+                    fields['Vendor-Phone'] = spaceCombination;
+                    break;
+                }
+                
+                // Try dash-separated combination for cases like "123" "456" "7890" → "123-456-7890"
+                const dashCombination = words.join('-');
+                if (this.isPhoneNumber(dashCombination)) {
+                    fields['Vendor-Phone'] = dashCombination;
+                    break;
+                }
+                
+                // Try direct concatenation for cases like "(555)" "1234567" → "(555)1234567"
+                const directCombination = words.join('');
+                if (this.isPhoneNumber(directCombination)) {
+                    fields['Vendor-Phone'] = directCombination;
+                    break;
+                }
+            }
+            if (fields['Vendor-Phone']) break;
+        }
+
+        // Date: first value matching date pattern (check individual words and combinations)
+        for (let i = 0; i < allWords.length; i++) {
+            // Check single word
+            if (this.isDate(allWords[i])) {
+                fields['Receipt-Date'] = allWords[i];
+                break;
+            }
+            // Check combinations of 2-4 consecutive words for patterns like "Aug 25, 2025"
+            for (let j = 2; j <= 4 && i + j <= allWords.length; j++) {
+                const wordCombination = allWords.slice(i, i + j).join(' ');
+                if (this.isDate(wordCombination)) {
+                    fields['Receipt-Date'] = wordCombination;
+                    break;
+                }
+            }
+            if (fields['Receipt-Date']) break;
+        }
+
+        // Time: first value matching time pattern (check individual words and combinations)
+        for (let i = 0; i < allWords.length; i++) {
+            // Check single word
+            if (this.isTime(allWords[i])) {
+                fields['Receipt-Time'] = allWords[i];
+                break;
+            }
+            // Check combinations of 2 consecutive words for patterns like "10:30 AM"
+            if (i + 1 < allWords.length) {
+                const wordCombination = allWords.slice(i, i + 2).join(' ');
+                if (this.isTime(wordCombination)) {
+                    fields['Receipt-Time'] = wordCombination;
+                    break;
+                }
+            }
+            if (fields['Receipt-Time']) break;
+        }
+
+        // Total: largest monetary value in the document
+        let largestValue = 0;
+        let largestValueText = '';
+        for (const word of allWords) {
+            if (this.isMonetaryValue(word)) {
+                const numericValue = parseFloat(word.replace(/[$,]/g, ''));
+                if (numericValue > largestValue) {
+                    largestValue = numericValue;
+                    largestValueText = word;
+                }
+            }
+        }
+        if (largestValueText) {
+            fields['Total-spent'] = largestValueText;
+        }
+
+        this.extractedFields = fields;
+        console.log('Heuristic extraction results:', fields);
+    }
+
+    isPhoneNumber(text) {
+        // Match various phone number formats including international
+        const phonePatterns = [
+            // US formats
+            /^\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}$/, // (123) 456-7890, 123-456-7890, 123.456.7890
+            /^\+?1?[-.\s]?\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}$/, // +1 123 456 7890
+            /^\d{10}$/, // 1234567890
+            /^\d{3}\s+\d{3}\s+\d{4}$/, // 123 456 7890
+            /^\(\d{3}\)\s+\d{3}\s+\d{4}$/, // (123) 456 7890
+            /^\(\d{3}\)\d{7}$/, // (555)1234567
+            /^\(\d{3}\)\d{3}-?\d{4}$/, // (555)123-4567 or (555)1234567
+            
+            // International formats
+            /^\+\d{1,4}[-.\s]?\(?\d{1,4}\)?[-.\s]?\d{1,4}[-.\s]?\d{1,9}$/, // +44 20 1234 5678, +33 1 23 45 67 89
+            /^\d{3}[-.\s]?\d{4}[-.\s]?\d{6}$/, // 123 4567 123456
+            /^\d{3}[-.\s]?\d{3,4}[-.\s]?\d{4,6}$/, // 123 456 7890 or 123 4567 123456
+            /^\(\d{2,4}\)[-.\s]?\d{3,4}[-.\s]?\d{4,6}$/, // (44) 20 1234 5678
+            /^\+?\d{8,15}$/, // Simple 8-15 digit number with optional +
+            /^\d{2,4}[-.\s]\d{3,4}[-.\s]\d{4,8}$/ // General international: 44 20 12345678
+        ];
+        const normalizedText = text.replace(/\s+/g, ' ').trim();
+        
+        // Additional validation: must contain at least 7 digits total
+        const digitCount = (normalizedText.match(/\d/g) || []).length;
+        if (digitCount < 7 || digitCount > 15) {
+            return false;
+        }
+        
+        return phonePatterns.some(pattern => pattern.test(normalizedText));
+    }
+
+    isTime(text) {
+        // Match various time formats
+        const timePatterns = [
+            /^\d{1,2}:\d{2}$/, // H:MM or HH:MM (basic format)
+            /^\d{1,2}:\d{2}\s?(am|pm)$/i, // H:MM AM/PM or HH:MM AM/PM
+            /^\d{1,2}:\d{2}:\d{2}$/, // H:MM:SS or HH:MM:SS
+            /^\d{1,2}:\d{2}:\d{2}\s?(am|pm)$/i // H:MM:SS AM/PM or HH:MM:SS AM/PM
+        ];
+        const normalizedText = text.trim().toLowerCase();
+        
+        // Additional validation: check if it's a reasonable time
+        if (timePatterns.some(pattern => pattern.test(normalizedText))) {
+            // Extract hours and minutes for validation
+            const timeParts = normalizedText.split(':');
+            const hours = parseInt(timeParts[0]);
+            const minutes = parseInt(timeParts[1]);
+            
+            // Validate ranges: hours 0-23 (or 1-12 for AM/PM), minutes 0-59
+            const hasAmPm = /\s?(am|pm)$/i.test(normalizedText);
+            const validHours = hasAmPm ? (hours >= 1 && hours <= 12) : (hours >= 0 && hours <= 23);
+            const validMinutes = minutes >= 0 && minutes <= 59;
+            
+            return validHours && validMinutes;
+        }
+        
+        return false;
+    }
+
+    isDate(text) {
+        // Match various date formats
+        const datePatterns = [
+            /^\d{1,2}\/\d{1,2}\/\d{2,4}$/, // MM/DD/YYYY, M/D/YY
+            /^\d{1,2}-\d{1,2}-\d{2,4}$/, // MM-DD-YYYY, M-D-YY
+            /^\d{1,2}\.\d{1,2}\.\d{2,4}$/, // MM.DD.YYYY
+            /^\d{4}\/\d{1,2}\/\d{1,2}$/, // YYYY/MM/DD
+            /^\d{4}-\d{1,2}-\d{1,2}$/, // YYYY-MM-DD
+            /^(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\s+\d{1,2},?\s+\d{2,4}$/i, // Month DD, YYYY or Month DD YYYY
+            /^(january|february|march|april|may|june|july|august|september|october|november|december)\s+\d{1,2},?\s+\d{2,4}$/i // Full month names
+        ];
+        const normalizedText = text.trim().toLowerCase();
+        return datePatterns.some(pattern => pattern.test(normalizedText));
+    }
+
+    isMonetaryValue(text) {
+        // Match monetary values that include exactly two decimal places
+        const moneyPatterns = [
+            /^\$?\d+\.\d{2}$/, // $12.34, 12.34
+            /^\$?\d{1,3}(,\d{3})*\.\d{2}$/ // $1,234.56, 1,234.56
+        ];
+        return moneyPatterns.some(pattern => pattern.test(text.trim())) && parseFloat(text.replace(/[$,]/g, '')) > 0;
+    }
+
     displayResults() {
         // Show annotated image with bounding boxes
         this.createAnnotatedImage();
@@ -778,6 +988,20 @@ Respond as a list of fields with their values.`;
             }
             // If model IS loaded but no fields extracted, just return (keep placeholder visible)
             return;
+        }
+
+        // Show heuristic extraction notice if model wasn't loaded but we have fields
+        if (!this.isModelLoaded) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'field-message';
+            messageDiv.style.backgroundColor = '#d1ecf1';
+            messageDiv.style.borderColor = '#bee5eb';
+            messageDiv.style.color = '#0c5460';
+            messageDiv.innerHTML = `
+                <p><strong>Pattern-Based Extraction</strong></p>
+                <p>Fields extracted using pattern matching. Results may be less accurate than AI extraction.</p>
+            `;
+            fieldsContainer.appendChild(messageDiv);
         }
         
         console.log('Displaying extracted fields:', Object.keys(this.extractedFields).length, 'fields');
@@ -945,8 +1169,22 @@ Respond as a list of fields with their values.`;
         });
     }
 
-    showError(message) {
-        this.errorMessage.textContent = message;
+    showError(message, title = 'Error') {
+        // Update the heading
+        const errorHeading = this.errorSection.querySelector('h2');
+        errorHeading.textContent = title;
+        
+        // Handle newlines in the message
+        this.errorMessage.innerHTML = message.replace(/\n/g, '<br>');
+        
+        // Force styling for fallback mode
+        if (title === 'Fallback mode activated') {
+            this.errorSection.style.borderColor = '#007acc';
+            this.errorSection.style.color = '#333';
+            errorHeading.style.color = '#333';
+            this.errorMessage.style.color = '#333';
+        }
+        
         this.errorSection.style.display = 'block';
         this.hideProgress();
     }
