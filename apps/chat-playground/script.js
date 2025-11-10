@@ -1233,15 +1233,19 @@ class ChatPlayground {
             
             // Enable UI for Wikipedia fallback mode
             setTimeout(() => {
-                this.updateProgress(0, 'AI model unavailable. Using Wikipedia search fallback mode.');
+                this.updateProgress(0, 'AI model unavailable. Using Wikipedia search fallback mode - <a href="#" onclick="openAboutModal(); return false;" style="color: #0078d4; text-decoration: underline; cursor: pointer;">More info...</a>', true);
                 this.enableUI();
             }, 2000);
         }
     }
     
-    updateProgress(percentage, text) {
+    updateProgress(percentage, text, useHTML = false) {
         this.progressFill.style.width = `${percentage}%`;
-        this.progressText.textContent = text;
+        if (useHTML) {
+            this.progressText.innerHTML = text;
+        } else {
+            this.progressText.textContent = text;
+        }
     }
     
     enableUI() {
