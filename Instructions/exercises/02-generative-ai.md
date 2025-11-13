@@ -30,7 +30,7 @@ Let's start by using a chat interface to submit prompts to a generative AI model
     > **Note**: If you are using the "None" fallback model, the conversation context will not be retained.
 
 1. At the top of the chat pane, use the **Clear chat** (&#128465;) button to restart the conversation.
-1. Try you're follow-up prompt again - this time, the conversational context has been reset; so the response may not be relevant to the previous messages (or indeed, make much sense).
+1. Try your follow-up prompt again - this time, the conversational context has been reset; so the response may not be relevant to the previous messages (or indeed, make much sense).
 
 ## Experiment with system prompts
 
