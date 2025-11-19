@@ -17,6 +17,8 @@ We'll use a browser-based application that's based on a subset of the text analy
 1. Download and extract **[text.zip](https://aka.ms/ai-text){:target="_blank"}** at `https://aka.ms/ai-text`. This archive contains multiple text documents that you'll use in this exercise.
 1. In a web browser, open the **[Text Analyzer](https://aka.ms/text-analyzer){:target="_blank"}** at `https://aka.ms/text-analyzer`. This application provides the text analysis functionality you'll use.
 
+> **Note**: The app uses a Microsoft Phi generative AI model to analyze text. This functionality requires GPU support in your browser. If no GPU is available, the app will fallback to use statistical analysis techniques. Even if your browser does support GPUs, you can choose to explicitly disable generative AI analysis to reduce memory requirements or if you just want to compare the results from both techniques. Generative AI analysis will take significantly longer than statistical analysis, but the results will often be better.
+
 ## Analyze sentiment
 
 Sentiment analysis is a common NLP task. It's used to determine whether text conveys a positive, neutral or negative sentiment; which makes it useful for categorizing reviews, social media posts, and other subjective documents.
@@ -74,6 +76,6 @@ Summarization is a way to distill the main points in a document into a shorter a
 
 ## Summary
 
-in this exercise, you explored the use of a AI to analyze text, using simple NLP functionality in a browser-based app.
+in this exercise, you explored the use of a AI to analyze text, using NLP functionality in a browser-based app.
 
 To perform language analytics at scale, you should use a cloud-based AI platform like Azure AI Foundry. Azure AI Foundry a wide range of language models, some of which are optimized for specific language processing tasks. Additionally, Azure AI Foundry includes the Azure AI Language service, which offers a specialized service with APIs for common text analytics tasks.
