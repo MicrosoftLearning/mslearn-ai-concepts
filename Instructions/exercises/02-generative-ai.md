@@ -29,7 +29,7 @@ Let's start by using a chat interface to submit prompts to a generative AI model
 
     > **Note**: When using an LLM such as the Microsoft Phi model, chat  applications often include the conversation history in the prompt; so the context of the conversation is retained between messages (for example, a follow-up prompt like `Who was her father?` would be interpreted as relating to Ada Lovelace). In this application, if you are using the "None" fallback model, the conversation context is <u>not</u> retained.
 
-1. At the top of the chat pane, use the **Clear chat** (&#128465;) button to restart the conversation.
+1. At the top of the chat pane, use the **Clear chat** (&#128465;) button to restart the conversation. This removes all conversation history.
 1. Enter a new prompt, such as `What was ENIAC?` and view the response.
 
 ## Experiment with system prompts
