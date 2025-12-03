@@ -57,4 +57,4 @@ For a fully functional speech-capable AI agent, the conversation should flow in 
 
 in this exercise, you explored the use of speech-to-text and text-to-speech with a generative AI model in a chat playground. 
 
-Some models are *multimodal*, and natively support audio input; while others rely on speech-to-text and text-to-speech for spoken conversations. Azure AI Foundry supports multimodal models, and also provides Azure AI Speech; which includes a wide range of services you can use to build speech-based AI apps and agents.
+Some models are *multimodal*, and natively support audio input; while others rely on speech-to-text and text-to-speech for spoken conversations. Microsoft Foundry supports multimodal models, and also provides the Azure Speech tool; which includes a wide range of services you can use to build speech-based AI apps and agents.

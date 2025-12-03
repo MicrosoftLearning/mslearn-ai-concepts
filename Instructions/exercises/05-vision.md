@@ -46,4 +46,4 @@ Let's start by chatting with a generative AI model. In this exercise, we'll use 
 
 in this exercise, you explored the use of computer vision with a generative AI model in a chat playground. 
 
-Some models are *multimodal*, and natively support image-based input; while other solutions rely on using a separate image classification or object detection model. Azure AI Foundry supports a range of multimodal models, as well as third-party vision models in the Azure AI Foundry model catalog. Additionally, you can use the Azure AI Content Understanding service to analyze images.
+Some models are *multimodal*, and natively support image-based input; while other solutions rely on using a separate image classification or object detection model. Microsoft Foundry supports a range of multimodal models, as well as third-party vision models in the model catalog. Additionally, you can use the Azure Content Understanding tool to analyze images.
