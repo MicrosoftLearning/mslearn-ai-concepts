@@ -21,16 +21,16 @@ Let's start by using a chat interface to submit prompts to a generative AI model
 
     > **Tip**: The first time you open the chat playground, it may take a few minutes for the model to download. Subsequent downloads will be faster.
 
-1. When the model is ready, enter a prompt such as `What is the capital city of Scotland?`, and review the response.
+1. When the model is ready, enter a prompt such as `Who was Ada Lovelace?`, and review the response.
 
     ![Screenshot of the chat playground.](./media/gen-ai-01.png)
 
-1. Enter a follow-up prompt, such as `List 5 things I should do there.` and review the response; noting that the context of the conversation is "remembered" (the AI assistant "knows" you're asking about things to do in *Edinburgh* for example).
+1. Enter a follow-up prompt, such as `Tell me more about Charles Babbage.` and review the response.
 
-    > **Note**: If you are using the "None" fallback model, the conversation context will not be retained.
+    > **Note**: When using an LLM such as the Microsoft Phi model, chat  applications often include the conversation history in the prompt; so the context of the conversation is retained between messages (for example, a follow-up prompt like `Who was her father?` would be interpreted as relating to Ada Lovelace). In this application, if you are using the "None" fallback model, the conversation context is <u>not</u> retained.
 
 1. At the top of the chat pane, use the **Clear chat** (&#128465;) button to restart the conversation.
-1. Try your follow-up prompt again - this time, the conversational context has been reset; so the response may not be relevant to the previous messages (or indeed, make much sense).
+1. Enter a new prompt, such as `What was ENIAC?` and view the response.
 
 ## Experiment with system prompts
 
@@ -38,12 +38,9 @@ A system prompt is used to provide the model with an overall context for its res
 
 > **Note**: If you are using the "None" fallback model, changing the system prompt has no effect.
 
-1. In the **Setup** pane, in the **Give the model instructions and context** text area, change the system prompt to `You are an enthusiastic cartoon dog, eager to please and excited to chat. Start and end responses with "Woof!"`
+1. In the **Setup** pane, in the **Give the model instructions and context** text area, change the system prompt to `You are an AI assistant that helps people find information. Provide short, concise answers using simple language.`
 1. Apply the changes - the conversation is automatically restarted.
-1. Now try a prompt like `Tell me about London.` and review the output.
-1. Change the system prompt to `You are an efficient assistant who responds concisely, with short and to the point answers.`
-1. Apply the changes and try the same prompt as before (for example, `Tell me about London.`); and compare the response.
-1. Change the system prompt back to `You are an AI assistant that helps people find information.` and apply the changes.
+1. Now try a prompt like `What is AI?` and review the output.
 
 ## Experiment with model parameters
 
@@ -52,8 +49,11 @@ Model parameters control how the model works, and can be useful for restricting 
 > **Note**: If you are using the "None" fallback model, model parameters are disabled.
 
 1. In the **Setup** pane, expand the **Parameters** section.
-1. Review the parameter settings; then, without changing them, enter a prompt like `What can I do in New York City?` and review the response
-1. Experiment by changing the parameter values and repeating the same prompt. You should see some differences in behavior from the model. For example, increasing the **Temperature** adds more randomness into the model's word selection, increasing the "creativity" of the responses (to the point that they may end up being complete gibberish!)
+1. Review the parameter settings; then, without changing them, enter a prompt like `How does Machine Learning relate to AI?` and review the response
+1. Experiment by changing the parameter values and repeating the same prompt. You should see some differences in behavior from the model. For example, increasing the **Temperature** adds more randomness into the model's word selection, increasing the "creativity" of the responses (to the point that they may end up being complete gibberish!).
+
+    > **Tip**: You can use the **Stop generation** button in the chat pane to stop the response.
+
 1. When you've finished experimenting, reset the parameters to their default values and hide the **Parameters** area.
 
 ## Ground responses with data
@@ -82,6 +82,6 @@ For example, let's suppose an organization wants to use a generative AI agent to
 
 ## Summary
 
-in this exercise, you explored a generative Ai model in a chat playground. You've seen how a model's responses can be affected by changing the system prompt, configuring model parameters, and by adding data.
+in this exercise, you explored a generative AI model in a chat playground. You've seen how a model's responses can be affected by changing the system prompt, configuring model parameters, and by adding data.
 
-The interface and techniques used in this exercise are similar to those in Azure AI Foundry portal; a tool for building AI agents on the Microsoft Azure AI Foundry platform.
+The interface and techniques used in this exercise are similar to those in Microsoft Foundry portal; a platform for building AI apps and agents in the Microsoft Azure cloud.
