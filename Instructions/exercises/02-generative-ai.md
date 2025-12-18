@@ -14,7 +14,7 @@ This exercise should take approximately **15** minutes to complete.
 
 Let's start by using a chat interface to submit prompts to a generative AI model. In this exercise, we'll use the **Microsoft Phi 3 Mini model**; a small language model that is useful for general chat solutions in low bandwidth scenarios.
 
-> **Note**: The model will run in your browser, on your local computer. Performance may vary depending on the available memory in your computer and your network bandwidth to download the model. If WebLLM models are not supported in your browser, a fallback mode with reduced functionality will be enabled.
+> **Note**: The model will run in your browser, on your local computer. Performance may vary depending on the available memory in your computer and your network bandwidth to download the model. If WebLLM models are not supported in your browser, a fallback mode with reduced functionality will be enabled. After opening the app, use the **?** (*About this app*) icon in the chat area to find out more.
 
 1. In a web browser, open the **[Chat Playground](https://aka.ms/chat-playground){:target="_blank"}** at `https://aka.ms/chat-playground`.
 1. Wait for the model to download and initialize.
@@ -38,23 +38,20 @@ A system prompt is used to provide the model with an overall context for its res
 
 > **Note**: If you are using the "None" fallback model, changing the system prompt has no effect.
 
-1. In the **Setup** pane, in the **Give the model instructions and context** text area, change the system prompt to `You are an AI assistant that helps people find information. Provide short, concise answers using simple language.`
-1. Apply the changes - the conversation is automatically restarted.
-1. Now try a prompt like `What is AI?` and review the output.
+1. In the pane on the left, in the **Instructions** text area, change the system prompt to `You are an AI assistant that provides short and concise answers using simple language. Limit responses to a single sentence.`
+1. Now try the same prompt as before (`What was ENIAC?`) and review the output.
 
 ## Experiment with model parameters
 
 Model parameters control how the model works, and can be useful for restricting the size of its responses (measured in *tokens*) and controlling how "creative" its responses can be.
 
-> **Note**: If you are using the "None" fallback model, model parameters are disabled.
-
-1. In the **Setup** pane, expand the **Parameters** section.
-1. Review the parameter settings; then, without changing them, enter a prompt like `How does Machine Learning relate to AI?` and review the response
-1. Experiment by changing the parameter values and repeating the same prompt. You should see some differences in behavior from the model. For example, increasing the **Temperature** adds more randomness into the model's word selection, increasing the "creativity" of the responses (to the point that they may end up being complete gibberish!).
+1. In the pane on the left, next to the selected model, select **Parameters** (&#128880;).
+1. Review the parameter settings; then, without changing them, enter a prompt like `What is Moore's law?` and review the response
+1. Experiment by changing the parameter values and repeating the same prompt. You should see some differences in behavior from the model. For example, changing the **Temperature** modifies the randomness of the model's word selection, changing the "creativity" of the responses (to the point that too high a temperature can cause nonsensical responses).
 
     > **Tip**: You can use the **Stop generation** button in the chat pane to stop the response.
 
-1. When you've finished experimenting, reset the parameters to their default values and hide the **Parameters** area.
+1. When you've finished experimenting, reset the parameters to their default values.
 
 ## Ground responses with data
 
@@ -62,8 +59,8 @@ Generative AI is the foundation for *agentic* solutions; in which AI agents can 
 
 For example, let's suppose an organization wants to use a generative AI agent to help employees with expense claims.
 
-1. Change the system prompt to `You are a helpful AI assistant who supports employees with expense claims.` and apply the changes.
-1. Enter an expenses-related prompt, such as `What can I spend on a taxi?` and view the response.
+1. Change the system prompt to `You are a helpful AI assistant who supports employees with expense claims.` and clear the chat conversation.
+1. Enter an expenses-related prompt, such as `How much can I claim for a taxi?` and view the response.
 
     The response is likely to be generic. Accurate; but not particularly helpful to the employee. We need to give the agent some knowledge about the company's expense policies and procedures.
 
@@ -72,9 +69,9 @@ For example, let's suppose an organization wants to use a generative AI agent to
     > **Note**: This is a very small document for the purposes of this exercise. In a real scenario, an AI agent might have access to large volumes of data; usually in the form of a *vector index*.
 
 1. Save the **expenses.txt** file on your local computer.
-1. Return to the tab containing the what playground, and in the **Setup** pane, expand the **Add your data** section.
-1. Add the **expenses.txt** document as a data source. The chat is automatically restarted.
-1. Enter the same expenses-related prompt (for example, `What can I spend on a taxi?`) and view the response.
+1. Return to the tab containing the chat playground, and in the pane on the left, expand the **Tools** section if it's not already expanded.
+1. Upload the **expenses.txt** file. The chat is automatically restarted.
+1. Enter the same expenses-related prompt (for example, `How much can I claim for a taxi?`) and view the response.
 
     This time the response should be informed by the information in the expenses data source.
 

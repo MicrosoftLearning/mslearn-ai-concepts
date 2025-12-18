@@ -14,27 +14,27 @@ This exercise should take approximately **15** minutes to complete.
 
 Let's start by chatting with a generative AI model. In this exercise, we'll use the **Microsoft Phi 3 Mini model**; a small language model that is useful for general chat solutions in low bandwidth scenarios. The solution also uses Web Speech APIs for speech recognition and synthesis.
 
-> **Note**: The models will run in your browser, on your local computer. Performance may vary depending on the available memory in your computer and your network bandwidth to download the model. If WebLLM models are not supported in your browser, a fallback mode with reduced functionality will be enabled.
+> **Note**: The model will run in your browser, on your local computer. Performance may vary depending on the available memory in your computer and your network bandwidth to download the model. If WebLLM models are not supported in your browser, a fallback mode with reduced functionality will be enabled. After opening the app, use the **?** (*About this app*) icon in the chat area to find out more.
 
 1. In a web browser, open the **[Chat Playground](https://aka.ms/chat-playground){:target="_blank"}** at `https://aka.ms/chat-playground`.
 1. Wait for the model to download and initialize.
 
     > **Tip**: The first time you open the chat playground, it may take a few minutes for the model to download. Subsequent downloads will be faster.
 
-1. When the model is ready, enter a prompt, such as `What is the capital city of England?` and review the response.
+1. When the model is ready, enter a prompt, such as `What is Artificial Intelligence?` and review the response.
 
 ## Use speech-to-text for voice recognition
 
 Speech-to-text (STT) is an AI technique that transforms audible speech into text. A common use for this is to implement voice recognition solutions in which a user can interact with an AI application by talking to it.
 
-1. At the top-right of the **Chat history** pane, use the **Settings** (**&#x2699;**) button to view the chat capabilities options.
+1. At the top-right of the **Chat** pane, use the **Settings** (**&#x2699;**) button to view the chat capabilities options.
 1. In the **Speech** section, enable **Speech to text**. Then save the changes.
 
    ![Screenshot of the Speech to text option.](./media/speech-01.png)
 
     Under the chat interface, a **Voice input** (**🎙**) button is enabled.
 
-1. Click the **Voice input** button, and if prompted, allow access to your computer's microphone. Then after the tone, say something like "*What airports serve London?*".
+1. Click the **Voice input** button, and if prompted, allow access to your computer's microphone. Then after the tone, say something like "*How does speech recognition work?*".
 
     Your speech should be converted to text and entered as a prompt, to which the model responds.
 
@@ -49,7 +49,7 @@ For a fully functional speech-capable AI agent, the conversation should flow in 
 
     The chat restarts after enabling text to speech.
 
-1. Use the **Voice input** button to speak to the agent (try something like "*What transport options are there in London?*")
+1. Use the **Voice input** button to speak to the agent (try something like "*How does speech synthesis work?*")
 
     > **Note**: The agent may take longer to respond when text to speech is enabled.
 

@@ -14,7 +14,7 @@ This exercise should take approximately **15** minutes to complete.
 
 Let's start by chatting with a generative AI model. In this exercise, we'll use the the **MobileNetV3** CNN-based computer vision model for image classification and the **Microsoft Phi 3 Mini model** small language model to interpret and answer questions about the images.
 
-> **Note**: The models will run in your browser, on your local computer. Performance may vary depending on the available memory in your computer and your network bandwidth to download the model. If WebLLM models are not supported in your browser, a fallback mode with reduced functionality will be enabled.
+> **Note**: The model will run in your browser, on your local computer. Performance may vary depending on the available memory in your computer and your network bandwidth to download the model. If WebLLM models are not supported in your browser, a fallback mode with reduced functionality will be enabled. After opening the app, use the **?** (*About this app*) icon in the chat area to find out more.
 
 1. In a web browser, open the **[Chat Playground](https://aka.ms/chat-playground){:target="_blank"}** at `https://aka.ms/chat-playground`.
 1. Wait for the model to download and initialize.
@@ -23,7 +23,7 @@ Let's start by chatting with a generative AI model. In this exercise, we'll use 
 
 1. When the model is ready, in a new browser tab, download **[images.zip](https://aka.ms/ai-images){:target="_blank"}** from `https://aka.ms/ai-images` to your local computer.
 1. Extract the downloaded archive in a local folder to see the files it contains. These files are the images you will use AI to analyze.
-1. Return to the browser tab containing the chat playground, and at the top-right of the **Chat history** pane, use the **Settings** (**&#x2699;**) button to view the chat capabilities options.
+1. Return to the browser tab containing the chat playground, and at the top-right of the **Chat** pane, use the **Settings** (**&#x2699;**) button to view the chat capabilities options.
 1. In the **Vision** section, enable **Image analysis**. Then wait for the computer vision model to be downloaded and initialized before saving the changes.
 
    ![Screenshot of the Image analysis option.](./media/vision-01.png)
@@ -34,7 +34,7 @@ Let's start by chatting with a generative AI model. In this exercise, we'll use 
 
     A thumbnail of the image is added to the prompt input area.
 
-1. Enter a prompt like `What recipes can I use this in?`. The image is included in the message.
+1. Enter a prompt like `Suggest a recipe for this.`. The image is included in the message.
 
    ![Screenshot of the chat app with an image in a prompt.](./media/vision-02.png)
 
