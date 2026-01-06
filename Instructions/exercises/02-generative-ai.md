@@ -36,10 +36,10 @@ Let's start by using a chat interface to submit prompts to a generative AI model
 
 A system prompt is used to provide the model with an overall context for its responses. You can use the system prompt to provide guidelines about format, style, and constraints about what the model should and should not include in its responses.
 
-> **Note**: If you are using the "None" fallback model, changing the system prompt has no effect.
-
 1. In the pane on the left, in the **Instructions** text area, change the system prompt to `You are an AI assistant that provides short and concise answers using simple language. Limit responses to a single sentence.`
 1. Now try the same prompt as before (`What was ENIAC?`) and review the output.
+
+> **Note**: If you are using the "None" fallback model, changing the system prompt has no effect other than shortening responses if the system prompt includes "short", "concise", "summary", or "summarize".
 
 ## Experiment with model parameters
 
