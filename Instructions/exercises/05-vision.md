@@ -10,11 +10,11 @@ In this exercise, you'll use a chat playground to interact with a generative AI 
 
 This exercise should take approximately **15** minutes to complete.
 
-## Use computer vision to analyze images
+## Prepare for image-based chat
 
-Let's start by chatting with a generative AI model. In this exercise, we'll use the the **MobileNetV3** CNN-based computer vision model for image classification and the **Microsoft Phi 3 Mini model** small language model to interpret and answer questions about the images.
+In this exercise you use a generative AI model in a chat playground to respond to prompts that include image data.
 
-> **Note**: The model will run in your browser, on your local computer. Performance may vary depending on the available memory in your computer and your network bandwidth to download the model. If WebLLM models are not supported in your browser, a fallback mode with reduced functionality will be enabled. After opening the app, use the **?** (*About this app*) icon in the chat area to find out more.
+> **Note**: The chat application uses the **Microsoft Phi 3 Mini model** small language model to interpret and respond to prompts. Many modern language models are *multimodal* - in other words, they support multiple formats of input, including text and images; but the Microsoft Phi 3 model is text-based only, so we'll also use the the **MobileNetV3** CNN-based computer vision model for image classification and include the predicted image class in the prompt. The models will run in your browser, on your local computer. Performance may vary depending on the available memory in your computer and your network bandwidth to download the models. If WebLLM models are not supported in your browser, a fallback mode with reduced functionality will be enabled. After opening the app, use the **?** (*About this app*) icon in the chat area to find out more.
 
 1. In a web browser, open the **[Chat Playground](https://aka.ms/chat-playground){:target="_blank"}** at `https://aka.ms/chat-playground`.
 1. Wait for the model to download and initialize.
@@ -23,12 +23,11 @@ Let's start by chatting with a generative AI model. In this exercise, we'll use 
 
 1. When the model is ready, in a new browser tab, download **[images.zip](https://aka.ms/ai-images){:target="_blank"}** from `https://aka.ms/ai-images` to your local computer.
 1. Extract the downloaded archive in a local folder to see the files it contains. These files are the images you will use AI to analyze.
-1. Return to the browser tab containing the chat playground, and at the top-right of the **Chat** pane, use the **Settings** (**&#x2699;**) button to view the chat capabilities options.
-1. In the **Vision** section, enable **Image analysis**. Then wait for the computer vision model to be downloaded and initialized before saving the changes.
+1. Return to the browser tab containing the chat playground, and in the configuration pane on the left pane, in the **Vision** section, enable **Image analysis**. Then wait for the computer vision model to be downloaded and initialized.
 
    ![Screenshot of the Image analysis option.](./media/vision-01.png)
 
-    Under the chat interface, an **Upload image** (**&#x1F4CE;**) button is enabled.
+    In the chat interface, an **Upload image** (**&#x1F4CE;**) button is enabled.
 
 1. Click the **Upload image** button, and browse to select one of the images you extracted on your computer.
 
@@ -46,4 +45,4 @@ Let's start by chatting with a generative AI model. In this exercise, we'll use 
 
 in this exercise, you explored the use of computer vision with a generative AI model in a chat playground. 
 
-Some models are *multimodal*, and natively support image-based input; while other solutions rely on using a separate image classification or object detection model. Microsoft Foundry supports a range of multimodal models, as well as third-party vision models in the model catalog. Additionally, you can use the Azure Content Understanding tool to analyze images.
+The app used in this exercise is based on a simplified version of the chat playground in the Microsoft Foundry portal. Microsoft Foundry supports a range of multimodal models that can accept combined image and text input, enabling significantly more complex image interpretation than this simple example. Additionally, you can use the Azure Content Understanding tool to analyze images.

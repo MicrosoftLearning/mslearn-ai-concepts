@@ -29,7 +29,7 @@ Let's start by using a chat interface to submit prompts to a generative AI model
 
     > **Note**: When using an LLM such as the Microsoft Phi model, chat  applications often include the conversation history in the prompt; so the context of the conversation is retained between messages (for example, a follow-up prompt like `Who was her father?` would be interpreted as relating to Ada Lovelace). In this application, if you are using the "None" fallback model, the conversation context is <u>not</u> retained.
 
-1. At the top of the chat pane, use the **Clear chat** (&#128465;) button to restart the conversation. This removes all conversation history.
+1. At the top of the chat pane, use the **New chat** (&#128172;) button to restart the conversation. This removes all conversation history.
 1. Enter a new prompt, such as `What was ENIAC?` and view the response.
 
 ## Experiment with system prompts
@@ -59,7 +59,7 @@ Generative AI is the foundation for *agentic* solutions; in which AI agents can 
 
 For example, let's suppose an organization wants to use a generative AI agent to help employees with expense claims.
 
-1. Change the system prompt to `You are a helpful AI assistant who supports employees with expense claims.` and clear the chat conversation.
+1. Change the system prompt to `You are a helpful AI assistant who supports employees with expense claims.` and start a new chat conversation.
 1. Enter an expenses-related prompt, such as `How much can I claim for a taxi?` and view the response.
 
     The response is likely to be generic. Accurate; but not particularly helpful to the employee. We need to give the agent some knowledge about the company's expense policies and procedures.
