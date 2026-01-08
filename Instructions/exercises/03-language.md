@@ -10,9 +10,9 @@ In this exercise, you'll use AI natural language processing functionality to ana
 
 This exercise should take approximately **15** minutes to complete.
 
-## Open the text analyzer app and download text
+## Prepare for text analysis
 
-We'll use a browser-based application that's based on a subset of the text analysis capabilities provided in the Azure AI Foundry language playground.
+We'll use a browser-based application that's based on a simplified subset of the text analysis capabilities of the Microsoft Foundry language playground.
 
 1. Download and extract **[text.zip](https://aka.ms/ai-text){:target="_blank"}** at `https://aka.ms/ai-text`. This archive contains multiple text documents that you'll use in this exercise.
 1. In a web browser, open the **[Text Analyzer](https://aka.ms/text-analyzer){:target="_blank"}** at `https://aka.ms/text-analyzer`. This application provides the text analysis functionality you'll use.
@@ -26,6 +26,9 @@ Sentiment analysis is a common NLP task. It's used to determine whether text con
 1. In the Text Analyzer app, ensure the **Analyze sentiment** tile is selected.
 1. Upload **document-1.txt** from the folder where you extracted the downloaded text files.
 1. Run the analysis and observe the resulting sentiment prediction.
+
+    ![Screenshot of sentiment analysis results in text Analyzer.](./media/text-01.png)
+
 1. Repeat the analysis for **document-2.txt** and **document-3.txt**.
 
     You can experiment further by uploading your own text files or by typing text into the Text Analyzer interface. The results may vary due to the simplified implementation of sentiment anslysis in this lightweight app.
@@ -39,6 +42,9 @@ Key phrase extraction can be a useful first step in identifying the main topics 
 1. In the Text Analyzer app, select the **Extract key phrases** tile.
 1. Upload **document-1.txt** from the folder where you extracted the downloaded text files.
 1. Run the analysis and observe the resulting key phrases.
+
+    ![Screenshot of key phrase extraction results in text Analyzer.](./media/text-02.png)
+
 1. Repeat the analysis for **document-2.txt** and **document-3.txt**.
 
     You can experiment further by uploading your own text files or by typing text into the Text Analyzer interface. Again, the results may vary.
@@ -52,6 +58,9 @@ Named entities are the people, places, dates, and other important items mentione
 1. In the Text Analyzer app, select the **Extract named entities** tile.
 1. Upload **document-1.txt** from the folder where you extracted the downloaded text files.
 1. Run the analysis and observe the resulting named entities.
+
+    ![Screenshot of named entity recognition results in text Analyzer.](./media/text-03.png)
+
 1. Repeat the analysis for **document-2.txt** and **document-3.txt**.
 
     You can experiment further by uploading your own text files or by typing text into the Text Analyzer interface.
@@ -65,6 +74,9 @@ Summarization is a way to distill the main points in a document into a shorter a
 1. In the Text Analyzer app, select the **Summarize text** tile.
 1. Upload **document-1.txt** from the folder where you extracted the downloaded text files.
 1. Run the analysis and observe the resulting summarization.
+
+    ![Screenshot of text summarization results in text Analyzer.](./media/text-04.png)
+
 1. Repeat the analysis for **document-2.txt** and **document-3.txt**.
 
     You can experiment further by uploading your own text files or by typing text into the Text Analyzer interface.
