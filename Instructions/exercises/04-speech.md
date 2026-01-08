@@ -61,4 +61,4 @@ The app supports both speech recognition and speech synthesis, enabling you to h
 
 In this exercise, you explored the use of speech-to-text and text-to-speech with a generative AI model in a simple playground app. 
 
-The app used in this lab is based on a simplified version of Azure Speech in Foundry tools; and more specifically on the playground for *Azure Speech Voice Live*; a service used to build real-time voice-based agents. While the app in this lab is limited to "single-turn" spoken interactions, the Azure Speech Voice Live capabilities in Microsoft Foundry support multi-turn real-time conversations with support for interruptions and background noise suppression.
+The app used in this lab is based on a simplified version of Azure Speech in Foundry tools; and more specifically on the playground for *Azure Speech Voice Live*; a service used to build real-time voice-based agents. While the app in this lab is limited to "single-turn" spoken interactions, the Azure Speech Voice Live capabilities in Microsoft Foundry include multi-turn real-time conversations with support for interruptions and background noise suppression.
