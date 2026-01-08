@@ -17,13 +17,14 @@ In this exercise you use a generative AI model in a chat playground to respond t
 > **Note**: The chat application uses the **Microsoft Phi 3 Mini model** small language model to interpret and respond to prompts. Many modern language models are *multimodal* - in other words, they support multiple formats of input, including text and images. However, the Microsoft Phi 3 model is text-based only, so we'll also use the the **MobileNetV3** CNN-based computer vision model for image classification and include the predicted image class in the prompt. The models will run in your browser, on your local computer. Performance may vary depending on the available memory in your computer and your network bandwidth to download the models. If WebLLM models are not supported in your browser, a fallback mode with reduced functionality will be enabled. After opening the app, use the **?** (*About this app*) icon in the chat area to find out more.
 
 1. In a web browser, open the **[Chat Playground](https://aka.ms/chat-playground){:target="_blank"}** at `https://aka.ms/chat-playground`.
-1. Wait for the model to download and initialize.
+
+    The app intiializes by downloading a language model.
 
     > **Tip**: The first time you open the chat playground, it may take a few minutes for the model to download. Subsequent downloads will be faster.
 
-1. When the model is ready, in a new browser tab, download **[images.zip](https://aka.ms/ai-images){:target="_blank"}** from `https://aka.ms/ai-images` to your local computer.
+1. While waiting for the model to download, open a new browser tab, and download **[images.zip](https://aka.ms/ai-images){:target="_blank"}** from `https://aka.ms/ai-images` to your local computer.
 1. Extract the downloaded archive in a local folder to see the files it contains. These files are the images you will use AI to analyze.
-1. Return to the browser tab containing the chat playground, and in the configuration pane on the left pane, in the **Vision** section, enable **Image analysis**. Then wait for the computer vision model to be downloaded and initialized.
+1. Return to the browser tab containing the chat playground and ensure the language model has downloaded (or if it failed to download, the model has been set to the "None" fallback). Then, in the configuration pane on the left pane, in the **Vision** section, enable **Image analysis** and wait for the computer vision model to be downloaded and initialized.
 
    ![Screenshot of the Image analysis option.](./media/vision-01.png)
 
@@ -40,6 +41,10 @@ In this exercise you use a generative AI model in a chat playground to respond t
     The MobileNetV3 model is used to determine the likely subject of the image, and the results of that analysis is included in the prompt to the Phi language model. The result should be a reponse that uses the image information to answer the question.
 
 1. Submit prompts that include the other images, such as `How should I cook this?` or `What desserts could I make with this?`
+
+    > **Note**: When using the "None" fallback model, the results depend on Wikipedia search results based on keywords extracted from the prompt and the class name predicted by the image classification model. The relevance of results may vary!
+
+1. If you want to explore further, you can upload your own images and enter appropriate prompts. The combination of a small language model (or simple keyword search in Wikipedia) and a limited computer vision model means that the quality of the responses may be highly variable compared to a true multimodal large language model!
 
 ## Summary
 
