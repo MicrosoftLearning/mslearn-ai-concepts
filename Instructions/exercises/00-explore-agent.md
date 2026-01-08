@@ -34,8 +34,31 @@ This exercise should take approximately **15** minutes to complete.
 1. Continue to chat with the agent, bearing in mind the following guidelines:
     - You can use the built-in sample prompts or enter your own in the chat box.
     - Responses may be slow - particularly in *AI mode*, where the generative AI model is run locally in your browser. You can stop a response generation at any point.
-    - When using *AI mode*, you can use follow-up questions - the model will retain the conversation history. In *Simple mode*, each prompt creates a new interaction.
+    - When using *AI mode*, you can use follow-up questions - the model will "remember" the conversation context. In *Simple mode*, each prompt creates a new interaction.
     - Responses from AI may not always be accurate. In this application, the responses are *grounded* in a knowledge base; but generative AI can still make mistakes.
+
+## Understand the architecture
+
+So how does Ask Andrew work?
+
+At a high-level, the process can be broken down into six steps.
+
+   ![Diagram of the high-level Ask Andrew architecture.](./media/ask-andrew-03.png)
+
+1. You submit a question in the form of a *prompt*.
+1. The app extracts keywords from your prompt and uses them to query a knowledge base. The knowledge base for this app is stored in a file named [index.json](https://microsoftlearning.github.io/ai-apps/ask-andrew/index.json){:target="_blank"}, loaded locally in your browser. More scalable, production-ready agents tend to have more comprehensive knowledge stores!
+1. The query returns text from the knowledge store that provides contextual information that will help answer the question you asked.
+
+    When operating in *Simple* mode, we skip to step 6 and the contextual infomation text is returned as the response. When using *AI* mode, the process continues to use a language model to generate a more comprehensive response.
+
+1. When using the full *AI* mode, the agent submits a message to the language model (in this case, Microsoft Phi 3 Mini). The message consists of:
+    - A *system prompt* containing instructions for how the model should format its response.
+    - The contextual information returned by the query.
+    - Your original question. 
+1. The language model generates an answer to your question, using the contextual information from the knowledge store to *ground* its response.
+1. The agent responds to the chat conversation with the response.
+
+This architecture reflects how many production-level AI agents are designed. It's based on a general pattern referred to as *retrieval-augmented generation* (RAG) in which the agent *retrieves* contextual information from a knowledge store, uses it to *augment* the original user prompt, which is sent to a language model to *generate* a response.
 
 ## Summary
 
