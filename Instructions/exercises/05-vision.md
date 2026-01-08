@@ -6,7 +6,7 @@ lab:
 
 # Explore computer vision
 
-In this exercise, you'll use a chat playground to interact with a generative AI solution that can analyze and interpret images.
+In this exercise, you'll use a chat playground to interact with a generative AI solution that can analyze and interpret images. The goal of this exercise is to explore a common pattern for combining text and visual input in a prompt for a generative AI model.
 
 This exercise should take approximately **15** minutes to complete.
 
@@ -14,7 +14,7 @@ This exercise should take approximately **15** minutes to complete.
 
 In this exercise you use a generative AI model in a chat playground to respond to prompts that include image data.
 
-> **Note**: The chat application uses the **Microsoft Phi 3 Mini model** small language model to interpret and respond to prompts. Many modern language models are *multimodal* - in other words, they support multiple formats of input, including text and images; but the Microsoft Phi 3 model is text-based only, so we'll also use the the **MobileNetV3** CNN-based computer vision model for image classification and include the predicted image class in the prompt. The models will run in your browser, on your local computer. Performance may vary depending on the available memory in your computer and your network bandwidth to download the models. If WebLLM models are not supported in your browser, a fallback mode with reduced functionality will be enabled. After opening the app, use the **?** (*About this app*) icon in the chat area to find out more.
+> **Note**: The chat application uses the **Microsoft Phi 3 Mini model** small language model to interpret and respond to prompts. Many modern language models are *multimodal* - in other words, they support multiple formats of input, including text and images. However, the Microsoft Phi 3 model is text-based only, so we'll also use the the **MobileNetV3** CNN-based computer vision model for image classification and include the predicted image class in the prompt. The models will run in your browser, on your local computer. Performance may vary depending on the available memory in your computer and your network bandwidth to download the models. If WebLLM models are not supported in your browser, a fallback mode with reduced functionality will be enabled. After opening the app, use the **?** (*About this app*) icon in the chat area to find out more.
 
 1. In a web browser, open the **[Chat Playground](https://aka.ms/chat-playground){:target="_blank"}** at `https://aka.ms/chat-playground`.
 1. Wait for the model to download and initialize.

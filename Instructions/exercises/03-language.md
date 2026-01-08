@@ -6,7 +6,7 @@ lab:
 
 # Explore text analytics
 
-In this exercise, you'll use AI natural language processing functionality to analyze text.
+In this exercise, you'll use AI natural language processing functionality to analyze text. The goal of this exercise is to explore common applications of text analysis techniques.
 
 This exercise should take approximately **15** minutes to complete.
 

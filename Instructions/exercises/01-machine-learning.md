@@ -6,7 +6,7 @@ lab:
 
 # Explore Machine Learning
 
-In this exercise, you'll use a lightweight application to train and evaluate machine learning models. You'll then deploy and test the trained model.
+In this exercise, you'll use a lightweight application to train and evaluate machine learning models. The goal of this exercise is to experience the steps involved in training different kinds of machine learning model and reviewing model-specific metrics. 
 
 This exercise should take approximately **15** minutes to complete.
 

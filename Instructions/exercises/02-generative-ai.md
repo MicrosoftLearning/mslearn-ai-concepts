@@ -6,7 +6,7 @@ lab:
 
 # Explore generative AI
 
-In this exercise, you'll use a chat playground to interact with a generative AI model. You'll explore the effect of system prompts, model parameters, and grounding the model with data.
+In this exercise, you'll use a chat playground to interact with a generative AI model. The goal of this exercise is to explore the effect of system prompts, model parameters, and grounding models with data.
 
 This exercise should take approximately **15** minutes to complete.
 

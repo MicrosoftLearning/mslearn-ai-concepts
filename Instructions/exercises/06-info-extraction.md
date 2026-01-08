@@ -6,7 +6,7 @@ lab:
 
 # Explore information extraction
 
-In this exercise, you'll use optical character recognition (OCR) and generative AI to extract information from receipts.
+In this exercise, you'll use optical character recognition (OCR) and generative AI to extract information from receipts. The goal of this exercise is to explore for yourself how information extraction from documents involves an OCR process to detect text, and a field extraction stage to map specific text strings to field values.
 
 This exercise should take approximately **15** minutes to complete.
 

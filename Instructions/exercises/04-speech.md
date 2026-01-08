@@ -6,7 +6,7 @@ lab:
 
 # Explore AI speech
 
-In this exercise, you'll interact with a generative AI model using speech. You'll explore speech-to-text (STT) and text-to-speech (TTS) functionality.
+In this exercise, you'll interact with a generative AI model using speech. The goal of this exercise is to explore speech-to-text (STT) and text-to-speech (TTS) functionality with a generative AI model.
 
 This exercise should take approximately **15** minutes to complete.
 
