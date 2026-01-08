@@ -49,7 +49,7 @@ At a high-level, the process can be broken down into six steps.
 1. The app extracts keywords from your prompt and uses them to query a knowledge base. The knowledge base for this app is stored in a file named [index.json](https://microsoftlearning.github.io/ai-apps/ask-andrew/index.json){:target="_blank"}, loaded locally in your browser. More scalable, production-ready agents tend to have more comprehensive knowledge stores!
 1. The query returns text from the knowledge store that provides contextual information that will help answer the question you asked.
 
-    > *When operating in Simple mode, we skip to step 6 and the contextual infomation text is returned as the response. When using *AI* mode, the process continues to use a language model to generate a more comprehensive response.*
+    > *When operating in Simple mode, we skip to step 6 and the contextual infomation text is returned as the response. When using AI mode, the process continues to use a language model to generate a more comprehensive response.*
 
 1. When using the full *AI* mode, the agent submits a message to the language model (in this case, Microsoft Phi 3 Mini). The message consists of:
     - A *system prompt* containing instructions for how the model should format its response.
