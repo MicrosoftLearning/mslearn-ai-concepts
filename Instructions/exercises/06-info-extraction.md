@@ -40,6 +40,6 @@ Suppose you need to extract data fields from scanned receipts to help automate a
 
 ## Summary
 
-in this exercise, you explored how AI can be used to extract information from content using a combination of OCR and generative AI.
+In this exercise, you explored how AI can be used to extract information from content using a combination of OCR and generative AI.
 
 In Microsoft Foundry, the Content Understanding tool is a multimodal information extraction solution that you can use to analyze documents, images, audio files, and videos.
