@@ -38,22 +38,26 @@ A system prompt is used to provide the model with an overall context for its res
 
 1. In the pane on the left, in the **Instructions** text area, change the system prompt to `You are an AI assistant that provides short and concise answers using simple language. Limit responses to a single sentence.`
 1. Now try the same prompt as before (`What was ENIAC?`) and review the output.
+1. Continue to experiment with different system prompts to try to influence the kinds of response returned by the model.
 
 > **Note**: If you are using the "None" fallback model, changing the system prompt has no effect other than shortening responses if the system prompt includes "short", "concise", "summary", or "summarize".
+
+1. When you have finished experimenting, change the system prompt back to `You are an AI assistant that helps people find information.`
 
 ## Experiment with model parameters
 
 Model parameters control how the model works, and can be useful for restricting the size of its responses (measured in *tokens*) and controlling how "creative" its responses can be.
 
+1. Use the **New chat** (&#128172;) button to restart the conversation.
 1. In the pane on the left, next to the selected model, select **Parameters** (&#128880;).
 1. Review the parameter settings; then, without changing them, enter a prompt like `What is Moore's law?` and review the response
 1. Experiment by changing the parameter values and repeating the same prompt. You should see some differences in behavior from the model. For example, changing the **Temperature** modifies the randomness of the model's word selection, changing the "creativity" of the responses (to the point that too high a temperature can cause nonsensical responses).
 
-    > **Tip**: You can use the **Stop generation** button in the chat pane to stop the response.
+    ***Tip**: You can use the **Stop generation** button in the chat pane to stop the response.*
+
+    > **Note**: If you are using the "None" fallback model, maximizing the *Temperature* parameter will result in some randomization of the response text. This behavior is intended to simulate the effect of high temperature settings in a real generative AI model. No other parameter changes will affect the fallback model.
 
 1. When you've finished experimenting, reset the parameters to their default values.
-
-> **Note**: If you are using the "None" fallback model, changing the *Temperature* parameter will result in some randomization of the response text. This behavior is intended to simulate the effect of high temperature settings in a real generative AI model. No other parameter changes will affect the fallback model.
 
 ## Ground responses with data
 
