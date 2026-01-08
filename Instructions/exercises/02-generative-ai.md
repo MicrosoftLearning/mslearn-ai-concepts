@@ -40,7 +40,7 @@ A system prompt is used to provide the model with an overall context for its res
 1. Now try the same prompt as before (`What was ENIAC?`) and review the output.
 1. Continue to experiment with different system prompts to try to influence the kinds of response returned by the model.
 
-> **Note**: If you are using the "None" fallback model, changing the system prompt has no effect other than shortening responses if the system prompt includes "short", "concise", "summary", or "summarize".
+    > **Note**: If you are using the "None" fallback model, changing the system prompt has no effect other than shortening responses if the system prompt includes "short", "concise", "summary", or "summarize".
 
 1. When you have finished experimenting, change the system prompt back to `You are an AI assistant that helps people find information.`
 
