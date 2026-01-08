@@ -62,4 +62,4 @@ This architecture reflects how many production-level AI agents are designed. It'
 
 ## Summary
 
-in this exercise, you explored a sample AI agent. The agent's functionality is limited, and does not reflect the kind of performance or capabilities you can expect in a production quality agent; but it should serve to show a simple example of how AI can support chat-based interactions.
+In this exercise, you explored a sample AI agent. The agent's functionality is limited, and does not reflect the kind of performance or capabilities you can expect in a production quality agent; but it should serve to show a simple example of how AI can support chat-based interactions.

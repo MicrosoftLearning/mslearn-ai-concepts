@@ -43,6 +43,6 @@ In this exercise you use a generative AI model in a chat playground to respond t
 
 ## Summary
 
-in this exercise, you explored the use of computer vision with a generative AI model in a chat playground. 
+In this exercise, you explored the use of computer vision with a generative AI model in a chat playground. 
 
 The app used in this exercise is based on a simplified version of the chat playground in the Microsoft Foundry portal. Microsoft Foundry supports a range of multimodal models that can accept combined image and text input, enabling significantly more complex image interpretation than this simple example. Additionally, you can use the Azure Content Understanding tool to analyze images.

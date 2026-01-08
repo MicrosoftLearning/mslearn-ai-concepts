@@ -83,6 +83,6 @@ Summarization is a way to distill the main points in a document into a shorter a
 
 ## Summary
 
-in this exercise, you explored the use of a AI to analyze text, using NLP functionality in a browser-based app.
+In this exercise, you explored the use of a AI to analyze text, using NLP functionality in a browser-based app.
 
 While the statistical techniques in this exercise are sufficient to demonstrate the concepts, to perform high-quality language analytics at scale, you should use a cloud-based AI platform like Microsoft Foundry. Microsoft Foundry a wide range of language models, some of which are optimized for specific language processing tasks. Additionally, Azure Language in Microsoft Foundry tools offers a specialized service with APIs for common text analytics tasks.
