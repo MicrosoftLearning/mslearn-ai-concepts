@@ -53,6 +53,8 @@ Model parameters control how the model works, and can be useful for restricting 
 
 1. When you've finished experimenting, reset the parameters to their default values.
 
+> **Note**: If you are using the "None" fallback model, changing the *Temperature* parameter will result in some randomization of the response text. This behavior is intended to simulate the effect of high temperature settings in a real generative AI model. No other parameter changes will affect the fallback model.
+
 ## Ground responses with data
 
 Generative AI is the foundation for *agentic* solutions; in which AI agents can assist you and act on your behalf. Agents are more than general purpose chat apps. They usually have a particular focus, and use knowledge and tools to perform their duties.
