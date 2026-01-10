@@ -27,12 +27,15 @@ Let's start by chatting with a generative AI model. In this exercise, we'll use 
 
 ## Select a voice
 
-Text-to-speech solutions use *voices* to control the cadence, pronunciation, timbre, and other aspects of generated speech. The available voices depend on your browser and operating system.
+Text-to-speech solutions use *voices* to control the cadence, pronunciation, timbre, and other aspects of generated speech. The available voices depend on your browser and operating system, and can include *local* voices installed in the operating system as well as *online* voices available for your browser.
 
 > **Note**: If no voices are available in your browser, the app will generate text responses only.
 
 1. In the configuration pane on the left, view the voices in the **Voice** drop-down list.
 1. Select any of the available voices, and use the *Preview selected voice* (**&#9655;**) button to hear a sample of the voice.
+
+    > **Note**: Online voices are downloaded on-demand, which may take a few seconds. The app verifies that they are loaded successfully, and displays an error if not.
+
 1. When you have selected the voice you want to use, use the **Apply changes** button to activate it.
 
 ## Use speech to interact with the model
