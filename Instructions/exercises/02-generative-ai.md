@@ -27,15 +27,17 @@ Let's start by using a chat interface to submit prompts to a generative AI model
 
 1. Enter a follow-up prompt, such as `Tell me more about Charles Babbage.` and review the response.
 
-    > **Note**: When using an LLM such as the Microsoft Phi model, chat  applications often include the conversation history in the prompt; so the context of the conversation is retained between messages (for example, a follow-up prompt like `Who was her father?` would be interpreted as relating to Ada Lovelace). In this application, if you are using the "None" fallback model, the conversation context is <u>not</u> retained.
+    > **Note**: When using an LLM such as the Microsoft Phi model, chat  applications often include the conversation history in the prompt; so the context of the conversation is retained between messages (for example, in a follow-up prompt like `Tell me more about her work with Charles Babbage.`, "her" would be interpreted as relating to Ada Lovelace). In this application, if you are using the "None" fallback model, the conversation context is <u>not</u> retained.
 
 1. At the top of the chat pane, use the **New chat** (&#128172;) button to restart the conversation. This removes all conversation history.
-1. Enter a new prompt, such as `What was ENIAC?` and view the response.
+1. Enter a new prompt, such as `Who was Alan Turing?` and view the response.
+1. Continue the conversation with prompts such as `What is the Turing test?` or `What is a Turing machine?`.
 
 ## Experiment with system prompts
 
 A system prompt is used to provide the model with an overall context for its responses. You can use the system prompt to provide guidelines about format, style, and constraints about what the model should and should not include in its responses.
 
+1. At the top of the chat pane, use the **New chat** (&#128172;) button to restart the conversation. Then enter a new prompt, such as `What was ENIAC?` and view the response.
 1. In the pane on the left, in the **Instructions** text area, change the system prompt to `You are an AI assistant that provides short and concise answers using simple language. Limit responses to a single sentence.`
 1. Now try the same prompt as before (`What was ENIAC?`) and review the output.
 1. Continue to experiment with different system prompts to try to influence the kinds of response returned by the model.
