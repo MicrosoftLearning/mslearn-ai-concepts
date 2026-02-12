@@ -14,16 +14,16 @@ This exercise should take approximately **15** minutes to complete.
 
 **Ask Andrew** is a simple example of an AI agent that provides a chat interface for learning about AI concepts.
 
-> **Note**: Ask Andrew is provided solely as a simple example of a chat-based agent for this exercise. It is not a component of the Microsoft Learn or AI Skills Navigator platform, nor is it a supported Microsoft product or service. The agent uses the **Microsoft Phi 3 Mini** small language model to interpret and respond to prompts. The model runs in your browser, on your local computer; so performance may vary depending on the available memory in your computer and your network bandwidth to download the model. If WebLLM models are not supported in your browser, or you prefer not to use the model, a *Simple mode* with reduced functionality can be used to search an in-browser index for answers without using generative AI. After opening the app, use the **About** button in the chat area to find out more.
+> **Note**: Ask Andrew is provided solely as a simple example of a chat-based agent for this exercise. It is not a component of the Microsoft Learn or AI Skills Navigator platform, nor is it a supported Microsoft product or service. The agent uses a small language model to interpret and respond to prompts. The model runs in your browser, on your local computer; so performance may vary depending on the available memory in your computer and your network bandwidth to download the model. If GPU-based WebLLM models are not supported in your browser, a fallback CPU-based model is used; which may be considerably slower and generate lower quality responses. After opening the app, use the **About** button in the chat area to find out more.
 
 1. In a web browser, open the **[Ask Andrew](https://aka.ms/ask-andrew){:target="_blank"}** at `https://aka.ms/ask-andrew`.
 1. Wait for the model to download and initialize.
 
    ![Screenshot of the Ask Andrew loading page.](./media/ask-andrew-01.png)
 
-    The first time you open the chat playground, it may take a few minutes for the model to download. Subsequent downloads will be faster.
+    The first time you download a model, it will take several minutes. Subsequent downloads will be faster.
 
-    > **Tip**: If the model fails to load, the app will fallback to *Simple mode*. This may happen if your computer does not have a GPU, or if WebGPU support is disabled in your browser. When using an ARM64 based computer, you may need to enable WebGPU support in your browser's `edge://flags` or `chrome://flags` page and restart the browser. If you choose to do so, disable it again when you have completed the exercise.
+    > **Tip**: If the GPU-based model fails to load, the app will fallback to *CPU mode*. This may happen if your computer does not have a GPU, or if WebGPU support is disabled in your browser. When using an ARM64 based computer, you may need to enable WebGPU support in your browser's `edge://flags` or `chrome://flags` page and restart the browser. If you choose to do so, disable it again when you have completed the exercise.
 
 ## Chat with the model
 
@@ -33,8 +33,10 @@ This exercise should take approximately **15** minutes to complete.
 
 1. Continue to chat with the agent, bearing in mind the following guidelines:
     - You can use the built-in sample prompts or enter your own in the chat box.
-    - Responses may be slow - particularly in *AI mode*, where the generative AI model is run locally in your browser. You can stop a response generation at any point.
-    - When using *AI mode*, you can use follow-up questions - the model will "remember" the conversation context. In *Simple mode*, each prompt creates a new interaction.
+    - You can use the **Voice input** button to task to the agent instead of typing (if supported by your browser).
+    - You can use the links after each response to learn more.
+    - Responses may be slow - particularly in *CPU mode*. You can stop a response generation at any point.
+    - When using *GPU mode*, you can use follow-up questions - the model will "remember" the conversation context. In *CPU mode*, each prompt creates a new interaction.
     - Responses from AI may not always be accurate. In this application, the responses are *grounded* in a knowledge base; but generative AI can still make mistakes.
 
 ## Understand the architecture
@@ -48,10 +50,7 @@ At a high-level, the process can be broken down into six steps.
 1. You submit a question in the form of a *prompt*.
 1. The app extracts keywords from your prompt and uses them to query a knowledge base. The knowledge base for this app is stored in a file named [index.json](https://microsoftlearning.github.io/ai-apps/ask-andrew/index.json){:target="_blank"}, loaded locally in your browser. More scalable, production-ready agents tend to have more comprehensive knowledge stores!
 1. The query returns text from the knowledge store that provides contextual information that will help answer the question you asked.
-
-    > *When operating in Simple mode, we skip to step 6 and the contextual infomation text is returned as the response. When using AI mode, the process continues to use a language model to generate a more comprehensive response.*
-
-1. When using the full *AI* mode, the agent submits a message to the language model (in this case, Microsoft Phi 3 Mini). The message consists of:
+1. The agent submits a message to the language model. The message consists of:
     - A *system prompt* containing instructions for how the model should format its response.
     - The contextual information returned by the query.
     - Your original question. 
