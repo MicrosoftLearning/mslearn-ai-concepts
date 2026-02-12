@@ -33,7 +33,7 @@ Sentiment analysis is a common NLP task. It's used to determine whether text con
 
 1. Repeat the analysis for **document-2.txt** and **document-3.txt**.
 
-    You can experiment further by uploading your own text files or by typing text into the Text Analyzer interface. The results may vary due to the simplified implementation of sentiment anslysis in this lightweight app.
+    You can experiment further by uploading your own text files or by typing text into the Text Analyzer interface. The results may vary due to the simplified implementation of sentiment analysis in this lightweight app.
 
 ## Extract key phrases
 
