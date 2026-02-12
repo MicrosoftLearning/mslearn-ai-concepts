@@ -2,6 +2,8 @@
 lab:
     title: 'Explore a simple AI agent'
     description: 'Use an AI agent to chat about AI concepts.'
+    duration: 15
+    level: 100
 ---
 
 # Explore a simple AI agent

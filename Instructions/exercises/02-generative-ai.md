@@ -2,6 +2,8 @@
 lab:
     title: 'Explore generative AI'
     description: 'Use a chat playground to interact with a generative AI model'
+    duration: 15
+    level: 100
 ---
 
 # Explore generative AI

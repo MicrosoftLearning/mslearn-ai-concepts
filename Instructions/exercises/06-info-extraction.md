@@ -2,6 +2,8 @@
 lab:
     title: 'Explore information extraction'
     description: 'Use OCR and generative AI to extract information from documents.'
+    duration: 15
+    level: 100
 ---
 
 # Explore information extraction

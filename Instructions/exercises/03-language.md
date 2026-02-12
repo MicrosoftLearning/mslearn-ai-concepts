@@ -2,6 +2,8 @@
 lab:
     title: 'Explore AI text analysis'
     description: 'Use AI to analyze text.'
+    duration: 15
+    level: 100
 ---
 
 # Explore text analytics

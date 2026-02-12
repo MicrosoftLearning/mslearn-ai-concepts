@@ -2,6 +2,8 @@
 lab:
     title: 'Explore AI speech'
     description: 'Use AI to explore speech-to-text and text-to-speech capabilities with a generative AI model.'
+    duration: 15
+    level: 100
 ---
 
 # Explore AI speech
