@@ -1,8 +1,8 @@
-Maximum limits for expenses are:
-- Flights: $600 per flight.
-- Meals: $90 per meal, including breakfast, lunch, and dinner.
-- Taxis and Rideshares: $75 per taxi or rideshare.
-- Hotels: $200 for each night in a hotel.
-- Other expenses: $50 per day.
+Maximum limits for expenses:
+- The limit for flights is $600 per flight.
+- The limit for meals is $90 per meal, including breakfast, lunch, and dinner.
+- The limit for taxis and Rideshares is $75 per taxi or rideshare.
+- The limit for hotels is $200 for each night in a hotel.
+- The limit for other expenses is $50 per day.
 
 To submit a claim, send an email to expenses@contoso.com with scanned receipts attached.
