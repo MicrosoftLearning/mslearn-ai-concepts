@@ -35,7 +35,7 @@ This exercise should take approximately **15** minutes to complete.
 
 1. Continue to chat with the agent, bearing in mind the following guidelines:
     - You can use the built-in sample prompts or enter your own in the chat box.
-    - You can use the **Voice input** button to task to the agent instead of typing (if supported by your browser).
+    - You can use the **Voice input** button to talk to the agent instead of typing (if supported by your browser).
     - You can use the links after each response to learn more.
     - Responses may be slow - particularly in *CPU mode*. You can stop a response generation at any point.
     - When using *GPU mode*, you can use follow-up questions - the model will "remember" the conversation context. In *CPU mode*, each prompt creates a new interaction.
