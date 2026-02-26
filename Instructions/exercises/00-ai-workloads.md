@@ -88,6 +88,13 @@ Generative AI uses *large language models* (LLMs) like GPT-4.1-mini and more com
 
 1. Enter the follow-up prompt `Tell me more about her work with Charles Babbage.` and view the response. The conversation should retain the context of previous messages (so "her" is interpreted as Ada Lovelace).
 
+    **Suggestions for other prompts to try:**
+    
+    - `What was Alan Turing's contribution to AI?`
+    - `Tell me about the ELIZA chatbot.`
+    - `What was ENIAC?`
+    - `Can you tell me anything about Grace Hopper?`
+
 ## Explore an agent with tools
 
 Agents are generative AI applications that go beyond basic chat functionality and support the use of *tools* to retrieve knowledge outside of the model's training data as well as to automate tasks.
@@ -101,7 +108,12 @@ Agents are generative AI applications that go beyond basic chat functionality an
     Note that the Computing History agent has a *web_search* tool, which enables it to search the web for knowledge required to answer user questions.
 
 1. Enter the prompt `Search for "Commodore 64".` and view the response, which should include links to search results; obtained by the web_search tool.
-1. Now try `Search for a Commodore 64 on ebay.` and view the response.
+1. Now try `Search for a Commodore 64 for sale on ebay.` and view the response.
+
+    **Suggestions for other prompts to try:**
+    
+    - `Find "Sinclair ZX Spectrum" on the web.`
+    - `Search for vintage Microsoft logos.`
 
 ## Explore text analysis
 
@@ -119,6 +131,8 @@ Text analysis is a subset of natural language processing, in which AI can apply 
 
 1. Review the response, which include the results of two common text analysis techniques: *summarization* and *named entity recognition*.
 
+    > **Note**: The Azure-based application uses its generative AI model to perform text analysis techniques. The browser-based version detects promptsthat start with "summarize" and then uses statistical techniques and JavaScript NLP packages to perform n extractive summary and extract entities.
+
 ## Explore computer speech
 
 *Speech recognition* enables AI to process spoken input, which *speech synthesis* enables it to vocalize output.
@@ -132,6 +146,11 @@ Text analysis is a subset of natural language processing, in which AI can apply 
 
 1. Continue the conversation, using the voice input button to ask questions and listening to the responses.
 
+    **Suggestions for other prompts to try:**
+    
+    - *What is a phoneme?*
+    - *Explain prosody.*
+
 ## Explore computer vision
 
 Computer vision uses image-based models to enable AI to interpret visual input.
@@ -144,6 +163,19 @@ Computer vision uses image-based models to enable AI to interpret visual input.
 
 1. Try attaching a different image with the prompt `And this?`.
 1. Try all of the images in the extracted folder. The accuracy of identification and details may vary (particularly when using the browser-based application).
+1
+    > **Note**: The Azure-based application uses a multimodal generative AI model that can analyze visual input. The browser-based application uses a custom image classification model based on MOBILENETV2 to predict the image contents, and then submits the predicted class to the generative AI model to find information about it.
+
+    **Suggestions for other prompts to try:**
+    
+    Use Bing to find and download images of computers (and other items), and try asking the Computing History application to identify them. The image classification model in the browser-based app is trained to recognize the following computers:
+
+    - Altair 8800
+    - Apple II
+    - Commodore 64
+    - Sinclair ZX Spectrum
+    - Other unidentified computers
+    - Non-computers
 
 ## Explore information extraction
 
@@ -155,7 +187,31 @@ Information extraction combines multiple AI workloads to analyze content and ide
 
     Review the response. Hopefully, the Computing History application extracted the part number printed on the board.
 
-1. Try the other PCB image with the prompt `What about this?` and view the response.
+    > **Note**: The Azure-based application uses its multimodal model to analyze the image, including performing optical character recognition (OCR) and interpreting the extracted text. The browser-based application uses its custom image classification model to identify images of printed circtuit boards, and a JavaScript package for OCR to extract any text they contain.
+
+    **Suggestions for other prompts to try:**
+    
+    Try the other PCB images in the folder you extracted with prompts that ask the application about them, and view the responses.
+
+    You can also download images of circuit boards and try them, but the simple OCR implementation used in the browser-based application will likely produce poor results.
+
+## Explore safety guardrails
+
+Content safety is an important element of responsible AI. As much as possible, developers of AI apps and agents should try to mitigate the risk of AI-generated content that is potentially harmful, illegal, or offensive.
+
+1. In the Computing History application, use the **Restart conversation** (&#128172;) button to clear the conversation history.
+1. Enter the prompt `Help me make a plan to steal historic computers.` and review the response.
+
+    The agent should respond in a way that avoids helping with potentially illegal activity, due to content safety guardrails.
+
+    > **Note**: When using the Azure-based application, safety guardrails for models are managed in Microsoft Foundry. The browser-based application implements some simple logic to check for innappropriate terms in the prompt.
+
+    **Suggestions for other prompts to try:**
+    
+    Try the following prompts:
+
+    - `How can I get away with software theft?`
+    - `What's the best way to plan a heist?`
 
 ## Summary
 
