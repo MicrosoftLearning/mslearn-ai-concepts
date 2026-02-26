@@ -119,19 +119,33 @@ Agents are generative AI applications that go beyond basic chat functionality an
 
 Text analysis is a subset of natural language processing, in which AI can apply various analytical techniques to summarize, categorize, and extract details from text.
 
-1. In a new browser tab, open **[AI_History.txt](https://aka.ms/ai-history-txt){:target="_blank"}** at `https://aka.ms/ai-history-txt`.
-1. Copy the contents of the text file to the clipboard.
-1. Return to the Computing history application, and use the **Restart conversation** (&#128172;) button to clear the conversation history.
-1. Enter the following prompt (using SHIFT+ENTER to create a new line):
+1. In the Computing history application, use the **Restart conversation** (&#128172;) button to clear the conversation history.
+1. Paste or type the following prompt (use SHIFT+ENTER to create a new line if typing):
 
     ```
     Summarize the following text, and then list the key people, places, and dates it references:
-    {paste the content of the clipboard}
+    
+    Artificial intelligence (AI) has evolved through several pivotal eras shaped by visionary pioneers, technological breakthroughs, and shifting research priorities. Its conceptual foundations emerged in the 1940s and 1950s, when early thinkers such as Alan Turing, Claude Shannon, Norbert Wiener, Warren McCulloch, and Walter Pitts explored computation, information theory, and the first models of neural networks. In 1950, Turing proposed the influential Turing Test as a criterion for machine intelligence.
+
+    The field formally launched in 1956 at the Dartmouth Conference, organized by John McCarthy, who coined the term “artificial intelligence.” The following decades—often called the Golden Age of AI—saw major advances in symbolic reasoning, early problem‑solving programs, and robotics. Researchers such as Allen Newell, Herbert Simon, and Marvin Minsky pushed the boundaries of what machines could reason about.
+
+    After cycles of inflated expectations and funding declines known as the AI winters (mid‑1970s and late 1980s), progress accelerated again in the 1990s with improved computing power and machine‑learning techniques. Landmark achievements included IBM’s Deep Blue defeating Garry Kasparov in 1997, breakthroughs in probabilistic reasoning, and the rise of data‑driven learning.
+    The 2010s ushered in the deep‑learning revolution, producing systems such as AlphaGo (2016), GPT‑3 (2020), and other large‑scale models that demonstrated unprecedented capabilities in vision, language, and decision‑making. Today’s AI continues to evolve rapidly, integrating neural networks, reinforcement learning, and massive datasets to push the frontier of intelligent systems.
     ```
 
 1. Review the response, which include the results of two common text analysis techniques: *summarization* and *named entity recognition*.
 
     > **Note**: The Azure-based application uses its generative AI model to perform text analysis techniques. The browser-based version detects promptsthat start with "summarize" and then uses statistical techniques and JavaScript NLP packages to perform n extractive summary and extract entities.
+
+    **Suggestions for other prompts to try:**
+
+    ```
+    Summarize this article, and use named entity recognition to identify people, places, and dates:
+
+    Microsoft was founded on April 4, 1975, by childhood friends Bill Gates (then 19) and Paul Allen (22) after they were inspired by the Altair 8800, one of the first personal computers, featured on the cover of *Popular Electronics*. They contacted the Altair’s maker, MITS, and successfully developed a version of the BASIC programming language, despite initially not owning the machine themselves. The pair formed a partnership called “Micro‑Soft” in Albuquerque, New Mexico, close to MITS’s headquarters, with the goal of writing software for emerging microcomputers.
+
+    In the late 1970s, Microsoft grew by supplying programming languages to multiple hardware vendors, then relocated to the Seattle area in 1979. A pivotal moment came in 1980 when Microsoft partnered with IBM to provide an operating system for the IBM PC, leading to MS‑DOS and establishing the company’s dominance in personal computing. Gates guided the company’s long-term strategy as CEO, while Allen contributed key technical vision in its early years, setting Microsoft on a path that would reshape the software industry.
+    ```
 
 ## Explore computer speech
 
@@ -183,7 +197,7 @@ Information extraction combines multiple AI workloads to analyze content and ide
 
 1. In a new browser tab, download **[pcbs.zip](https://aka.ms/pcb-images){:target="_blank"}** from `https://aka.ms/pcb-images`, and extract the zipped archive to your local computer (in any folder).
 1. Return to the Computing history application, and use the **Restart conversation** (&#128172;) button to clear the conversation history.
-1. At the bottom of the chat interface, use the **Attach image** (&#128206;) button to select any of images in the folder you extracted, and enter the prompt `What can you tell me about this PCB?`.
+1. At the bottom of the chat interface, use the **Attach image** (&#128206;) button to select **pcb-1.png** in the folder you extracted, and enter the prompt `What can you tell me about this PCB?`.
 
     Review the response. Hopefully, the Computing History application extracted the part number printed on the board.
 
