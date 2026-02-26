@@ -135,7 +135,7 @@ Text analysis is a subset of natural language processing, in which AI can apply 
 
 1. Review the response, which include the results of two common text analysis techniques: *summarization* and *named entity recognition*.
 
-    > **Note**: The Azure-based application uses its generative AI model to perform text analysis techniques. The browser-based version detects promptsthat start with "summarize" and then uses statistical techniques and JavaScript NLP packages to perform n extractive summary and extract entities.
+    > **Note**: The Azure-based application uses its generative AI model to perform text analysis techniques. The browser-based version detects promptsthat start with "summarize" and then uses statistical techniques and JavaScript NLP packages to perform an extractive summary and extract entities.
 
     **Suggestions for other prompts to try:**
 
