@@ -18,37 +18,47 @@ Let's start by chatting with a generative AI model. In this exercise, we'll use 
 
 > **Note**: If your browser supports WebGPU, the chat playground uses the *Microsoft Phi 3 Mini* model running on your computer's GPU. If not, the SmolLM2 model is used, running on CPU - with reduced response-generation quality. Performance for either model may vary depending on the available memory in your computer and your network bandwidth to download the model. After opening the app, use the **?** (*About this app*) icon in the chat area to find out more.
 
-1. In a web browser, open the **[Speech Playground](https://aka.ms/speech-playground){:target="_blank"}** at `https://aka.ms/speech-playground`.
-1. Wait for the model to download and initialize.
+1. In a web browser, open the **[Chat Playground](https://aka.ms/chat-playground){:target="_blank"}** at `https://aka.ms/chat-playground`.
+
+    The app intiializes by downloading a language model.
 
     > **Tip**: The first time you download a model, it may take a few minutes. Subsequent downloads will be faster. If your browser or operating system does not support WebGPU models, the fallback CPU-based model will be selected (which provides slower performance and reduced quality of response generations).
 
-1. View the Speech Playground app, which should look like this:
+1. View the Chat Playground app, which should look like this:
 
-   ![Screenshot of the Speech Playground app.](./media/speech-01.png)
+   ![Screenshot of the Chat Playground app.](./media/speech-01.png)
 
-## Select a voice
+## Configure Voice mode
 
-Text-to-speech solutions use *voices* to control the cadence, pronunciation, timbre, and other aspects of generated speech. The available voices depend on your browser and operating system, and can include *local* voices installed in the operating system as well as *online* voices available for your browser.
+The Chat playground application supports *voice mode*, in which you can interact with a generative AI model using speech.
 
-> **Note**: If no voices are available in your browser, the app will generate text responses only.
+> **Note**: Voice mode depends on browser support for the WebSpeech API and access to voices for speech synthesis. The app should work successfully in most modern browsers. If your browser configuration is not compatible, you may experience errors; and ultimately voice mode may not work for you.
 
-1. In the configuration pane on the left, view the voices in the **Voice** drop-down list.
+1. In the pane on the left, under the selected model, enable **Voice mode**
+
+    If the **Configuration** pane is not displayed automatically on the right, open it using the **Configuration** (**&#9881;**) button above the Chat pane.
+
+1. In the configuration pane, view the voices in the **Voice** drop-down list.
+
+   ![Screenshot of the Chat Playground Configuration pane.](./media/speech-02.png)
+
+    Text-to-speech solutions use *voices* to control the cadence, pronunciation, timbre, and other aspects of generated speech. The available voices depend on your browser and operating system, and can include *local* voices installed in the operating system as well as *online* voices available for your browser.
+
 1. Select any of the available voices, and use the *Preview selected voice* (**&#9655;**) button to hear a sample of the voice.
 
     > **Note**: Online voices are downloaded on-demand, which may take a few seconds. The app verifies that they are loaded successfully, and displays an error if not.
 
-1. When you have selected the voice you want to use, use the **Apply changes** button to activate it.
+1. When you have selected the voice you want to use, close the **Configuration** pane.
 
 ## Use speech to interact with the model
 
 The app supports both speech recognition and speech synthesis, enabling you to have a voice-based conversation with the model.
 
-1. In the **Chat** pane, use the **Start** button to start a conversation with the model. If prompted, allow access to the system microphone.
+1. In the **Chat** pane, use the **Start session** button to start a conversation with the model. If prompted, allow access to the system microphone.
 
-1. When the app status is **Listening...**, say something like "*How does speech recognition work?*" and wait for a response.
+1. When the app status is **Listening...**, say something like "*What is speech recognition?*" and wait for a response.
 
-    > **Tip**: If an error occurs or the app can't detect any speech input, you will be prompted to enter the prompt as text.
+    > **Tip**: If an error occurs or the app can't detect any speech input, check your microphone settings and try again. Ambient noise may cause failures - though in some cases, the issue may be that your browser setup does not support the WebSpeech API for voice recognition.
 
 1. Verify that the app status changes to **Processing...**. The app will process the spoken input, using speech-to-text to convert your speech to text and submit it to the model as a prompt.
 
@@ -56,14 +66,14 @@ The app supports both speech recognition and speech synthesis, enabling you to h
 
 1. When the status changes to **Speaking...**, the app uses text-to-speech to vocalize the response from the model. When it's finished, the original prompt and the response will be shown as text.
 
-   ![Screenshot of Speech Playground with a response.](./media/speech-02.png)
+   ![Screenshot of Speech Playground with a response.](./media/speech-03.png)
 
     > **Tip**: If no voices are available in your browser, only the text reponse will be shown.
 
-1. To continue the conversation, use the **Start** button to submit a second spoken prompt, such as "*How does speech synthesis work?*", and review the response.
+1. To continue the conversation, use the **Start session** button to submit a second spoken prompt, such as "*What is speech synthesis?*", and review the response.
 
 ## Summary
 
-In this exercise, you explored the use of speech-to-text and text-to-speech with a generative AI model in a simple playground app. 
+In this exercise, you explored the use of speech-to-text and text-to-speech with a generative AI model in a simple playground app.
 
-The app used in this lab is based on a simplified version of Azure Speech in Foundry tools; and more specifically on the playground for *Azure Speech Voice Live*; a service used to build real-time voice-based agents. While the app in this lab is limited to "single-turn" spoken interactions, the Azure Speech Voice Live capabilities in Microsoft Foundry include multi-turn real-time conversations with support for interruptions and background noise suppression.
+The app used in this lab is based on a simplified version of the agent playground in Microsoft Foundry portal; in which Azure Speech in Foundry tools *Voice Live* capabilities can be added to an agent. While the app in this lab is limited to "single-turn" spoken interactions, the Azure Speech Voice Live capabilities in Microsoft Foundry include multi-turn real-time conversations with support for interruptions and background noise suppression.

@@ -21,7 +21,7 @@ Let's start by using a chat interface to submit prompts to a generative AI model
 1. In a web browser, open the **[Chat Playground](https://aka.ms/chat-playground){:target="_blank"}** at `https://aka.ms/chat-playground`.
 1. Wait for the model to download and initialize.
 
-    > **Tip**: The first time you download a model, it may take a few minutes. Subsequent downloads will be faster.
+    > **Tip**: The first time you download a model, it may take a few minutes. Subsequent downloads will be faster. If your browser or operating system does not support WebGPU models, the fallback CPU-based model will be selected (which provides slower performance and reduced quality of response generations).
 
 1. When the model is ready, enter a prompt such as `Who was Ada Lovelace?`, and review the response (which may take some time to be generated).
 
