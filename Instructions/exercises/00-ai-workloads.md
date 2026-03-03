@@ -28,9 +28,13 @@ To use the Azure-based computing history app, you need a generative AI model dep
     - **Resource group**: *Create or select a resource group*
     - **Region**: Select any of the **AI Foundry recommended** regions
 
+    > **Tip**: Make a note of the region you selected. You'll need it later!
+
 1. Select **Create**. Wait for your project to be created. It may take a few minutes. After creating or selecting a project in the new Foundry portal, it should open in a page similar to the following image:
 
     ![Screenshot of the AI Foundry project home page.](./media/0-foundry-project.png)
+
+    > **TIP**: Note the project endpoint and key on the home page. You're going to need it later!
 
 1. In the **Start building** menu, select **Browse models** to view the Microsoft Foundry model catalog.
 
@@ -48,11 +52,14 @@ To use the Azure-based computing history app, you need a generative AI model dep
 
     Note the deployment name for your model (which by default is the same as the model name) is selected in the pane on the left.
 
+    > **Tip**: Remember the model deployment name. You'll need it later.
+
 1. In the toolbar at the top of the Foundry portal, select your project to return to the home page.
 1. Note the following details for your project:
     - **Project endpoint**: The URL where your project resource can be accessed.
     - **Project API key**: The authentication key used to access your resource.
-    - **Project region**: The region where your project is deployed.
+
+    You can also select your project name in the toolabr (next to the Microsoft Foundry logo) to remind yourself which region you deployed it in.
 
     You'll need these values to configure the Computing History application.
 
@@ -78,7 +85,7 @@ The Computing History app is a simple example of an AI agent that provides a cha
 
 ## Explore a generative AI model
 
-Generative AI uses *large language models* (LLMs) like GPT-4.1-mini and more compact *small language models* (SLMs) like SMOLLMV2 to respond to user *prompts*. 
+Generative AI uses *large language models* (LLMs) like GPT-4.1-mini and more compact *small language models* (SLMs) like SMOLLMV2 to respond to user *prompts*.
 
 1. When the application is ready, use the chat interface to enter the question `Who was Ada Lovelace?` and review the responses returned by the agent.
 
@@ -89,7 +96,7 @@ Generative AI uses *large language models* (LLMs) like GPT-4.1-mini and more com
 1. Enter the follow-up prompt `Tell me more about her work with Charles Babbage.` and view the response. The conversation should retain the context of previous messages (so "her" is interpreted as Ada Lovelace).
 
     **Suggestions for other prompts to try:**
-    
+
     - `What was Alan Turing's contribution to AI?`
     - `Tell me about the ELIZA chatbot.`
     - `What was ENIAC?`
@@ -111,7 +118,7 @@ Agents are generative AI applications that go beyond basic chat functionality an
 1. Now try `Search for a Commodore 64 for sale on ebay.` and view the response.
 
     **Suggestions for other prompts to try:**
-    
+
     - `Find "Sinclair ZX Spectrum" on the web.`
     - `Search for vintage Microsoft logos.`
 
@@ -161,7 +168,7 @@ Text analysis is a subset of natural language processing, in which AI can apply 
 1. Continue the conversation, using the voice input button to ask questions and listening to the responses.
 
     **Suggestions for other prompts to try:**
-    
+
     - *What is a phoneme?*
     - *Explain prosody.*
 
@@ -181,7 +188,7 @@ Computer vision uses image-based models to enable AI to interpret visual input.
     > **Note**: The Azure-based application uses a multimodal generative AI model that can analyze visual input. The browser-based application uses a custom image classification model based on MOBILENETV2 to predict the image contents, and then submits the predicted class to the generative AI model to find information about it.
 
     **Suggestions for other prompts to try:**
-    
+
     Use Bing to find and download images of computers (and other items), and try asking the Computing History application to identify them. The image classification model in the browser-based app is trained to recognize the following computers:
 
     - Altair 8800
@@ -204,7 +211,7 @@ Information extraction combines multiple AI workloads to analyze content and ide
     > **Note**: The Azure-based application uses its multimodal model to analyze the image, including performing optical character recognition (OCR) and interpreting the extracted text. The browser-based application uses its custom image classification model to identify images of printed circtuit boards, and a JavaScript package for OCR to extract any text they contain.
 
     **Suggestions for other prompts to try:**
-    
+
     Try the other PCB images in the folder you extracted with prompts that ask the application about them, and view the responses.
 
     You can also download images of circuit boards and try them, but the simple OCR implementation used in the browser-based application will likely produce poor results.
@@ -221,7 +228,7 @@ Content safety is an important element of responsible AI. As much as possible, d
     > **Note**: When using the Azure-based application, safety guardrails for models are managed in Microsoft Foundry. The browser-based application implements some simple logic to check for innappropriate terms in the prompt.
 
     **Suggestions for other prompts to try:**
-    
+
     Try the following prompts:
 
     - `How can I get away with software theft?`
