@@ -11,10 +11,10 @@ This page lists exercises associated with Microsoft skilling content on [Microso
 {% assign labs = site.pages | where_exp:"page", "page.url contains '/Instructions/exercises'" %}
 {% for activity in labs  %}
 {% if activity.lab.title %}
+
 ### [{{ activity.lab.title }}]({{ site.github.url }}{{ activity.url }})
 
-
-{% if activity.lab.level %}**Level**: {{activity.lab.level}} \| {% endif %}{% if activity.lab.duration %}**Duration**: {{activity.lab.duration}}{% endif %}
+{% if activity.lab.level %}**Level**: {{activity.lab.level}} \| {% endif %}{% if activity.lab.duration %}**Duration**: {{activity.lab.duration}} minutes{% endif %}
 
 {% if activity.lab.description %}
 *{{activity.lab.description}}*
@@ -22,4 +22,3 @@ This page lists exercises associated with Microsoft skilling content on [Microso
 <hr>
 {% endif %}
 {% endfor %}
-
