@@ -1,9 +1,10 @@
 ---
 lab:
-    title: 'Explore AI text analysis'
-    description: 'Use AI to analyze text.'
-    duration: 15
-    level: 100
+  title: Explore AI text analysis
+  description: Use AI to analyze text.
+  duration: 15
+  level: 100
+  islab: true
 ---
 
 # Explore text analytics
