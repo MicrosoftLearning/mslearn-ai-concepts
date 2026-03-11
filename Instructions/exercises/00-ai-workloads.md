@@ -1,9 +1,10 @@
 ---
 lab:
-    title: 'Explore AI workloads'
-    description: 'See what AI can do by exploring a simple AI app.'
-    duration: 15
-    level: 100
+  title: Explore AI workloads
+  description: See what AI can do by exploring a simple AI app.
+  duration: 15
+  level: 100
+  islab: true
 ---
 
 # Explore AI workloads
