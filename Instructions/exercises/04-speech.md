@@ -12,7 +12,7 @@ In this exercise, you'll interact with a generative AI model using speech. The g
 
 This exercise should take approximately **15** minutes to complete.
 
-## Open the Speech Playground app
+## Open the Chat Playground app
 
 Let's start by chatting with a generative AI model. In this exercise, we'll use a browser-based application to chat with a small language model that is useful for general chat solutions in low bandwidth scenarios. The app also uses Web Speech APIs for speech recognition and synthesis.
 
