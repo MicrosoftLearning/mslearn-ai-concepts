@@ -141,7 +141,7 @@ One of the most commonly used application programming interfaces (APIs) used to 
 
 1. Review the response from the model.
 
-    > **Note**: The model used in this app is a small language model with very limited training data. It's responses may not be accurate. However, the point of the exercise is to learn to use the OpenAI SDK syntax to submit prompts and receive responses - regardless of how innacurate they may be!
+    > **Note**: The model used in this app is a small language model with very limited training data. Its responses may not be accurate. However, the point of the exercise is to learn to use the OpenAI SDK syntax to submit prompts and receive responses - regardless of how innacurate they may be!
 
     The *ChatCompletions* API is commonly used in generative Ai applications. However, a newer *Responses* API is becoming increasingly popular because of its versatility and simpler structure.
 
