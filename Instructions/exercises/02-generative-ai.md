@@ -94,7 +94,7 @@ You've seen how a model can be used in a pre-provided chat playground, but how d
 
 One of the most commonly used application programming interfaces (APIs) used to develop apps that work with LLMs is the OpenAI API - and in particular the Python SDK for the OpenAI API.
 
-1. Navigate away from the Chat Playground app to the **[Model Coder](https://microsoftlearning.github.io/ai-apps/model-coder/){:target="_blank"}** app at `https://microsoftlearning.github.io/ai-apps/model-coder/` and wait for the Python environment and model to load.
+1. Navigate away from the Chat Playground app to the **[Model Coder](https://aka.ms/model-coder){:target="_blank"}** app at `https://aka.ms/model-coder` and wait for the Python environment and model to load.
 
     ![Screenshot of Model Coder](./media/model-coder.png)
 
