@@ -1,9 +1,10 @@
 ---
 lab:
-    title: 'Explore computer vision'
-    description: 'Use image analysis with a generative AI model.'
-    duration: 15
-    level: 100
+  title: Explore computer vision
+  description: Use image analysis with a generative AI model.
+  duration: 15
+  level: 100
+  islab: true
 ---
 
 # Explore computer vision
