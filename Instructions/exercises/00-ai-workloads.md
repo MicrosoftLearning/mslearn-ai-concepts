@@ -209,7 +209,7 @@ Information extraction combines multiple AI workloads to analyze content and ide
 
     Review the response. Hopefully, the Computing History application extracted the part number printed on the board.
 
-    > **Note**: The Azure-based application uses its multimodal model to analyze the image, including performing optical character recognition (OCR) and interpreting the extracted text. The browser-based application uses its custom image classification model to identify images of printed circtuit boards, and a JavaScript package for OCR to extract any text they contain.
+    > **Note**: The Azure-based application uses its multimodal model to analyze the image, including performing optical character recognition (OCR) and interpreting the extracted text. The browser-based application uses its custom image classification model to identify images of printed circuit boards, and a JavaScript package for OCR to extract any text they contain.
 
     **Suggestions for other prompts to try:**
 
