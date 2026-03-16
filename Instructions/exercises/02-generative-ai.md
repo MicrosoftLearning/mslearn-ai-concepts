@@ -103,17 +103,17 @@ One of the most commonly used application programming interfaces (APIs) used to 
 1. When the model has loaded, ensure the **Blank Page** sample is selected and that there is no existing code in the **Editor** pane. Then add the following code:
 
     ```python
-    # import namespace
-    from openai import OpenAI
+   # import namespace
+   from openai import OpenAI
 
-    # Initialize the OpenAI client
-    openai_client = OpenAI(
+   # Initialize the OpenAI client
+   openai_client = OpenAI(
         base_url="http://localwllama",
         api_key="key123"
-    )
+   )
             
-    # Get a response
-    completion = openai_client.chat.completions.create(
+   # Get a response
+   completion = openai_client.chat.completions.create(
         model="smollm2",
         messages=[
             {
@@ -125,8 +125,8 @@ One of the most commonly used application programming interfaces (APIs) used to 
                 "content": "Tell me about the ELIZA chatbot."
             }
         ]
-    )
-    print(completion.choices[0].message.content)
+   )
+   print(completion.choices[0].message.content)
     ```
 
     This code uses the OpenAI *ChatCompletions* API to:
@@ -148,22 +148,22 @@ One of the most commonly used application programming interfaces (APIs) used to 
 1. Replace the code in the **Editor** pane with this code:
 
     ```python
-    # import namespace
-    from openai import OpenAI
+   # import namespace
+   from openai import OpenAI
 
-    # Initialize the OpenAI client
-    openai_client = OpenAI(
+   # Initialize the OpenAI client
+   openai_client = OpenAI(
         base_url="http://localwllama",
         api_key="key123"
-    )
+   )
 
-    # Get a response
-    response = openai_client.responses.create(
+   # Get a response
+   response = openai_client.responses.create(
                 model="smollm2",
                 instructions="You are a helpful AI assistant that answers questions and provides information.",
                 input="Explain the Turing test."
-    )
-    print(response.output_text)
+   )
+   print(response.output_text)
     ```
 
     This code uses the OpenAI *Responses* API to connect to the same model as before, this time submitting the following prompts:
