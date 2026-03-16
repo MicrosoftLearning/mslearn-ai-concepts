@@ -161,9 +161,9 @@ One of the most commonly used application programming interfaces (APIs) used to 
 
    # Get a response
    response = openai_client.responses.create(
-                model="smollm2",
-                instructions="You are a helpful AI assistant that answers questions and provides information.",
-                input="Explain the Turing test."
+        model="smollm2",
+        instructions="You are a helpful AI assistant that answers questions and provides information.",
+        input="Explain the Turing test."
    )
    print(response.output_text)
     ```
