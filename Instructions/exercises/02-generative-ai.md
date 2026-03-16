@@ -88,8 +88,93 @@ For example, let's suppose an organization wants to use a generative AI agent to
 
     **Note**: The small amount of data and the limited capabilities of the small models used in this exercise may result in some inaccurate responses; but the principle of *retrieving* contextual information, using it to *augment* the prompt, and *generating* responses based on the data is a common pattern in generative AI solutions known as *Retrieval Augmented Generation* (or *RAG*).
 
+## Explore client code to use a model
+
+You've seen how a model can be used in a pre-provided chat playground, but how do developers build apps and agents that submit prompts to models and process responses?
+
+One of the most commonly used application programming interfaces (APIs) used to develop apps that work with LLMs is the OpenAI API - and in particular the Python SDK for the OpenAI API.
+
+1. Navigate away from the Chat Playground app to the **[Model Coder](https://microsoftlearning.github.io/ai-apps/model-coder/){:target="_blank"}** app at `https://microsoftlearning.github.io/ai-apps/model-coder/` and wait for the Python environment and model to load.
+
+    ![Screenshot of Model Coder](./media/model-coder.png)
+
+    This app provides an in-browser sandbox with a Python library that encapsulates the most common classes in the OpenAI SDK. You'll use it to write and run real Python code that submits prompts to a local LLM running in the browser.
+
+1. When the model has loaded, ensure the **Blank Page** sample is selected and that there is no existing code in the **Editor** pane. Then add the following code:
+
+    ```python
+    # import namespace
+    from openai import OpenAI
+
+    # Initialize the OpenAI client
+    openai_client = OpenAI(
+        base_url="http://localwllama",
+        api_key="key123"
+    )
+            
+    # Get a response
+    completion = openai_client.chat.completions.create(
+        model="smollm2",
+        messages=[
+            {
+                "role": "system",
+                "content": "You are a helpful AI assistant that answers questions and provides information."
+            },
+            {
+                "role": "user",
+                "content": "Tell me about the ELIZA chatbot."
+            }
+        ]
+    )
+    print(completion.choices[0].message.content)
+    ```
+
+    This code uses the OpenAI *ChatCompletions* API to:
+    - Connect to the local WLLMA environment in the browser using an authentication key
+    - Submit the following prompts to the local *smollm2* model:
+        - **System prompt**: "You are a helpful AI assistant that answers questions and provides information."
+        - **User prompt**: "Tell me about the ELIZA chatbot."
+
+1. Use the **&#9654;** (Run code) button on the toolbar to run the Python code.
+
+    The code runs in the **Terminal** pane at the bottom of the screen (it may take a minute or so to run).
+
+1. Review the response from the model.
+
+    The *ChatCompletions* API is commonly used in generative Ai applications. However, a newer *Responses* API is becoming increasingly popular because of its versatility and simpler structure.
+
+    Let's modify the code to use the newer *Responses* API.
+
+1. Replace the code in the **Editor** pane with this code:
+
+    ```python
+    # import namespace
+    from openai import OpenAI
+
+    # Initialize the OpenAI client
+    openai_client = OpenAI(
+        base_url="http://localwllama",
+        api_key="key123"
+    )
+
+    # Get a response
+    response = openai_client.responses.create(
+                model="smollm2",
+                instructions="You are a helpful AI assistant that answers questions and provides information.",
+                input="Explain the Turing test."
+    )
+    print(response.output_text)
+    ```
+
+    This code uses the OpenAI *Responses* API to connect to the same model as before, this time submitting the following prompts:
+
+    - **System prompt (*instructions*)**: "You are a helpful AI assistant that answers questions and provides information."
+    - **User prompt (*input*)**: "Explain the Turing test."
+
+1. Run the modified code and review the output in the **Terminal** pane.
+
 ## Summary
 
-In this exercise, you explored a generative AI model in a chat playground. You've seen how a model's responses can be affected by changing the system prompt, configuring model parameters, and by adding data.
+In this exercise, you explored a generative AI model in a chat playground. You've seen how a model's responses can be affected by changing the system prompt, configuring model parameters, and by adding data. Finally, you've explored how developers can use models from client applications through the OpenAI-compatible APIs in Python.
 
-The interface and techniques used in this exercise are similar to those in Microsoft Foundry portal; a platform for building AI apps and agents in the Microsoft Azure cloud.
+The interface and techniques used in this exercise are similar to those in Microsoft Foundry portal; a platform for building AI apps and agents in the Microsoft Azure cloud. You can use the OpenAI SDK to connect to Microsoft Foundry endpoints and work with your models there.
