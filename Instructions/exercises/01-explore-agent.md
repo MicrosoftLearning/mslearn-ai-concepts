@@ -9,20 +9,20 @@ lab:
 
 # Explore a simple AI agent
 
-In this exercise, you'll use a simple AI agent named **Ask Andrew** to chat about AI concepts. The goal of this exercise is not to learn how to *build* an AI agent, but to familiarize yourself with some common features of AI solutions - in particular AI agents that support chat-based interactivity.
+In this exercise, you'll use a simple AI agent named **Ask Anton** to chat about AI concepts. The goal of this exercise is not to learn how to *build* an AI agent, but to familiarize yourself with some common features of AI solutions - in particular AI agents that support chat-based interactivity.
 
 This exercise should take approximately **15** minutes to complete.
 
-## Open the Ask Andrew AI agent
+## Open the Ask Anton AI agent
 
-**Ask Andrew** is a simple example of an AI agent that provides a chat interface for learning about AI concepts.
+**Ask Anton** is a simple example of an AI agent that provides a chat interface for learning about AI concepts.
 
-> **Note**: Ask Andrew is provided solely as a simple example of a chat-based agent for this exercise. It is not a component of the Microsoft Learn or AI Skills Navigator platform, nor is it a supported Microsoft product or service. The agent uses a small language model to interpret and respond to prompts. The model runs in your browser, on your local computer; so performance may vary depending on the available memory in your computer and your network bandwidth to download the model. If GPU-based WebLLM models are not supported in your browser, a fallback CPU-based model is used; which may be considerably slower and generate lower quality responses. After opening the app, use the **About** button in the chat area to find out more.
+> **Note**: Ask Anton is provided solely as a simple example of a chat-based agent for this exercise. It is not a component of the Microsoft Learn or AI Skills Navigator platform, nor is it a supported Microsoft product or service. The agent uses a small language model to interpret and respond to prompts. The model runs in your browser, on your local computer; so performance may vary depending on the available memory in your computer and your network bandwidth to download the model. If GPU-based WebLLM models are not supported in your browser, a fallback CPU-based model is used; which may be considerably slower and generate lower quality responses. After opening the app, use the **About** button in the chat area to find out more.
 
-1. In a web browser, open the **[Ask Andrew](https://aka.ms/ask-andrew){:target="_blank"}** at `https://aka.ms/ask-andrew`.
+1. In a web browser, open the **[Ask Anton](https://aka.ms/ask-anton){:target="_blank"}** at `https://aka.ms/ask-anton`.
 1. Wait for the model to download and initialize.
 
-   ![Screenshot of the Ask Andrew loading page.](./media/ask-andrew-01.png)
+   ![Screenshot of the Ask Anton loading page.](./media/ask-anton-01.png)
 
     The first time you download a model, it will take several minutes. Subsequent downloads will be faster.
 
@@ -32,7 +32,7 @@ This exercise should take approximately **15** minutes to complete.
 
 1. When the model is ready, use the chat interface to enter questions related to AI concepts; and review the responses returned by the agent.
 
-   ![Screenshot of the Ask Andrew chat interface.](./media/ask-andrew-02.png)
+   ![Screenshot of the Ask Anton chat interface.](./media/ask-anton-02.png)
 
 1. Continue to chat with the agent, bearing in mind the following guidelines:
     - You can use the built-in sample prompts or enter your own in the chat box.
@@ -44,19 +44,19 @@ This exercise should take approximately **15** minutes to complete.
 
 ## Understand the architecture
 
-So how does Ask Andrew work?
+So how does Ask Anton work?
 
 At a high-level, the process can be broken down into six steps.
 
-   ![Diagram of the high-level Ask Andrew architecture.](./media/ask-andrew-03.png)
+   ![Diagram of the high-level Ask Anton architecture.](./media/ask-anton-03.png)
 
 1. You submit a question in the form of a *prompt*.
-1. The app extracts keywords from your prompt and uses them to query a knowledge base. The knowledge base for this app is stored in a file named [index.json](https://microsoftlearning.github.io/ai-apps/ask-andrew/index.json){:target="_blank"}, loaded locally in your browser. More scalable, production-ready agents tend to have more comprehensive knowledge stores!
+1. The app extracts keywords from your prompt and uses them to query a knowledge base. The knowledge base for this app is stored in a file named [index.json](https://microsoftlearning.github.io/ai-apps/ask-anton/index.json){:target="_blank"}, loaded locally in your browser. More scalable, production-ready agents tend to have more comprehensive knowledge stores!
 1. The query returns text from the knowledge store that provides contextual information that will help answer the question you asked.
 1. The agent submits a message to the language model. The message consists of:
     - A *system prompt* containing instructions for how the model should format its response.
     - The contextual information returned by the query.
-    - Your original question. 
+    - Your original question.
 1. The language model generates an answer to your question, using the contextual information from the knowledge store to *ground* its response.
 1. The agent responds to the chat conversation with the response.
 
