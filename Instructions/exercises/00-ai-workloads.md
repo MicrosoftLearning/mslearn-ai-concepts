@@ -11,7 +11,9 @@ lab:
 
 In this exercise, you'll explore common AI workloads in an AI chat application that provides information about computing history, and help with historical computing projects and vintage computer restoration.
 
-> **Note**: The Computing History app is provided in two variants: An Azure-based solution that uses a model and tools in Microsoft Foundry, and a browser-based solution that downloads and runs models locally in your web browser. To use the Azure-based application, you require an Azure subscription in which to create a Foundry project and deploy a model. The browser-based application has some functional and performance limitations, but is designed to work in most modern browsers with no subscription or setup required.
+If you don't have an Azure account, jump straight to the <a href="#open-the-computing-history-app">Open the computing history app</a> section.
+
+> **Note**: The Computing History app is provided in two variants: An Azure-based solution that uses a model and tools in Microsoft Foundry, and a browser-based solution that downloads and runs models locally in your web browser. To use the Azure-based application, you require an Azure subscription in which to create a Foundry project and deploy a model. The browser-based application has some functional and performance limitations, but is designed to work in most modern browsers with no subscription or setup required. If you don't have an Azure account, jump straight to the <a href="#open-the-computing-history-app">Open the computing history app</a> section
 
 This exercise should take approximately **15** minutes to complete.
 
@@ -19,7 +21,7 @@ This exercise should take approximately **15** minutes to complete.
 
 To use the Azure-based computing history app, you need a generative AI model deployed in Microsoft Foundry.
 
-> **Tip**: You need only complete this procedure if you want to use the Azure-based application. If you do not have an Azure subscription, or want to perform the lab completely in-browser, skip to the **Open the Computing History app** section.
+> **Tip**: You need only complete this procedure if you want to use the Azure-based application. If you do not have an Azure subscription, or want to perform the lab completely in-browser, skip to the <a href="#open-the-computing-history-app">Open the computing history app</a> section.
 
 1. In a web browser, open [Microsoft Foundry](https://ai.azure.com){:target="_blank"} at `https://ai.azure.com` and sign in using your Azure credentials. Close any tips or quick start panes that are opened the first time you sign in, and if necessary use the **Foundry** logo at the top left to navigate to the home page.
 
