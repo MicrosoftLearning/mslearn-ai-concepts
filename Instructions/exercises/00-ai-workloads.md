@@ -166,7 +166,7 @@ Text analysis is a subset of natural language processing, in which AI can apply 
 
     After a moment or two, your spoken prompt should be submitted as a message, and a response returned. The response should then be vocalized using speech synthesis.
 
-    > **Note**: Speech support for the browser-based application is based on the WebSpeech library that is common in most modern browsers. In some cases, speech recogntion may not be available, and in some cases the required voices to syntheisze speech may not be present on your computer. When using the Azure-based application, speech recognition and synthesis are implemented using the Azure Speech in Foundry Tools APIs; which rely on correct configuration of endpoint, region, and API key.
+    > **Note**: Speech support for the browser-based application is based on the WebSpeech library that is common in most modern browsers. In some cases, speech recogntion may not be available or the required voices to syntheisze speech may not be present on your computer. When using the Azure-based application, speech recognition and synthesis are implemented using the Azure Speech in Foundry Tools APIs; which rely on correct configuration of endpoint, region, and API key.
 
 1. Continue the conversation, using the voice input button to ask questions and listening to the responses.
 
@@ -187,7 +187,7 @@ Computer vision uses image-based models to enable AI to interpret visual input.
 
 1. Try attaching a different image with the prompt `And this?`.
 1. Try all of the images in the extracted folder. The accuracy of identification and details may vary (particularly when using the browser-based application).
-1
+
     > **Note**: The Azure-based application uses a multimodal generative AI model that can analyze visual input. The browser-based application uses a custom image classification model based on MOBILENETV2 to predict the image contents, and then submits the predicted class to the generative AI model to find information about it.
 
     **Suggestions for other prompts to try:**
