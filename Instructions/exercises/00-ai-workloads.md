@@ -17,7 +17,7 @@ If you don't have an Azure account, jump straight to the <a href="#open-the-comp
 
 This exercise should take approximately **15** minutes to complete.
 
-## Create a Microsoft Foundry project and deploy a model
+## Create a Microsoft Foundry project and deploy a model *(if using Azure)*
 
 To use the Azure-based computing history app, you need a generative AI model deployed in Microsoft Foundry.
 
