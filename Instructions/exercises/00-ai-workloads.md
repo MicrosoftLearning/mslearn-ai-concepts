@@ -31,13 +31,9 @@ To use the Azure-based computing history app, you need a generative AI model dep
     - **Resource group**: *Create or select a resource group*
     - **Region**: Select any of the **AI Foundry recommended** regions
 
-    > **Tip**: Make a note of the region you selected. You'll need it later!
-
 1. Select **Create**. Wait for your project to be created. It may take a few minutes. After creating or selecting a project in the new Foundry portal, it should open in a page similar to the following image:
 
     ![Screenshot of the AI Foundry project home page.](./media/0-foundry-project.png)
-
-    > **TIP**: Note the project endpoint and key on the home page. You're going to need it later!
 
 1. In the **Start building** menu, select **Browse models** to view the Microsoft Foundry model catalog.
 
@@ -55,16 +51,14 @@ To use the Azure-based computing history app, you need a generative AI model dep
 
     Note the deployment name for your model (which by default is the same as the model name) is selected in the pane on the left.
 
-    > **Tip**: Remember the model deployment name. You'll need it later.
+    > **Tip**: Make a note of the model deployment name. You'll need it later.
 
-1. In the toolbar at the top of the Foundry portal, select your project to return to the home page.
+1. In the toolbar at the top of the Foundry portal, select **Home** to return to the home page.
 1. Note the following details for your project:
-    - **Project endpoint**: The URL where your project resource can be accessed.
     - **Project API key**: The authentication key used to access your resource.
+    - **Project endpoint**: The URL where your project resource can be accessed.
 
-    You can also select your project name in the toolabr (next to the Microsoft Foundry logo) to remind yourself which region you deployed it in.
-
-    You'll need these values to configure the Computing History application.
+    You'll need the **API key** and **Project endpoint** (<u>not</u> the *Azure OpenAI* endpoint) to configure the Computing History application.
 
 ## Open the Computing History agent
 
@@ -78,9 +72,9 @@ The Computing History agent is a simple example of an AI agent that provides a c
    ![Screenshot of the Computing History agent chooser page.](./media/computing-history.png)
 
 1. Select the version of the application you want to use:
-    - Selecting **Azure Chat** opens the Azure-based agent, and displays the **Configuration** page where you must enter the project details and model name for your Foundry project.
+    - Selecting **Azure Chat** opens the Azure-based agent, and displays the **Configuration** page where you must enter the project endpoint and key for your Foundry project, and your model deployment name.
 
-        Copy the details from the Foundry Portal, and save the configuration. Note that the endpoint, region, and model name will be saved in your local browser cache; but you must re-enter the project API key if you close and reopen the app.
+        Copy the details from the Foundry Portal, and save the configuration. Note that the endpoint and model name will be saved in your local browser cache; but you must re-enter the project API key if you close and reopen the app.
 
     - Selecting **Browser Chat** opens the browser-based agent and downloads the required models
 
