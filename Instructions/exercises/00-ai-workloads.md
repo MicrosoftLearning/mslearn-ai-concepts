@@ -33,9 +33,9 @@ To use the Azure-based computing history app, you need a generative AI model dep
 
 1. Select **Create**. Wait for your project to be created. It may take a few minutes. After creating or selecting a project in the new Foundry portal, it should open in a page similar to the following image:
 
-    ![Screenshot of the AI Foundry project home page.](./media/0-foundry-project.png)
+    ![Screenshot of the AI Foundry project home page.](./media/foundry-portal-home.png)
 
-1. In the **Start building** menu, select **Browse models** to view the Microsoft Foundry model catalog.
+1. Select **Find models** (or on the **Discovery** page, select the **Models** tab) to view the Microsoft Foundry model catalog.
 
 1. Search for and select the `gpt-4.1-mini` model, and view the page for this model, which describes its features and capabilities.
 
