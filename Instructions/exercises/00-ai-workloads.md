@@ -13,7 +13,12 @@ In this exercise, you'll explore common AI workloads in an AI chat application t
 
 > **If you don't have an Azure account, jump straight to the <a href="#open-the-computing-history-agent">Open the computing history agent</a> section.**
 
-> **Note**: The Computing History app is provided in two variants: An Azure-based solution that uses a model and tools in Microsoft Foundry, and a browser-based solution that downloads and runs models locally in your web browser. To use the Azure-based application, you require an Azure subscription in which to create a Foundry project and deploy a model. The browser-based application has some functional and performance limitations, but is designed to work in most modern browsers with no subscription or setup required. If you don't have an Azure account, jump straight to the <a href="#open-the-computing-history-agent">Open the computing history agent</a> section
+The Computing History app is provided in two variants:
+
+- An Azure-based solution that uses a model and tools in Microsoft Foundry
+- A browser-based solution that downloads and runs models locally in your web browser.
+
+To use the Azure-based application, you require an Azure subscription in which to create a Foundry project and deploy a model. The browser-based application has some functional and performance limitations compared to the Azure version, but is designed to work in most modern browsers with no subscription or setup required.
 
 This exercise should take approximately **15** minutes to complete.
 
