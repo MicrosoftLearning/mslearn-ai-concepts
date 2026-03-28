@@ -93,7 +93,7 @@ Generative AI uses *large language models* (LLMs) like GPT-4.1-mini and more com
 
    ![Screenshot of the Computing History chat interface.](./media/computing-history-chat.png)
 
-    > **Note**: Responses in the browser-based application may be slow, and can contain inaccuracies.
+    > **Note**: The Azure-based application submits your prompt to the large language model (LLM) you deployed in Foundry. The browser-based application uses a (very) small language model (SLM) that has been loaded within the browser. Responses in the browser-based application may be slow, and are more likely to contain inaccuracies.
 
 1. Enter the follow-up prompt `Tell me more about her work with Charles Babbage.` and view the response. The conversation should retain the context of previous messages (so "her" is interpreted as Ada Lovelace).
 
@@ -121,8 +121,10 @@ Agents are generative AI applications that go beyond basic chat functionality an
 
     **Suggestions for other prompts to try:**
 
-    - `Find "Sinclair ZX Spectrum" on the web.`
+    - `Find a vintage computer store in Seattle.`
     - `Search for vintage Microsoft logos.`
+
+    > **Note**: The Azure-based application uses a web tool whenever the model determines that it can't answer based on its own knowledge or it has been explicitly asked to search. The browser-based application identifies prompts that contain keywords like "search", "find", or "for sale", and responds with a search URL for bing.com or ebay.com.
 
 ## Explore text analysis
 
