@@ -119,12 +119,12 @@ Agents are generative AI applications that go beyond basic chat functionality an
 1. Enter the prompt `Search for "Commodore 64".` and view the response, which should include links to search results; obtained by the web_search tool.
 1. Now try `Search for a Commodore 64 for sale on ebay.` and view the response.
 
+    > **Note**: The Azure-based application uses a web tool whenever the model determines that it can't answer based on its own knowledge or it has been explicitly asked to search. The browser-based application identifies prompts that contain keywords like "search", "find", or "for sale", and responds with a search URL for bing.com or ebay.com.
+
     **Suggestions for other prompts to try:**
 
     - `Find a vintage computer store in Seattle.`
     - `Search for vintage Microsoft logos.`
-
-    > **Note**: The Azure-based application uses a web tool whenever the model determines that it can't answer based on its own knowledge or it has been explicitly asked to search. The browser-based application identifies prompts that contain keywords like "search", "find", or "for sale", and responds with a search URL for bing.com or ebay.com.
 
 ## Explore text analysis
 
