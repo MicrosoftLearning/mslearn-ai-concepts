@@ -93,7 +93,7 @@ Generative AI uses *large language models* (LLMs) like GPT-4.1-mini and more com
 
    ![Screenshot of the Computing History chat interface.](./media/computing-history-chat.png)
 
-    > **Note**: Responses in the browser-based application may be slow.
+    > **Note**: Responses in the browser-based application may be slow, and can contain inaccuracies.
 
 1. Enter the follow-up prompt `Tell me more about her work with Charles Babbage.` and view the response. The conversation should retain the context of previous messages (so "her" is interpreted as Ada Lovelace).
 
@@ -144,7 +144,7 @@ Text analysis is a subset of natural language processing, in which AI can apply 
 
 1. Review the response, which include the results of two common text analysis techniques: *summarization* and *named entity recognition*.
 
-    > **Note**: The Azure-based application uses its generative AI model to perform text analysis techniques. The browser-based version detects promptsthat start with "summarize" and then uses statistical techniques and JavaScript NLP packages to perform an extractive summary and extract entities.
+    > **Note**: The Azure-based application uses its generative AI model to perform text analysis techniques. The browser-based version detects prompts that start with "summarize" and then uses statistical techniques and JavaScript NLP packages to perform an extractive summary and extract entities.
 
     **Suggestions for other prompts to try:**
 
@@ -165,7 +165,7 @@ Text analysis is a subset of natural language processing, in which AI can apply 
 
     After a moment or two, your spoken prompt should be submitted as a message, and a response returned. The response should then be vocalized using speech synthesis.
 
-    > **Note**: Speech support for the browser-based application is based on the WebSpeech library that is common in most modern browsers. In some cases, speech recogntion may not be available or the required voices to syntheisze speech may not be present on your computer. When using the Azure-based application, speech recognition and synthesis are implemented using the Azure Speech in Foundry Tools APIs; which rely on correct configuration of endpoint, region, and API key.
+    > **Note**: Speech support for the browser-based application is based on the WebSpeech library that is common in most modern browsers. In some cases, speech recogntion may not be available or the required voices to syntheisze speech may not be present on your computer. When using the Azure-based application, speech recognition and synthesis are implemented using the Azure Speech in Foundry Tools APIs; which rely on correct configuration of the endpoint and API key.
 
 1. Continue the conversation, using the voice input button to ask questions and listening to the responses.
 
