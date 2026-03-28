@@ -11,7 +11,7 @@ lab:
 
 In this exercise, you'll explore common AI workloads in an AI chat application that provides information about computing history, and help with historical computing projects and vintage computer restoration.
 
-> **If you don't have an Azure account, jump straight to the <a href="#open-the-computing-history-agent">Open the computing history agent</a> section.**
+> **If you don't have an Azure account, jump straight to the <a href="#open-the-computing-history-agent">Open the computing history agent</a> section and use the browser-based app**
 
 The Computing History app is provided in two variants:
 
