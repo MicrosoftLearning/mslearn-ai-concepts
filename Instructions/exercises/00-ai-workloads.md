@@ -69,7 +69,7 @@ To use the Azure-based computing history app, you need a generative AI model dep
 
 The Computing History agent is a simple example of an AI agent that provides a chat interface for exploring AI history and vintage computers.
 
-> **Note**: The Computing History agent is provided solely as a simple example of a chat-based agent for this exercise. It is not a supported Microsoft product or service, and should not be relied on for critical work.
+> **Note**: The Computing History agent is provided solely as a simple example of a chat-based agent for educational purposes. It is not a supported Microsoft product or service, and should not be relied on for critical work.
 
 1. In a web browser, open the **[Computing History agent](https://aka.ms/computing-history){:target="_blank"}** at `https://aka.ms/computing-history`.
 1. Wait for the model to download and initialize.
