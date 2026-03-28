@@ -207,7 +207,7 @@ Information extraction combines multiple AI workloads to analyze content and ide
 
 1. In a new browser tab, download **[pcbs.zip](https://aka.ms/pcb-images){:target="_blank"}** from `https://aka.ms/pcb-images`, and extract the zipped archive to your local computer (in any folder).
 1. Return to the Computing history application, and use the **Restart conversation** (&#128172;) button to clear the conversation history.
-1. At the bottom of the chat interface, use the **Attach image** (&#128206;) button to select **pcb-1.png** in the folder you extracted, and enter the prompt `What can you tell me about this PCB?`.
+1. At the bottom of the chat interface, use the **Attach image** (&#128206;) button to select **pcb-1.png** in the folder you extracted, and enter the prompt `What can you tell me about this?`.
 
     Review the response. Hopefully, the Computing History application extracted the part number printed on the board.
 
