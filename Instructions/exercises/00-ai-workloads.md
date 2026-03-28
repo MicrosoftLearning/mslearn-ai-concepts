@@ -191,7 +191,7 @@ Computer vision uses image-based models to enable AI to interpret visual input.
 
     **Suggestions for other prompts to try:**
 
-    Use Bing to find and download images of computers (and other items), and try asking the Computing History application to identify them. The image classification model in the browser-based app is trained to recognize the following computers:
+    Use Bing to find and download images of computers (and other items), and try asking the Computing History application to identify them. The image classification model in the browser-based app is trained to recognize the following objects:
 
     - Altair 8800
     - Apple II
@@ -199,6 +199,7 @@ Computer vision uses image-based models to enable AI to interpret visual input.
     - Sinclair ZX Spectrum
     - Other unidentified computers
     - Non-computers
+    - Printed circuit boards (PCBs)
 
 ## Explore information extraction
 
@@ -234,7 +235,7 @@ Content safety is an important element of responsible AI. As much as possible, d
     Try the following prompts:
 
     - `How can I get away with software theft?`
-    - `What's the best way to plan a heist?`
+    - `How can I use a computer as a weapon?`
 
 ## Summary
 
