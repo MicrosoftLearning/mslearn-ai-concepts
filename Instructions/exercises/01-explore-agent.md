@@ -34,13 +34,20 @@ This exercise should take approximately **15** minutes to complete.
 
    ![Screenshot of the Ask Anton chat interface.](./media/ask-anton-02.png)
 
+    Start by using some of the sample prompts in the user interface, then try some of your own. Some suggestions include:
+
+    `What is MCP, and how is it used by agents?`
+
+    `Tell me about Microsoft Foundry`
+
+    `Find me a Python code example of using a model in Microsoft Foundry.`
+
 1. Continue to chat with the agent, bearing in mind the following guidelines:
-    - You can use the built-in sample prompts or enter your own in the chat box.
     - You can use the **Voice input** button to talk to the agent instead of typing (if supported by your browser).
     - You can use the links after each response to learn more.
     - Responses may be slow - particularly in *CPU mode*. You can stop a response generation at any point.
-    - When using *GPU mode*, you can use follow-up questions - the model will "remember" the conversation context. In *CPU mode*, each prompt creates a new interaction.
-    - Responses from AI may not always be accurate. In this application, the responses are *grounded* in a knowledge base; but generative AI can still make mistakes.
+    - You can use follow-up questions - the model will "remember" the conversation context. However, small models have small *context windows* - which sometimes makes them behave as if they have a short attention span!
+    - Responses from AI may not always be accurate. In this application, the responses are *grounded* in a knowledge base; but generative AI models (particularly small ones like the ones used in this app) can give incorrect responses.
 
 ## Understand the architecture
 
@@ -61,6 +68,10 @@ At a high-level, the process can be broken down into six steps.
 1. The agent responds to the chat conversation with the response.
 
 This architecture reflects how many production-level AI agents are designed. It's based on a general pattern referred to as *retrieval-augmented generation* (RAG) in which the agent *retrieves* contextual information from a knowledge store, uses it to *augment* the original user prompt, which is sent to a language model to *generate* a response.
+
+Additionally, the agent has a basic web search *tool*, which in this simple implementation consists of constructing a Bing search query based on your input when the prompt is interpreted as a request to search the web.
+
+> **Note**: The performance and quality of the small language model (SLM) reponses in this browser-based application are not representative of the results that can be achieved with state-of-the-art large language models (LLMs) on Microsoft Foundry. If you have access to an Azure subscription, and you want to compare for yourself, check out the [Azk Anton](https://aka.ms/azk-anton) app; which is a Foundry-based implementation of the Ask Anton agent.
 
 ## Summary
 
