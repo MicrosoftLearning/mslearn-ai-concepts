@@ -40,7 +40,7 @@ This exercise should take approximately **15** minutes to complete.
 
     `Tell me about Microsoft Foundry`
 
-    `Find me a Python code example of using a model in Microsoft Foundry.`
+    `Find me a Python code example of using an agent in Microsoft Foundry.`
 
 1. Continue to chat with the agent, bearing in mind the following guidelines:
     - You can use the **Voice input** button to talk to the agent instead of typing (if supported by your browser).
