@@ -36,11 +36,11 @@ This exercise should take approximately **15** minutes to complete.
 
     Start by using some of the sample prompts in the user interface, then try some of your own. Some suggestions include:
 
-    `What is MCP, and how is it used by agents?`
+    `What's the relationship between machine learning and artificial intelligence?`
 
-    `Tell me about Microsoft Foundry`
+    `What is responsible AI?`
 
-    `Find me a Python code example of using an agent in Microsoft Foundry.`
+    `Find me details of considerations for building generative AI solutions on Azure.`
 
 1. Continue to chat with the agent, bearing in mind the following guidelines:
     - You can use the **Voice input** button to talk to the agent instead of typing (if supported by your browser).
