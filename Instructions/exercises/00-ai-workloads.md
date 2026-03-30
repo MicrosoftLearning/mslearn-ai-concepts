@@ -72,7 +72,6 @@ The Computing History agent is a simple example of an AI agent that provides a c
 > **Note**: The Computing History agent is provided solely as a simple example of a chat-based agent for educational purposes. It is not a supported Microsoft product or service, and should not be relied on for critical work.
 
 1. In a web browser, open the **[Computing History agent](https://aka.ms/computing-history){:target="_blank"}** at `https://aka.ms/computing-history`.
-1. Wait for the model to download and initialize.
 
    ![Screenshot of the Computing History agent chooser page.](./media/computing-history.png)
 
@@ -117,14 +116,15 @@ Agents are generative AI applications that go beyond basic chat functionality an
     Note that the Computing History agent has a *web_search* tool, which enables it to search the web for knowledge required to answer user questions.
 
 1. Enter the prompt `Search for "Commodore 64".` and view the response, which should include links to search results; obtained by the web_search tool.
-1. Now try `Search for a Commodore 64 for sale on ebay.` and view the response.
+1. Now try `Search for a Commodore 64 for sale.` and view the response.
 
-    > **Note**: The Azure-based application uses a web tool whenever the model determines that it can't answer based on its own knowledge or it has been explicitly asked to search. The browser-based application identifies prompts that contain keywords like "search", "find", or "for sale", and responds with a search URL for bing.com or ebay.com.
+    > **Note**: The Azure-based application uses a web tool whenever the model determines that it can't answer based on its own knowledge or it has been explicitly asked to search. The browser-based application identifies prompts that contain keywords like "search", "find", "buy", or "for sale", and responds with an appropriate search URL for bing.com.
 
     **Suggestions for other prompts to try:**
 
     - `Find a vintage computer store in Seattle.`
-    - `Search for vintage Microsoft logos.`
+    - `Search for classic Microsoft logos.`
+    - `Help me buy a PS/2 mouse for an old PC.`
 
 ## Explore text analysis
 
