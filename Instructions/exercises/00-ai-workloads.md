@@ -211,13 +211,13 @@ Information extraction combines multiple AI workloads to analyze content and ide
 1. Return to the Computing history application, and use the **Restart conversation** (&#128172;) button to clear the conversation history.
 1. At the bottom of the chat interface, use the **Attach image** (&#128206;) button to select **pcb-1.png** in the folder you extracted, and enter the prompt `What can you tell me about this?`.
 
-    Review the response. Hopefully, the Computing History application extracted the part number printed on the board.
+    Review the response. Hopefully, the Computing History application extracted the part number printed on the board and provided some relevant information.
 
     > **Note**: The Azure-based application uses its multimodal model to analyze the image, including performing optical character recognition (OCR) and interpreting the extracted text. The browser-based application uses its custom image classification model to identify images of printed circuit boards, and a JavaScript package for OCR to extract any text they contain.
 
     **Suggestions for other prompts to try:**
 
-    Try the other PCB images in the folder you extracted with prompts that ask the application about them, and view the responses.
+    Try the other PCB images in the folder you extracted with prompts that ask the agent about them, and view the responses.
 
     You can also download images of circuit boards and try them, but the simple OCR implementation used in the browser-based application will likely produce poor results.
 
