@@ -17,7 +17,7 @@ This exercise should take approximately **15** minutes to complete.
 
 In this exercise you use a generative AI model in a chat playground to respond to prompts that include image data.
 
-> **Note**: The chat application uses a small language model to interpret and respond to prompts. If WebGPU is supported in your browser, the *Microsoft Phi 3 mini* model is run on your computer's GPU; if not, the *SmolLM2* model is run on the CPU. Many modern large language models are *multimodal* - in other words, they support multiple formats of input, including text and images. However, the Microsoft Phi 3 mini and SmolLM2 models are text-based only, so we'll also use the the **MobileNetV3** CNN-based computer vision model for image classification and include the predicted image class in the prompt.
+> **Note**: The chat application uses a small language model to interpret and respond to prompts. If WebGPU is supported in your browser, the *Microsoft Phi 3 mini* model is run on your computer's GPU; if not, the *SmolLM2* model is run on the CPU. On older or low-spec devices, you may get more reliable behavior by switching to the CPU-based model even if WebGPU is available. Many modern large language models are *multimodal* - in other words, they support multiple formats of input, including text and images. However, the Microsoft Phi 3 mini and SmolLM2 models are text-based only, so we'll also use the the **MobileNetV3** CNN-based computer vision model for image classification and include the predicted image class in the prompt.
 
 1. In a web browser, open the **[Chat Playground](https://aka.ms/chat-playground){:target="_blank"}** at `https://aka.ms/chat-playground`.
 
@@ -51,6 +51,6 @@ In this exercise you use a generative AI model in a chat playground to respond t
 
 ## Summary
 
-In this exercise, you explored the use of computer vision with a generative AI model in a chat playground. 
+In this exercise, you explored the use of computer vision with a generative AI model in a chat playground.
 
 The app used in this exercise is based on a simplified version of the chat playground in the Microsoft Foundry portal. Microsoft Foundry supports a range of multimodal models that can accept combined image and text input, enabling significantly more complex image interpretation than this simple example. Additionally, you can use the Azure Content Understanding tool to analyze images.
