@@ -33,11 +33,11 @@ Sentiment analysis is a common NLP task. It's used to determine whether text con
 1. In the chat playground, enter the following prompt (using SHIFT+ENTER for new lines if typing)
 
     ```
-    Analyze the following review, and determine whether the sentiment is positive or negative:
-    ---
-    I stayed at the Hudson View Hotel in New York for four nights in November, and it exceeded every expectation. From the moment I arrived, the staff made the experience memorable.
-    Overall, the Hudson View Hotel made my trip to New York feel effortless and enjoyable. Highly recommended for anyone wanting friendly service and a great location.
-    ---
+   Analyze the following review, and determine whether the sentiment is positive or negative:
+   ---
+   I stayed at the Hudson View Hotel in New York for four nights in November, and it exceeded every expectation. From the moment I arrived, the staff made the experience memorable.
+   Overall, the Hudson View Hotel made my trip to New York feel effortless and enjoyable. Highly recommended for anyone wanting friendly service and a great location.
+   ---
     ```
 
 1. Review the response, which should include an analysis of the text's sentiment.
@@ -47,11 +47,10 @@ Sentiment analysis is a common NLP task. It's used to determine whether text con
 1. Enter the following prompt to analyze a different review:
 
     ```
-
-    What about this one?
-    ---
-    I had a terrible stay at the Sunset Palms Hotel in September. Check‑in was slow, and most of the staff seemed overwhelmed and uninterested. Between the thin walls, unreliable Wi‑Fi, and general lack of cleanliness, I wouldn’t stay at Sunset Palms again.
-    ---
+   What about this one?
+   ---
+   I had a terrible stay at the Sunset Palms Hotel in September. Check‑in was slow, and most of the staff seemed overwhelmed and uninterested. Between the thin walls, unreliable Wi‑Fi, and general lack of cleanliness, I wouldn’t stay at Sunset Palms again.
+   ---
     ```
 
     You can experiment further by creating your own prompts. The results may vary due to the small language model used in this lightweight app.
@@ -64,12 +63,12 @@ Named entities are the people, places, dates, and other important items mentione
 1. Enter the following prompt, and review the results:
 
     ```
-    List the places mentioned in this text:
-    ---
-    Welcome to the AI Tour!
-    We're looking forward to seeing you in New York, Boston, Seattle, or San Francisco in July!
-    See the website for dates and venue details!
-    ```
+   List the places mentioned in this text:
+   ---
+   Welcome to the AI Tour!
+   We're looking forward to seeing you in New York, Boston, Seattle, or San Francisco in July!
+   See the website for dates and venue details!
+   ```
 
     The model should identify the specific places mentioned in the text.
 
@@ -84,18 +83,18 @@ Summarization is a way to distill the main points in a document into a shorter a
 
     ```
 
-    Summarize the following meeting transcript in a single paragraph
-    ---
-    Alex Chen: “We need an offsite location that’s easy to reach—Denver and Austin were my first thoughts.”
-    Priya Nair: “Austin’s appealing, but I’m worried about hotel availability and overall cost.”
-    Miguel Torres: “I checked a few options, and Las Vegas consistently comes out easier for flights and venues.”
-    Alex Chen: “That’s true—Vegas also gives us more flexibility than Denver or San Diego.”
-    Priya Nair: “San Diego would be nice, but when we compare logistics, Vegas clearly wins.”
-    Miguel Torres: “Exactly—it’s simpler and more scalable than the other options.”
-    Alex Chen: “Sounds like we’re aligned that Las Vegas is the best choice overall.”
-    Priya Nair: “Yes, I’m comfortable choosing Vegas over the other locations.”
-    Miguel Torres: “Agreed—let’s lock in Las Vegas for the offsite.”
-    ```
+   Summarize the following meeting transcript in a single paragraph
+   ---
+   Alex Chen: “We need an offsite location that’s easy to reach—Denver and Austin were my first thoughts.”
+   Priya Nair: “Austin’s appealing, but I’m worried about hotel availability and overall cost.”
+   Miguel Torres: “I checked a few options, and Las Vegas consistently comes out easier for flights and venues.”
+   Alex Chen: “That’s true—Vegas also gives us more flexibility than Denver or San Diego.”
+   Priya Nair: “San Diego would be nice, but when we compare logistics, Vegas clearly wins.”
+   Miguel Torres: “Exactly—it’s simpler and more scalable than the other options.”
+   Alex Chen: “Sounds like we’re aligned that Las Vegas is the best choice overall.”
+   Priya Nair: “Yes, I’m comfortable choosing Vegas over the other locations.”
+   Miguel Torres: “Agreed—let’s lock in Las Vegas for the offsite.”
+   ```
 
     The model should generate a summary of the text.
 
@@ -107,7 +106,9 @@ While a large language model that's trained for general generative AI workloads 
 
 1. In your web browser, open the **[Language Playground](https://aka.ms/language-app){:target="_blank"}** at `https://aka.ms/language-app`.
 
-> **Note**: The Language Playground app uses statistical text analysis techniques to perform two common NLP tasks: language detection and personally identifiable information (PII) redaction.
+1. Wait for the model to load.
+
+> **Note**: The Language Playground app uses statistical text analysis techniques to perform language detection, and a generative AI model to perform personally identifiable information (PII) redaction. As with the Chat Playground app, the Language Playground app defaults to a Phi 3-mini model in WebLLM when WebGPU is available, with a fallback to SmolLM2 on CPU. The model may take a few minutes to load on first use.
 
 ### Detect language
 
@@ -126,7 +127,7 @@ In scenarios where text could potentially be in one of multiple languages, the f
     For example, enter the following input text and detect the language it is written in:
 
     ```
-    ¡Hola! Me llamo Josefina y vivo en Madrid, España. Soy doctora en un hospital, ¡lo que me mantiene muy ocupada!
+   ¡Hola! Me llamo Josefina y vivo en Madrid, España. Soy doctora en un hospital, ¡lo que me mantiene muy ocupada!
     ```
 
 1. Experiment with input of your own. The Language Playground app is designed to support detection of the following languages:
@@ -149,6 +150,8 @@ In scenarios where text could potentially be in one of multiple languages, the f
 
 To comply with privacy policies and laws, organizations often need to detect and redact personally identifiable information (PII) such as names, addresses, phone numbers, email addresses, and other personal details.
 
+> **Tip**: On older or low-spec devices, you may get more reliable and performant behavior by switching to the CPU-based model even if WebGPU is available.
+
 1. In the Language Playground app, select the **Text PII extraction** analyzer.
 1. In the **Input text** list, select one of the provided sample documents. Then use the **Detect** button to detect PII values in the text.
 
@@ -162,7 +165,7 @@ To comply with privacy policies and laws, organizations often need to detect and
     For example, enter the following input text and detect any PII it contains:
 
     ```
-    A customer named Mary Jones called from 020 7946 0958 and asked to send documents to 42 Market Road, London, UK, SW1A 1AA.
+   A customer named Mary Jones called from 020 7946 0958 and asked to send documents to 42 Market Road, London, UK, SW1A 1AA.
     ```
 
 1. Experiment with input of your own. The Language Playground app is designed to support detection of the following types of PII:
