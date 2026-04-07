@@ -162,7 +162,7 @@ To comply with privacy policies and laws, organizations often need to detect and
     For example, enter the following input text and detect any PII it contains:
 
     ```
-    Maria Garcia called from 020 7946 0958 and asked to send documents to 42 Market Road, London, UK, SW1A 1AA.
+    A customer named Mary Jones called from 020 7946 0958 and asked to send documents to 42 Market Road, London, UK, SW1A 1AA.
     ```
 
 1. Experiment with input of your own. The Language Playground app is designed to support detection of the following types of PII:
