@@ -80,13 +80,17 @@ The Computing History agent is a simple example of an AI agent that provides a c
 
         Copy the details from the Foundry Portal, and save the configuration. Note that the endpoint and model name will be saved in your local browser cache; but you must re-enter the project API key if you close and reopen the app.
 
-    - Selecting **Browser Chat** opens the browser-based agent and downloads the required models
+    - Selecting **Browser Chat** opens the browser-based agent and downloads the required models.
 
         The first time you download a model, it may take several minutes. Subsequent downloads will be faster.
 
+        By default, the browser-based app uses the Microsoft Phi 3-mini model running in WebLLM (via WebGPU). When a GPU is unavailable, the app uses a fallback mode with the SmolLM2 model running in the wllama CPU-based engine.
+
+        > **Tip**: After the app has initialized, on older or low-spec devices, you may get more reliable behavior by switching to CPU mode even if WebGPU is available.
+
 ## Explore a generative AI model
 
-Generative AI uses *large language models* (LLMs) like GPT-4.1-mini and more compact *small language models* (SLMs) like SMOLLMV2 to respond to user *prompts*.
+Generative AI uses *large language models* (LLMs) like GPT-4.1-mini and more compact *small language models* (SLMs) like Microsoft Phi 3-mini to respond to user *prompts*.
 
 1. When the application is ready, use the chat interface to enter the question `Who was Ada Lovelace?` and review the responses returned by the agent.
 
@@ -167,7 +171,7 @@ Text analysis is a subset of natural language processing, in which AI can apply 
 
     After a moment or two, your spoken prompt should be submitted as a message, and a response returned. The response should then be vocalized using speech synthesis.
 
-    > **Note**: Speech support for the browser-based application is based on the WebSpeech library that is common in most modern browsers. In some cases, speech recogntion may not be available or the required voices to syntheisze speech may not be present on your computer. When using the Azure-based application, speech recognition and synthesis are implemented using the Azure Speech in Foundry Tools APIs; which rely on correct configuration of the endpoint and API key.
+    > **Note**: Speech support for the browser-based application is based on the WebSpeech library that is common in most modern browsers. If WebSpeech-based speech recognition fails, a fallback offline speech model is used for speech revognition. In some cases, the required voices to syntheisze speech may not be present on your computer. When using the Azure-based application, speech recognition and synthesis are implemented using the Azure Speech in Foundry Tools APIs; which rely on correct configuration of the endpoint and API key.
 
 1. Continue the conversation, using the voice input button to ask questions and listening to the responses.
 
