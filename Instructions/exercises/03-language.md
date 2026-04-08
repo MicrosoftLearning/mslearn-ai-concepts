@@ -106,9 +106,9 @@ While a large language model that's trained for general generative AI workloads 
 
 1. In your web browser, open the **[Language Playground](https://aka.ms/language-app){:target="_blank"}** at `https://aka.ms/language-app`.
 
-1. Wait for the model to load.
-
 > **Note**: The Language Playground app uses statistical text analysis techniques to perform language detection, and a generative AI model to perform personally identifiable information (PII) redaction. As with the Chat Playground app, the Language Playground app defaults to a Phi 3-mini model in WebLLM when WebGPU is available, with a fallback to SmolLM2 on CPU. The model may take a few minutes to load on first use.
+
+1. You can carry on with the next procedure (*Detect language*) while the model is loading; but you must wait for the language model to be fully loaded before using the *Text PII extraction* functionality.
 
 ### Detect language
 
@@ -150,7 +150,7 @@ In scenarios where text could potentially be in one of multiple languages, the f
 
 To comply with privacy policies and laws, organizations often need to detect and redact personally identifiable information (PII) such as names, addresses, phone numbers, email addresses, and other personal details.
 
-> **Tip**: On older or low-spec devices, you may get more reliable and performant behavior by switching to the CPU-based model even if WebGPU is available.
+> **Tip**: On older or low-spec devices, you may get more reliable and performant behavior by switching to the CPU-based model even if WebGPU is available. Switching modes resets the application to the *Detect Language* view.
 
 1. In the Language Playground app, select the **Text PII extraction** analyzer.
 1. In the **Input text** list, select one of the provided sample documents. Then use the **Detect** button to detect PII values in the text.
