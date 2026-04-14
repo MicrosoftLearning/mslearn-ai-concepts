@@ -11,6 +11,8 @@ lab:
 
 In this exercise, you'll interact with a generative AI model using speech. The goal of this exercise is to explore speech-to-text (STT) and text-to-speech (TTS) functionality with a generative AI model.
 
+> **Tip**: This lab works best using a headset or a high quality mic and headphones. Ambient noise may cause failures - though in some cases, the issue may be that your browser setup does not support the Web Speech API for voice recognition.
+
 This exercise should take approximately **15** minutes to complete.
 
 ## Open the Chat Playground app
@@ -47,7 +49,9 @@ The Chat playground application supports *voice mode*, in which you can interact
 
 1. Select any of the available voices, and use the *Preview selected voice* (**&#9655;**) button to hear a sample of the voice.
 
-    > **Note**: Online voices are downloaded on-demand, which may take a few seconds. The app verifies that they are loaded successfully, and displays an error if not.
+    Online voices are downloaded on-demand, which may take a few seconds. The app verifies that they are loaded successfully, and displays an error if not.
+
+    > **Tip**: After you've selected a voice, you can also optionally select an avatar to represent the voice agent visually!
 
 1. When you have selected the voice you want to use, close the **Configuration** pane.
 
@@ -59,22 +63,28 @@ The app supports both speech recognition and speech synthesis, enabling you to h
 
 1. When the app status is **Listening...**, say something like "*What is speech recognition?*" and wait for a response.
 
-    > **Tip**: If an error occurs or the app can't detect any speech input, check your microphone settings and try again. Ambient noise may cause failures - though in some cases, the issue may be that your browser setup does not support the WebSpeech API for voice recognition.
+    > **Tip**: If an error occurs or the app can't detect any speech input using the default Web Speech functionality, it will automatically failover to a local speech recognition model and prompt you to retry.
 
 1. Verify that the app status changes to **Processing...**. The app will process the spoken input, using speech-to-text to convert your speech to text and submit it to the model as a prompt.
 
     > **Tip**: Processing speech and retrieving a response from the model may take some time in this browser-based sample app - especially when using the CPU-based model. Be patient!
 
-1. When the status changes to **Speaking...**, the app uses text-to-speech to vocalize the response from the model. When it's finished, the original prompt and the response will be shown as text.
+1. When the status changes to **Speaking...**, the app uses text-to-speech to vocalize the response from the model.
+
+    > **Note**: If no voices are available in your browser, the reponse will not be vocalized.
+
+1. After the response has been spoken, the app switches back to the **Listening...** state. Continue the conversation by speaking again.
+
+    At any point, you can use the **[CC]** button to see a transcript of the conversation so far.
+
+1. To end the conversation, use the **X** button. The session will end and the conversation transcript will be shown, like this:
 
    ![Screenshot of Speech Playground with a response.](./media/speech-03.png)
 
-    > **Tip**: If no voices are available in your browser, only the text reponse will be shown.
-
-1. To continue the conversation, use the **Start session** button to submit a second spoken prompt, such as "*What is speech synthesis?*", and review the response.
+1. You can use the **Start session** button to begin a new conversation. The conversation history from the previous session will not be retained.
 
 ## Summary
 
 In this exercise, you explored the use of speech-to-text and text-to-speech with a generative AI model in a simple playground app.
 
-The app used in this lab is based on a simplified version of the agent playground in Microsoft Foundry portal; in which Azure Speech in Foundry tools *Voice Live* capabilities can be added to an agent. While the app in this lab is limited to "single-turn" spoken interactions, the Azure Speech Voice Live capabilities in Microsoft Foundry include multi-turn real-time conversations with support for interruptions and background noise suppression.
+The app used in this lab is based on a simplified version of the agent playground in Microsoft Foundry portal; in which Azure Speech in Foundry tools *Voice Live* capabilities can be added to an agent. While the app in this lab is limited to "speak - wait - speak" interactions, the Azure Speech Voice Live capabilities in Microsoft Foundry include multi-turn real-time conversations with support for interruptions and background noise suppression.

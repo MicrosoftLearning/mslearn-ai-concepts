@@ -71,7 +71,7 @@ This architecture reflects how many production-level AI agents are designed. It'
 
 Additionally, the agent has a basic web search *tool*, which in this simple implementation consists of constructing a Bing search query based on your input when the prompt is interpreted as a request to search the web.
 
-> **Note**: The performance and quality of the small language model (SLM) reponses in this browser-based application are not representative of the results that can be achieved with state-of-the-art large language models (LLMs) on Microsoft Foundry. If you have access to an Azure subscription in which you can create a project (with *key-based* authentication) and deploy a model, you can compare for yourself - check out the [Azk Anton](https://aka.ms/azk-anton) app; which is a Foundry-based implementation of the Ask Anton agent.
+> **Note**: The performance and quality of the small language model (SLM) responses in this browser-based application are not representative of the results that can be achieved with state-of-the-art large language models (LLMs) on Microsoft Foundry. If you have access to an Azure subscription in which you can create a project (with *key-based* authentication) and deploy a model, you can compare for yourself - check out the [Azk Anton](https://aka.ms/azk-anton) app; which is a Foundry-based implementation of the Ask Anton agent.
 
 ## Summary
 
