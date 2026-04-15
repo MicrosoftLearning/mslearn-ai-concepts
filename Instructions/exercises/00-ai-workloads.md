@@ -22,6 +22,10 @@ To use the Azure-based application, you require an Azure subscription in which t
 
 This exercise should take approximately **15** minutes to complete.
 
+### Requirements
+
+To complete this lab, you need a modern browser on a computer with sufficient hardware resources to load and run the models used by the AI agent app. On older or low-spec computers, the app may run very slowly or experience errors.
+
 ## Create a Microsoft Foundry project and deploy a model *(if using Azure)*
 
 To use the Azure-based computing history app, you need a generative AI model deployed in Microsoft Foundry.

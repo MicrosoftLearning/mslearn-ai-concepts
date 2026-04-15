@@ -15,6 +15,10 @@ We'll use browser-based applications that are based on simplified implementation
 
 This exercise should take approximately **15** minutes to complete.
 
+### Requirements
+
+To complete this lab, you need a modern browser on a computer with sufficient hardware resources to load and run the models used by the AI agent app. On older or low-spec computers, the app may run very slowly or experience errors.
+
 ## Use a generative AI model to analyze text
 
 Let's start by using a chat interface to submit prompts to a generative AI model to perform common text analysis tasks. In this exercise, we'll use a small language model that is useful for general chat solutions in low bandwidth scenarios.

@@ -13,6 +13,10 @@ In this exercise, you'll use a chat playground to interact with a generative AI 
 
 This exercise should take approximately **15** minutes to complete.
 
+### Requirements
+
+To complete this lab, you need a modern browser on a computer with sufficient hardware resources to load and run the models used by the AI agent app. On older or low-spec computers, the app may run very slowly or experience errors.
+
 ## Prepare for image-based chat
 
 In this exercise you use a generative AI model in a chat playground to respond to prompts that include image data.

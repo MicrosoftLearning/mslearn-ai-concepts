@@ -13,6 +13,10 @@ In this exercise, you'll use a simple AI agent named **Ask Anton** to chat about
 
 This exercise should take approximately **15** minutes to complete.
 
+### Requirements
+
+To complete this lab, you need a modern browser on a computer with sufficient hardware resources to load and run the models used by the AI agent app. On older or low-spec computers, the app may run very slowly or experience errors.
+
 ## Open the Ask Anton AI agent
 
 **Ask Anton** is a simple example of an AI agent that provides a chat interface for learning about AI concepts.
