@@ -17,6 +17,13 @@ This exercise should take approximately **15** minutes to complete.
 
 To complete this lab, you need a modern browser on a computer with sufficient hardware resources to load and run the models used by the AI agent app. On older or low-spec computers, the app may run very slowly or experience errors.
 
+**Minimum spec**
+
+- 64-bit CPU, 4+ physical cores (8 logical threads preferred)
+- 8+ GB system RAM (16 GB recommended)
+- Enough storage to cache ~300MB–800MB model assets
+- Latest Chrome / Edge / Firefox with WASM SIMD enabled/available (WebGPU support is required for the default model; a WASM-based fallback is provided)
+
 ## Extract information from receipts
 
 Suppose you need to extract data fields from scanned receipts to help automate an expense claim solution. You can use an AI technique called optical character recognition (OCR) to identify text and its location in images. By combining this text extraction with a generative AI model, you can then apply semantic analysis to associate individual text values with specific data fields - such as names, phone numbers, dates, amounts, and so on.

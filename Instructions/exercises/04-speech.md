@@ -19,6 +19,14 @@ This exercise should take approximately **15** minutes to complete.
 
 To complete this lab, you need a modern browser on a computer with sufficient hardware resources to load and run the models used by the AI agent app. On older or low-spec computers, the app may run very slowly or experience errors.
 
+**Minimum spec**
+
+- 64-bit CPU, 4+ physical cores (8 logical threads preferred)
+- 8+ GB system RAM (16 GB recommended)
+- Enough storage to cache ~300MB–800MB model assets
+- Latest Chrome / Edge / Firefox with WASM SIMD enabled/available (WebGPU support is required for the default model; a WASM-based fallback is provided)
+- Audio hardware (mic and speaker)
+
 ## Open the Chat Playground app
 
 Let's start by chatting with a generative AI model. In this exercise, we'll use a browser-based application to chat with a small language model that is useful for general chat solutions in low bandwidth scenarios. The app also uses Web Speech APIs for speech recognition and synthesis.

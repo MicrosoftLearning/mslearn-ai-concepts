@@ -17,6 +17,13 @@ This exercise should take approximately **15** minutes to complete.
 
 To complete this lab, you need a modern browser on a computer with sufficient hardware resources to load and run the models used by the AI agent app. On older or low-spec computers, the app may run very slowly or experience errors.
 
+**Minimum spec**
+
+- 64-bit CPU, 4+ physical cores (8 logical threads preferred)
+- 8+ GB system RAM (16 GB recommended)
+- Enough storage to cache ~300MB–800MB model assets
+- Latest Chrome / Edge / Firefox with WASM SIMD enabled/available (WebGPU support is required for the default model; a WASM-based fallback is provided)
+
 ## Chat with a model
 
 Let's start by using a chat interface to submit prompts to a generative AI model. In this exercise, we'll use a small language model that is useful for general chat solutions in low bandwidth scenarios.

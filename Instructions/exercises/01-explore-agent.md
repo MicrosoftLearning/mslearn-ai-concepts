@@ -17,6 +17,14 @@ This exercise should take approximately **15** minutes to complete.
 
 To complete this lab, you need a modern browser on a computer with sufficient hardware resources to load and run the models used by the AI agent app. On older or low-spec computers, the app may run very slowly or experience errors.
 
+**Minimum spec**
+
+- 64-bit CPU, 4+ physical cores (8 logical threads preferred)
+- 8+ GB system RAM (16 GB recommended)
+- Enough storage to cache ~300MB–800MB model assets
+- Latest Chrome / Edge / Firefox with WASM SIMD enabled/available (WebGPU support is required for the default model; a WASM-based fallback is provided)
+- Audio hardware (mic and speaker) required for optional speech functionality
+
 ## Open the Ask Anton AI agent
 
 **Ask Anton** is a simple example of an AI agent that provides a chat interface for learning about AI concepts.
