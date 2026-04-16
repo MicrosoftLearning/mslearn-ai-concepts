@@ -13,10 +13,6 @@ In this exercise, you'll use AI natural language processing functionality to ana
 
 We'll use browser-based applications that are based on simplified implementations of the chat and language playgrounds in the Microsoft Foundry portal.
 
-This exercise should take approximately **15** minutes to complete.
-
-### Requirements
-
 To complete this lab, you need a modern browser on a computer with sufficient hardware resources to load and run the models used by the AI agent app. On older or low-spec computers, the app may run very slowly or experience errors.
 
 **Minimum spec**
@@ -25,6 +21,8 @@ To complete this lab, you need a modern browser on a computer with sufficient ha
 - 8+ GB system RAM (16 GB recommended)
 - Enough storage to cache ~300MB–800MB model assets
 - Latest Chrome / Edge / Firefox with WASM SIMD enabled/available (WebGPU support is required for the default model; a WASM-based fallback is provided)
+
+This exercise should take approximately **15** minutes to complete.
 
 ## Use a generative AI model to analyze text
 

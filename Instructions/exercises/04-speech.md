@@ -11,12 +11,6 @@ lab:
 
 In this exercise, you'll interact with a generative AI model using speech. The goal of this exercise is to explore speech-to-text (STT) and text-to-speech (TTS) functionality with a generative AI model.
 
-> **Tip**: This lab works best using a headset or a high quality mic and headphones. Ambient noise may cause failures - though in some cases, the issue may be that your browser setup does not support the Web Speech API for voice recognition.
-
-This exercise should take approximately **15** minutes to complete.
-
-### Requirements
-
 To complete this lab, you need a modern browser on a computer with sufficient hardware resources to load and run the models used by the AI agent app. On older or low-spec computers, the app may run very slowly or experience errors.
 
 **Minimum spec**
@@ -26,6 +20,10 @@ To complete this lab, you need a modern browser on a computer with sufficient ha
 - Enough storage to cache ~300MB–800MB model assets
 - Latest Chrome / Edge / Firefox with WASM SIMD enabled/available (WebGPU support is required for the default model; a WASM-based fallback is provided)
 - Audio hardware (mic and speaker)
+
+> **Tip**: This lab works best using a headset or a high quality mic and headphones. Ambient noise may cause failures - though in some cases, the issue may be that your browser setup does not support the Web Speech API for voice recognition.
+
+This exercise should take approximately **15** minutes to complete.
 
 ## Open the Chat Playground app
 

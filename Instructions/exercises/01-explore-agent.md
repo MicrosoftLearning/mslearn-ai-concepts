@@ -11,10 +11,6 @@ lab:
 
 In this exercise, you'll use a simple AI agent named **Ask Anton** to chat about AI concepts. The goal of this exercise is not to learn how to *build* an AI agent, but to familiarize yourself with some common features of AI solutions - in particular AI agents that support chat-based interactivity.
 
-This exercise should take approximately **15** minutes to complete.
-
-### Requirements
-
 To complete this lab, you need a modern browser on a computer with sufficient hardware resources to load and run the models used by the AI agent app. On older or low-spec computers, the app may run very slowly or experience errors.
 
 **Minimum spec**
@@ -24,6 +20,8 @@ To complete this lab, you need a modern browser on a computer with sufficient ha
 - Enough storage to cache ~300MB–800MB model assets
 - Latest Chrome / Edge / Firefox with WASM SIMD enabled/available (WebGPU support is required for the default model; a WASM-based fallback is provided)
 - Audio hardware (mic and speaker) required for optional speech functionality
+
+This exercise should take approximately **15** minutes to complete.
 
 ## Open the Ask Anton AI agent
 

@@ -11,10 +11,6 @@ lab:
 
 In this exercise, you'll use optical character recognition (OCR) and generative AI to extract information from receipts. The goal of this exercise is to explore for yourself how information extraction from documents involves an OCR process to detect text, and a field extraction stage to map specific text strings to field values.
 
-This exercise should take approximately **15** minutes to complete.
-
-### Requirements
-
 To complete this lab, you need a modern browser on a computer with sufficient hardware resources to load and run the models used by the AI agent app. On older or low-spec computers, the app may run very slowly or experience errors.
 
 **Minimum spec**
@@ -22,7 +18,9 @@ To complete this lab, you need a modern browser on a computer with sufficient ha
 - 64-bit CPU, 4+ physical cores (8 logical threads preferred)
 - 8+ GB system RAM (16 GB recommended)
 - Enough storage to cache ~300MB–800MB model assets
-- Latest Chrome / Edge / Firefox (WebGPU support is required for the default model; a basic fallback implementation is provided)
+- Latest Chrome / Edge / Firefox (WebGPU support is required for the default model; a modelless fallback implementation is provided)
+
+This exercise should take approximately **15** minutes to complete.
 
 ## Extract information from receipts
 

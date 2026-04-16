@@ -11,10 +11,6 @@ lab:
 
 In this exercise, you'll use a chat playground to interact with a generative AI model. The goal of this exercise is to explore the effect of system prompts, model parameters, and grounding models with data.
 
-This exercise should take approximately **15** minutes to complete.
-
-### Requirements
-
 To complete this lab, you need a modern browser on a computer with sufficient hardware resources to load and run the models used by the AI agent app. On older or low-spec computers, the app may run very slowly or experience errors.
 
 **Minimum spec**
@@ -23,6 +19,8 @@ To complete this lab, you need a modern browser on a computer with sufficient ha
 - 8+ GB system RAM (16 GB recommended)
 - Enough storage to cache ~300MB–800MB model assets
 - Latest Chrome / Edge / Firefox with WASM SIMD enabled/available (WebGPU support is required for the default model; a WASM-based fallback is provided)
+
+This exercise should take approximately **15** minutes to complete.
 
 ## Chat with a model
 
