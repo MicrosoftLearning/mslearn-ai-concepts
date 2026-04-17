@@ -21,10 +21,13 @@ To complete this lab, you need a modern browser on a computer with sufficient ha
 **Minimum spec**
 
 - 64-bit CPU, 4+ physical cores (8 logical threads preferred)
+- GPU required for the default Phi 3-mini model.
 - 8+ GB system RAM (16 GB recommended)
 - Enough storage to cache ~300MB–800MB model assets
 - Latest Chrome / Edge / Firefox with WASM SIMD enabled/available (WebGPU support is required for the default model; a WASM-based fallback is provided)
 - Audio hardware (mic and speaker) required for speech functionality
+
+If your computer does not meet these requirements, the CPU-based fallback model may not run successfully. However, the app does support a failsafe "Basic" mode in which no model is used; which you may be able to use.
 
 To use the Azure-based application, you require an Azure subscription in which to create a Foundry project and deploy a model. The browser-based application has some functional and performance limitations compared to the Azure version, but is designed to work in most modern browsers with no subscription or setup required.
 
@@ -96,7 +99,7 @@ The Computing History agent is a simple example of an AI agent that provides a c
 
         By default, the browser-based app uses the Microsoft Phi 3-mini model running in WebLLM (via WebGPU). When a GPU is unavailable, the app uses a fallback mode with the SmolLM2 model running in the wllama CPU-based engine.
 
-        > **Tip**: After the app has initialized, on older or low-spec devices, you may get more reliable behavior by switching to CPU mode even if WebGPU is available.
+        > **Tip**: After the app has initialized, on older or low-spec devices, you may get more reliable behavior by switching to CPU or Basic mode, even if WebGPU is available.
 
 ## Explore a generative AI model
 
