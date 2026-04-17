@@ -79,7 +79,7 @@ At a high-level, the process can be broken down into six steps.
 
 This architecture reflects how many production-level AI agents are designed. It's based on a general pattern referred to as *retrieval-augmented generation* (RAG) in which the agent *retrieves* contextual information from a knowledge store, uses it to *augment* the original user prompt, which is sent to a language model to *generate* a response.
 
-Additionally, the agent has a basic web search *tool*, which in this simple implementation consists of constructing a Bing search query based on your input when the prompt is interpreted as a request to search the web.
+Additionally, the agent has a basic web search *tool*, which in this simple implementation consists of constructing a search query for the Microsoft Learn site based on your input when the prompt is interpreted as a request to search for information, or when no context is found in the index.
 
 > **Note**: The performance and quality of the small language model (SLM) responses in this browser-based application are not representative of the results that can be achieved with state-of-the-art large language models (LLMs) on Microsoft Foundry. If you have access to an Azure subscription in which you can create a project (with *key-based* authentication) and deploy a model, you can compare for yourself - check out the [Azk Anton](https://aka.ms/azk-anton) app; which is a Foundry-based implementation of the Ask Anton agent.
 
