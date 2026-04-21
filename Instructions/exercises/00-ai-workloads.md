@@ -112,13 +112,14 @@ Generative AI uses *large language models* (LLMs) like GPT-4.1-mini and more com
     > **Note**: The Azure-based application submits your prompt to the large language model (LLM) you deployed in Foundry. The browser-based application uses a (very) small language model (SLM) that has been loaded within the browser. Responses in the browser-based application may be slow, and are more likely to contain inaccuracies.
 
 1. Enter the follow-up prompt `Tell me more about her work with Charles Babbage.` and view the response. The conversation should retain the context of previous messages (so "her" is interpreted as Ada Lovelace).
+1. Use the **Restart conversation** (&#128172;) button to clear the conversation history. Then enter a new prompt: `Tell me about the ELIZA chatbot.`
+1. Enter a follow-up prompt: `How does it compare to modern LLMs?`
 
     **Suggestions for other prompts to try:**
 
-    - `What was Alan Turing's contribution to AI?`
-    - `Tell me about the ELIZA chatbot.`
+    - `Who was Alan Turing?`
     - `What was ENIAC?`
-    - `Can you tell me anything about Grace Hopper?`
+    - `Tell me about Grace Hopper`
 
 ## Explore an agent with tools
 
@@ -170,7 +171,7 @@ Text analysis is a subset of natural language processing, in which AI can apply 
     ```
     Summarize this article, and use named entity recognition to identify people, places, and dates:
 
-    Microsoft was founded on April 4, 1975, by childhood friends Bill Gates (then 19) and Paul Allen (22) after they were inspired by the Altair 8800, one of the first personal computers, featured on the cover of *Popular Electronics*. They contacted the Altair’s maker, MITS, and successfully developed a version of the BASIC programming language, despite initially not owning the machine themselves. The pair formed a partnership called “Micro‑Soft” in Albuquerque, New Mexico, close to MITS’s headquarters, with the goal of writing software for emerging microcomputers.
+    Microsoft was founded on April 4, 1975, by childhood friends Bill Gates (then 19) and Paul Allen (22) after they were inspired by the Altair 8800, one of the first personal computers, featured on the cover of Popular Electronics. They contacted the Altair’s maker, MITS, and successfully developed a version of the BASIC programming language, despite initially not owning the machine themselves. The pair formed a partnership called “Micro‑Soft” in Albuquerque, New Mexico, close to MITS’s headquarters, with the goal of writing software for emerging microcomputers.
 
     In the late 1970s, Microsoft grew by supplying programming languages to multiple hardware vendors, then relocated to the Seattle area in 1979. A pivotal moment came in 1980 when Microsoft partnered with IBM to provide an operating system for the IBM PC, leading to MS‑DOS and establishing the company’s dominance in personal computing. Gates guided the company’s long-term strategy as CEO, while Allen contributed key technical vision in its early years, setting Microsoft on a path that would reshape the software industry.
     ```
