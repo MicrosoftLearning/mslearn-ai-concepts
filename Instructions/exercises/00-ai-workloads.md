@@ -181,18 +181,18 @@ Text analysis is a subset of natural language processing, in which AI can apply 
 *Speech recognition* enables AI to process spoken input, which *speech synthesis* enables it to vocalize output.
 
 1. In the Computing History application, use the **Restart conversation** (&#128172;) button to clear the conversation history.
-1. At the bottom of the chat interface, use the **Voice input** (&#127908;) button to initiate speech recognition, allow access to your microphone if prompted, and say "*What is a vocoder?*".
+1. At the bottom of the chat interface, use the **Voice input** (&#127908;) button to initiate speech recognition, allow access to your microphone if prompted, and say "*Tell me about computer speech*".
 
     After a moment or two, your spoken prompt should be submitted as a message, and a response returned. The response should then be vocalized using speech synthesis.
 
-    > **Note**: Speech support for the browser-based application is based on the WebSpeech library that is common in most modern browsers. If WebSpeech-based speech recognition fails, a fallback offline speech model is used for speech revognition. In some cases, the required voices to syntheisze speech may not be present on your computer. When using the Azure-based application, speech recognition and synthesis are implemented using the Azure Speech in Foundry Tools APIs; which rely on correct configuration of the endpoint and API key.
+    > **Note**: Speech support for the browser-based application is based on the Web Speech library that is common in most modern browsers. If Web Speech-based speech recognition fails, a fallback offline speech model is used for speech revognition. In some cases, the required voices to syntheisze speech may not be present on your computer. When using the Azure-based application, speech recognition and synthesis are implemented using the Azure Speech in Foundry Tools APIs; which rely on correct configuration of the endpoint and API key.
 
 1. Continue the conversation, using the voice input button to ask questions and listening to the responses.
 
     **Suggestions for other prompts to try:**
 
-    - *What is a phoneme?*
-    - *Explain prosody.*
+    - *Explain speech recognition*
+    - *What is a vocoder?*
 
 ## Explore computer vision
 
