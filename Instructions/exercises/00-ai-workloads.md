@@ -113,7 +113,7 @@ Generative AI uses *large language models* (LLMs) like GPT-4.1-mini and more com
 
 1. Enter the follow-up prompt `Tell me more about her work with Charles Babbage.` and view the response. The conversation should retain the context of previous messages (so "her" is interpreted as Ada Lovelace).
 1. Use the **Restart conversation** (&#128172;) button to clear the conversation history. Then enter a new prompt: `Tell me about the ELIZA chatbot.`
-1. Enter a follow-up prompt: `How does it compare to modern LLMs?`
+1. Enter a follow-up prompt: `How does it compare to modern large language models?`
 
     **Suggestions for other prompts to try:**
 
