@@ -55,13 +55,13 @@ To use the Azure-based computing history app, you need a generative AI model dep
 
 1. Now you're ready to **Start building**. Select **Find models** (or on the **Discover** page, select the **Models** tab) to view the Microsoft Foundry model catalog.
 
-1. Search for and select the `gpt-4.1-mini` model, and view the page for this model, which describes its features and capabilities.
+1. Search for and select the `gpt-4.1` model, and view the page for this model, which describes its features and capabilities.
 
-    ![Screenshot of the gpt-4.1-mini model page.](./media/0-gpt-4.1-mini.png)
+    ![Screenshot of the gpt-4.1 model page.](./media/0-gpt-4.1-mini.png)
 
 1. Use the **Deploy** button to deploy the model using the default settings. Deployment may take a minute or so.
 
-    > **Tip**: Model deployments are subject to regional quotas. If you don't have enough quota to deploy the model in your project's region, you can use a different model - such as gpt-4.1, or gpt-4o. Alternatively, you can create a new project in a different region.
+    > **Tip**: Model deployments are subject to regional quotas. If you don't have enough quota to deploy the model in your project's region, you can use a different model. Alternatively, you can create a new project in a different region.
 
 1. When the model has been deployed, view the model playground page that is opened, in which you can chat with the model.
 
@@ -200,11 +200,11 @@ Computer vision uses image-based models to enable AI to interpret visual input.
 
 1. In a new browser tab, download **[computers.zip](https://aka.ms/computer-images){:target="_blank"}** from `https://aka.ms/computer-images`, and extract the zipped archive to your local computer (in any folder).
 1. Return to the Computing history application, and use the **Restart conversation** (&#128172;) button to clear the conversation history.
-1. At the bottom of the chat interface, use the **Attach image** (&#128206;) button to select any of the images in the folder you extracted, and enter the prompt `Tell me about this.`.
+1. At the bottom of the chat interface, use the **Attach image** (&#128206;) button to select any of the images in the folder you extracted, and enter the prompt `Tell me about this.`
 
     Review the response. Hopefully the model recognized the computer in the image.
 
-1. Try attaching a different image with the prompt `And this?`.
+1. Try attaching a different image with the prompt `And this?`
 1. Try all of the images in the extracted folder. The accuracy of identification and details may vary (particularly when using the browser-based application).
 
     > **Note**: The Azure-based application uses a multimodal generative AI model that can analyze visual input. The browser-based application uses a custom image classification model based on MOBILENETV2 to predict the image contents, and then submits the predicted class to the generative AI model to find information about it.
@@ -227,7 +227,7 @@ Information extraction combines multiple AI workloads to analyze content and ide
 
 1. In a new browser tab, download **[pcbs.zip](https://aka.ms/pcb-images){:target="_blank"}** from `https://aka.ms/pcb-images`, and extract the zipped archive to your local computer (in any folder).
 1. Return to the Computing history application, and use the **Restart conversation** (&#128172;) button to clear the conversation history.
-1. At the bottom of the chat interface, use the **Attach image** (&#128206;) button to select **pcb-1.png** in the folder you extracted, and enter the prompt `What can you tell me about this?`.
+1. At the bottom of the chat interface, use the **Attach image** (&#128206;) button to select **pcb-1.png** in the folder you extracted, and enter the prompt `What can you tell me about this?`
 
     Review the response. Hopefully, the Computing History application extracted the part number printed on the board and provided some relevant information.
 
