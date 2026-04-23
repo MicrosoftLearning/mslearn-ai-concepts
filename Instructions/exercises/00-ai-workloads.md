@@ -66,7 +66,7 @@ Agents are generative AI applications that go beyond basic chat functionality an
 1. Enter the prompt `Search for "Commodore 64".` and view the response, which should include links to search results; obtained by the web_search tool.
 1. Now try `Shop for a Commodore 64.` and view the response.
 
-    > **Note**: The Azure-based application uses a web tool whenever the model determines that it can't answer based on its own knowledge or it has been explicitly asked to search. The browser-based application identifies prompts that contain keywords like "search", "find", "buy", or "shop", and responds with an appropriate search URL for bing.com.
+    > **Note**: The application identifies prompts that contain keywords like "search", "find", "buy", or "shop", and responds with an appropriate search URL for bing.com.
 
     **Suggestions for other prompts to try:**
 
@@ -94,7 +94,7 @@ Text analysis is a subset of natural language processing, in which AI can apply 
 
 1. Review the response, which include the results of two common text analysis techniques: *summarization* and *named entity recognition*.
 
-    > **Note**: The Azure-based application uses its generative AI model to perform text analysis techniques. The browser-based version detects prompts that start with "summarize" and then uses statistical techniques and JavaScript NLP packages to perform an extractive summary and extract entities.
+    > **Note**: The app detects prompts that start with "summarize" and then uses statistical techniques and JavaScript NLP packages to perform an extractive summary and extract entities.
 
     **Suggestions for other prompts to try:**
 
@@ -115,7 +115,7 @@ Text analysis is a subset of natural language processing, in which AI can apply 
 
     After a moment or two, your spoken prompt should be submitted as a message, and a response returned. The response should then be vocalized using speech synthesis.
 
-    > **Note**: Speech support for the browser-based application is based on the Web Speech library that is common in most modern browsers. If Web Speech-based speech recognition fails, a fallback offline speech model is used for speech revognition. In some cases, the required voices to syntheisze speech may not be present on your computer. When using the Azure-based application, speech recognition and synthesis are implemented using the Azure Speech in Foundry Tools APIs; which rely on correct configuration of the endpoint and API key.
+    > **Note**: Speech support for the browser-based application is based on the Web Speech library that is common in most modern browsers. If Web Speech-based speech recognition fails, a fallback offline speech model is used for speech revognition. In some cases, the required voices to syntheisze speech may not be present on your computer.
 
 1. Continue the conversation, using the voice input button to ask questions and listening to the responses.
 
@@ -137,7 +137,7 @@ Computer vision uses image-based models to enable AI to interpret visual input.
 1. Try attaching a different image with the prompt `And this?`
 1. Try all of the images in the extracted folder. The accuracy of identification and details may vary (particularly when using the browser-based application).
 
-    > **Note**: The Azure-based application uses a multimodal generative AI model that can analyze visual input. The browser-based application uses a custom image classification model based on MOBILENETV2 to predict the image contents, and then submits the predicted class to the generative AI model to find information about it.
+    > **Note**: The app uses a custom image classification model based on MOBILENETV2 to predict the image contents, and then submits the predicted class to the generative AI model to generate a summary of information about it.
 
     **Suggestions for other prompts to try:**
 
@@ -161,7 +161,7 @@ Information extraction combines multiple AI workloads to analyze content and ide
 
     Review the response. Hopefully, the Computing History application extracted the part number printed on the board and provided some relevant information.
 
-    > **Note**: The Azure-based application uses its multimodal model to analyze the image, including performing optical character recognition (OCR) and interpreting the extracted text. The browser-based application uses its custom image classification model to identify images of printed circuit boards, and a JavaScript package for OCR to extract any text they contain.
+    > **Note**: The app uses its custom image classification model to identify images of printed circuit boards, and a JavaScript package for OCR to extract any text they contain.
 
     **Suggestions for other prompts to try:**
 
@@ -178,7 +178,7 @@ Content safety is an important element of responsible AI. As much as possible, d
 
     The agent should respond in a way that avoids helping with potentially illegal activity, due to content safety guardrails.
 
-    > **Note**: When using the Azure-based application, safety guardrails for models are managed in Microsoft Foundry. The browser-based application implements some simple logic to check for innappropriate terms in the prompt.
+    > **Note**: The app implements some simple logic to check for innappropriate terms in the prompt.
 
     **Suggestions for other prompts to try:**
 
