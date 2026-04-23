@@ -115,7 +115,7 @@ Text analysis is a subset of natural language processing, in which AI can apply 
 
     After a moment or two, your spoken prompt should be submitted as a message, and a response returned. The response should then be vocalized using speech synthesis.
 
-    > **Note**: Speech support for the browser-based application is based on the Web Speech library that is common in most modern browsers. If Web Speech-based speech recognition fails, a fallback offline speech model is used for speech revognition. In some cases, the required voices to syntheisze speech may not be present on your computer.
+    > **Note**: Speech support for the browser-based application is based on the Web Speech library that is common in most modern browsers. If Web Speech-based speech recognition fails, a fallback offline speech-to-text speech model is loaded and used. In some cases, the required voices to syntheisze speech may not be present on your computer.
 
 1. Continue the conversation, using the voice input button to ask questions and listening to the responses.
 
