@@ -1,115 +1,45 @@
----
-lab:
-  title: Explore AI workloads
-  description: See what AI can do by exploring a simple AI app.
-  duration: 15
-  level: 100
-  islab: true
----
-
 # Explore AI workloads
 
 In this exercise, you'll explore common AI workloads in an AI chat application that provides information about computing history, and help with historical computing projects and vintage computer restoration.
 
-The Computing History app is provided in two variants:
-
-- An Azure-based solution that uses a model and tools in Microsoft Foundry.
-- A browser-based solution that downloads and runs models locally in your web browser.
-
 To complete this lab, you need a modern browser on a computer with sufficient hardware resources to load and run the models used by the AI agent app. On older or low-spec computers, the app may run very slowly or experience errors.
 
-**Minimum spec**
-
-- 64-bit CPU, 4+ physical cores (8 logical threads preferred)
-- GPU required for the default Phi 3-mini model.
-- 8+ GB system RAM (16 GB recommended)
-- Enough storage to cache ~300MB–800MB model assets
-- Latest Chrome / Edge / Firefox with WASM SIMD enabled/available (WebGPU support is required for the default model; a WASM-based fallback is provided)
-- Audio hardware (mic and speaker) required for speech functionality
+> **Minimum spec**
+>
+> - 64-bit CPU, 4+ physical cores (8 logical threads preferred)
+> - GPU required for the default Phi 3-mini model.
+> - 8+ GB system RAM (16 GB recommended)
+> - Enough storage to cache ~300MB–800MB model assets
+> - Latest Chrome / Edge / Firefox with WASM SIMD enabled/available (WebGPU support is required for the default model; a WASM-based fallback is provided)
+> - Audio hardware (mic and speaker) required for speech functionality
 
 If your computer does not meet these requirements, the CPU-based fallback model may not run successfully. However, the app does support a failsafe "Basic" mode in which no model is used; which you may be able to use.
 
-To use the Azure-based application, you require an Azure subscription in which to create a Foundry project and deploy a model. The browser-based application has some functional and performance limitations compared to the Azure version, but is designed to work in most modern browsers with no subscription or setup required.
-
 This exercise should take approximately **15** minutes to complete.
-
-> **If you don't have an Azure account, jump straight to the <a href="#open-the-computing-history-agent">Open the computing history agent</a> section and use the browser-based app**
-
-## Create a Microsoft Foundry project and deploy a model *(if using Azure)*
-
-To use the Azure-based computing history app, you need a generative AI model deployed in Microsoft Foundry.
-
-> **Tip**: You need only complete this procedure if you want to use the Azure-based application. If you do not have an Azure subscription, or want to perform the lab completely in-browser, skip to the <a href="#open-the-computing-history-agent">Open the computing history agent</a> section.
-
-1. In a web browser, open [Microsoft Foundry](https://ai.azure.com){:target="_blank"} at `https://ai.azure.com` and sign in using your Azure credentials. Close any tips or quick start panes that are opened the first time you sign in, and if necessary use the **Foundry** logo at the top left to navigate to the home page.
-
-1. If it is not already enabled, in the tool bar the top of the page, enable the **New Foundry** option. Then, if prompted, create a new project with a unique name; expanding the  **Advanced options** area to specify the following settings for your project:
-    - **Foundry resource**: *Enter a valid name for your AI Foundry resource.*
-    - **Subscription**: *Your Azure subscription*
-    - **Resource group**: *Create or select a resource group*
-    - **Region**: Select any of the **AI Foundry recommended** regions
-
-1. Select **Create**. Wait for your project to be created. It may take a few minutes. After creating or selecting a project in the new Foundry portal, it should open in a page similar to the following image:
-
-    ![Screenshot of the AI Foundry project home page.](./media/foundry-portal-home.png)
-
-1. Now you're ready to **Start building**. Select **Find models** (or on the **Discover** page, select the **Models** tab) to view the Microsoft Foundry model catalog.
-
-1. Search for and select the `gpt-4.1` model, and view the page for this model, which describes its features and capabilities.
-
-    ![Screenshot of the gpt-4.1 model page.](./media/0-gpt-4.1-mini.png)
-
-1. Use the **Deploy** button to deploy the model using the default settings. Deployment may take a minute or so.
-
-    > **Tip**: Model deployments are subject to regional quotas. If you don't have enough quota to deploy the model in your project's region, you can use a different model. Alternatively, you can create a new project in a different region.
-
-1. When the model has been deployed, view the model playground page that is opened, in which you can chat with the model.
-
-    ![Screenshot of the model playground.](./media/0-model-playground.png)
-
-    Note the deployment name for your model (which by default is the same as the model name) is selected in the pane on the left.
-
-    > **Tip**: Make a note of the model deployment name. You'll need it later.
-
-1. In the toolbar at the top of the Foundry portal, select **Home** to return to the home page.
-1. Note the following details for your project:
-    - **Project API key**: The authentication key used to access your resource.
-    - **Project endpoint**: The URL where your project resource can be accessed.
-
-    You'll need the **API key** and **Project endpoint** (<u>not</u> the *Azure OpenAI* endpoint) to configure the Computing History application.
 
 ## Open the Computing History agent
 
 The Computing History agent is a simple example of an AI agent that provides a chat interface for exploring AI history and vintage computers.
 
-> **Note**: The Computing History agent is provided solely as a simple example of a chat-based agent for educational purposes. It is not a supported Microsoft product or service, and should not be relied on for critical work.
+> **Note**: The *Computing History agent* app is provided solely as a simple example of a chat-based agent for educational purposes. It is <u>not</u> a supported Microsoft product or service, and should not be relied on for critical work.
 
-1. In a web browser, open the **[Computing History agent](https://aka.ms/computing-history){:target="_blank"}** at `https://aka.ms/computing-history`.
+1. In a web browser, open the **[Computing History agent](https://aka.ms/computing-history-browser){:target="_blank"}** at `https://aka.ms/computing-history-browser`.
 
-   ![Screenshot of the Computing History agent chooser page.](./media/computing-history.png)
+    The first time you download a model, it may take several minutes. Subsequent downloads will be faster.
 
-1. Select the version of the application you want to use:
-    - Selecting **Azure Chat** opens the Azure-based agent, and displays the **Configuration** page where you must enter the project endpoint and key for your Foundry project, and your model deployment name.
+    By default, the browser-based app uses the Microsoft Phi 3-mini model running in WebLLM (via WebGPU). When a GPU is unavailable, the app uses a fallback mode with the Phi 2 model running in the wllama CPU-based engine. If *that* fails, then a *Basic* mode with no large language model is used.
 
-        Copy the details from the Foundry Portal, and save the configuration. Note that the endpoint and model name will be saved in your local browser cache; but you must re-enter the project API key if you close and reopen the app.
-
-    - Selecting **Browser Chat** opens the browser-based agent and downloads the required models.
-
-        The first time you download a model, it may take several minutes. Subsequent downloads will be faster.
-
-        By default, the browser-based app uses the Microsoft Phi 3-mini model running in WebLLM (via WebGPU). When a GPU is unavailable, the app uses a fallback mode with the SmolLM2 model running in the wllama CPU-based engine.
-
-        > **Tip**: After the app has initialized, on older or low-spec devices, you may get more reliable behavior by switching to CPU or Basic mode, even if WebGPU is available.
+    > **Tip**: After the app has initialized, on older or low-spec devices, you may get more reliable behavior by switching to Basic mode, even if GPU or CPU mode is available is available.
 
 ## Explore a generative AI model
 
-Generative AI uses *large language models* (LLMs) like GPT-4.1-mini and more compact *small language models* (SLMs) like Microsoft Phi 3-mini to respond to user *prompts*.
+Generative AI uses *large language models* (LLMs) to user *prompts*.
 
 1. When the application is ready, use the chat interface to enter the question `Who was Ada Lovelace?` and review the responses returned by the agent.
 
    ![Screenshot of the Computing History chat interface.](./media/computing-history-chat.png)
 
-    > **Note**: The Azure-based application submits your prompt to the large language model (LLM) you deployed in Foundry. The browser-based application uses a (very) small language model (SLM) that has been loaded within the browser. Responses in the browser-based application may be slow, and are more likely to contain inaccuracies.
+    > **Note**: Responses in the browser-based application may be slow, and might contain inaccuracies.
 
 1. Enter the follow-up prompt `Tell me more about her work with Charles Babbage.` and view the response. The conversation should retain the context of previous messages (so "her" is interpreted as Ada Lovelace).
 1. Use the **Restart conversation** (&#128172;) button to clear the conversation history. Then enter a new prompt: `Tell me about the ELIZA chatbot.`
@@ -119,14 +49,14 @@ Generative AI uses *large language models* (LLMs) like GPT-4.1-mini and more com
 
     - `Who was Alan Turing?`
     - `What was ENIAC?`
-    - `Tell me about Grace Hopper`
+    - `Tell me about Grace Hopper.`
 
 ## Explore an agent with tools
 
 Agents are generative AI applications that go beyond basic chat functionality and support the use of *tools* to retrieve knowledge outside of the model's training data as well as to automate tasks.
 
 1. In the Computing History app, use the **Restart conversation** (&#128172;) button to clear the conversation history.
-1. Use the **View agent instructions** (&#128195;) button to view the agent configuration details, which consist of:
+1. Use the **View agent configuration** (&#128195;) button to view the agent configuration details, which consist of:
     - A **model** with which to reason and generate text.
     - **Instructions** to guide behavior and expected functionality.
     - **Tools** with which to retrieve knowledge or perform tasks.
