@@ -29,7 +29,7 @@ The Computing History agent is a simple example of an AI agent that provides a c
 
     By default, the browser-based app uses the Microsoft Phi 3-mini model running in WebLLM (via WebGPU). When a GPU is unavailable, the app uses a fallback mode with the Phi 2 model running in the wllama CPU-based engine. If *that* fails, then a *Basic* mode with no large language model is used.
 
-    > **Tip**: After the app has initialized, on older or low-spec devices, you may get more reliable behavior by switching to Basic mode, even if GPU or CPU mode is available is available.
+    > **Tip**: After the app has initialized, on older or low-spec devices, you may get more reliable behavior by switching to Basic mode, even if GPU or CPU mode is available.
 
 ## Explore a generative AI model
 
