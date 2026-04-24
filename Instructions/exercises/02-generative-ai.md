@@ -20,7 +20,6 @@ To complete this exercise, you need a modern browser on a computer with sufficie
 > - 8+ GB system RAM (16 GB recommended)
 > - Enough storage to cache ~300MB–800MB model assets
 > - Latest Chrome / Edge / Firefox with WASM SIMD enabled/available (WebGPU support is required for the default model; a WASM-based fallback is provided)
-> - Audio hardware (mic and speaker) required for speech functionality
 
 If your computer does not meet these requirements, the CPU-based fallback model may not run successfully. However, the apps support a failsafe "Basic" mode in which no model is used; which you may be able to use.
 

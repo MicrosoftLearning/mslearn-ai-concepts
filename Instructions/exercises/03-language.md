@@ -13,14 +13,19 @@ In this exercise, you'll use AI natural language processing functionality to ana
 
 We'll use browser-based applications that are based on simplified implementations of the chat and language playgrounds in the Microsoft Foundry portal.
 
-To complete this lab, you need a modern browser on a computer with sufficient hardware resources to load and run the models used by the AI agent app. On older or low-spec computers, the app may run very slowly or experience errors.
+To complete this exercise, you need a modern browser on a computer with sufficient hardware resources to load and run the models used by the *Chat Playground* app. On older or low-spec computers, the app may run very slowly or experience errors.
 
-**Minimum spec**
+> **Minimum spec**
+>
+> - 64-bit CPU, 4+ physical cores (8 logical threads preferred)
+> - GPU required for the default Phi 3-mini model.
+> - 8+ GB system RAM (16 GB recommended)
+> - Enough storage to cache ~300MB–800MB model assets
+> - Latest Chrome / Edge / Firefox with WASM SIMD enabled/available (WebGPU support is required for the default model; a WASM-based fallback is provided)
 
-- 64-bit CPU, 4+ physical cores (8 logical threads preferred)
-- 8+ GB system RAM (16 GB recommended)
-- Enough storage to cache ~300MB–800MB model assets
-- Latest Chrome / Edge / Firefox with WASM SIMD enabled/available (WebGPU support is required for the default model; a WASM-based fallback is provided)
+If your computer does not meet these requirements, the CPU-based fallback model may not run successfully.
+
+> **Note**: The Chat Playground app includes a failsafe *Basic* mode that uses Wikipedia to answer questions. This mode does <u>not</u> support the text analysis tasks in this exercise.
 
 This exercise should take approximately **15** minutes to complete.
 
@@ -28,18 +33,18 @@ This exercise should take approximately **15** minutes to complete.
 
 Let's start by using a chat interface to submit prompts to a generative AI model to perform common text analysis tasks. In this exercise, we'll use a small language model that is useful for general chat solutions in low bandwidth scenarios.
 
-> **Note**: If your browser supports WebGPU, the chat playground uses the *Microsoft Phi 3 Mini* model running on your computer's GPU. If not, the SmolLM2 model is used, running on CPU - with reduced response-generation quality. Performance for either model may vary depending on the available memory in your computer and your network bandwidth to download the model. On older or low-spec devices, you may get more reliable behavior by switching to the CPU-based model even if WebGPU is available. After opening the app, use the **?** (*About this app*) icon in the chat area to find out more.
+> **Note**: If your browser supports WebGPU, the chat playground uses the *Microsoft Phi 3 Mini* model running on your computer's GPU. If not, the *Microsoft Phi 2* model is used, running on CPU - with reduced response-generation quality. Performance for either model may vary depending on the available memory in your computer and your network bandwidth to download the model. After opening the app, use the **?** (*About this app*) icon in the chat area to find out more.
 
 1. In a web browser, open the **[Chat Playground](https://aka.ms/chat-playground){:target="_blank"}** at `https://aka.ms/chat-playground`.
 1. Wait for the model to download and initialize.
 
-    > **Tip**: The first time you download a model, it may take a few minutes. Subsequent downloads will be faster. If your browser or operating system does not support WebGPU models, the fallback CPU-based model will be selected (which provides slower performance and reduced quality of response generations).
+    > **Tip**: The first time you download a model, it may take a few minutes. Subsequent downloads will be faster. If your browser or operating system does not support WebGPU models, the fallback CPU-based model will be selected (which provides slower performance and reduced quality of response generations). If *that* fails, a basic mode with no model and responses retrieved from Wikipedia is activated (which does not support the tasks in this exercise).
 
 ### Analyze sentiment
 
 Sentiment analysis is a common NLP task. It's used to determine whether text conveys a positive, neutral or negative sentiment; which makes it useful for categorizing reviews, social media posts, and other subjective documents.
 
-1. In the chat playground, enter the following prompt (using SHIFT+ENTER for new lines if typing)
+1. In the chat playground, ensure either the **Phi 3 Mini** or **Phi 2** model is selected, and enter the following prompt (using SHIFT+ENTER for new lines if typing)
 
     ```
    Analyze the following review, and determine whether the sentiment is positive or negative:
@@ -69,7 +74,7 @@ Sentiment analysis is a common NLP task. It's used to determine whether text con
 Named entities are the people, places, dates, and other important items mentioned in text.
 
 1. At the top of the chat pane, use the **New chat** (&#128172;) button to restart the conversation. This removes all conversation history.
-1. Enter the following prompt, and review the results:
+1. Ensure either the **Phi 3 Mini** or **Phi 2** model is selected, and then enter the following prompt and review the results:
 
     ```
    List the places mentioned in this text:
@@ -88,7 +93,7 @@ Named entities are the people, places, dates, and other important items mentione
 Summarization is a way to distill the main points in a document into a shorter amount of text.
 
 1. At the top of the chat pane, use the **New chat** (&#128172;) button to restart the conversation. This removes all conversation history.
-1. Enter the following prompt, and review the results:
+1. Ensure either the **Phi 3 Mini** or **Phi 2** model is selected, and then enter the following prompt and review the results:
 
     ```
 
@@ -115,9 +120,7 @@ While a large language model that's trained for general generative AI workloads 
 
 1. In your web browser, open the **[Language Playground](https://aka.ms/language-app){:target="_blank"}** at `https://aka.ms/language-app`.
 
-> **Note**: The Language Playground app uses statistical text analysis techniques to perform language detection, and a generative AI model to perform personally identifiable information (PII) redaction. As with the Chat Playground app, the Language Playground app defaults to a Phi 3-mini model in WebLLM when WebGPU is available, with a fallback to SmolLM2 on CPU. The model may take a few minutes to load on first use.
-
-1. You can carry on with the next procedure (*Detect language*) while the model is loading; but you must wait for the language model to be fully loaded before using the *Text PII extraction* functionality.
+    > **Note**: The Language Playground app uses statistical text analysis techniques to perform language detection and personally identifiable information (PII) redaction.
 
 ### Detect language
 
@@ -158,8 +161,6 @@ In scenarios where text could potentially be in one of multiple languages, the f
 ### Identify PII in text
 
 To comply with privacy policies and laws, organizations often need to detect and redact personally identifiable information (PII) such as names, addresses, phone numbers, email addresses, and other personal details.
-
-> **Tip**: On older or low-spec devices, you may get more reliable and performant behavior by switching to the CPU-based model even if WebGPU is available. Switching modes resets the application to the *Detect Language* view.
 
 1. In the Language Playground app, select the **Text PII extraction** analyzer.
 1. In the **Input text** list, select one of the provided sample documents. Then use the **Detect** button to detect PII values in the text.
