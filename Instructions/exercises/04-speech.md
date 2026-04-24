@@ -11,17 +11,18 @@ lab:
 
 In this exercise, you'll interact with a generative AI model using speech. The goal of this exercise is to explore speech-to-text (STT) and text-to-speech (TTS) functionality with a generative AI model.
 
-To complete this lab, you need a modern browser on a computer with sufficient hardware resources to load and run the models used by the AI agent app. On older or low-spec computers, the app may run very slowly or experience errors.
+To complete this lab, you need a modern browser on a computer with sufficient hardware resources to load and run the models used by the *Chat Playground* app. On older or low-spec computers, the app may run very slowly or experience errors.
 
-**Minimum spec**
+> **Minimum spec**
+>
+> - 64-bit CPU, 4+ physical cores (8 logical threads preferred)
+> - GPU required for the default Phi 3-mini model.
+> - 8+ GB system RAM (16 GB recommended)
+> - Enough storage to cache ~300MB–800MB model assets
+> - Latest Chrome / Edge / Firefox with WASM SIMD enabled/available (WebGPU support is required for the default model; a WASM-based fallback is provided)
+> - Audio hardware (mic and speaker) required for speech functionality
 
-- 64-bit CPU, 4+ physical cores (8 logical threads preferred)
-- 8+ GB system RAM (16 GB recommended)
-- Enough storage to cache ~300MB–800MB model assets
-- Latest Chrome / Edge / Firefox with WASM SIMD enabled/available (WebGPU support is required for the default model; a WASM-based fallback is provided)
-- Audio hardware (mic and speaker)
-
-> **Tip**: This lab works best using a headset or a high quality mic and headphones. Ambient noise may cause failures - though in some cases, the issue may be that your browser setup does not support the Web Speech API for voice recognition.
+If your computer does not meet these requirements, the CPU-based fallback model may not run successfully. However, the app does support a failsafe "Basic" mode in which no model is used; which you may be able to use.
 
 This exercise should take approximately **15** minutes to complete.
 
@@ -29,7 +30,7 @@ This exercise should take approximately **15** minutes to complete.
 
 Let's start by chatting with a generative AI model. In this exercise, we'll use a browser-based application to chat with a small language model that is useful for general chat solutions in low bandwidth scenarios. The app also uses Web Speech APIs for speech recognition and synthesis.
 
-> **Note**: If your browser supports WebGPU, the chat playground uses the *Microsoft Phi 3 Mini* model running on your computer's GPU. If not, the SmolLM2 model is used, running on CPU - with reduced response-generation quality. Performance for either model may vary depending on the available memory in your computer and your network bandwidth to download the model. On older or low-spec devices, you may get more reliable behavior by switching to the CPU-based model even if WebGPU is available. After opening the app, use the **?** (*About this app*) icon in the chat area to find out more.
+> **Note**: If your browser supports WebGPU, the chat playground uses the *Microsoft Phi 3 Mini* model running on your computer's GPU. If not, the *Microsoft Phi 2* model is used, running on CPU - with reduced response-generation quality. Performance for either model may vary depending on the available memory in your computer and your network bandwidth to download the model. On older or low-spec devices, you may get more reliable behavior by switching to the *None* model even if CPU or GPU is available. After opening the app, use the **?** (*About this app*) icon in the chat area to find out more.
 
 1. In a web browser, open the **[Chat Playground](https://aka.ms/chat-playground){:target="_blank"}** at `https://aka.ms/chat-playground`.
 
@@ -45,11 +46,11 @@ Let's start by chatting with a generative AI model. In this exercise, we'll use 
 
 The Chat playground application supports *voice mode*, in which you can interact with a generative AI model using speech.
 
-> **Note**: Voice mode depends on browser support for the WebSpeech API and access to voices for speech synthesis. The app should work successfully in most modern browsers. If your browser configuration is not compatible, you may experience errors; and ultimately voice mode may not work for you.
+> **Note**: Voice mode depends on browser support for the Web Speech API and access to voices for speech synthesis, with a fallback to an offline speech-to-text model. The app should work successfully in most modern browsers. If your browser configuration is not compatible, you may experience errors; and ultimately voice mode may not work for you.
 
 1. In the pane on the left, under the selected model, enable **Voice mode**
 
-    If the **Configuration** pane is not displayed automatically on the right, open it using the **Configuration** (**&#9881;**) button above the Chat pane.
+    If the **Configuration** pane is not displayed automatically on the right, open it using the **Configuration** (**&#9881;**) button above the **Chat** pane.
 
 1. In the configuration pane, view the voices in the **Voice** drop-down list.
 
@@ -71,7 +72,7 @@ The app supports both speech recognition and speech synthesis, enabling you to h
 
 1. In the **Chat** pane, use the **Start session** button to start a conversation with the model. If prompted, allow access to the system microphone.
 
-1. When the app status is **Listening...**, say something like "*What is speech recognition?*" and wait for a response.
+1. When the app status is **Listening...**, say something like "*What's speech recognition?*" and wait for a response.
 
     > **Tip**: If an error occurs or the app can't detect any speech input using the default Web Speech functionality, it will automatically failover to a local speech recognition model and prompt you to retry.
 
@@ -83,7 +84,7 @@ The app supports both speech recognition and speech synthesis, enabling you to h
 
     > **Note**: If no voices are available in your browser, the reponse will not be vocalized.
 
-1. After the response has been spoken, the app switches back to the **Listening...** state. Continue the conversation by speaking again.
+1. After the response has been spoken, the app switches back to the **Listening...** state. Continue the conversation by speaking again (for example, "*What's speech synthesis?*").
 
     At any point, you can use the **[CC]** button to see a transcript of the conversation so far.
 
