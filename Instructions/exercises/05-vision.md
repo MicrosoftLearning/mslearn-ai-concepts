@@ -11,14 +11,17 @@ lab:
 
 In this exercise, you'll use a chat playground to interact with a generative AI solution that can analyze and interpret images. The goal of this exercise is to explore a common pattern for combining text and visual input in a prompt for a generative AI model.
 
-To complete this lab, you need a modern browser on a computer with sufficient hardware resources to load and run the models used by the AI agent app. On older or low-spec computers, the app may run very slowly or experience errors.
+To complete this exercise, you need a modern browser on a computer with sufficient hardware resources to load and run the models used by *Chat Playground* the app. On older or low-spec computers, the apps may run very slowly or experience errors.
 
-**Minimum spec**
+> **Minimum spec**
+>
+> - 64-bit CPU, 4+ physical cores (8 logical threads preferred)
+> - GPU required for the default Phi 3-mini model.
+> - 8+ GB system RAM (16 GB recommended)
+> - Enough storage to cache ~300MB–800MB model assets
+> - Latest Chrome / Edge / Firefox with WASM SIMD enabled/available (WebGPU support is required for the default model; a WASM-based fallback is provided)
 
-- 64-bit CPU, 4+ physical cores (8 logical threads preferred)
-- 8+ GB system RAM (16 GB recommended)
-- Enough storage to cache ~300MB–800MB model assets
-- Latest Chrome / Edge / Firefox with WASM SIMD enabled/available (WebGPU support is required for the default model; a WASM-based fallback is provided)
+If your computer does not meet these requirements, the CPU-based fallback model may not run successfully. However, the app supports a failsafe mode in which no model is used; which you may be able to use.
 
 This exercise should take approximately **15** minutes to complete.
 
@@ -26,13 +29,13 @@ This exercise should take approximately **15** minutes to complete.
 
 In this exercise you use a generative AI model in a chat playground to respond to prompts that include image data.
 
-> **Note**: The chat application uses a small language model to interpret and respond to prompts. If WebGPU is supported in your browser, the *Microsoft Phi 3 mini* model is run on your computer's GPU; if not, the *SmolLM2* model is run on the CPU. On older or low-spec devices, you may get more reliable behavior by switching to the CPU-based model even if WebGPU is available. Many modern large language models are *multimodal* - in other words, they support multiple formats of input, including text and images. However, the Microsoft Phi 3 mini and SmolLM2 models are text-based only, so we'll also use the the **MobileNetV3** CNN-based computer vision model for image classification and include the predicted image class in the prompt.
+> **Note**: The chat application uses a small language model to interpret and respond to prompts. If WebGPU is supported in your browser, the *Microsoft Phi 3 mini* model is run on your computer's GPU; if not, the *Microsoft Phi 2* model is run on the CPU. On older or low-spec devices, you may get more reliable behavior by switching to the *None* model even if CPU or GPU is available. Many modern large language models are *multimodal* - in other words, they support multiple formats of input, including text and images. However, the Microsoft Phi 3 mini and SmolLM2 models are text-based only, so we'll also use the the **MobileNetV3** CNN-based computer vision model for image classification and include the predicted image class in the prompt.
 
 1. In a web browser, open the **[Chat Playground](https://aka.ms/chat-playground){:target="_blank"}** at `https://aka.ms/chat-playground`.
 
     The app intiializes by downloading a language model.
 
-    > **Tip**: The first time you download a model, it may take a few minutes. Subsequent downloads will be faster. If your browser or operating system does not support WebGPU models, the fallback CPU-based model will be selected (which provides slower performance and reduced quality of response generations).
+    > **Tip**: The first time you download a model, it may take a few minutes. Subsequent downloads will be faster. If your browser or operating system does not support WebGPU models, the fallback CPU-based model will be selected (which provides slower performance and reduced quality of response generations). If *that* fails, a basic mode with no model and responses retrieved from Wikipedia is used.
 
 1. While waiting for the model to download, open a new browser tab, and download **[images.zip](https://aka.ms/ai-images){:target="_blank"}** from `https://aka.ms/ai-images` to your local computer.
 1. Extract the downloaded archive in a local folder to see the files it contains. These files are the images you will use AI to analyze.
@@ -52,9 +55,9 @@ In this exercise you use a generative AI model in a chat playground to respond t
 
     The MobileNetV3 model is used to determine the likely subject of the image, and the results of that analysis is included in the prompt to the Phi language model. The result should be a reponse that uses the image information to answer the question.
 
-1. Submit prompts that include the other images, such as `How should I cook this?` or `What desserts could I make with this?`
+1. Submit prompts that include the other images, such as `What desserts could I make with this?` or `How should I cook this?`
 
-    > **Note**: Responses from the *SmolLM2* model running on CPU may not be as useful as responses from the *Microsoft Phi 3 mini* model running on GPU!
+    > **Note**: Responses will vary in quality depending on the selected language model; but the image classificaton model should correctly identify the images.
 
 1. If you want to explore further, you can upload your own images and enter appropriate prompts. The combination of a small language model and a limited computer vision model means that the quality of the responses may be highly variable compared to a true multimodal large language model!
 

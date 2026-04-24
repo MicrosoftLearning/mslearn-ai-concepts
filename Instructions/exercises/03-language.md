@@ -25,7 +25,7 @@ To complete this exercise, you need a modern browser on a computer with sufficie
 
 If your computer does not meet these requirements, the CPU-based fallback model may not run successfully.
 
-> **Note**: The Chat Playground app includes a failsafe *Basic* mode that uses Wikipedia to answer questions. This mode does <u>not</u> support the text analysis tasks in this exercise.
+> **Note**: The Chat Playground app includes a failsafe mode that uses Wikipedia to answer questions. This mode does <u>not</u> support the text analysis tasks in this exercise.
 
 This exercise should take approximately **15** minutes to complete.
 

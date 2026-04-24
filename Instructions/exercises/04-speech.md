@@ -22,7 +22,7 @@ To complete this lab, you need a modern browser on a computer with sufficient ha
 > - Latest Chrome / Edge / Firefox with WASM SIMD enabled/available (WebGPU support is required for the default model; a WASM-based fallback is provided)
 > - Audio hardware (mic and speaker) required for speech functionality
 
-If your computer does not meet these requirements, the CPU-based fallback model may not run successfully. However, the app does support a failsafe "Basic" mode in which no model is used; which you may be able to use.
+If your computer does not meet these requirements, the CPU-based fallback model may not run successfully. However, the app does support a failsafe mode in which no model is used; which you may be able to use.
 
 This exercise should take approximately **15** minutes to complete.
 

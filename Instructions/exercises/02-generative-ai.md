@@ -11,7 +11,7 @@ lab:
 
 In this exercise, you'll use a chat playground to interact with a generative AI model, and explore how it could be used to support an employee expenses agent that helps employees with expense claim policies and processes.
 
-To complete this exercise, you need a modern browser on a computer with sufficient hardware resources to load and run the models used by the apps. On older or low-spec computers, the apps may run very slowly or experience errors.
+To complete this exercise, you need a modern browser on a computer with sufficient hardware resources to load and run the models used by the *Chat Playground* and *Model Coder* apps. On older or low-spec computers, the apps may run very slowly or experience errors.
 
 > **Minimum spec**
 >
@@ -21,7 +21,7 @@ To complete this exercise, you need a modern browser on a computer with sufficie
 > - Enough storage to cache ~300MB–800MB model assets
 > - Latest Chrome / Edge / Firefox with WASM SIMD enabled/available (WebGPU support is required for the default model; a WASM-based fallback is provided)
 
-If your computer does not meet these requirements, the CPU-based fallback model may not run successfully. However, the apps support a failsafe "Basic" mode in which no model is used; which you may be able to use.
+If your computer does not meet these requirements, the CPU-based fallback model may not run successfully. However, the apps support a failsafe mode in which no model is used; which you may be able to use.
 
 This exercise should take approximately **15** minutes to complete.
 
