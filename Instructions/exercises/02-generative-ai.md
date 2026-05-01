@@ -109,7 +109,7 @@ One of the most commonly used application programming interfaces (APIs) used to 
             )
             
             # Get a response to a prompt
-            input_text = input('\nAgent: Enter a question about expense categories.\nYou: ')
+            input_text = input('\nAgent: Enter a question about expenses.\nYou: ')
             response = openai_client.responses.create(
                         model=model_name,
                         instructions="""
