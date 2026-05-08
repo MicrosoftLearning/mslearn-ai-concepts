@@ -1,3 +1,12 @@
+---
+lab:
+  title: Explore AI workloads
+  description: Use an AI agent to explore AI workloads.
+  duration: 15
+  level: 100
+  islab: true
+---
+
 # Explore AI workloads
 
 In this exercise, you'll explore common AI workloads in an AI chat application that provides information about computing history, and help with historical computing projects and vintage computer restoration.
