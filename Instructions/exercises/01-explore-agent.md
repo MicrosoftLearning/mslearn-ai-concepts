@@ -4,7 +4,7 @@ lab:
   description: Use an AI agent to chat about AI concepts.
   duration: 15
   level: 100
-  islab: true
+  islab: false
 ---
 
 # Explore a simple AI agent
