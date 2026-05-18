@@ -40,7 +40,7 @@ Let's start by using a chat interface to submit prompts to a generative AI model
 
     ![Screenshot of the chat playground.](./media/gen-ai-01.png)
 
-1. In the pane on the left, in the **Instructions** text area, change the model's instructions to `You are an AI assistant that provides short, concise answers to expense-related questions.`
+1. In the pane on the left, in the **Instructions** text area, change the model's instructions to `You are an AI assistant that provides short, concise answers to expense-related questions from employees in a business.`
 
     Instructions, sometimes known as a *system prompt*, are used to provide the model with an overall context for its responses. You can use the system prompt to provide guidelines about format, style, and constraints about what the model should and should not include in its responses.
 
@@ -48,7 +48,7 @@ Let's start by using a chat interface to submit prompts to a generative AI model
 
 1. Now try the same prompt as before (`What is expense management?`) and review the output.
 
-1. Enter another prompt, such as `Tell about per-diem allowances.` and review the response.
+1. Enter another prompt, such as `Tell me about per-diem allowances.` and review the response.
 1. Now try a follow-up question: `How are they reimbursed?`
 
     > **Note**: Generative AI chat applications often include chat history in the prompt; so the context of the conversation is retained between messages (for example, in the follow-up prompt `How are they reimbursed?`, "they" is interpreted as relating to per-diem allowances).
