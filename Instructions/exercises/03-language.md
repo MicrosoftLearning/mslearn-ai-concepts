@@ -18,7 +18,7 @@ To complete this exercise, you need a modern browser on a computer with sufficie
 > **Minimum spec**
 >
 > - 64-bit CPU, 4+ physical cores (8 logical threads preferred)
-> - GPU required for the default Phi 3-mini model.
+> - GPU required for the default Phi 3.5-mini model.
 > - 8+ GB system RAM (16 GB recommended)
 > - Enough storage to cache ~300MB–800MB model assets
 > - Latest Chrome / Edge / Firefox with WASM SIMD enabled/available (WebGPU support is required for the default model; a WASM-based fallback is provided)
@@ -33,7 +33,7 @@ This exercise should take approximately **15** minutes to complete.
 
 Let's start by using a chat interface to submit prompts to a generative AI model to perform common text analysis tasks. In this exercise, we'll use a small language model that is useful for general chat solutions in low bandwidth scenarios.
 
-> **Note**: If your browser supports WebGPU, the chat playground uses the *Microsoft Phi 3 Mini* model running on your computer's GPU. If not, the *Microsoft Phi 2* model is used, running on CPU - with reduced response-generation quality. Performance for either model may vary depending on the available memory in your computer and your network bandwidth to download the model. After opening the app, use the **?** (*About this app*) icon in the chat area to find out more.
+> **Note**: If your browser supports WebGPU, the chat playground uses the *Microsoft Phi 3.5 Mini* model running on your computer's GPU. If not, the *Microsoft Phi 2* model is used, running on CPU - with reduced response-generation quality. Performance for either model may vary depending on the available memory in your computer and your network bandwidth to download the model. After opening the app, use the **?** (*About this app*) icon in the chat area to find out more.
 
 1. In a web browser, open the **[Chat Playground](https://aka.ms/chat-playground){:target="_blank"}** at `https://aka.ms/chat-playground`.
 1. Wait for the model to download and initialize.
@@ -44,7 +44,7 @@ Let's start by using a chat interface to submit prompts to a generative AI model
 
 Sentiment analysis is a common NLP task. It's used to determine whether text conveys a positive, neutral or negative sentiment; which makes it useful for categorizing reviews, social media posts, and other subjective documents.
 
-1. In the chat playground, ensure either the **Phi 3 Mini** or **Phi 2** model is selected, and enter the following prompt (using SHIFT+ENTER for new lines if typing)
+1. In the chat playground, ensure either the **Phi 3.5 Mini** or **Phi 2** model is selected, and enter the following prompt (using SHIFT+ENTER for new lines if typing)
 
     ```
    Analyze the following review, and determine whether the sentiment is positive or negative:
@@ -74,7 +74,7 @@ Sentiment analysis is a common NLP task. It's used to determine whether text con
 Named entities are the people, places, dates, and other important items mentioned in text.
 
 1. At the top of the chat pane, use the **New chat** (&#128172;) button to restart the conversation. This removes all conversation history.
-1. Ensure either the **Phi 3 Mini** or **Phi 2** model is selected, and then enter the following prompt and review the results:
+1. Ensure either the **Phi 3.5 Mini** or **Phi 2** model is selected, and then enter the following prompt and review the results:
 
     ```
    List the places mentioned in this text:
@@ -93,7 +93,7 @@ Named entities are the people, places, dates, and other important items mentione
 Summarization is a way to distill the main points in a document into a shorter amount of text.
 
 1. At the top of the chat pane, use the **New chat** (&#128172;) button to restart the conversation. This removes all conversation history.
-1. Ensure either the **Phi 3 Mini** or **Phi 2** model is selected, and then enter the following prompt and review the results:
+1. Ensure either the **Phi 3.5 Mini** or **Phi 2** model is selected, and then enter the following prompt and review the results:
 
     ```
 

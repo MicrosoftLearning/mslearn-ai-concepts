@@ -16,7 +16,7 @@ To complete this lab, you need a modern browser on a computer with sufficient ha
 **Minimum spec**
 
 - 64-bit CPU, 4+ physical cores (8 logical threads preferred)
-- GPU required for the default Phi 3-mini model.
+- GPU required for the default Phi 3.5-mini model.
 - 8+ GB system RAM (16 GB recommended)
 - Enough storage to cache ~300MB–800MB model assets
 - Latest Chrome / Edge / Firefox with WASM SIMD enabled/available (WebGPU support is required for the default model; a WASM-based fallback is provided)

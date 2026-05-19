@@ -16,7 +16,7 @@ To complete this exercise, you need a modern browser on a computer with sufficie
 > **Minimum spec**
 >
 > - 64-bit CPU, 4+ physical cores (8 logical threads preferred)
-> - GPU required for the default Phi 3-mini model.
+> - GPU required for the default Phi 3.5-mini model.
 > - 8+ GB system RAM (16 GB recommended)
 > - Enough storage to cache ~300MB–800MB model assets
 > - Latest Chrome / Edge / Firefox with WASM SIMD enabled/available (WebGPU support is required for the default model; a WASM-based fallback is provided)
@@ -29,7 +29,7 @@ This exercise should take approximately **15** minutes to complete.
 
 In this exercise you use a generative AI model in a chat playground to respond to prompts that include image data.
 
-> **Note**: The chat application uses a small language model to interpret and respond to prompts. If WebGPU is supported in your browser, the *Microsoft Phi 3 mini* model is run on your computer's GPU; if not, the *Microsoft Phi 2* model is run on the CPU. On older or low-spec devices, you may get more reliable behavior by switching to the *None* model even if CPU or GPU is available. Many modern large language models are *multimodal* - in other words, they support multiple formats of input, including text and images. However, the Microsoft Phi 3 mini and Phi 2 models are text-based only, so we'll also use the the **MobileNetV3** CNN-based computer vision model for image classification and include the predicted image class in the prompt.
+> **Note**: The chat application uses a small language model to interpret and respond to prompts. If WebGPU is supported in your browser, the *Microsoft Phi 3.5 mini* model is run on your computer's GPU; if not, the *Microsoft Phi 2* model is run on the CPU. On older or low-spec devices, you may get more reliable behavior by switching to the *None* model even if CPU or GPU is available. Many modern large language models are *multimodal* - in other words, they support multiple formats of input, including text and images. However, the Microsoft Phi 3.5 mini and Phi 2 models are text-based only, so we'll also use the the **MobileNetV3** CNN-based computer vision model for image classification and include the predicted image class in the prompt.
 
 1. In a web browser, open the **[Chat Playground](https://aka.ms/chat-playground){:target="_blank"}** at `https://aka.ms/chat-playground`.
 
