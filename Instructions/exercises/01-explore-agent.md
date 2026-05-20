@@ -86,6 +86,8 @@ Additionally, the agent has a basic web search *tool*, which in this simple impl
 
 > **Note**: The performance and quality of the small language model (SLM) responses in this browser-based application are not representative of the results that can be achieved with state-of-the-art large language models (LLMs) on Microsoft Foundry. If you have access to an Azure subscription in which you can create a project (with *key-based* authentication) and deploy a model, you can compare for yourself - check out the [Azk Anton](https://aka.ms/azk-anton) app; which is a Foundry-based implementation of the Ask Anton agent.
 
+*We'd love you to [tell us about your experience](https://forms.office.com/r/fC0ndfBQeK){:target="_blank"}with Ask Anton!*
+
 ## Summary
 
 In this exercise, you explored a sample AI agent. The agent's functionality is limited, and does not reflect the kind of performance or capabilities you can expect in a production quality agent; but it should serve to show a simple example of how AI can support chat-based interactions.
