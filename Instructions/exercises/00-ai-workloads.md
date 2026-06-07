@@ -16,7 +16,7 @@ To complete this lab, you need a modern browser on a computer with sufficient ha
 > **Minimum spec**
 >
 > - 64-bit CPU, 4+ physical cores (8 logical threads preferred)
-> - GPU required for the default Phi 3.5-mini model.
+> - GPU required for the default Phi 3-mini model.
 > - 8+ GB system RAM (16 GB recommended)
 > - Enough storage to cache ~300MB–800MB model assets
 > - Latest Chrome / Edge / Firefox with WASM SIMD enabled/available (WebGPU support is required for the default model; a WASM-based fallback is provided)
@@ -36,7 +36,7 @@ The Computing History agent is a simple example of an AI agent that provides a c
 
     The first time you download a model, it may take several minutes. Subsequent downloads will be faster.
 
-    By default, the browser-based app uses the Microsoft Phi 3.5-mini model running in WebLLM (via WebGPU). When a GPU is unavailable, the app uses a fallback mode with the Phi 2 model running in the wllama CPU-based engine. If *that* fails, then a *Basic* mode with no large language model is used.
+    By default, the browser-based app uses the Microsoft Phi 3-mini model running in WebLLM (via WebGPU). When a GPU is unavailable, the app uses a fallback mode with the Phi 2 model running in the wllama CPU-based engine. If *that* fails, then a *Basic* mode with no large language model is used.
 
     > **Tip**: After the app has initialized, on older or low-spec devices, you may get more reliable behavior by switching to Basic mode, even if GPU or CPU mode is available.
 
