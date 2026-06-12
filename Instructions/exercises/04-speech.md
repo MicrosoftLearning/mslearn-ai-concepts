@@ -42,6 +42,8 @@ Let's start by chatting with a generative AI model. In this exercise, we'll use 
 
    ![Screenshot of the Chat Playground app.](./media/speech-01.png)
 
+   > **Tip**: You can switch between *light* and *dark* themes using the &#x263C; / &#x263E; toggle at the top right.
+
 ## Configure Voice mode
 
 The Chat playground application supports *voice mode*, in which you can interact with a generative AI model using speech.

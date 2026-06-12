@@ -58,6 +58,8 @@ Sentiment analysis is a common NLP task. It's used to determine whether text con
 
     ![Screenshot of sentiment analysis results in the chat playground.](./media/text-01.png)
 
+    > **Tip**: You can switch between *light* and *dark* themes using the &#x263C; / &#x263E; toggle at the top right.
+
 1. Enter the following prompt to analyze a different review:
 
     ```
@@ -130,6 +132,8 @@ In scenarios where text could potentially be in one of multiple languages, the f
 1. In the **Input text** list, select one of the provided sample documents. Then use the **Detect** button to detect the language in which the sample is written.
 
     ![Screenshot of a detected language in the Language Playground](./media/text-04.png)
+
+    > **Tip**: You can switch between *light* and *dark* themes using the &#x263C; / &#x263E; toggle at the top right.
 
 1. After reviewing the detected language details, use the **Edit** button to make the input text editable again. Now you can:
     - Select another sample.

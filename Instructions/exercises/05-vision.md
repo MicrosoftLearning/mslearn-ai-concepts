@@ -43,6 +43,8 @@ In this exercise you use a generative AI model in a chat playground to respond t
 
    ![Screenshot of the Image analysis option.](./media/vision-01.png)
 
+   > **Tip**: You can switch between *light* and *dark* themes using the &#x263C; / &#x263E; toggle at the top right.
+
     In the chat interface, an **Upload image** (**&#x1F4CE;**) button is enabled.
 
 1. Click the **Upload image** button, and browse to select one of the images you extracted on your computer.

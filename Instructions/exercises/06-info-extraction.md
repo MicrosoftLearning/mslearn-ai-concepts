@@ -40,6 +40,8 @@ Suppose you need to extract data fields from scanned receipts to help automate a
 
     ![Screenshot of the Information Extractor app with an uploaded image.](./media/info-extractor-01.png)
 
+    > **Tip**: You can switch between *light* and *dark* themes using the &#x263C; / &#x263E; toggle at the top right.
+
 1. Run analysis on the sample image, and wait for the OCR and field extraction processes to complete.
 
     When the analysis is complete, the text regions in the scanned receipt identified by the OCR process are highlighted on the image, and specific values required for expense claim processing are identified by the field extraction process and listed in the **Fields** pane. The full OCR text results are in the **Result** tab.
