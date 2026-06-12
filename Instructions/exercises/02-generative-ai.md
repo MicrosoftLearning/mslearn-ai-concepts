@@ -82,7 +82,7 @@ One of the most commonly used application programming interfaces (APIs) used to 
 
 1. Navigate away from the Chat Playground app to the **[Model Coder](https://aka.ms/model-coder){:target="_blank"}** app at `https://aka.ms/model-coder` and wait for the Python environment and model to load.
 
-    > **Note**: As with the chat playground, the first time the model is loaded it may take a minute or so. If your browser supports WebGPU, the Microsoft Phi 3.5-mini model will be loaded using the WebLLM engine. Otherwise, the SmolLM2 model will be used in wllama, running in CPU mode.
+    > **Note**: As with the chat playground, the first time the model is loaded it may take a minute or so. If your browser supports WebGPU, the Microsoft Phi 3.5-mini model will be loaded using the WebLLM engine. Otherwise, the Phi 2 model will be used in wllama, running in CPU mode.
 
     ![Screenshot of Model Coder](./media/model-coder.png)
 
