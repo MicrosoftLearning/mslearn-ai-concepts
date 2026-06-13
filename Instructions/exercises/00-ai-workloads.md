@@ -36,7 +36,7 @@ The Computing History agent is a simple example of an AI agent that provides a c
 
     The first time you download a model, it may take several minutes. Subsequent downloads will be faster.
 
-    By default, the browser-based app uses the Microsoft Phi 3.5-mini model running in WebLLM (via WebGPU). When a GPU is unavailable, the app uses a fallback mode with the Phi 3.1-mini model running in the wllama CPU-based engine. If *that* fails, then a *Basic* mode with no large language model is used.
+    By default, the browser-based app uses the Microsoft Phi 3.5-mini model running in WebLLM (via WebGPU). When a GPU is unavailable, the app uses a fallback mode with the Phi 3.1-mini model running in the wllama CPU-based engine. If *that* fails, then a *Basic* mode with no large language model is used. If the model takes a long time to load, you can cancel and start in Basic mode. You can switch between available modes at any time in the main application user interface.
 
     > **Tip**: After the app has initialized, on older or low-spec devices, you may get more reliable behavior by switching to Basic mode, even if GPU or CPU mode is available.
 
