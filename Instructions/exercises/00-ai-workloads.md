@@ -114,6 +114,8 @@ Text analysis is a subset of natural language processing, in which AI can apply 
 
 *Speech recognition* enables AI to process spoken input, which *speech synthesis* enables it to vocalize output.
 
+> **Tip**: Speech recognition works best in a quiet environment with a microphone or headset.
+
 1. In the Computing History application, use the **Restart conversation** (&#128172;) button to clear the conversation history.
 1. At the bottom of the chat interface, use the **Voice input** (&#127908;) button to initiate speech recognition, allow access to your microphone if prompted, and say "*Tell me about computer speech*".
 

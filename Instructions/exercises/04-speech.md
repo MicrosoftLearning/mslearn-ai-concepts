@@ -24,6 +24,8 @@ To complete this lab, you need a modern browser on a computer with sufficient ha
 
 If your computer does not meet these requirements, the CPU-based fallback model may not run successfully. However, the app does support a failsafe mode in which no model is used; which you may be able to use.
 
+> **Tip**: Speech recognition works best in a quiet environment with a microphone or headset.
+
 This exercise should take approximately **15** minutes to complete.
 
 ## Open the Chat Playground app
