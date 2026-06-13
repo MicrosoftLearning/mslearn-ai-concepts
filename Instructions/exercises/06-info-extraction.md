@@ -31,7 +31,7 @@ Suppose you need to extract data fields from scanned receipts to help automate a
 1. In a web browser, open the **[Information Extractor](https://aka.ms/info-extractor){:target="_blank"}** app at `https://aka.ms/info-extractor`.
 1. Wait for the model to download and initialize.
 
-    > **Tip**: The first time you open the app, it may take a few minutes for the model to download. Subsequent downloads will be faster.
+    > **Tip**: The first time you open the app, it may take a few minutes for the model to download. Subsequent downloads will be faster.<br><br>If the model is taking a long time to load, you can cancel and start in basic mode. You can switch between available modes at any time by using the *Use Generative AI* toggle.
 
 1. While you're waiting for the model to initialize, in a new browser tab, download **[receipts.zip](https://aka.ms/receipts){:target="_blank"}** from `https://aka.ms/receipts` to your local computer.
 1. Extract the downloaded archive in a local folder to see the files it contains. These files are the receipt images you will use AI to analyze.
