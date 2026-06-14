@@ -117,7 +117,7 @@ Text analysis is a subset of natural language processing, in which AI can apply 
 > **Tip**: Speech recognition works best in a quiet environment with a microphone or headset.
 
 1. In the Computing History application, use the **Restart conversation** (&#128172;) button to clear the conversation history.
-1. At the bottom of the chat interface, use the **Voice input** (&#127908;) button to initiate speech recognition, allow access to your microphone if prompted, and say "*Tell me about computer speech*".
+1. At the bottom of the chat interface, use the **Voice input** (&#127908;) button to initiate speech recognition, allow access to your microphone if prompted, and say "*Tell me about the history of voice computing*".
 
     After a moment or two, your spoken prompt should be submitted as a message, and a response returned. The response should then be vocalized using speech synthesis.
 
@@ -128,7 +128,7 @@ Text analysis is a subset of natural language processing, in which AI can apply 
     **Suggestions for other prompts to try:**
 
     - *Explain speech recognition*
-    - *What is a vocoder?*
+    - *How does speech synthesis work?*
 
 ## Explore computer vision
 
