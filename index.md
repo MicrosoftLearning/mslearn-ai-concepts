@@ -4,7 +4,7 @@ permalink: index.html
 layout: home
 ---
 
-This page lists exercises associated with Microsoft skilling content on [Microsoft Learn](https://aka.ms/mslearn-ai-concepts-intro)
+This page lists exercises associated with  skilling content on [Microsoft AI Skills Navigator](https://aiskillsnavigator.microsoft.com/explore/search/learningpath-64735f4d575e2684eefd5b9e24b2b9d7b4126931707290aa539166a63501f4d6)
 
 <hr>
 
