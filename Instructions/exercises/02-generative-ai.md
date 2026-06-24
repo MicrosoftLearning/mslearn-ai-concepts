@@ -42,7 +42,7 @@ Let's start by using a chat interface to submit prompts to a generative AI model
 
     > **Tip**: You can switch between *light* and *dark* themes using the &#x263C; / &#x263E; toggle at the top right.
 
-1. In the pane on the left, in the **Instructions** text area, change the model's instructions to `You are an AI assistant that provides short, concise answers to expense-related questions from employees in a business.`
+1. In the pane on the left, in the **Instructions** text area, change the model's instructions to `You are an AI assistant that provides succinct answers to business expense-related questions.`
 
     Instructions, sometimes known as a *system prompt*, are used to provide the model with an overall context for its responses. You can use the system prompt to provide guidelines about format, style, and constraints about what the model should and should not include in its responses.
 
