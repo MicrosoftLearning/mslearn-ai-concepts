@@ -15,11 +15,11 @@ To complete this lab, you need a modern browser on a computer with sufficient ha
 
 **Minimum spec**
 
-- 64-bit CPU, 4+ physical cores (8 logical threads preferred)
-- GPU required for the default Phi 3.5-mini model.
+- 64-bit CPU, 8 cores
+- GPU (recommended)
 - 8+ GB system RAM (16 GB recommended)
 - Enough storage to cache ~300MB–800MB model assets
-- Latest Chrome / Edge / Firefox with WASM SIMD enabled/available (WebGPU support is required for the default model; a WASM-based fallback is provided)
+- Latest Chrome / Edge / Firefox with WASM SIMD enabled/available (WebGPU support is receommended; a WASM-based fallback is provided)
 - Audio hardware (mic and speaker) required for speech functionality
 
 If your computer does not meet these requirements, the CPU-based fallback model may not run successfully. However, the app does support a failsafe "Basic" mode in which no model is used; which you may be able to use.
