@@ -19,7 +19,7 @@ To complete this lab, you need a modern browser on a computer with sufficient ha
 > - GPU (recommended)
 > - 8+ GB system RAM (16 GB recommended)
 > - Enough storage to cache ~300MB–800MB model assets
-> - Latest Chrome / Edge / Firefox with WASM SIMD enabled/available (WebGPU support is receommended; a WASM-based fallback is provided)
+> - Latest Chrome / Edge / Firefox with WASM SIMD enabled/available (WebGPU support is recommended; a WASM-based fallback is provided)
 > - Audio hardware (mic and speaker) required for speech functionality
 
 If your computer does not meet these requirements, the CPU-based fallback model may not run successfully. However, the app does support a failsafe "Basic" mode in which no model is used; which you may be able to use.
@@ -30,15 +30,15 @@ This exercise should take approximately **15** minutes to complete.
 
 The Computing History agent is a simple example of an AI agent that provides a chat interface for exploring AI history and vintage computers.
 
-> **Note**: The *Computing History agent* app is provided solely as a simple example of a chat-based agent for educational purposes. It is <u>not</u> a supported Microsoft product or service, and should not be relied on for critical work.
+> **Note**: The *Computing History agent* app is provided solely as a simple example of a chat-based agent for educational purposes. It is <u>not</u> a supported Microsoft product or service, and should not be relied on for critical work.<br><br>If your browser supports WebGPU, the Computing History Agent uses the *Microsoft Phi 3.5 Mini* model running on your computer's GPU. If not, the model run on CPU - with reduced response-generation quality. If *that* fails, a basic mode with no model and responses retrieved from Wikipedia is activated. Performance may vary depending on the available memory in your computer and your network bandwidth to download the model.
 
 1. In a web browser, open the **[Computing History agent](https://aka.ms/computing-history-browser){:target="_blank"}** at `https://aka.ms/computing-history-browser`.
 
     The first time you download a model, it may take several minutes. Subsequent downloads will be faster.
 
-    By default, the browser-based app uses the Microsoft Phi 3.5-mini model running in WebLLM (via WebGPU). When a GPU is unavailable, the app uses a fallback mode with the Phi 3.1-mini model running in the wllama CPU-based engine. If *that* fails, then a *Basic* mode with no large language model is used. If the model takes a long time to load, you can cancel and start in Basic mode. You can switch between available modes at any time in the main application user interface.
+    If the model takes a long time to load, you can cancel and start in Basic mode. You can switch between available modes at any time in the main application user interface.
 
-    > **Tip**: After the app has initialized, on older or low-spec devices, you may get more reliable behavior by switching to Basic mode, even if GPU or CPU mode is available.
+    > **Tip**: After the app has initialized, on older or low-spec devices, you may experience slow performance. If this happens, switch to Basic mode.
 
 ## Explore a generative AI model
 
@@ -198,4 +198,4 @@ Content safety is an important element of responsible AI. As much as possible, d
 
 In this exercise, you explored common AI workloads in a simple example application. The application's functionality is limited, and does not reflect the kind of performance or capabilities you can expect in a production quality agent such as you would build with Microsoft Foundry; but it should serve to show the kinds of functionality you can achieve with AI.
 
-> **[Ask Anton](https://aka.ms/ask-anton){:target="_blank"}**<br/>![Anton avatar.](./media/anton-icon.png)<br/>If you have questions about some of the topics covered in this exercise, *[Ask Anton](https://aka.ms/ask-anton){:target="_blank"}* is a generative AI-based agent that you can ask about AI concepts and Microsoft Foundry.<br/><br/>*Ask Anton is not a supported Microsoft product or a component of Microsoft Learn or AI Skills Navigator. Just a sample AI agent for you to explore as you learn about what's possible with AI.*<br/><br/>If you *do* check out Ask Anton, we'd love you to *[tell us about your experience](https://forms.office.com/r/fC0ndfBQeK){:target="_blank"}*!
+> **[Ask Anton](https://aka.ms/ask-anton){:target="_blank"}**<br/>![Anton avatar.](./media/anton-icon.png)<br/>If you have questions about some of the topics covered in this exercise, *[Ask Anton](https://aka.ms/ask-anton){:target="_blank"}* is a generative AI-based agent that you can ask about AI concepts and Microsoft Foundry.<br/><br/>*Ask Anton is not a supported Microsoft product or a component of Microsoft Learn or AI Skills Navigator. Just a sample AI agent for you to explore as you learn about what's possible with AI.*<br/><br/>If you *do* check out Ask Anton, we'd love you to *[tell us about your experience with the app](https://forms.office.com/r/fC0ndfBQeK){:target="_blank"}*!

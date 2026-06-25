@@ -19,7 +19,7 @@ To complete this lab, you need a modern browser on a computer with sufficient ha
 - GPU (recommended)
 - 8+ GB system RAM (16 GB recommended)
 - Enough storage to cache ~300MB–800MB model assets
-- Latest Chrome / Edge / Firefox with WASM SIMD enabled/available (WebGPU support is receommended; a WASM-based fallback is provided)
+- Latest Chrome / Edge / Firefox with WASM SIMD enabled/available (WebGPU support is recommended; a WASM-based fallback is provided)
 - Audio hardware (mic and speaker) required for speech functionality
 
 If your computer does not meet these requirements, the CPU-based fallback model may not run successfully. However, the app does support a failsafe "Basic" mode in which no model is used; which you may be able to use.
@@ -30,7 +30,7 @@ This exercise should take approximately **15** minutes to complete.
 
 **Ask Anton** is a simple example of an AI agent that provides a chat interface for learning about AI concepts.
 
-> **Note**: Ask Anton is provided solely as a simple example of a chat-based agent for this exercise. It is not a component of the Microsoft Learn or AI Skills Navigator platform, nor is it a supported Microsoft product or service. The agent uses a small language model to interpret and respond to prompts. The model runs in your browser, on your local computer; so performance may vary depending on the available memory in your computer and your network bandwidth to download the model. If GPU-based WebLLM models are not supported  in your browser, a fallback CPU-based model is used; which may be slower and generate lower quality responses. On older or low-spec devices, you may get more reliable behavior by switching to Basic mode, even if GPU or CPU mode is available. After opening the app, use the **About** button in the chat area to find out more.
+> **Note**: Ask Anton is provided solely as a simple example of a chat-based agent for this exercise. It is not a component of the Microsoft Learn or AI Skills Navigator platform, nor is it a supported Microsoft product or service.<br><br>If your browser supports WebGPU, Ask Anton uses the *Microsoft Phi 3.5 Mini* model running on your computer's GPU. If not, the model run on CPU - with reduced response-generation quality. If *that* fails, a basic mode with no model and responses retrieved from a built-in knowledge base is activated. Performance may vary depending on the available memory in your computer and your network bandwidth to download the model.
 
 1. In a web browser, open the **[Ask Anton](https://aka.ms/ask-anton){:target="_blank"}** at `https://aka.ms/ask-anton`.
 1. Wait for the model to download and initialize.
@@ -39,7 +39,9 @@ This exercise should take approximately **15** minutes to complete.
 
     The first time you download a model, it will take several minutes. Subsequent downloads will be faster.
 
-    > **Tip**: If the GPU-based model fails to load, the app will fallback to *CPU mode*. This may happen if your computer does not have a GPU, or if WebGPU support is disabled in your browser. When using an ARM64 based computer, you may need to enable WebGPU support in your browser's `edge://flags` or `chrome://flags` page and restart the browser. If you choose to do so, disable it again when you have completed the exercise.
+    If the model takes a long time to load, you can cancel and start in Basic mode. You can switch between available modes at any time in the main application user interface.
+
+    > **Tip**: After the app has initialized, on older or low-spec devices, you may experience slow performance. If this happens, switch to Basic mode.
 
 ## Chat with the model
 
@@ -86,7 +88,7 @@ Additionally, the agent has a basic web search *tool*, which in this simple impl
 
 > **Note**: The performance and quality of the small language model (SLM) responses in this browser-based application are not representative of the results that can be achieved with state-of-the-art large language models (LLMs) on Microsoft Foundry. If you have access to an Azure subscription in which you can create a project (with *key-based* authentication) and deploy a model, you can compare for yourself - check out the [Azk Anton](https://aka.ms/azk-anton) app; which is a Foundry-based implementation of the Ask Anton agent.
 
-*We'd love you to [tell us about your experience](https://forms.office.com/r/fC0ndfBQeK){:target="_blank"}with Ask Anton!*
+*We'd love you to [tell us about your experience with the Ask Anton app](https://forms.office.com/r/fC0ndfBQeK){:target="_blank"}with Ask Anton!*
 
 ## Summary
 
