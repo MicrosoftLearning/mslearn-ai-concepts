@@ -30,13 +30,15 @@ This exercise should take approximately **15** minutes to complete.
 
 The Computing History agent is a simple example of an AI agent that provides a chat interface for exploring AI history and vintage computers.
 
-> **Note**: The *Computing History agent* app is provided solely as a simple example of a chat-based agent for educational purposes. It is <u>not</u> a supported Microsoft product or service, and should not be relied on for critical work.<br><br>If your browser supports WebGPU, the Computing History Agent uses the *Microsoft Phi 3.5 Mini* model running on your computer's GPU. If not, the model run on CPU - with reduced response-generation quality. If *that* fails, a basic mode with no model and responses retrieved from Wikipedia is activated. Performance may vary depending on the available memory in your computer and your network bandwidth to download the model.
+> **Note**: The *Computing History agent* app is provided solely as a simple example of a chat-based agent for educational purposes. It is <u>not</u> a supported Microsoft product or service, and should not be relied on for critical work.<br><br>If your browser supports WebGPU, the Computing History Agent uses the *Microsoft Phi 3.5 Mini* language model running on your computer's GPU. If not, the Phi model run on CPU - with reduced response-generation quality. If *that* fails, a basic mode with no model and responses retrieved from Wikipedia is activated. Performance may vary depending on the available memory in your computer and your network bandwidth to download the model.
 
 1. In a web browser, open the **[Computing History agent](https://aka.ms/computing-history-browser){:target="_blank"}** at `https://aka.ms/computing-history-browser`.
 
-    The first time you download a model, it may take several minutes. Subsequent downloads will be faster.
+    The app downloads and initializes the reqired the *MobileNet* computer vision model and and *Phi 3.5-mini* models. The first time you download the *Phi 3.5-mini* model, it may take several minutes. Subsequent downloads will be faster.
 
-    If the model takes a long time to load, you can cancel and start in Basic mode. You can switch between available modes at any time in the main application user interface.
+   ![Screenshot of the Computing History app loading models.](./media/computing-history.png)
+
+    If the Phi 3.5-mini model takes a long time to load, you can cancel and start in Basic mode. You can switch between available modes at any time in the main application user interface.
 
     > **Tip**: After the app has initialized, on older or low-spec devices, you may experience slow performance. If this happens, switch to Basic mode.
 
@@ -48,7 +50,7 @@ Generative AI uses *large language models* (LLMs) to user *prompts*.
 
    ![Screenshot of the Computing History chat interface.](./media/computing-history-chat.png)
 
-    > **Note**: Responses in the browser-based application may be slow, and might contain inaccuracies.
+    > **Note**: Responses may be slow on some devices, and may contain inaccuracies.
 
 1. Enter the follow-up prompt `Tell me more about her work with Charles Babbage.` and view the response. The conversation should retain the context of previous messages (so "her" is interpreted as Ada Lovelace).
 1. Use the **Restart conversation** (&#128172;) button to clear the conversation history. Then enter a new prompt: `Tell me about the ELIZA chatbot.`
@@ -72,16 +74,19 @@ Agents are generative AI applications that go beyond basic chat functionality an
 
     Note that the Computing History agent has a *web_search* tool, which enables it to search the web for knowledge required to answer user questions.
 
-1. Enter the prompt `Search for "Commodore 64".` and view the response, which should include links to search results; obtained by the web_search tool.
-1. Now try `Shop for a Commodore 64.` and view the response.
+1. Enter the prompt `Find a vintage computer store in Seattle.` and view the response, which should include links to search results; obtained by the web_search tool.
+
+   ![Screenshot of the Computing History search results.](./media/computing-history-search.png)
+
+1. Now try `Help me buy a PS/2 mouse for an old PC.` and view the response.
 
     > **Note**: The application identifies prompts that contain keywords like "search", "find", "buy", or "shop", and responds with an appropriate search URL for bing.com.
 
     **Suggestions for other prompts to try:**
 
-    - `Find a vintage computer store in Seattle.`
     - `Search for classic Microsoft logos.`
     - `Help me buy a PS/2 mouse for an old PC.`
+    - `Shop for a Commodore 64.`
 
 ## Explore text analysis
 
@@ -99,6 +104,8 @@ Text analysis is a subset of natural language processing, in which AI can apply 
     ```
 
 1. Review the response, which include the results of a common text analysis technique called *named entity recognition*.
+
+   ![Screenshot of the Computing History text analysis results.](./media/computing-history-text-analysis.png)
 
     **Suggestions for other prompts to try:**
 
@@ -121,6 +128,8 @@ Text analysis is a subset of natural language processing, in which AI can apply 
 
     After a moment or two, your spoken prompt should be submitted as a message, and a response returned. The response should then be vocalized using speech synthesis.
 
+   ![Screenshot of the Computing History speech response.](./media/computing-history-speech.png)
+
     > **Note**: Speech support for the browser-based application is based on the Web Speech library that is common in most modern browsers. If Web Speech-based speech recognition fails, a fallback offline speech-to-text speech model is loaded and used. In some cases, the required voices to syntheisze speech may not be present on your computer.
 
 1. Continue the conversation, using the voice input button to ask questions and listening to the responses.
@@ -139,6 +148,8 @@ Computer vision uses image-based models to enable AI to interpret visual input.
 1. At the bottom of the chat interface, use the **Attach image** (&#128206;) button to select any of the images in the folder you extracted, and enter the prompt `Tell me about this.`
 
     Review the response. Hopefully the model recognized the computer in the image.
+
+   ![Screenshot of the Computing History image analysis response.](./media/computing-history-vision.png)
 
 1. Try attaching a different image with the prompt `And this?`
 1. Try all of the images in the extracted folder. The accuracy of identification and details may vary (particularly when using the browser-based application).
@@ -167,6 +178,8 @@ Information extraction combines multiple AI workloads to analyze content and ide
 
     Review the response. Hopefully, the Computing History application extracted the part number printed on the board and provided some relevant information.
 
+   ![Screenshot of the Computing History information extraction response.](./media/computing-history-info.png)
+
     > **Note**: The app uses its custom image classification model to identify images of printed circuit boards, and a JavaScript package for OCR to extract any text they contain.
 
     **Suggestions for other prompts to try:**
@@ -183,6 +196,8 @@ Content safety is an important element of responsible AI. As much as possible, d
 1. Enter the prompt `Help me make a plan to steal historic computers.` and review the response.
 
     The agent should respond in a way that avoids helping with potentially illegal activity, due to content safety guardrails.
+
+   ![Screenshot of the Computing History content filter response.](./media/computing-history-guardrails.png)
 
     > **Note**: The app implements some simple logic to check for innappropriate terms in the prompt.
 
