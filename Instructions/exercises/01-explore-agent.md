@@ -11,7 +11,7 @@ lab:
 
 In this exercise, you'll use a simple AI agent named **Ask Anton** to chat about AI concepts. The goal of this exercise is not to learn how to *build* an AI agent, but to familiarize yourself with some common features of AI solutions - in particular AI agents that support chat-based interactivity.
 
-To complete this lab, you need a modern browser on a computer with sufficient hardware resources to load and run the models used by the AI agent app. On older or low-spec computers, the app may run very slowly or experience errors.
+To complete this lab, you need a modern browser on a computer with sufficient hardware resources to load and run the model used by the AI agent app. On older or low-spec computers, the app may run very slowly or experience errors.
 
 **Minimum spec**
 
@@ -22,7 +22,7 @@ To complete this lab, you need a modern browser on a computer with sufficient ha
 - Latest Chrome / Edge / Firefox with WASM SIMD enabled/available (WebGPU support is recommended; a WASM-based fallback is provided)
 - Audio hardware (mic and speaker) required for speech functionality
 
-If your computer does not meet these requirements, the CPU-based fallback model may not run successfully. However, the app does support a failsafe "Basic" mode in which no model is used; which you may be able to use.
+If your computer does not meet these requirements, the model may not run successfully. However, the app does support a failsafe "Basic" mode in which no model is used; which you may be able to use.
 
 This exercise should take approximately **15** minutes to complete.
 
@@ -45,17 +45,17 @@ This exercise should take approximately **15** minutes to complete.
 
 ## Chat with the model
 
-1. When the model is ready, use the chat interface to enter questions related to AI concepts; and review the responses returned by the agent.
+1. When the model is ready, use the chat interface to enter questions related to AI concepts.
 
    ![Screenshot of the Ask Anton chat interface.](./media/ask-anton-02.png)
 
     Start by using some of the sample prompts in the user interface, then try some of your own. Some suggestions include:
 
-    `What's the relationship between machine learning and artificial intelligence?`
+    - `What's the relationship between machine learning and artificial intelligence?`
 
-    `What is responsible AI?`
+    - `What is responsible AI?`
 
-    `Find me details of considerations for building generative AI solutions on Azure.`
+    - `Find me details of considerations for building generative AI solutions on Azure.`
 
 1. Continue to chat with the agent, bearing in mind the following guidelines:
     - You can use the **Voice input** button to talk to the agent instead of typing (if supported by your browser).
@@ -84,11 +84,9 @@ At a high-level, the process can be broken down into six steps.
 
 This architecture reflects how many production-level AI agents are designed. It's based on a general pattern referred to as *retrieval-augmented generation* (RAG) in which the agent *retrieves* contextual information from a knowledge store, uses it to *augment* the original user prompt, which is sent to a language model to *generate* a response.
 
-Additionally, the agent has a basic web search *tool*, which in this simple implementation consists of constructing a search query for the Microsoft Learn site based on your input when the prompt is interpreted as a request to search for information, or when no context is found in the index.
+Additionally, the agent uses the Model Context Protocol (MCP) to access the Microsoft Learn documentation tool, which searches the Microsoft Learn documentation site based on your input when the prompt is interpreted as a request to search for information, or when no context is found in the index.
 
 > **Note**: The performance and quality of the small language model (SLM) responses in this browser-based application are not representative of the results that can be achieved with state-of-the-art large language models (LLMs) on Microsoft Foundry. If you have access to an Azure subscription in which you can create a project (with *key-based* authentication) and deploy a model, you can compare for yourself - check out the [Azk Anton](https://aka.ms/azk-anton) app; which is a Foundry-based implementation of the Ask Anton agent.
-
-*We'd love you to [tell us about your experience with the Ask Anton app](https://forms.office.com/r/fC0ndfBQeK){:target="_blank"}with Ask Anton!*
 
 ## Summary
 
