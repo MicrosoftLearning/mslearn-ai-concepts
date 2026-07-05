@@ -6,4 +6,4 @@ The exercises may be used in both self-paced skilling experiences on [Microsoft 
 
 These exercises make use of in-browser apps in the [AI Apps](https://microsoftlearning.github.io/ai-apps/) repo.
 
-> **Important**: These apps are <u>not</u> supported Microsoft services or products. They are educational resources to support practical exercises in training courses; and are provided as-is without warranty of any kind. Performance issues and occasional failures are to be expected. In older or lower-spec computers, they may run slowly or not at all.
+> **Important**: The apps used in these labs are <u>not</u> supported Microsoft services or products. They are educational resources to support practical exercises in training courses; and are provided as-is without warranty of any kind. Performance issues and occasional failures are to be expected. In older or lower-spec computers, they may run slowly or not at all.
