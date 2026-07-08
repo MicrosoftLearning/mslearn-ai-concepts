@@ -21,6 +21,8 @@ To complete this lab, you need a modern browser on a computer with sufficient ha
 > - Enough storage to cache ~300MB–800MB model assets
 > - Latest Chrome / Edge / Firefox with WASM SIMD enabled/available (WebGPU support is recommended; a WASM-based fallback is provided)
 
+If your computer does not meet these requirements, the AI model may not run successfully. However, the app supports a failsafe mode in which no model is used; which you may be able to use.
+
 This exercise should take approximately **15** minutes to complete.
 
 ## Extract information from receipts
