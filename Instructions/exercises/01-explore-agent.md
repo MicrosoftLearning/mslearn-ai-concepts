@@ -30,7 +30,7 @@ This exercise should take approximately **15** minutes to complete.
 
 **Ask Anton** is a simple example of an AI agent that provides a chat interface for learning about AI concepts.
 
-> **Note**: Ask Anton is provided solely as a simple example of a chat-based agent for this exercise. It is not a component of the Microsoft Learn or AI Skills Navigator platform, nor is it a supported Microsoft product or service.<br><br>If your browser supports WebGPU, Ask Anton uses the *Microsoft Phi 3.5 Mini* model running on your computer's GPU. If not, the model run on CPU - with reduced response-generation quality. If *that* fails, a basic mode with no model and responses retrieved from a built-in knowledge base is activated. Performance may vary depending on the available memory in your computer and your network bandwidth to download the model.
+> **Note**: Ask Anton is provided solely as a simple example of a chat-based agent for this exercise. It is not a component of the Microsoft Learn or AI Skills Navigator platform, nor is it a supported Microsoft product or service.<br><br>If your browser supports WebGPU, Ask Anton uses the *Microsoft Phi 3.5 Mini* model running on your computer's GPU. If not, the model runs on CPU - with reduced response-generation quality. If *that* fails, a basic mode with no model and responses retrieved from a built-in knowledge base is activated. Performance may vary depending on the available memory in your computer and your network bandwidth to download the model.
 
 1. In a web browser, open the **[Ask Anton](https://aka.ms/ask-anton){:target="_blank"}** at `https://aka.ms/ask-anton`.
 1. Wait for the model to download and initialize.

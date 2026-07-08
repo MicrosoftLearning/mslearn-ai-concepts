@@ -30,7 +30,7 @@ This exercise should take approximately **15** minutes to complete.
 
 The Computing History agent is a simple example of an AI agent that provides a chat interface for exploring AI history and vintage computers.
 
-> **Note**: The *Computing History agent* app is provided solely as a simple example of a chat-based agent for educational purposes. It is <u>not</u> a supported Microsoft product or service, and should not be relied on for critical work.<br><br>If your browser supports WebGPU, the Computing History Agent uses the *Microsoft Phi 3.5 Mini* language model running on your computer's GPU. If not, the Phi model run on CPU - with reduced response-generation quality. If *that* fails, a basic mode with no model and responses retrieved from Wikipedia is activated. Performance may vary depending on the available memory in your computer and your network bandwidth to download the model.
+> **Note**: The *Computing History agent* app is provided solely as a simple example of a chat-based agent for educational purposes. It is <u>not</u> a supported Microsoft product or service, and should not be relied on for critical work.<br><br>If your browser supports WebGPU, the Computing History Agent uses the *Microsoft Phi 3.5 Mini* language model running on your computer's GPU. If not, the model runs on CPU - with reduced response-generation quality. If *that* fails, a basic mode with no model and responses retrieved from Wikipedia is activated. Performance may vary depending on the available memory in your computer and your network bandwidth to download the model.
 
 1. In a web browser, open the **[Computing History agent](https://aka.ms/computing-history-browser){:target="_blank"}** at `https://aka.ms/computing-history-browser`.
 
