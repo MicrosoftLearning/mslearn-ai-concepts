@@ -11,9 +11,9 @@ lab:
 
 In this exercise, you'll use a chat playground to interact with a generative AI solution that can analyze and interpret images. The goal of this exercise is to explore a common pattern for combining text and visual input in a prompt for a generative AI model.
 
-To complete this exercise, you need a modern browser on a computer with sufficient hardware resources to load and run the models used by *Chat Playground* the app. On older or low-spec computers, the apps may run very slowly or experience errors.
+To complete this exercise, you need a modern browser on a computer with sufficient hardware resources to load and run the models used by *Chat Playground* the app. On older or low-spec computers, the app may run very slowly or experience errors.
 
-> **Minimum spec**
+> **Minimum spec**<br/>
 >
 > - 64-bit CPU, 8 cores
 > - GPU (recommended)
@@ -46,17 +46,23 @@ In this exercise you use a generative AI model in a chat playground to respond t
 
     In the chat interface, an **Upload image** (**&#x1F4CE;**) button is enabled.
 
+1. In the configuration pane update the **Instructions** to the following system prompt:
+
+    ```
+   You are an AI assistent that helps people identify vintage computer hardware.
+    ```
+
 1. Click the **Upload image** button, and browse to select one of the images you extracted on your computer.
 
     A thumbnail of the image is added to the prompt input area.
 
-1. Enter a prompt like `Suggest a recipe for this.`. The image is included in the message.
+1. Enter a prompt like `What can you tell me about this?`. The image is included in the message.
 
    ![Screenshot of the chat app with an image in a prompt.](./media/vision-02.png)
 
     The MobileNetV3 model is used to determine the likely subject of the image, and the results of that analysis is included in the prompt to the Phi language model. The result should be a reponse that uses the image information to answer the question.
 
-1. Submit prompts that include the other images, such as `What desserts could I make with this?` or `How should I cook this?`
+1. Submit prompts that include the other images, such as `What is this?` or `Tell me about this.`
 
     > **Note**: Responses will vary in quality depending on the selected language model; but the image classificaton model should correctly identify the images.
 
