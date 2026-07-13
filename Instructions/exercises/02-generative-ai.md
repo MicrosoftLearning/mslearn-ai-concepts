@@ -148,7 +148,7 @@ One of the most commonly used application programming interfaces (APIs) used to 
         except Exception as ex:
             print(ex)
     
-   if **name** == '**main**':
+   if __name__ == '__main__':
         main()
     ```
 
