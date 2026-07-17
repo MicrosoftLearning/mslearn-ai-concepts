@@ -184,9 +184,9 @@ Information extraction combines multiple AI workloads to analyze content and ide
 
     **Suggestions for other prompts to try:**
 
-    Try the other PCB images in the folder you extracted with prompts that ask the agent about them, and view the responses.
+    Try the other PCB image in the folder you extracted with a prompts that asks the agent about it, and view the response.
 
-    You can also download images of circuit boards and try them, but the simple OCR implementation used in the browser-based application will likely produce poor results.
+    > **Tip:** You can also download images of circuit boards and try them, but the simple OCR implementation used in the browser-based application will likely produce poor results.
 
 ## Explore safety guardrails
 
