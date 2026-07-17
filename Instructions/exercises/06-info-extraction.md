@@ -77,7 +77,7 @@ Now suppose you need to extract data fields from scanned receipts to help automa
 
     > **Note**: Field extraction may take some time when using the AI model.
 
-    When the analysis is complete, the specific values assoxiated with a receipt are identified by the field extraction process and listed in the **Fields** pane. The full OCR text results are in the **Result** tab.
+    When the analysis is complete, the specific values associated with a receipt are identified by the field extraction process and listed in the **Fields** pane. The full OCR text results are in the **Result** tab.
 
     ![Screenshot of the Information Extractor app with an analyzed receipt.](./media/info-extractor-04.png)
 
