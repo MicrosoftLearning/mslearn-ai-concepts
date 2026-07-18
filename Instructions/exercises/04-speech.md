@@ -73,6 +73,12 @@ The Chat playground application supports *voice mode*, in which you can interact
 
 The app supports both speech recognition and speech synthesis, enabling you to have a voice-based conversation with the model.
 
+1. In the pane on the left, change the default **Instructions** to:
+
+    ```
+   You are an expert in the history of computing and AI. You provide succinct and concise responses.
+    ```
+
 1. In the **Chat** pane, use the **Start session** button to start a conversation with the model. If prompted, allow access to the system microphone.
 
 1. When the app status is **Listening...**, say something like "*What's speech recognition?*" and wait for a response.

@@ -1,0 +1,4 @@
+A printed circuit board (PCB) is a component of a computer on which chips, transistors, and other electronics are mounted. Text on a PCB often gives a clue to the manufacturer.
+"ASSY" numbers are assembly numbers often used in Commodore computers.
+Serial numbers beginning with "820" are often used in Apple computers.
+"Z-80", "Z 80", or "Z-80A" indicates a Zilog Z80 processor; which was commonly used in home computers like the Sinclair ZX Spectrum.

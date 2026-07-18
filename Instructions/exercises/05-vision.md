@@ -49,7 +49,7 @@ In this exercise you use a generative AI model in a chat playground to respond t
 1. In the configuration pane update the **Instructions** to the following system prompt:
 
     ```
-   You are an AI assistent that helps people identify vintage computer hardware.
+   You are an AI assistant that helps people identify vintage computer hardware.
     ```
 
 1. Click the **Upload image** button, and browse to select one of the images you extracted on your computer.
@@ -60,7 +60,7 @@ In this exercise you use a generative AI model in a chat playground to respond t
 
    ![Screenshot of the chat app with an image in a prompt.](./media/vision-02.png)
 
-    The MobileNetV3 model is used to determine the likely subject of the image, and the results of that analysis is included in the prompt to the Phi language model. The result should be a reponse that uses the image information to answer the question.
+    The MobileNetV2 model is used to determine the likely subject of the image, and the results of that analysis is included in the prompt to the Phi language model. The result should be a reponse that uses the image information to answer the question.
 
 1. Submit prompts that include the other images, such as `What is this?` or `Tell me about this.`
 
