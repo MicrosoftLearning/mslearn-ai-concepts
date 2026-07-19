@@ -44,8 +44,6 @@ Let's start by using a chat interface to submit prompts to a generative AI model
    You are an AI assistant that analyzes and summarizes text.
     ```
 
-1. At the top of the chat pane, use the **New chat** (&#128172;) button to restart the conversation. This removes all conversation history.
-
     Now, suppose you've found an old article from a computer trade magazine, that includes a review of a home computer that was launched in the 1980s
 
 1. Enter the following prompt (you can press CTRL+ENTER for a new line):
