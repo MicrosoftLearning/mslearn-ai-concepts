@@ -11,17 +11,18 @@ lab:
 
 In this exercise, you'll use a chat playground to interact with a generative AI model, and explore how it could be used to support computing history agent that finds information about important figures, events, and technology in the history of computers.
 
+> ![Image of Anton.](./media/anton-icon.png)<br/>**Hi, I'm Anton.**<br/>I'll be here to help you with hints and tips as you work through this lab. You can also find me in the ***[Ask Anton](https://aka.ms/ask-anton){:target="_blank"}*** app; which runs an agent with generative AI model in your browser, with a *Basic* mode option for older or lower-spec computers.<br/><br/>*Ask Anton is not a supported Microsoft product or a component of Microsoft Learn or AI Skills Navigator. Just an experimental AI agent for you to explore as you learn about AI.*
+
 To complete this exercise, you need a modern browser on a computer with sufficient hardware resources to load and run the models used by the *Chat Playground* and *Model Coder* apps. On older or low-spec computers, the apps may run very slowly or experience errors.
 
-> **Minimum spec**
+> **Minimum spec**<br/>If your computer does not meet these requirements, the AI model may not run successfully. However, the app does support a failsafe *Basic* mode in which no model is used; which provides simpler, but faster responses.<br/>
 >
 > - 64-bit CPU, 8 cores
 > - GPU (recommended)
 > - 8+ GB system RAM (16 GB recommended)
 > - Enough storage to cache ~300MB–800MB model assets
 > - Latest Chrome / Edge / Firefox with WASM SIMD enabled/available (WebGPU support is recommended; a WASM-based fallback is provided)
-
-If your computer does not meet these requirements, the AI model may not run successfully. However, the apps support a failsafe mode in which no model is used; which you may be able to use.
+> - Audio hardware (mic and speaker) required for speech functionality
 
 This exercise should take approximately **15** minutes to complete.
 
@@ -36,13 +37,13 @@ Let's start by using a chat interface to submit prompts to a generative AI model
 
     The first time you download a model, it may take a few minutes. Subsequent downloads will be faster.
 
-    > **Tip**: If the model is taking a *very* long time to load, you can cancel and start in basic mode. You can switch between available models at any time in the **Model** list; but on older or lower-spec computers, you may have a better experience in basic mode.
+    > ![Image of Anton.](./media/anton-icon.png)<br>**Tip**: If the model is taking a *very* long time to load, you can cancel and start in ***Basic*** mode. You can switch between available models at any time in the **Model** list; but on older or lower-spec computers, you may have a better experience in basic mode.
 
     When ready, the Chat Playground looks like this:
 
     ![Screenshot of the chat playground.](./media/gen-ai-01.png)
 
-    > **Tip**: You can switch between *light* and *dark* themes using the &#x263C; / &#x263E; toggle at the top right.
+    > ![Image of Anton.](./media/anton-icon.png)<br>**Tip**: You can switch between *light* and *dark* themes using the &#x263C; / &#x263E; toggle at the top right.
 
 1. When the model is ready, enter the prompt `Who was Ada Lovelace?`, and review the response (which may take some time to be generated).
 
@@ -50,7 +51,9 @@ Let's start by using a chat interface to submit prompts to a generative AI model
 
 1. Enter a follow-up prompt, such as `Tell me more about her work with Charles Babbage.` and review the response.
 
-    >**Note**: Generative AI chat applications often include chat history in the prompt; so the context of the conversation is retained between messages (for example, in the follow-up prompt `Tell me more about her work with Charles Babbage.`, "her" is interpreted as referring to Ada Lovelace).<br><br>In *Basic* mode, the conversation history is not retained; so the follow up prompt results in a new Wikipedia query based on the keywords "Charles Babbage".
+    Generative AI chat applications often include chat history in the prompt; so the context of the conversation is retained between messages (for example, in the follow-up prompt `Tell me more about her work with Charles Babbage.`, "her" is interpreted as referring to Ada Lovelace)
+
+    > **Note**: In *Basic* mode, the conversation history is not retained; so the follow up prompt results in a new Wikipedia query based on the keywords "Charles Babbage".
 
 ## Specify *instructions*
 
@@ -76,10 +79,7 @@ So far, the model has answered questions based on the data with which it was tra
 We can use *tools* to give models access to external data sources, and to perform custom tasks. Let's add a tool that enables the model to search the Web for up-to-date information.
 
 1. In the pane on the left, under the instructions, expand the **Tools** section if it is not already expanded.
-1. In the **Add** drop-down list, select **Web search**
-
-    > **Tip**: (<u>Not</u> *File_search*).
-
+1. In the **Add** drop-down list, select **Web search** (<u>not</u> *File_search*).
 1. After adding the *Web search* tool, in the chat pane, enter the prompt `Find a vintage computer store near Seattle` (*or your local city!*) and review the response.
 
     The model should have searched the Web for vintage computer stores near the specific city.
@@ -94,7 +94,7 @@ In this exercise, we'll give the model a *file search* tool with access to infor
 
 1. Open a new browser tab, and view the **[PCB Info](https://aka.ms/pcb_info){:target="_blank"}** file at `https://aka.ms/pcb_info`. We'll use this to ground the model, so it has some context for questions about serial numbers printed on PCBs.
 
-    > **Note**: This is a very small document for the purposes of this exercise. In a real scenario, an AI agent might have access to large volumes of data; usually in the form of a *vector index*. In an enterprise solution, access to multiple sources of knowledge can be centralized through *Foundry IQ* - a tool in Microsoft Foundry built on *Azure AI Search*.  
+    > ![Image of Anton.](./media/anton-icon.png)<br>**Note**: This is a very small document for the purposes of this exercise. In a real scenario, an AI agent might have access to large volumes of data; usually in the form of a *vector index*. In an enterprise solution, access to multiple sources of knowledge can be centralized through *Foundry IQ* - a tool in Microsoft Foundry built on *Azure AI Search*.  
 
 1. Save the **pcb_info.txt** file on your local computer.
 1. Return to the tab containing the chat playground, and in the pane on the left, in the **Tools** section, add the **File search** tool (or select **Upload files**).
@@ -121,17 +121,17 @@ One of the most commonly used application programming interfaces (APIs) used to 
 
     As with the chat playground, the first time the model is loaded it may take a minute or so.
 
-    > **Tip**: If the model is taking a long time to load, you can cancel and start in basic mode. You can switch between available models at any time in the *Mode* list.
+    > ![Image of Anton.](./media/anton-icon.png)<br>**Tip**: If the model is taking a long time to load, you can cancel and start in basic mode. You can switch between available models at any time in the **Mode** list.
 
     ![Screenshot of Model Coder](./media/model-coder.png)
 
-    > **Tip**: You can switch between *light* and *dark* themes using the &#9681; icon at the top right.
+    > ![Image of Anton.](./media/anton-icon.png)<br>**Tip**: You can switch between *light* and *dark* themes using the &#9681; icon at the top right.
 
     This app provides an in-browser sandbox with a Python library that encapsulates the most common classes in the OpenAI SDK. You'll use it to write and run real Python code that submits prompts to a local LLM running in the browser.
 
 1. When the model has loaded, select the **Streaming (Responses API)** template, and view the code in the **Editor** pane.
 
-    > **Note**: The Model Coder app includes multiple examples of submitting prompts to a generative AI model. The *Streaming (Responses API)* example maintains conversation history and uses a *streaming* interface to maximize resposiveness by displaying partial responses as they're received from the model.
+   The Model Coder app includes multiple examples of submitting prompts to a generative AI model. The *Streaming (Responses API)* example maintains conversation history and uses a *streaming* interface to maximize resposiveness by displaying partial responses as they're received from the model.
 
 1. Edit the code to change the **instructions** for the model to the same computing history related one you used in the chat playground (`You are an expert in the history of computing and AI. You provide succinct and concise responses`), as shown here:
 
@@ -216,4 +216,4 @@ In this exercise, you explored a generative AI model in a chat playground. You'v
 
 The interface and techniques used in this exercise are similar to those in Microsoft Foundry portal; a platform for building AI apps and agents in the Microsoft Azure cloud. You can use the OpenAI SDK to connect to Microsoft Foundry endpoints and work with your models and agents there.
 
-> **[Ask Anton](https://aka.ms/ask-anton){:target="_blank"}**<br/>![Anton avatar.](./media/anton-icon.png)<br/>If you have questions about some of the topics covered in this exercise, *[Ask Anton](https://aka.ms/ask-anton){:target="_blank"}* is a generative AI-based agent that you can ask about AI concepts and Microsoft Foundry.<br/><br/>*Ask Anton is not a supported Microsoft product or a component of Microsoft Learn or AI Skills Navigator. Just a sample AI agent for you to explore as you learn about what's possible with AI.*<br/><br/>If you *do* check out Ask Anton, we'd love you to *[tell us about your experience with the app](https://forms.office.com/r/fC0ndfBQeK){:target="_blank"}*!
+> ![Anton avatar.](./media/anton-icon.png)<br/>If you used the [*Ask Anton*](https://aka.ms/ask-anton){:target="_blank"} app during this lab, we'd love you to [tell us about your experience with it](https://forms.office.com/r/fC0ndfBQeK){:target="_blank"}!

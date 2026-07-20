@@ -11,9 +11,11 @@ lab:
 
 In this exercise, you'll interact with a generative AI model using speech. The goal of this exercise is to explore speech-to-text (STT) and text-to-speech (TTS) functionality with a generative AI model.
 
+> ![Image of Anton.](./media/anton-icon.png)<br/>**Hi, I'm Anton.**<br/>I'll be here to help you with hints and tips as you work through this lab. You can also find me in the ***[Ask Anton](https://aka.ms/ask-anton){:target="_blank"}*** app; which runs an agent with generative AI model in your browser, with a *Basic* mode option for older or lower-spec computers.<br/><br/>*Ask Anton is not a supported Microsoft product or a component of Microsoft Learn or AI Skills Navigator. Just an experimental AI agent for you to explore as you learn about AI.*
+
 To complete this lab, you need a modern browser on a computer with sufficient hardware resources to load and run the models used by the *Chat Playground* app. On older or low-spec computers, the app may run very slowly or experience errors.
 
-> **Minimum spec**
+> **Minimum spec**<br/>If your computer does not meet these requirements, the AI model may not run successfully. However, the app does support a failsafe *Basic* mode in which no model is used; which provides simpler, but faster responses.<br/>
 >
 > - 64-bit CPU, 8 cores
 > - GPU (recommended)
@@ -22,28 +24,24 @@ To complete this lab, you need a modern browser on a computer with sufficient ha
 > - Latest Chrome / Edge / Firefox with WASM SIMD enabled/available (WebGPU support is recommended; a WASM-based fallback is provided)
 > - Audio hardware (mic and speaker) required for speech functionality
 
-If your computer does not meet these requirements, the AI model may not run successfully. However, the app does support a failsafe mode in which no model is used; which you may be able to use.
-
-> **Tip**: Speech recognition works best in a quiet environment with a microphone or headset.
-
 This exercise should take approximately **15** minutes to complete.
 
 ## Open the Chat Playground app
 
 Let's start by chatting with a generative AI model. In this exercise, we'll use a browser-based application to chat with a small language model that is useful for general chat solutions in low bandwidth scenarios. The app also uses Web Speech APIs for speech recognition and synthesis.
 
-> **Note**: If your browser supports WebGPU, the chat playground uses the *Microsoft Phi 3.5 Mini* model running on your computer's GPU. If not, the model runs on CPU - with reduced response-generation quality. If *that* fails, a basic mode with no model and responses retrieved from Wikipedia is activated. Performance may vary depending on the available memory in your computer and your network bandwidth to download the model. After opening the app, use the **?** (*About this app*) icon in the chat area to find out more.
+> If your browser supports WebGPU, the chat playground uses the *Microsoft Phi 3.5 Mini* model running on your computer's GPU. If not, the model runs on CPU - with reduced response-generation quality. If *that* fails, a basic mode with no model and responses retrieved from Wikipedia is activated. Performance may vary depending on the available memory in your computer and your network bandwidth to download the model. After opening the app, use the **?** (*About this app*) icon in the chat area to find out more.
 
 1. In a web browser, open the **[Chat Playground](https://aka.ms/chat-playground){:target="_blank"}** at `https://aka.ms/chat-playground`.
 1. Wait for the model to download and initialize.
 
-    > **Tip**: The first time you download a model, it may take a few minutes. Subsequent downloads will be faster.<br><br>If the model is taking a long time to load, you can cancel and start in basic mode. You can switch between available models at any time in the *Model* list.
+    > ![Image of Anton.](./media/anton-icon.png)<br>**Tip**: The first time you download a model, it may take a few minutes. Subsequent downloads will be faster.<br><br>If the model is taking a long time to load, you can cancel and start in basic mode. You can switch between available models at any time in the *Model* list.
 
 1. View the Chat Playground app, which should look like this:
 
    ![Screenshot of the Chat Playground app.](./media/speech-01.png)
 
-   > **Tip**: You can switch between *light* and *dark* themes using the &#x263C; / &#x263E; toggle at the top right.
+   > ![Image of Anton.](./media/anton-icon.png)<br>**Tip**: You can switch between *light* and *dark* themes using the &#x263C; / &#x263E; toggle at the top right.
 
 ## Configure Voice mode
 
@@ -65,13 +63,15 @@ The Chat playground application supports *voice mode*, in which you can interact
 
     Online voices are downloaded on-demand, which may take a few seconds. The app verifies that they are loaded successfully, and displays an error if not.
 
-    > **Tip**: After you've selected a voice, you can also optionally select an avatar to represent the voice agent visually!
+    > ![Image of Anton.](./media/anton-icon.png)<br>**Tip**: After you've selected a voice, you can also optionally select an avatar to represent the voice agent visually!
 
 1. When you have selected the voice you want to use, close the **Configuration** pane.
 
 ## Use speech to interact with the model
 
 The app supports both speech recognition and speech synthesis, enabling you to have a voice-based conversation with the model.
+
+> ![Image of Anton.](./media/anton-icon.png)<br>**Tip**: Speech recognition works best in a quiet environment with a microphone or headset.
 
 1. In the pane on the left, change the default **Instructions** to:
 
@@ -83,15 +83,15 @@ The app supports both speech recognition and speech synthesis, enabling you to h
 
 1. When the app status is **Listening...**, say something like "*What's speech recognition?*" and wait for a response.
 
-    > **Tip**: If an error occurs or the app can't detect any speech input using the default Web Speech functionality, it will automatically failover to a local speech recognition model and prompt you to retry.
+    *If an error occurs or the app can't detect any speech input using the default Web Speech functionality, it will automatically failover to a local speech recognition model and prompt you to retry.*
 
 1. Verify that the app status changes to **Processing...**. The app will process the spoken input, using speech-to-text to convert your speech to text and submit it to the model as a prompt.
 
-    > **Tip**: Processing speech and retrieving a response from the model may take some time in this browser-based sample app - especially when using the CPU-based model. Be patient!
+    > ![Image of Anton.](./media/anton-icon.png)<br>**Tip**: Processing speech and retrieving a response from the model may take some time in this browser-based sample app - especially when using the CPU-based model. Be patient!
 
 1. When the status changes to **Speaking...**, the app uses text-to-speech to vocalize the response from the model.
 
-    > **Note**: If no voices are available in your browser, the reponse will not be vocalized.
+    *If no voices are available in your browser, the reponse will not be vocalized.*
 
 1. After the response has been spoken, the app switches back to the **Listening...** state. Continue the conversation by speaking again (for example, "*What's speech synthesis?*").
 
@@ -109,4 +109,4 @@ In this exercise, you explored the use of speech-to-text and text-to-speech with
 
 The app used in this lab is based on a simplified version of the agent playground in Microsoft Foundry portal; in which Azure Speech in Foundry tools *Voice Live* capabilities can be added to an agent. While the app in this lab is limited to "speak - wait - speak" interactions, the Azure Speech Voice Live capabilities in Microsoft Foundry include multi-turn real-time conversations with support for interruptions and background noise suppression.
 
-> **[Ask Anton](https://aka.ms/ask-anton){:target="_blank"}**<br/>![Anton avatar.](./media/anton-icon.png)<br/>If you have questions about some of the topics covered in this exercise, *[Ask Anton](https://aka.ms/ask-anton){:target="_blank"}* is a generative AI-based agent that you can ask about AI concepts and Microsoft Foundry.<br/><br/>*Ask Anton is not a supported Microsoft product or a component of Microsoft Learn or AI Skills Navigator. Just a sample AI agent for you to explore as you learn about what's possible with AI.*<br/><br/>If you *do* check out Ask Anton, we'd love you to *[tell us about your experience with the app](https://forms.office.com/r/fC0ndfBQeK){:target="_blank"}*!
+> ![Anton avatar.](./media/anton-icon.png)<br/>If you used the [*Ask Anton*](https://aka.ms/ask-anton){:target="_blank"} app during this lab, we'd love you to [tell us about your experience with it](https://forms.office.com/r/fC0ndfBQeK){:target="_blank"}!

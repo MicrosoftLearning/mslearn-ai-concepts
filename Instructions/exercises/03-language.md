@@ -13,17 +13,18 @@ In this exercise, you'll use AI natural language processing functionality to ana
 
 We'll use browser-based applications that are based on simplified implementations of the chat and language playgrounds in the Microsoft Foundry portal.
 
+> ![Image of Anton.](./media/anton-icon.png)<br/>**Hi, I'm Anton.**<br/>I'll be here to help you with hints and tips as you work through this lab. You can also find me in the ***[Ask Anton](https://aka.ms/ask-anton){:target="_blank"}*** app; which runs an agent with generative AI model in your browser, with a *Basic* mode option for older or lower-spec computers.<br/><br/>*Ask Anton is not a supported Microsoft product or a component of Microsoft Learn or AI Skills Navigator. Just an experimental AI agent for you to explore as you learn about AI.*
+
 To complete this exercise, you need a modern browser on a computer with sufficient hardware resources to load and run the models used by the *Chat Playground* app. On older or low-spec computers, the app may run very slowly or experience errors.
 
-> **Minimum spec**
+> **Minimum spec**<br/>If your computer does not meet these requirements, the AI model may not run successfully. However, the app does support a failsafe *Basic* mode in which no model is used; which provides simpler, but faster responses.<br/>
 >
 > - 64-bit CPU, 8 cores
 > - GPU (recommended)
 > - 8+ GB system RAM (16 GB recommended)
 > - Enough storage to cache ~300MB–800MB model assets
 > - Latest Chrome / Edge / Firefox with WASM SIMD enabled/available (WebGPU support is recommended; a WASM-based fallback is provided)
-
-If your computer does not meet these requirements, the AI model may not run successfully. The apps includes a *basic* mode that uses text processing and Wikipedia queries to answer questions without requiring a model; which you can use to complete the exercise.
+> - Audio hardware (mic and speaker) required for speech functionality
 
 This exercise should take approximately **15** minutes to complete.
 
@@ -31,12 +32,12 @@ This exercise should take approximately **15** minutes to complete.
 
 Let's start by using a chat interface to submit prompts to a generative AI model to perform a common text analysis task - summarizing text. In this exercise, we'll use a small language model that is useful for general chat solutions in low bandwidth scenarios.
 
-> **Note**: If your browser supports WebGPU, the chat playground uses the *Microsoft Phi 3.5 Mini* model running on your computer's GPU. If not, the model runs on CPU - with reduced response-generation quality. If *that* fails, a basic mode with no model and responses retrieved from Wikipedia is activated. Performance may vary depending on the available memory in your computer and your network bandwidth to download the model. After opening the app, use the **?** (*About this app*) icon in the chat area to find out more.
+> If your browser supports WebGPU, the chat playground uses the *Microsoft Phi 3.5 Mini* model running on your computer's GPU. If not, the model runs on CPU - with reduced response-generation quality. If *that* fails, a basic mode with no model and responses retrieved from Wikipedia is activated. Performance may vary depending on the available memory in your computer and your network bandwidth to download the model. After opening the app, use the **?** (*About this app*) icon in the chat area to find out more.
 
 1. In a web browser, open the **[Chat Playground](https://aka.ms/chat-playground){:target="_blank"}** at `https://aka.ms/chat-playground`.
 1. Wait for the model to download and initialize.
 
-    > **Tip**: The first time you download a model, it may take a few minutes. Subsequent downloads will be faster.
+    > ![Image of Anton.](./media/anton-icon.png)<br>**Tip**: The first time you download a model, it may take a few minutes. Subsequent downloads will be faster.<br/>If the model is taking a *very* long time to load, you can cancel and start in **Basic** mode. You can switch between available models at any time in the main application user interface; but older or low-spec devices may run the Phi model slowly or experience errors.
 
 1. In the pane on the left, change the default **Instructions** to:
 
@@ -71,7 +72,7 @@ While a large language model that's trained for general generative AI workloads 
 1. In your web browser, navigate away from the Chat Playground app to the **[Language Playground](https://aka.ms/language-app){:target="_blank"}** app at `https://aka.ms/language-app`.
 1. Wait until the model is ready.
 
-    > **Note**: The Language Playground app uses the same Phi 3.5-mini model as the Chat Playground app, with a fallback Basic mode that uses statistical text analysis techniques to perform language detection and personally identifiable information (PII) redaction.
+    > ![Image of Anton.](./media/anton-icon.png)<br>**Tip**: The Language Playground app uses the same Phi 3.5-mini model as the Chat Playground app, with a fallback *Basic* mode that uses statistical text analysis techniques to perform language detection and personally identifiable information (PII) redaction.
 
 ### Detect language
 
@@ -82,7 +83,7 @@ In scenarios where text could potentially be in one of multiple languages, the f
 
     ![Screenshot of a detected language in the Language Playground](./media/text-04.png)
 
-    > **Tip**: You can switch between *light* and *dark* themes using the &#x263C; / &#x263E; toggle at the top right.
+    > ![Image of Anton.](./media/anton-icon.png)<br>**Tip**: You can switch between *light* and *dark* themes using the &#x263C; / &#x263E; toggle at the top right.
 
 1. After reviewing the detected language details, use the **Edit** button to make the input text editable again. Now you can:
     - Select another sample.
@@ -117,7 +118,7 @@ In scenarios where text could potentially be in one of multiple languages, the f
     - Arabic
     - Russian
 
-    > **Tip**: You can use the [Bing Translator](https://www.bing.com/translator){:target="_blank"} at `https://www.bing.com/translator` to generate text in languages you don't speak!
+    > ![Image of Anton.](./media/anton-icon.png)<br>**Tip**: You can use the [Bing Translator](https://www.bing.com/translator){:target="_blank"} at `https://www.bing.com/translator` to generate text in languages you don't speak!
 
 ### Identify PII in text
 
@@ -167,4 +168,4 @@ In this exercise, you explored the use of a AI to analyze text, using NLP functi
 
 While the small models and statistical techniques in this exercise are sufficient to demonstrate the concepts, to perform high-quality language analytics at scale, you should use a cloud-based AI platform like Microsoft Foundry. Microsoft Foundry includes a wide range of generative AI models, many of which are extremely proficient at language processing tasks. Additionally, Azure Language in Microsoft Foundry tools offers a specialized service with APIs for common text analytics tasks.
 
-> **[Ask Anton](https://aka.ms/ask-anton){:target="_blank"}**<br/>![Anton avatar.](./media/anton-icon.png)<br/>If you have questions about some of the topics covered in this exercise, *[Ask Anton](https://aka.ms/ask-anton){:target="_blank"}* is a generative AI-based agent that you can ask about AI concepts and Microsoft Foundry.<br/><br/>*Ask Anton is not a supported Microsoft product or a component of Microsoft Learn or AI Skills Navigator. Just a sample AI agent for you to explore as you learn about what's possible with AI.*<br/><br/>If you *do* check out Ask Anton, we'd love you to *[tell us about your experience with the app](https://forms.office.com/r/fC0ndfBQeK){:target="_blank"}*!
+> ![Anton avatar.](./media/anton-icon.png)<br/>If you used the [*Ask Anton*](https://aka.ms/ask-anton){:target="_blank"} app during this lab, we'd love you to [tell us about your experience with it](https://forms.office.com/r/fC0ndfBQeK){:target="_blank"}!

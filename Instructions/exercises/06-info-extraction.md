@@ -11,17 +11,17 @@ lab:
 
 In this exercise, you'll use optical character recognition (OCR) and generative AI to extract information from receipts. The goal of this exercise is to explore for yourself how information extraction from documents involves an OCR process to detect text, and a field extraction stage to map specific text strings to field values.
 
+> ![Image of Anton.](./media/anton-icon.png)<br/>**Hi, I'm Anton.**<br/>I'll be here to help you with hints and tips as you work through this lab. You can also find me in the ***[Ask Anton](https://aka.ms/ask-anton){:target="_blank"}*** app; which runs an agent with generative AI model in your browser, with a *Basic* mode option for older or lower-spec computers.<br/><br/>*Ask Anton is not a supported Microsoft product or a component of Microsoft Learn or AI Skills Navigator. Just an experimental AI agent for you to explore as you learn about AI.*
+
 To complete this lab, you need a modern browser on a computer with sufficient hardware resources to load and run the models used by the AI agent app. On older or low-spec computers, the app may run very slowly or experience errors.
 
-> **Minimum spec**
+> **Minimum spec**<br/>If your computer does not meet these requirements, the AI model may not run successfully. However, the app does support a failsafe *Basic* mode in which no model is used; which provides simpler, but faster responses.<br/>
 >
 > - 64-bit CPU, 8 cores
 > - GPU (recommended)
 > - 8+ GB system RAM (16 GB recommended)
 > - Enough storage to cache ~300MB–800MB model assets
 > - Latest Chrome / Edge / Firefox with WASM SIMD enabled/available (WebGPU support is recommended; a WASM-based fallback is provided)
-
-If your computer does not meet these requirements, the AI model may not run successfully. However, the app supports a failsafe mode in which no model is used; which you may be able to use.
 
 This exercise should take approximately **15** minutes to complete.
 
@@ -31,12 +31,12 @@ A lot of information is held in digital format, including images that contain te
 
 ### Start the *Info Extractor* app
 
-> **Note**: If your browser supports WebGPU, the Information Extractor app used in this lab uses the *Microsoft Phi 3.5 Mini* model running on your computer's GPU. If not, the model runs on CPU - with reduced response-generation quality. If *that* fails, a basic mode with no model and responses retrieved using text processing and pattern matching is activated. Performance may vary depending on the available memory in your computer and your network bandwidth to download the model.
+> If your browser supports WebGPU, the Information Extractor app used in this lab uses the *Microsoft Phi 3.5 Mini* model running on your computer's GPU. If not, the model runs on CPU - with reduced response-generation quality. If *that* fails, a basic mode with no model and responses retrieved using text processing and pattern matching is activated. Performance may vary depending on the available memory in your computer and your network bandwidth to download the model.
 
 1. In a web browser, open the **[Information Extractor](https://aka.ms/info-extractor){:target="_blank"}** app at `https://aka.ms/info-extractor`.
 1. Wait for the model to download and initialize.
 
-    > **Tip**: The first time you open the app, it may take a few minutes for the model to download. Subsequent downloads will be faster.<br><br>If the model is taking a long time to load, you can cancel and start in basic mode. You can switch between available modes at any time by using the *Use Generative AI* toggle.
+    > ![Image of Anton.](./media/anton-icon.png)<br>**Tip**: The first time you open the app, it may take a few minutes for the model to download. Subsequent downloads will be faster.<br><br>If the model is taking a long time to load, you can cancel and start in basic mode. You can switch between available modes at any time by using the *Use Generative AI* toggle.
 
 1. While you're waiting for the model to initialize, in a new browser tab, download **[pcbs.zip](https://aka.ms/pcb-images){:target="_blank"}** from `https://aka.ms/pcb-images` and  **[receipts.zip](https://aka.ms/receipts){:target="_blank"}** from `https://aka.ms/receipts` to your local computer. You'll use the the app to extract information from the images in these archives.
 
@@ -44,7 +44,7 @@ A lot of information is held in digital format, including images that contain te
 
     ![Screenshot of the Information Extractor app with an uploaded image.](./media/info-extractor-01.png)
 
-    > **Tip**: You can switch between *light* and *dark* themes using the &#x263C; / &#x263E; toggle at the top right.
+    > ![Image of Anton.](./media/anton-icon.png)<br>**Tip**: You can switch between *light* and *dark* themes using the &#x263C; / &#x263E; toggle at the top right.
 
 ### Use OCR to read text in an image
 
@@ -63,7 +63,7 @@ Suppose you want to find information related to a piece of computer hardware or 
 
 1. Repeat the process to analyze the other PCB image you downloaded.
 
-    > **Tip**: Try uploading any images that contain legible text. The OCR model used in the app is basic, so the quality of your results may vary!
+    > ![Image of Anton.](./media/anton-icon.png)<br>**Tip**: Try uploading any images that contain legible text. The OCR model used in the app is basic, so the quality of your results may vary!
 
 ### Extract fields from receipts
 
@@ -75,7 +75,7 @@ Now suppose you need to extract data fields from scanned receipts to help automa
 
 1. Run analysis on the sample receipt image, and wait for the OCR and field extraction processes to complete.
 
-    > **Note**: Field extraction may take some time when using the AI model.
+    > ![Image of Anton.](./media/anton-icon.png)<br>**Tip**: Field extraction may take some time when using the AI model. Be patient!
 
     When the analysis is complete, the specific values associated with a receipt are identified by the field extraction process and listed in the **Fields** pane. The full OCR text results are in the **Result** tab.
 
@@ -92,4 +92,4 @@ In this exercise, you explored how AI can be used to extract information from co
 
 In Microsoft Foundry, the Content Understanding tool is a multimodal information extraction solution that you can use to analyze documents, images, audio files, and videos.
 
-> **[Ask Anton](https://aka.ms/ask-anton){:target="_blank"}**<br/>![Anton avatar.](./media/anton-icon.png)<br/>If you have questions about some of the topics covered in this exercise, *[Ask Anton](https://aka.ms/ask-anton){:target="_blank"}* is a generative AI-based agent that you can ask about AI concepts and Microsoft Foundry.<br/><br/>*Ask Anton is not a supported Microsoft product or a component of Microsoft Learn or AI Skills Navigator. Just a sample AI agent for you to explore as you learn about what's possible with AI.*<br/><br/>If you *do* check out Ask Anton, we'd love you to *[tell us about your experience with the app](https://forms.office.com/r/fC0ndfBQeK){:target="_blank"}*!
+> ![Anton avatar.](./media/anton-icon.png)<br/>If you used the [*Ask Anton*](https://aka.ms/ask-anton){:target="_blank"} app during this lab, we'd love you to [tell us about your experience with it](https://forms.office.com/r/fC0ndfBQeK){:target="_blank"}!

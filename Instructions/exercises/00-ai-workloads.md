@@ -11,9 +11,11 @@ lab:
 
 In this exercise, you'll explore common AI workloads in an AI chat application that provides information about computing history, and help with historical computing projects and vintage computer restoration.
 
+> ![Image of Anton.](./media/anton-icon.png)<br/>**Hi, I'm Anton.**<br/>I'll be here to help you with hints and tips as you work through this lab. You can also find me in the ***[Ask Anton](https://aka.ms/ask-anton){:target="_blank"}*** app; which runs an agent with generative AI model in your browser, with a *Basic* mode option for older or lower-spec computers.<br/><br/>*Ask Anton is not a supported Microsoft product or a component of Microsoft Learn or AI Skills Navigator. Just an experimental AI agent for you to explore as you learn about AI.*
+
 To complete this lab, you need a modern browser on a computer with sufficient hardware resources to load and run the models used by the AI agent app. On older or low-spec computers, the app may run very slowly or experience errors.
 
-> **Minimum spec**
+> **Minimum spec**<br/>If your computer does not meet these requirements, the AI model may not run successfully. However, the app does support a failsafe *Basic* mode in which no model is used; which provides simpler, but faster responses.<br/>
 >
 > - 64-bit CPU, 8 cores
 > - GPU (recommended)
@@ -22,25 +24,23 @@ To complete this lab, you need a modern browser on a computer with sufficient ha
 > - Latest Chrome / Edge / Firefox with WASM SIMD enabled/available (WebGPU support is recommended; a WASM-based fallback is provided)
 > - Audio hardware (mic and speaker) required for speech functionality
 
-If your computer does not meet these requirements, the AI model may not run successfully. However, the app does support a failsafe "Basic" mode in which no model is used; which you may be able to use.
-
 This exercise should take approximately **15** minutes to complete.
 
 ## Open the Computing History agent
 
 The Computing History agent is a simple example of an AI agent that provides a chat interface for exploring AI history and vintage computers.
 
-> **Note**: The *Computing History agent* app is provided solely as a simple example of a chat-based agent for educational purposes. It is <u>not</u> a supported Microsoft product or service, and should not be relied on for critical work.<br><br>If your browser supports WebGPU, the Computing History Agent uses the *Microsoft Phi 3.5 Mini* language model running on your computer's GPU. If not, the model runs on CPU - with reduced response-generation quality. If *that* fails, a basic mode with no model and responses retrieved from Wikipedia is activated. Performance may vary depending on the available memory in your computer and your network bandwidth to download the model.
+> The *Computing History agent* app is provided solely as a simple example of a chat-based agent for educational purposes. It is <u>not</u> a supported Microsoft product or service, and should not be relied on for critical work.
+
+If your browser supports WebGPU, the Computing History Agent uses the *Microsoft Phi 3.5 Mini* language model running on your computer's GPU. If not, the model runs on CPU - with reduced response-generation quality. If *that* fails, a basic mode with no model and responses retrieved from Wikipedia is activated. Performance may vary depending on the available memory in your computer and your network bandwidth to download the model.
 
 1. In a web browser, open the **[Computing History agent](https://aka.ms/computing-history-browser){:target="_blank"}** at `https://aka.ms/computing-history-browser`.
 
-    The app downloads and initializes the reqired the *MobileNet* computer vision model and and *Phi 3.5-mini* models. The first time you download the *Phi 3.5-mini* model, it may take several minutes. Subsequent downloads will be faster.
+    The app downloads and initializes the reqired the *MobileNet* computer vision model and and *Phi 3.5-mini* model (if supported on your device). The first time you download the *Phi 3.5-mini* model, it may take several minutes. Subsequent downloads will be faster.
 
    ![Screenshot of the Computing History app loading models.](./media/computing-history.png)
 
-    If the Phi 3.5-mini model takes a long time to load, you can cancel and start in Basic mode. You can switch between available modes at any time in the main application user interface.
-
-    > **Tip**: After the app has initialized, on older or low-spec devices, you may experience slow performance. If this happens, switch to Basic mode.
+    > ![Image of Anton.](./media/anton-icon.png)<br>**Tip**: If the Phi 3.5-mini model is taking a *very* long time to load, you can cancel and start in ***Basic*** mode. You can switch between available modes at any time in the main application user interface; but older or low-spec devices may run the Phi model slowly or experience errors.
 
 ## Explore a generative AI model
 
@@ -50,7 +50,7 @@ Generative AI uses *large language models* (LLMs) to user *prompts*.
 
    ![Screenshot of the Computing History chat interface.](./media/computing-history-chat.png)
 
-    > **Note**: Responses may be slow on some devices, and may contain inaccuracies.
+    **Note**: Responses may be slow on some devices, and may contain inaccuracies.
 
 1. Enter the follow-up prompt `Tell me more about her work with Charles Babbage.` and view the response. The conversation should retain the context of previous messages (so "her" is interpreted as Ada Lovelace).
 1. Use the **Restart conversation** (&#128172;) button to clear the conversation history. Then enter a new prompt: `Tell me about the ELIZA chatbot.`
@@ -80,7 +80,7 @@ Agents are generative AI applications that go beyond basic chat functionality an
 
 1. Now try `Help me buy a PS/2 mouse for an old PC.` and view the response.
 
-    > **Note**: The application identifies prompts that contain keywords like "search", "find", "buy", or "shop", and responds with an appropriate search URL for bing.com.
+    The application identifies prompts that contain keywords like "search", "find", "buy", or "shop", and responds with an appropriate search URL for bing.com.
 
     **Suggestions for other prompts to try:**
 
@@ -121,7 +121,7 @@ Text analysis is a subset of natural language processing, in which AI can apply 
 
 *Speech recognition* enables AI to process spoken input, which *speech synthesis* enables it to vocalize output.
 
-> **Tip**: Speech recognition works best in a quiet environment with a microphone or headset.
+> ![Image of Anton.](./media/anton-icon.png)<br>**Tip**: Speech recognition works best in a quiet environment with a microphone or headset.
 
 1. In the Computing History application, use the **Restart conversation** (&#128172;) button to clear the conversation history.
 1. At the bottom of the chat interface, use the **Voice input** (&#127908;) button to initiate speech recognition, allow access to your microphone if prompted, and say "*Tell me about the history of voice computing*".
@@ -130,7 +130,7 @@ Text analysis is a subset of natural language processing, in which AI can apply 
 
    ![Screenshot of the Computing History speech response.](./media/computing-history-speech.png)
 
-    > **Note**: Speech support for the browser-based application is based on the Web Speech library that is common in most modern browsers. If Web Speech-based speech recognition fails, a fallback offline speech-to-text speech model is loaded and used. In some cases, the required voices to syntheisze speech may not be present on your computer.
+    > Speech support for the browser-based application is based on the Web Speech library that is common in most modern browsers. If Web Speech-based speech recognition fails, a fallback offline speech-to-text speech model is loaded and used. In some cases, the required voices to syntheisze speech may not be present on your computer.
 
 1. Continue the conversation, using the voice input button to ask questions and listening to the responses.
 
@@ -154,7 +154,7 @@ Computer vision uses image-based models to enable AI to interpret visual input.
 1. Try attaching a different image with the prompt `And this?`
 1. Try all of the images in the extracted folder. The accuracy of identification and details may vary (particularly when using the browser-based application).
 
-    > **Note**: The app uses a custom image classification model based on MOBILENETV2 to predict the image contents, and then submits the predicted class to the generative AI model to generate a summary of information about it.
+    > The app uses a custom image classification model based on MobileNetV2 to predict the image contents, and then submits the predicted class to the generative AI model to generate a summary of information about it.
 
     **Suggestions for other prompts to try:**
 
@@ -186,7 +186,7 @@ Information extraction combines multiple AI workloads to analyze content and ide
 
     Try the other PCB image in the folder you extracted with a prompts that asks the agent about it, and view the response.
 
-    > **Tip:** You can also download images of circuit boards and try them, but the simple OCR implementation used in the browser-based application will likely produce poor results.
+    > ![Image of Anton.](./media/anton-icon.png)<br>**Tip**: You can also download images of circuit boards and try them, but the simple OCR implementation used in the browser-based application will likely produce poor results.
 
 ## Explore safety guardrails
 
@@ -211,6 +211,6 @@ Content safety is an important element of responsible AI. As much as possible, d
 
 ## Summary
 
-In this exercise, you explored common AI workloads in a simple example application. The application's functionality is limited, and does not reflect the kind of performance or capabilities you can expect in a production quality agent such as you would build with Microsoft Foundry; but it should serve to show the kinds of functionality you can achieve with AI.
+In this exercise, you explored common AI workloads in a simple example agent. The application's functionality is limited, and does not reflect the kind of performance or capabilities you can expect in a production quality agent such as you would build with Microsoft Foundry; but it should serve to show basic examples of the kinds of functionality you can achieve with AI.
 
-> **[Ask Anton](https://aka.ms/ask-anton){:target="_blank"}**<br/>![Anton avatar.](./media/anton-icon.png)<br/>If you have questions about some of the topics covered in this exercise, *[Ask Anton](https://aka.ms/ask-anton){:target="_blank"}* is a generative AI-based agent that you can ask about AI concepts and Microsoft Foundry.<br/><br/>*Ask Anton is not a supported Microsoft product or a component of Microsoft Learn or AI Skills Navigator. Just a sample AI agent for you to explore as you learn about what's possible with AI.*<br/><br/>If you *do* check out Ask Anton, we'd love you to *[tell us about your experience with the app](https://forms.office.com/r/fC0ndfBQeK){:target="_blank"}*!
+> ![Anton avatar.](./media/anton-icon.png)<br/>If you used the [*Ask Anton*](https://aka.ms/ask-anton){:target="_blank"} app during this lab, we'd love you to [tell us about your experience with it](https://forms.office.com/r/fC0ndfBQeK){:target="_blank"}!
