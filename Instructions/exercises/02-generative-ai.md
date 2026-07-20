@@ -1,13 +1,13 @@
 ---
 lab:
-  title: Explore generative AI
+  title: Explore generative AI and agents
   description: Use a chat playground to interact with a generative AI model
   duration: 15
   level: 100
   islab: true
 ---
 
-# Explore generative AI
+# Explore generative AI and agents
 
 In this exercise, you'll use a chat playground to interact with a generative AI model, and explore how it could be used to support computing history agent that finds information about important figures, events, and technology in the history of computers.
 
