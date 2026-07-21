@@ -61,7 +61,7 @@ Suppose you want to find information related to a piece of computer hardware or 
 
     ![Screenshot of the Information Extractor app with an analyzed PCB image.](./media/info-extractor-03.png)
 
-1. Repeat the process to analyze the other PCB image you downloaded.
+1. Repeat the process to analyze the other PCB images you downloaded.
 
     > ![Image of Anton.](./media/anton-icon.png)<br>**Tip**: Try uploading any images that contain legible text. The OCR model used in the app is basic, so the quality of your results may vary!
 

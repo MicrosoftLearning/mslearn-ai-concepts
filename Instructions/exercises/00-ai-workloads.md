@@ -184,7 +184,7 @@ Information extraction combines multiple AI workloads to analyze content and ide
 
     **Suggestions for other prompts to try:**
 
-    Try the other PCB image in the folder you extracted with a prompts that asks the agent about it, and view the response.
+    Try the other PCB images in the folder you extracted, using prompts that ask the agent about them, and view the response.
 
     > ![Image of Anton.](./media/anton-icon.png)<br>**Tip**: You can also download images of circuit boards and try them, but the simple OCR implementation used in the browser-based application will likely produce poor results.
 
