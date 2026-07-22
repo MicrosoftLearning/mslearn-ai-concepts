@@ -11,9 +11,13 @@ lab:
 
 ![Image of Anton.](./media/anton-icon.png)<br/>**Hi, I'm Anton.**<br/>I'll be here to help you with hints and tips as you work through this lab. You can also find me in the ***[Ask Anton](https://aka.ms/ask-anton){:target="_blank"}*** app; which runs an agent with generative AI model in your browser, with a *Basic* mode option for older or lower-spec computers.
 
+<<<<<<< HEAD
 > *Ask Anton is not a supported Microsoft product or a component of Microsoft Learn or AI Skills Navigator. Just a simple example AI agent for you to explore as you learn about AI.*
 
 In this lab, you'll explore common AI workloads in an AI chat application that provides information about computing history, and help with historical computing projects and vintage computer restoration.
+=======
+> ![Image of Anton.](./media/anton-icon.png)<br/>**Hi, I'm Anton.**<br/>I'll be here to help you with hints and tips as you work through this lab. You can also find me in the ***[Ask Anton](https://aka.ms/ask-anton){:target="_blank"}*** app; which runs a generative AI model and agent in your browser, with a *Basic* mode option for older or lower-spec computers.<br/><br/>*Ask Anton is not a supported Microsoft product or a component of Microsoft Learn or AI Skills Navigator. Just an experimental AI agent for you to explore as you learn about AI.*
+>>>>>>> 33b9cde4be41058e3d6fe194523574334af47671
 
 To complete this lab, you need a modern browser on a computer with sufficient hardware resources to load and run the models used by the AI agent app. On older or low-spec computers, the app may run very slowly or experience errors.
 
@@ -186,7 +190,7 @@ Information extraction combines multiple AI workloads to analyze content and ide
 
     **Suggestions for other prompts to try:**
 
-    Try the other PCB image in the folder you extracted with a prompts that asks the agent about it, and view the response.
+    Try the other PCB images in the folder you extracted, using prompts that ask the agent about them, and view the response.
 
     > ![Image of Anton.](./media/anton-icon.png)<br>**Tip**: You can also download images of circuit boards and try them, but the simple OCR implementation used in the browser-based application will likely produce poor results.
 

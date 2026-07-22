@@ -11,7 +11,11 @@ lab:
 
 ![Image of Anton.](./media/anton-icon.png)<br/>**Hi, I'm Anton.**<br/>I'll be here to help you with hints and tips as you work through this lab. You can also find me in the ***[Ask Anton](https://aka.ms/ask-anton){:target="_blank"}*** app; which runs an agent with generative AI model in your browser, with a *Basic* mode option for older or lower-spec computers.
 
+<<<<<<< HEAD
 > *Ask Anton is not a supported Microsoft product or a component of Microsoft Learn or AI Skills Navigator. Just a simple example AI agent for you to explore as you learn about AI.*
+=======
+> ![Image of Anton.](./media/anton-icon.png)<br/>**Hi, I'm Anton.**<br/>I'll be here to help you with hints and tips as you work through this lab. You can also find me in the ***[Ask Anton](https://aka.ms/ask-anton){:target="_blank"}*** app; which runs a generative AI model and agent in your browser, with a *Basic* mode option for older or lower-spec computers.<br/><br/>*Ask Anton is not a supported Microsoft product or a component of Microsoft Learn or AI Skills Navigator. Just an experimental AI agent for you to explore as you learn about AI.*
+>>>>>>> 33b9cde4be41058e3d6fe194523574334af47671
 
 In this lab, you'll use a chat playground to interact with a generative AI model, and explore how it could be used to support computing history agent that finds information about important figures, events, and technology in the history of computers.
 
@@ -187,7 +191,7 @@ One of the most commonly used application programming interfaces (APIs) used to 
         except Exception as ex:
             print(ex)
     
-   if **name** == '**main**':
+   if __name__ == '__main__':
         main()
     ```
 
