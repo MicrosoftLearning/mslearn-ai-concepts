@@ -9,11 +9,20 @@ lab:
 
 # Explore information extraction
 
-![Image of Anton.](./media/anton-icon.png)<br/>**Hi, I'm Anton.**<br/>I'll be here to help you with hints and tips as you work through this lab. You can also find me in the ***[Ask Anton](https://aka.ms/ask-anton){:target="_blank"}*** app; which runs an agent with generative AI model in your browser, with a *Basic* mode option for older or lower-spec computers.
+![Image of Anton.](./media/anton-icon.png)<br/>**Hi, I'm Anton.**<br/>I'll be here to help you with hints and tips as you work through this lab, in which you'll use optical character recognition (OCR) and generative AI to extract information from receipts. The goal of this exercise is to explore for yourself how information extraction from documents involves an OCR process to detect text, and a field extraction stage to map specific text strings to field values.
 
-> *Ask Anton is not a supported Microsoft product or a component of Microsoft Learn or AI Skills Navigator. Just a simple example AI agent for you to explore as you learn about AI.*
+You can also interact with me in the *Ask Anton* app.
 
-In this lab, you'll use optical character recognition (OCR) and generative AI to extract information from receipts. The goal of this exercise is to explore for yourself how information extraction from documents involves an OCR process to detect text, and a field extraction stage to map specific text strings to field values.
+<details>
+<strong><i><a href="https://aka.ms/ask-anton" target="_blank">Ask Anton</a></i></strong> is available in two forms at <code>https://aka.ms/choose-anton</code>:
+<ul>
+<li><strong>Azure-based</strong>: Best experience <i>(requires an Azure subscription and deployment of a model in a Foundry project)</i>.</li>
+<li><strong>Browser-based</strong>: Use a small language model in your browser <i>(reduced functionality - may be slow or work only in "basic" mode in older/lower-spec devices)</i>.</li>
+</ul>
+<blockquote><i>Ask Anton is <u>not</u> a supported Microsoft product or a component of Microsoft Learn or AI Skills Navigator.</i>
+</blockquote>
+</details>
+<hr/>
 
 To complete this lab, you need a modern browser on a computer with sufficient hardware resources to load and run the models used by the AI agent app. On older or low-spec computers, the app may run very slowly or experience errors.
 

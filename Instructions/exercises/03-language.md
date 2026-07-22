@@ -9,9 +9,20 @@ lab:
 
 # Explore text analytics
 
-![Image of Anton.](./media/anton-icon.png)<br/>**Hi, I'm Anton.**<br/>I'll be here to help you with hints and tips as you work through this lab. You can also find me in the ***[Ask Anton](https://aka.ms/ask-anton){:target="_blank"}*** app; which runs an agent with generative AI model in your browser, with a *Basic* mode option for older or lower-spec computers.
+![Image of Anton.](./media/anton-icon.png)<br/>**Hi, I'm Anton.**<br/>I'll be here to help you with hints and tips as you work through this lab.
 
-> *Ask Anton is not a supported Microsoft product or a component of Microsoft Learn or AI Skills Navigator. Just a simple example AI agent for you to explore as you learn about AI.*
+You can also interact with me in the *Ask Anton* app.
+
+<details>
+<strong><i><a href="https://aka.ms/ask-anton" target="_blank">Ask Anton</a></i></strong> is available in two forms at <code>https://aka.ms/choose-anton</code>:
+<ul>
+<li><strong>Azure-based</strong>: Best experience <i>(requires an Azure subscription and deployment of a model in a Foundry project)</i>.</li>
+<li><strong>Browser-based</strong>: Use a small language model in your browser <i>(reduced functionality - may be slow or work only in "basic" mode in older/lower-spec devices)</i>.</li>
+</ul>
+<blockquote><i>Ask Anton is <u>not</u> a supported Microsoft product or a component of Microsoft Learn or AI Skills Navigator.</i>
+</blockquote>
+</details>
+<hr/>
 
 In this lab, you'll use AI natural language processing functionality to analyze text. The goal of this exercise is to explore common applications of text analysis techniques. We'll use browser-based applications that are based on simplified implementations of the chat and language playgrounds in the Microsoft Foundry portal.
 

@@ -9,11 +9,20 @@ lab:
 
 # Explore computer vision
 
-![Image of Anton.](./media/anton-icon.png)<br/>**Hi, I'm Anton.**<br/>I'll be here to help you with hints and tips as you work through this lab. You can also find me in the ***[Ask Anton](https://aka.ms/ask-anton){:target="_blank"}*** app; which runs an agent with generative AI model in your browser, with a *Basic* mode option for older or lower-spec computers.
+![Image of Anton.](./media/anton-icon.png)<br/>**Hi, I'm Anton.**<br/>I'll be here to help you with hints and tips as you work through this lab, in which you'll use a chat playground to interact with a generative AI solution that can analyze and interpret images. The goal of this exercise is to explore a common pattern for combining text and visual input in a prompt for a generative AI model.
 
-> *Ask Anton is not a supported Microsoft product or a component of Microsoft Learn or AI Skills Navigator. Just a simple example AI agent for you to explore as you learn about AI.*
+You can also interact with me in the *Ask Anton* app.
 
-In this lab, you'll use a chat playground to interact with a generative AI solution that can analyze and interpret images. The goal of this exercise is to explore a common pattern for combining text and visual input in a prompt for a generative AI model.
+<details>
+<strong><i><a href="https://aka.ms/ask-anton" target="_blank">Ask Anton</a></i></strong> is available in two forms at <code>https://aka.ms/choose-anton</code>:
+<ul>
+<li><strong>Azure-based</strong>: Best experience <i>(requires an Azure subscription and deployment of a model in a Foundry project)</i>.</li>
+<li><strong>Browser-based</strong>: Use a small language model in your browser <i>(reduced functionality - may be slow or work only in "basic" mode in older/lower-spec devices)</i>.</li>
+</ul>
+<blockquote><i>Ask Anton is <u>not</u> a supported Microsoft product or a component of Microsoft Learn or AI Skills Navigator.</i>
+</blockquote>
+</details>
+<hr/>
 
 To complete this lab, you need a modern browser on a computer with sufficient hardware resources to load and run the models used by *Chat Playground* the app. On older or low-spec computers, the app may run very slowly or experience errors.
 
