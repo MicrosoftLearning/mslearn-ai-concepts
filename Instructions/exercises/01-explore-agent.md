@@ -9,7 +9,7 @@ lab:
 
 # Explore a simple AI agent
 
-In this exercise, you'll use a simple AI agent named **Ask Anton** to chat about AI concepts. The goal of this exercise is not to learn how to *build* an AI agent, but to familiarize yourself with some common features of AI solutions - in particular AI agents that support chat-based interactivity.
+In this lab, you'll use a simple AI agent named **Ask Anton** to chat about AI concepts. The goal of this exercise is not to learn how to *build* an AI agent, but to familiarize yourself with some common features of AI solutions - in particular AI agents that support chat-based interactivity.
 
 To complete this lab, you need a modern browser on a computer with sufficient hardware resources to load and run the model used by the AI agent app. On older or low-spec computers, the app may run very slowly or experience errors.
 
