@@ -219,7 +219,7 @@ One of the most commonly used application programming interfaces (APIs) used to 
 
     ![Screenshot of Model Coder with code running.](./media/model-coder-response.png)
 
-    > **Note**: The model used in this app is a small language model with limited training data and a small context window. Responses may not be accurate. However, the point of the exercise is to explore the OpenAI SDK syntax to submit prompts and receive responses.
+    > ![Image of Anton.](./media/anton-icon.png)<br/>**Tip**: The model used in this app is a small language model with limited training data and a small context window. Responses may not be accurate. However, the point of the exercise is to explore the OpenAI SDK syntax to submit prompts and receive responses.
 
     When you're finished, enter `quit`.
 
