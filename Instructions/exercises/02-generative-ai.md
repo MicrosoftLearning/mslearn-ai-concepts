@@ -64,7 +64,7 @@ Let's start by using a chat interface to submit prompts to a generative AI model
 
 1. Enter a follow-up prompt, such as `Tell me more about her work with Charles Babbage.` and review the response.
 
-    Generative AI chat applications often include chat history in the prompt; so the context of the conversation is retained between messages (for example, in the follow-up prompt `Tell me more about her work with Charles Babbage.`, "her" is interpreted as referring to Ada Lovelace)
+    Generative AI chat applications often include chat history in the prompt; so the context of the conversation is retained between messages (for example, in the follow-up prompt *Tell me more about her work with Charles Babbage*, "her" is interpreted as referring to Ada Lovelace)
 
     > **Note**: In *Basic* mode, the conversation history is not retained; so the follow up prompt results in a new Wikipedia query based on the keywords "Charles Babbage".
 
