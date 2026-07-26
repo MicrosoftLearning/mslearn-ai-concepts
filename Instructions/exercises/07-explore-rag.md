@@ -104,6 +104,6 @@ Let's start by using a chat interface to submit prompts to a generative AI model
 
 In this exercise, you explored a generative AI model in a chat playground, and saw how a model's responses can be affected by adding a knowledge source that provides additional content in a RAG implementation.
 
-The interface and techniques used in this exercise are similar to those in Microsoft Foundry portal; a platform for building AI apps and agents in the Microsoft Azure cloud. Additionally, Foundry includes *Foundry IQ*; a managed knowledge layer that makes it easier to buold enterprise-scale RAG solutions with multiple, shared knowledge stores.
+The interface and techniques used in this exercise are similar to those in Microsoft Foundry portal; a platform for building AI apps and agents in the Microsoft Azure cloud. Additionally, Foundry includes *Foundry IQ*; a managed knowledge layer that makes it easier to build enterprise-scale RAG solutions with multiple, shared knowledge stores.
 
 > ![Anton avatar.](./media/anton-icon.png)<br/>If you used the [*Ask Anton*](https://aka.ms/choose-anton){:target="_blank"} app during this lab, we'd love you to [tell us about your experience with it](https://forms.office.com/r/fC0ndfBQeK){:target="_blank"}!
