@@ -68,7 +68,7 @@ Let's start by using a chat interface to submit prompts to a generative AI model
 
 1. Now try a follow-up question: `How are they reimbursed?`
 
-    > ![Image of Anton.](./media/anton-icon.png)<br>**Tip**: Generative AI chat applications often include chat history in the prompt; so the context of the conversation is retained between messages (for example, in the follow-up prompt `How are they reimbursed?`, "they" is interpreted as relating to per-diem allowances).<br><br>In *Basic* mode, the conversation history is not retained; so the follow up prompt results in a new Wikipedia query.
+    > ![Image of Anton.](./media/anton-icon.png)<br>**Tip**: Generative AI chat applications often include chat history in the prompt; so the context of the conversation is retained between messages (for example, in the follow-up prompt *How are they reimbursed?*, "they" is interpreted as relating to per-diem allowances).<br><br>In *Basic* mode, the conversation history is not retained; so the follow up prompt results in a new Wikipedia query.
 
     So far, the model has successfully answered some general questions related to expense claims based on the data it was trained with.
 
