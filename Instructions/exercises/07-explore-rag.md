@@ -87,18 +87,22 @@ Let's start by using a chat interface to submit prompts to a generative AI model
 
 1. Open a new browser tab, and view the **[expenses guide](https://aka.ms/expenses-txt){:target="_blank"}** at `https://aka.ms/expenses-txt`. We'll use this to ground the model, so it has some context for questions about expenses.
 
-    > ![Image of Anton.](./media/anton-icon.png)<br>**Tip**: This is a very small document for the purposes of this exercise. In a real scenario, an AI agent might have access to large volumes of data; usually in the form of a *vector index*.
+    > ![Image of Anton.](./media/anton-icon.png)<br>**Tip**: This is a very small document for the purposes of this exercise. In a real scenario, an AI agent might have access to large volumes of data spread across multiple sources.
 
 1. Save the **expenses.txt** file on your local computer.
 1. Return to the tab containing the chat playground, and in the pane on the left, in the **Tools** section, add select **Upload files**.
-1. Upload the **expenses.txt** file. The chat is automatically restarted.
-1. Enter the prompt `How much can I claim for a taxi?` and view the response.
+1. Upload the **expenses.txt** file. After it's been been uploaded, it's listed in the **Tools** section and the chat is automatically restarted.
+1. Enter the prompt `How much can I claim for a taxi ride?` and view the response.
 
     This time the response should be informed by the information in the expenses data source.
 
     ![Screenshot of the chat playground using the file search tool.](./media/expenses_prompt_with_context.png)
 
     Note that the response includes a citation for the source of the information (the *expenses.txt* file you uploaded).
+
+1. Try another prompt, such as `What about a hotel?` and verify that the uploaded file is referenced if any relevant context is found in it, but not if a search of the file returned no relevant information for the prompt.
+
+    > ![Image of Anton.](./media/anton-icon.png)<br>**Tip**: When you uploaded the file, a simple keyword index was created. You can select the file icon to view this index. In a real-world RAG solution, the index would be more comprehensive and most likely be vector-based.
 
 ## Summary
 
