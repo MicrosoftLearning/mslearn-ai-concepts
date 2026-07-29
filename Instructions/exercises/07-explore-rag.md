@@ -100,7 +100,7 @@ Let's start by using a chat interface to submit prompts to a generative AI model
 
     Note that the response includes a citation for the source of the information (the *expenses.txt* file you uploaded).
 
-1. Try more expense-related prompts, such as `What about a hotel?` or `What is a procurement card?` and verify that the uploaded file is referenced if any relevant context is found in it, but not if a search of the file returned no relevant information for the prompt.
+1. Try more expense-related prompts, such as `What about a hotel?` or `What is a purchase order?` and verify that the uploaded file is referenced if any relevant context is found in it, but not if a search of the file returned no relevant information for the prompt.
 
     > ![Image of Anton.](./media/anton-icon.png)<br>**Tip**: When you uploaded the file, a simple keyword index was created. You can select the file icon to view this index. In a real-world RAG solution, the index would be more comprehensive and most likely be vector-based and support *semantic* matching in addition to *keyword* matching.
 
