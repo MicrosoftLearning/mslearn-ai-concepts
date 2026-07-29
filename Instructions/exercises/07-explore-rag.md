@@ -49,7 +49,7 @@ Let's start by using a chat interface to submit prompts to a generative AI model
 1. Wait for the model to download and initialize.
 
     The first time you download a model, it may take a few minutes. Subsequent downloads will be faster.
-    
+
     > ![Image of Anton.](./media/anton-icon.png)<br>**Tip**: If the model is taking a *very* long time to load, you can cancel and start in ***Basic*** mode. You can switch between available models at any time in the **Model** list; but on older or lower-spec computers, you may have a better experience in basic mode.
 
     When ready, the Chat Playground looks like this:
@@ -78,7 +78,7 @@ Let's start by using a chat interface to submit prompts to a generative AI model
     ![Screenshot of a prompt and response.](./media/expenses_prompt_no_context.png)
 
     The model responds with a general answer (in *Basic* mode, it may be completely unrelated to expense claims).
-    
+
     If we want to use the model to power an agent that advises employees in an organization about expense claims, it needs more specific knowledge of the organization's expense policies.
 
     Let's fix that.
@@ -100,9 +100,9 @@ Let's start by using a chat interface to submit prompts to a generative AI model
 
     Note that the response includes a citation for the source of the information (the *expenses.txt* file you uploaded).
 
-1. Try another prompt, such as `What about a hotel?` and verify that the uploaded file is referenced if any relevant context is found in it, but not if a search of the file returned no relevant information for the prompt.
+1. Try more expense-related prompts, such as `What about a hotel?` or `What is a procurement card?` and verify that the uploaded file is referenced if any relevant context is found in it, but not if a search of the file returned no relevant information for the prompt.
 
-    > ![Image of Anton.](./media/anton-icon.png)<br>**Tip**: When you uploaded the file, a simple keyword index was created. You can select the file icon to view this index. In a real-world RAG solution, the index would be more comprehensive and most likely be vector-based.
+    > ![Image of Anton.](./media/anton-icon.png)<br>**Tip**: When you uploaded the file, a simple keyword index was created. You can select the file icon to view this index. In a real-world RAG solution, the index would be more comprehensive and most likely be vector-based and support *semantic* matching in addition to *keyword* matching.
 
 ## Summary
 
