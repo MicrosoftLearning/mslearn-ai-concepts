@@ -73,7 +73,7 @@ Let's start by using a chat interface to submit prompts to a generative AI model
     So far, the model has successfully answered some general questions related to expense claims based on the data it was trained with.
 
 1. In the chat playground, at the top of the chat pane, use the **New chat** (&#128172;) button to restart the conversation.
-1. Enter the prompt `How much can I claim for a taxi ride?` and review the response.
+1. Enter the prompt `If I take a taxi to meet a customer, how much can I claim for it?` and review the response.
 
     ![Screenshot of a prompt and response.](./media/expenses_prompt_no_context.png)
 
@@ -92,7 +92,7 @@ Let's start by using a chat interface to submit prompts to a generative AI model
 1. Save the **expenses.txt** file on your local computer.
 1. Return to the tab containing the chat playground, and in the pane on the left, in the **Tools** section, add select **Upload files**.
 1. Upload the **expenses.txt** file. After it's been been uploaded, it's listed in the **Tools** section and the chat is automatically restarted.
-1. Enter the prompt `How much can I claim for a taxi ride?` and view the response.
+1. Enter the prompt `If I take a taxi to meet a customer, how much can I claim for it?` and view the response.
 
     This time the response should be informed by the information in the expenses data source.
 
@@ -100,7 +100,7 @@ Let's start by using a chat interface to submit prompts to a generative AI model
 
     Note that the response includes a citation for the source of the information (the *expenses.txt* file you uploaded).
 
-1. Try more expense-related prompts, such as `What about a hotel?` or `What is a purchase order?` and verify that the uploaded file is referenced if any relevant context is found in it, but not if a search of the file returned no relevant information for the prompt.
+1. Try more expense-related prompts, such as `Can I buy the customer lunch?` or `What is a purchase order?` and verify that the uploaded file is referenced if any relevant context is found in it, but not if a search of the file returned no relevant information for the prompt.
 
     > ![Image of Anton.](./media/anton-icon.png)<br>**Tip**: When you uploaded the file, a simple keyword index was created. You can select the file icon to view this index. In a real-world RAG solution, the index would be more comprehensive and most likely be vector-based and support *semantic* matching in addition to *keyword* matching.
 
