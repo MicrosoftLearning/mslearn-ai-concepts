@@ -73,7 +73,7 @@ Let's start by using a chat interface to submit prompts to a generative AI model
     So far, the model has successfully answered some general questions related to expense claims based on the data it was trained with.
 
 1. In the chat playground, at the top of the chat pane, use the **New chat** (&#128172;) button to restart the conversation.
-1. Enter the prompt `How much can I claim for a taxi?` and review the response.
+1. Enter the prompt `How much can I claim for a taxi ride?` and review the response.
 
     ![Screenshot of a prompt and response.](./media/expenses_prompt_no_context.png)
 
