@@ -66,7 +66,17 @@ Let's start by using a chat interface to submit prompts to a generative AI model
 
     Generative AI chat applications often include chat history in the prompt; so the context of the conversation is retained between messages (for example, in the follow-up prompt *Tell me more about her work with Charles Babbage*, "her" is interpreted as referring to Ada Lovelace)
 
-    > **Note**: In *Basic* mode, the conversation history is not retained; so the follow up prompt results in a new Wikipedia query based on the keywords "Charles Babbage".
+    > **Note**: In *Basic* mode (with the model set to *None*), the conversation history is not retained; so the follow up prompt results in a new Wikipedia query based on the keywords "Charles Babbage".
+
+1. In the model playground, at the top-right of the chat pane, use the **New chat** (💬) button to restart the conversation and remove the conversation history.
+
+    Let's try asking about the same subject with a more specific prompt.
+
+1. Enter the prompt `List three facts about Ada Lovelace.` and review the response.
+
+    In *Basic* mode, the response is likely to be the same as before (the chat app simply uses keywords in the prompt to query Wikipedia). However, when using the Phi language model, the prompt should influence the style of the response that is generated.
+
+    > ![Image of Anton.](./media/anton-icon.png)<br>**Note**: The difference between the responses in *Basic* mode and when using the Phi model illustrate a key feature of using an LLM. LLM responses are generated dynamically by the model, and the prompt used can have a significant influence on the output. In comparison, traditional search solutions (like *Basic* mode in the Chat Playground app) work by looking up static text based on search keywords. On the one hand, this makes LLMs more flexible; but on the other hand it means that the response generated may not be *grounded* in authoritative facts. Later, we'll explore how to add sources to ground generative AI responses.
 
 ## Specify *instructions*
 
@@ -142,17 +152,17 @@ One of the most commonly used application programming interfaces (APIs) used to 
 
     This app provides an in-browser sandbox with a Python library that encapsulates the most common classes in the OpenAI SDK. You'll use it to write and run real Python code that submits prompts to a local LLM running in the browser.
 
-1. When the model has loaded, select the **Streaming (Responses API)** template, and view the code in the **Editor** pane.
+1. When the model has loaded, select the **Simple chat (Responses API)** template, and view the code in the **Editor** pane.
 
-   The Model Coder app includes multiple examples of submitting prompts to a generative AI model. The *Streaming (Responses API)* example maintains conversation history and uses a *streaming* interface to maximize resposiveness by displaying partial responses as they're received from the model.
+   The Model Coder app includes multiple examples of submitting prompts to a generative AI model. The *Simple chat (Responses API)* example submits a prompt and displays the response using the OpenAI *Responses* API; which is commonly used to develop generative AI apps and agents.
 
 1. Edit the code to change the **instructions** for the model to the same computing history related one you used in the chat playground (`You are an expert in the history of computing and AI. You provide succinct and concise responses`), as shown here:
 
     ```python
    # import namespace
-   from openai import OpenAI
+    from openai import OpenAI
     
-   def main():
+    def main():
     
         try:
             # Configuration settings 
@@ -166,39 +176,29 @@ One of the most commonly used application programming interfaces (APIs) used to 
                 api_key=key
             )
             
-            # Track responses
-            last_response_id = None
-            print("Enter a prompt (or type 'quit' to exit)")
+            # Loop until the user wants to quit
             while True:
-                input_text = input('You: ')
+                input_text = input('\nEnter a prompt (or type "quit" to exit): ')
                 if input_text.lower() == "quit":
                     print("Goodbye!")
                     break
                 if len(input_text) == 0:
-                    print("Please enter a prompt:")
+                    print("Please enter a prompt.")
                     continue
     
                 # Get a response
-                stream = openai_client.responses.create(
+                response = openai_client.responses.create(
                             model=model_name,
-                            instructions="You are an expert in the history of computing and AI. You provide succinct and concise responses",
-                            input=input_text,
-                            previous_response_id=last_response_id,
-                            stream=True
+                            instructions="You are an expert in the history of computing and AI. You provide succinct and concise responses.",
+                            input=input_text
                 )
-                print("Assistant:")
-                for event in stream:
-                    if event.type == "response.output_text.delta":
-                        print(event.delta, end="")
-                    elif event.type == "response.completed":
-                        last_response_id = event.response.id
-                print()
+                print(response.output_text)
                 
     
         except Exception as ex:
             print(ex)
     
-   if __name__ == '__main__':
+    if __name__ == '__main__':
         main()
     ```
 
@@ -219,9 +219,11 @@ One of the most commonly used application programming interfaces (APIs) used to 
 
     ![Screenshot of Model Coder with code running.](./media/model-coder-response.png)
 
-    > ![Image of Anton.](./media/anton-icon.png)<br/>**Tip**: The model used in this app is a small language model with limited training data and a small context window. Responses may not be accurate. However, the point of the exercise is to explore the OpenAI SDK syntax to submit prompts and receive responses.
+    > **Note**: The combination of interpreting Python code and using a language model in your browser means that the app may take some time to generate a response. On older or lower-spec computers, you may experience errors due to hardware constraints.
 
-    When you're finished, enter `quit`.
+1. When you're finished, enter `quit`.
+
+    > ![Image of Anton.](./media/anton-icon.png)<br/>**Tip**: If you have time, explore some of the other code examples in thw Model Coder app. They include code that uses the *ChatCompletions* API (an older, but still commonly used OpenAI API) as well as examples that use the *Responses* API to track conversation history or use techniques like *streaming* and *asynchronous processing* to improve the apparent responsiveness of the app.
 
 ## Summary
 
