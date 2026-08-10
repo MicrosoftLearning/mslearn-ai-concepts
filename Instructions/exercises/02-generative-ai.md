@@ -76,7 +76,7 @@ Let's start by using a chat interface to submit prompts to a generative AI model
 
     In *Basic* mode, the response is likely to be the same as before (the chat app simply uses keywords in the prompt to query Wikipedia). However, when using the Phi language model, the prompt should influence the style of the response that is generated.
 
-    > ![Image of Anton.](./media/anton-icon.png)<br>**Note**: The difference between the responses in *Basic* mode and when using the Phi model illustrate a key feature of using an LLM. LLM responses are generated dynamically by the model, and the prompt used can have a significant influence on the output. In comparison, traditional search solutions (like *Basic* mode in the Chat Playground app) work by looking up static text based on search keywords. On the one hand, this makes LLMs more flexible; but on the other hand it means that the response generated may not be *grounded* in authoritative facts. Later, we'll explore how to add sources to ground generative AI responses.
+    > ![Image of Anton.](./media/anton-icon.png)<br>**Note**: The difference between the responses in *Basic* mode and when using the Phi model illustrates a key feature of using an LLM. LLM responses are generated dynamically by the model, and the prompt used can have a significant influence on the output. In comparison, traditional search solutions (like *Basic* mode in the Chat Playground app) work by looking up static text based on search keywords. On the one hand, this makes LLMs more flexible; but on the other hand it means that the response generated may not be *grounded* in authoritative facts. Later, we'll explore how to add sources to ground generative AI responses.
 
 ## Specify *instructions*
 
