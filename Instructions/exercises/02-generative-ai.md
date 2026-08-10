@@ -213,7 +213,7 @@ One of the most commonly used application programming interfaces (APIs) used to 
     Some suggested prompts to try:
 
     - `Tell me about the Commodore 64`
-    - `What about the ZX Spectrum?`
+    - `What can you tell me about the ZX Spectrum?`
     - `Who was Grace Hopper?`
     - `What was Alan Turing's contribution to AI?`
 
