@@ -6,7 +6,7 @@ layout: home
 
 This page lists exercises associated with  skilling content on [Microsoft AI Skills Navigator](https://aiskillsnavigator.microsoft.com/explore/search/learningpath-64735f4d575e2684eefd5b9e24b2b9d7b4126931707290aa539166a63501f4d6)
 
-> ![Image of Anton.](./Instructions/exercises/media/anton-icon.png)<br/>**Hi, I'm Anton.** Your guide to learning about AI.<br/>These exercises use browser-based apps that run an AI model locally in your browser to provide a simplified version of real application interfaces like Microsoft Foundry, without requiring an Azure subscription. The performance of the apps may vary depending on the hardware spec of your computer,<br/>If you have an Azure subscription, you can explore how to implement AI capabilities in Microsoft Foundry in the [Get started with AI apps and agents in Azure](https://microsoftlearning.github.io/mslearn-ai-fundamentals/) exercises; which parallel the conceptual exercises in this site.
+> ![Image of Anton.](./Instructions/exercises/media/anton-icon.png)<br/>**Hi, I'm Anton.** Your guide to learning about AI.<br/>These exercises use [browser-based apps](https://microsoftlearning.github.io/ai-apps/) that run an AI model locally in your browser to provide a simplified version of real application interfaces like Microsoft Foundry, without requiring an Azure subscription. The performance of the apps may vary depending on the hardware spec of your computer.<br/>If you have an [Azure subscription]((https://azure.microsoft.com), you can explore how to implement AI capabilities in Microsoft Foundry in the [Get started with AI apps and agents in Azure](https://microsoftlearning.github.io/mslearn-ai-fundamentals/) exercises; which parallel the conceptual exercises in this site.
 
 <hr>
 
