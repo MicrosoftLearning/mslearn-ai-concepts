@@ -49,7 +49,7 @@ If your browser supports WebGPU, the Computing History Agent uses the *Microsoft
 
 1. In a web browser, open the **[Computing History agent](https://aka.ms/computing-history-browser){:target="_blank"}** at `https://aka.ms/computing-history-browser`.
 
-    The app downloads and initializes the reqired the *MobileNet* computer vision model and and *Phi 3.5-mini* model (if supported on your device). The first time you download the *Phi 3.5-mini* model, it may take several minutes. Subsequent downloads will be faster.
+    The app downloads and initializes the required *MobileNet* computer vision model and and *Phi 3.5-mini* model (if supported on your device). The first time you download the *Phi 3.5-mini* model, it may take several minutes. Subsequent downloads will be faster.
 
    ![Screenshot of the Computing History app loading models.](./media/computing-history.png)
 
