@@ -43,7 +43,7 @@ This exercise should take approximately **15** minutes to complete.
 
 Let's start by using a chat interface to submit prompts to a generative AI model to perform a common text analysis task - summarizing text. In this exercise, we'll use a small language model that is useful for general chat solutions in low bandwidth scenarios.
 
-> If your browser supports WebGPU, the chat playground uses the *Microsoft Phi 3.5 Mini* model running on your computer's GPU. If not, the model runs on CPU - with reduced response-generation quality. If *that* fails, a basic mode with no model and responses retrieved from Wikipedia is activated. Performance may vary depending on the available memory in your computer and your network bandwidth to download the model. After opening the app, use the **?** (*About this app*) icon in the chat area to find out more.
+> If your browser supports WebGPU, the chat playground uses the *Microsoft Phi 4 Mini* model running on your computer's GPU. If not, the model runs on CPU - with reduced response-generation quality. If *that* fails, a basic mode with no model and responses retrieved from Wikipedia is activated. Performance may vary depending on the available memory in your computer and your network bandwidth to download the model. After opening the app, use the **?** (*About this app*) icon in the chat area to find out more.
 
 1. In a web browser, open the **[Chat Playground](https://aka.ms/chat-playground){:target="_blank"}** at `https://aka.ms/chat-playground`.
 1. Wait for the model to download and initialize.
@@ -83,7 +83,7 @@ While a large language model that's trained for general generative AI workloads 
 1. In your web browser, navigate away from the Chat Playground app to the **[Language Playground](https://aka.ms/language-app){:target="_blank"}** app at `https://aka.ms/language-app`.
 1. Wait until the model is ready.
 
-    > ![Image of Anton.](./media/anton-icon.png)<br>**Tip**: The Language Playground app uses the same Phi 3.5-mini model as the Chat Playground app, with a fallback *Basic* mode that uses statistical text analysis techniques to perform language detection and personally identifiable information (PII) redaction.
+    > ![Image of Anton.](./media/anton-icon.png)<br>**Tip**: The Language Playground app uses the same Phi 4 mini model as the Chat Playground app, with a fallback *Basic* mode that uses statistical text analysis techniques to perform language detection and personally identifiable information (PII) redaction.
 
 ### Detect language
 

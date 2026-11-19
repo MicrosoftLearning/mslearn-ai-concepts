@@ -53,7 +53,7 @@ If your browser supports WebGPU, the Computing History Agent uses the *Microsoft
 
    ![Screenshot of the Computing History app loading models.](./media/computing-history.png)
 
-    > ![Image of Anton.](./media/anton-icon.png)<br>**Tip**: If the Phi 3.5-mini model is taking a *very* long time to load, you can cancel and start in ***Basic*** mode. You can switch between available modes at any time in the main application user interface; but older or low-spec devices may run the Phi model slowly or experience errors.
+    > ![Image of Anton.](./media/anton-icon.png)<br>**Tip**: If the Phi 4 mini model is taking a *very* long time to load, you can cancel and start in ***Basic*** mode. You can switch between available modes at any time in the main application user interface; but older or low-spec devices may run the Phi model slowly or experience errors.
 
 ## Explore a generative AI model
 

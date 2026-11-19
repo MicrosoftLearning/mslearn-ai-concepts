@@ -43,7 +43,7 @@ This exercise should take approximately **15** minutes to complete.
 
 Let's start by using a chat interface to submit prompts to a generative AI model. In this exercise, we'll use a small language model that is useful for chat solutions in constrained hardware scenarios.
 
-> **Note**: If your browser supports WebGPU, the chat playground uses the *Microsoft Phi 3.5 Mini* model running on your computer's GPU. If not, the model runs on CPU - with reduced response-generation quality. If *that* fails, a basic mode with no model and responses retrieved from Wikipedia is activated. Performance may vary depending on the available memory in your computer and your network bandwidth to download the model. After opening the app, use the **?** (*About this app*) icon in the chat area to find out more.
+> **Note**: If your browser supports WebGPU, the chat playground uses the *Microsoft Phi 4 Mini* model running on your computer's GPU. If not, the model runs on CPU - with reduced response-generation quality. If *that* fails, a basic mode with no model and responses retrieved from Wikipedia is activated. Performance may vary depending on the available memory in your computer and your network bandwidth to download the model. After opening the app, use the **?** (*About this app*) icon in the chat area to find out more.
 
 1. In a web browser, open the **[Chat Playground](https://aka.ms/chat-playground){:target="_blank"}** at `https://aka.ms/chat-playground`.
 1. Wait for the model to download and initialize.
@@ -109,30 +109,19 @@ We can use *tools* to give models access to external data sources, and to perfor
 
     ![Screenshot of the chat playground with a search result.](./media/gen-ai-03.png)
 
-## Add knowledge
+## View token usage
 
-The combination of the model's training data and a tool to search the web can often be enough to support a comprehensive, general-purpose chat agent. However, often an agent needs to work in the context of a particular business or scenario, in which there is specialized or proprietary information that it needs to reason over when responding.
+The large language models (LLMs) used by agents work by processing *tokens* - individual words or part-words in prompts and responses. The number of input and output tokens processed by a model indicates its usage.
 
-In this exercise, we'll give the model a *file search* tool with access to information about common manufacturer serial numbers that might be found on the printed circuit boards (PCBs) of vintage computers.
+1. In the model playground, at the top-right of the chat pane, use the **Monitor** button (which looks like a bar chart) to view the token usage for your session.
 
-1. Open a new browser tab, and view the **[PCB Info](https://aka.ms/pcb_info){:target="_blank"}** file at `https://aka.ms/pcb_info`. We'll use this to ground the model, so it has some context for questions about serial numbers printed on PCBs.
+    ![Screenshot of the Monitor dialog box.](./media/gen-ai-04.png)
 
-    > ![Image of Anton.](./media/anton-icon.png)<br>**Note**: This is a very small document for the purposes of this exercise. In a real scenario, an AI agent might have access to large volumes of data; usually in the form of a *vector index*. In an enterprise solution, access to multiple sources of knowledge can be centralized through *Foundry IQ* - a tool in Microsoft Foundry built on *Azure AI Search*.  
+    > **Note**: Your token counts may be different from those in this image.
 
-1. Save the **pcb_info.txt** file on your local computer.
-1. Return to the tab containing the chat playground, and in the pane on the left, in the **Tools** section, add the **File search** tool (or select **Upload files**).
-1. Upload the **pcb_info.txt** file. The chat is automatically restarted.
-1. Enter the prompt `I have a printed circuit board with the "ASSY 250425" on it. What can you tell me about it?` and view the response.
+1. When ready, close the **Monitor** dialog box.
 
-    This time the response should be informed by the information in the file.
-
-    ![Screenshot of the chat playground using the file search tool.](./media/gen-ai-04.png)
-
-1. Try a few more prompts - for example, `What kind of computer does a PCB with "820-001A" come from?` or `What about "i386"?`.
-
-    When there's relevant information in the file, the model will use it to answer. If no information is found, the model will use its own training knowledge.
-
-    > **Note**: The small amount of data and the limited capabilities of the small models used in this exercise may result in some inaccurate or incomplete responses; but the principle of *retrieving* contextual information, using it to *augment* the prompt, and *generating* responses based on the data is a common pattern in generative AI apps and agents known as *Retrieval Augmented Generation* (or *RAG*).
+    > ![Image of Anton.](./media/anton-icon.png)<br>**Note**: In this exercise, you're using a local model; so there's no cost associated with processing tokens. When using a hosted model, such as a model in Microsoft Foundry, usage is charged based on token counts. Monitoring model usage is an important element of cost-management in generative AI solutions.
 
 ## Explore client code
 
