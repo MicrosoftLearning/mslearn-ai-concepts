@@ -212,7 +212,7 @@ One of the most commonly used application programming interfaces (APIs) used to 
 
 1. When you're finished, enter `quit`.
 
-    > ![Image of Anton.](./media/anton-icon.png)<br/>**Tip**: If you have time, explore some of the other code examples in thw Model Coder app. They include code that uses the *ChatCompletions* API (an older, but still commonly used OpenAI API) as well as examples that use the *Responses* API to track conversation history or use techniques like *streaming* and *asynchronous processing* to improve the apparent responsiveness of the app.
+    > ![Image of Anton.](./media/anton-icon.png)<br/>**Tip**: If you have time, explore some of the other code examples in the Model Coder app. They include code that uses the *ChatCompletions* API (an older, but still commonly used OpenAI API) as well as examples that use the *Responses* API to track conversation history or use techniques like *streaming* and *asynchronous processing* to improve the apparent responsiveness of the app.
 
 ## Summary
 
